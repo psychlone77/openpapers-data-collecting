@@ -2,6 +2,11 @@
 
 This repository is part of the OpenPapers project and is responsible for collecting and processing data. It includes scripts and tools for handling raw data, transforming it into structured formats, and preparing it for further analysis or storage.
 
+## Naming Conventions
+- Papers should be named using the following scheme.
+    - `<Year>-<Exam>-<Subject>-<ExamType>-<Medium>`
+    - eg: `2019-AL-Physics-MCQ-English.pdf`
+
 ## Folder Structure
 
 - **`data/`**: Contains subfolders for organizing data files.
