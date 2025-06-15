@@ -1,0 +1,39 @@
+{
+    "question_number": 24,
+    "question_text": "When a plate $PQRS$T is hanging freely from point X it balances as shown figure (1). When hanging freely from Y it balances as shown in figure (2). The centre of gravity of the plate is most likely to be found at",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "$A$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$B$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$C$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$D$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$E$",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_5_crop2_class0.jpg",
+        "page_5_crop3_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

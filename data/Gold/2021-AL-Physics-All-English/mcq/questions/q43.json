@@ -1,0 +1,38 @@
+{
+    "question_number": 43,
+    "question_text": "A conducting ring is connected to a circuit as shown in the figure. Point A is fixed, but point B can be moved along the ring so that the angle $\theta$ changes. The cell and the ammeter are ideal. Which of the following graphs best represents the variation of the ammeter reading $I$ with the angle $\theta$?",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "[]",
+            "option_image": "page_9_crop2_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_9_crop4_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_9_crop0_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_9_crop1_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_9_crop5_class0.jpg",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_9_crop3_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

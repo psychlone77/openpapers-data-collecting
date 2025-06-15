@@ -1,0 +1,38 @@
+{
+    "question_number": 50,
+    "question_text": "A particle of mass $m$ is attached to one end of a light elastic string of force constant $k$ and unstretched length $l$. The other end of the string is fixed at the point $O$. The particle is held at the position $y = 0$ with a velocity $v_0$. The particle is then projected vertically downwards from the position $y = 0$ with the velocity $v_0$. ($v_0 > \\sqrt{\\frac{2gl}{2}}$). Neglect the air resistance. After passing through its lowest point in the path, the particle will again come to rest momentarily at a point whose $y$ coordinate is",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "$v_0 \\sqrt{\\frac{26m}{k}}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\frac{mv_0^2}{2k} + 2gl$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\frac{mv_0^2}{2k} + 2gl$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\frac{mv_0^2}{2k} + \\frac{2gl}{g}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\frac{v_0^2}{2g}$",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_10_crop2_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

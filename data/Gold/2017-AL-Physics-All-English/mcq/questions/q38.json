@@ -1,0 +1,38 @@
+{
+    "question_number": 38,
+    "question_text": "A vertical uniform rod of length $L$ when only end fixed to a horizontal surface. The other end is free. When the rod is placed in a vacuum chamber hung from the roof, as shown in figure. Assume that the chamber does not exert any force at contact points with the rod. If $L_1$ is the length of the rod in figure (a) and $L_0$ is the length in figure (b), then the ratio $\frac{L_1}{L_0}$ is given by",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "$\frac{1}{2}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$1 - \frac{1}{e}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\frac{1}{e}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\frac{1}{2} + 1$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$1 - e^{-1}$",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_7_crop1_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

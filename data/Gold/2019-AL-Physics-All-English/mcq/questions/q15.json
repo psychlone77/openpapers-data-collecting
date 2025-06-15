@@ -1,0 +1,36 @@
+{
+    "question_number": 15,
+    "question_text": "Hydrogen gas in a container is maintained at standard temperature (300 K) and pressure ($1 \\times 10^5 \\text{ N m}^{-2}$). If the root mean square speed of hydrogen molecules is $2 \\text{ km s}^{-1}$, what is the density of hydrogen in the container?",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "0.058 kg m$^{-3}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "0.075 kg m$^{-3}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "0.150 kg m$^{-3}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "1.225 kg m$^{-3}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "2.450 kg m$^{-3}$",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

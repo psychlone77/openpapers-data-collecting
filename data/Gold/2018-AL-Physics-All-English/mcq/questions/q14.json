@@ -1,0 +1,36 @@
+{
+    "question_number": 14,
+    "question_text": "A small object of mass $m$ placed on the horizontal surface of a frozen pond is given a kick imparting an initial speed $v_0$ along the horizontal direction. The object moves on the surface in a horizontal straight line without rotation. The coefficient of kinetic friction between the object and the surface is $\\mu$. If the air resistance can be neglected, the distance that the object moves before coming to rest is",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "\\( \\frac{v_0^2}{2\\mu g} \\)",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "\\( \\frac{v_0^2}{\\mu g} \\)",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "\\( \\frac{2v_0^2}{\\mu g} \\)",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "\\( \\frac{v_0^2}{2g} \\)",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "\\( \\frac{v_0^2}{2\\mu g} \\)",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

@@ -1,0 +1,38 @@
+{
+    "question_number": 34,
+    "question_text": "Two objects A and B of the shapes shown in the figure, and a spherical object C, all having identical masses, are mounted rigidly on a horizontal surface along the y-axis by three thin vertical rods (not shown). Objects A and B are subjected to a stream of air flows through the x-axis parallel to the surface. The horizontal surface is smooth. The magnitudes of the forces $F_A$, $F_B$, $F_C$ exerted by the objects and the sphere on the mounted rods, when written in the ascending order, will be",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "(1) $F_A, F_B, F_C$",
+            "option_image": "[]",
+            "is_correct": null
+        },
+        {
+            "option_text": "(2) $F_B, F_A, F_C$",
+            "option_image": "[]",
+            "is_correct": null
+        },
+        {
+            "option_text": "(3) $F_C, F_A, F_B$",
+            "option_image": "[]",
+            "is_correct": null
+        },
+        {
+            "option_text": "(4) $F_A, F_C, F_B$",
+            "option_image": "[]",
+            "is_correct": null
+        },
+        {
+            "option_text": "(5) $F_C, F_B, F_A$",
+            "option_image": "[]",
+            "is_correct": null
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_6_crop0_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

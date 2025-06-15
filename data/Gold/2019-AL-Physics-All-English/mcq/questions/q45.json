@@ -1,0 +1,38 @@
+{
+    "question_number": 45,
+    "question_text": "Three cells with electromotive force (emf) $E_1$, $E_2$, and $E_3$ and internal resistances $r_1$, $r_2$, and $r_3$, respectively, are connected as shown in the figure. Which of the following expressions gives the potential at point P of the circuit?",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "$\\frac{E_1}{r_1} + \\frac{E_2}{r_2} + \\frac{E_3}{r_3}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\frac{E_1r_2r_3 + E_2r_1r_3 + E_3r_1r_2}{r_1r_2 + r_1r_3 + r_2r_3}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\frac{E_1r_2r_3 + E_2r_1r_3 + E_3r_1r_2}{r_1 + r_2 + r_3}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\frac{E_1r_2 + E_2r_1 + E_3r_1}{r_1 + r_2 + r_3}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\frac{E_1r_2r_3 + E_2r_1r_3 + E_3r_1r_2}{r_1r_2 + r_1r_3 + r_2r_3}$",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_10_crop2_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

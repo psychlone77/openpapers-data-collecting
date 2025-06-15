@@ -1,0 +1,36 @@
+{
+    "question_number": 14,
+    "question_text": "When the tension of a wire is slowly increased from $T_1$ to $T_2$ within the proportional limit, its length changes from $l_1$ to $l_2$. The energy stored in the wire during this process is",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "$\\frac{1}{2}(T_2 - T_1)(l_2 - l_1)$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\frac{1}{2}(T_2 - T_1)(l_2 + l_1)$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\frac{1}{2}(T_2 + T_1)(l_2 - l_1)$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\frac{1}{2}(T_2 + T_1)(l_2 + l_1)$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\frac{1}{2}(T_2 - T_1)l_2$",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

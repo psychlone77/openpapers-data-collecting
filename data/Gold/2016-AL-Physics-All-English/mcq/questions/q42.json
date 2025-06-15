@@ -1,0 +1,38 @@
+{
+    "question_number": 42,
+    "question_text": "A student performed an experiment to verify the Boyle's Law using a constant mass $m_o$ of an ideal gas at the room temperature of 27$^\\circ$C and repeated the experiment at the temperature 100$^\\circ$C. Let $P$ is the pressure and $V$ is the volume of the gas. The graph obtained at 27$^\\circ$C is shown above. If the graph obtained at 100$^\\circ$C has the same gradient as the graph shown in the figure, the mass of the gas that he had remained is",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "$\\frac{27}{100} m_o$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\frac{27}{373} m_o$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\frac{300}{373} m_o$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\frac{1}{4} m_o$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\frac{1}{2} m_o$",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_7_crop2_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

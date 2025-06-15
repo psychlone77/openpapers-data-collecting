@@ -1,0 +1,36 @@
+{
+    "question_number": 36,
+    "question_text": "A whistle emitting a sound of frequency f moves along the circumference of a circle of radius r at a constant angular velocity $\\omega$. the velocity of sound in air. The highest frequency of sound heard by a listener, who is at rest outside the circle is",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "(1) $f(1 + \frac{r\\omega}{v})$",
+            "option_image": "[]",
+            "is_correct": null
+        },
+        {
+            "option_text": "(2) $f(1 - \frac{r\\omega}{v})$",
+            "option_image": "[]",
+            "is_correct": null
+        },
+        {
+            "option_text": "(3) $f(1 + \frac{r\\omega}{v})$",
+            "option_image": "[]",
+            "is_correct": null
+        },
+        {
+            "option_text": "(4) $f(1 - \frac{r\\omega}{v})$",
+            "option_image": "[]",
+            "is_correct": null
+        },
+        {
+            "option_text": "(5) $f$",
+            "option_image": "[]",
+            "is_correct": null
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

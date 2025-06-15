@@ -1,0 +1,38 @@
+{
+    "question_number": 43,
+    "question_text": "A river flows steadily at a constant velocity $v$. A rectangular block of wood having density less than that of water is released from rest at the riverbank. The block floats on the water and moves with respect to the riverbank, and then slowly lowered to the water until the floating condition is achieved and then released as it is shown in figure. Assume that the initial speed of the wooden block in the river is zero. The variation of the impulsive force, viscous force and momentum of the block with time, from the instant of the impulsive force acting on the block, the viscous force acting on the block by water, and the momentum of the block (Neglect effect due to air drag).",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "Decreases from a higher value to zero",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Decreases and becomes constant",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Decreases and becomes constant",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Decreases from a higher value to zero",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Decreases from a higher value to zero",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_9_crop11_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

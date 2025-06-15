@@ -1,0 +1,36 @@
+{
+    "question_number": 32,
+    "question_text": "A boy, sitting on a smooth bendable towards his body, the angular velocity becomes equal to $\\omega_1$, are the moments of inertia of rotating systems when the hands are extended and bent towards his body respectively, then",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "$\\omega_1 < \\omega_0, I_1 > I_0 and \\omega_1 \\omega_0 I_1$",
+            "option_image": "[]",
+            "is_correct": null
+        },
+        {
+            "option_text": "$\\omega_1 > \\omega_0, I_1 < I_0 and \\omega_1 \\omega_0 I_1$",
+            "option_image": "[]",
+            "is_correct": null
+        },
+        {
+            "option_text": "$\\omega_1 < \\omega_0, I_1 < I_0 and \\omega_1 \\omega_0 I_1$",
+            "option_image": "[]",
+            "is_correct": null
+        },
+        {
+            "option_text": "$\\omega_1 > \\omega_0, I_1 > I_0 and \\omega_1 \\omega_0 I_1$",
+            "option_image": "[]",
+            "is_correct": null
+        },
+        {
+            "option_text": "$\\omega_1 = \\omega_0, I_1 = I_0 and \\omega_1 \\omega_0 I_1$",
+            "option_image": "[]",
+            "is_correct": null
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

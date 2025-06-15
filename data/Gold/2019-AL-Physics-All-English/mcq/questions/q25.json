@@ -1,0 +1,38 @@
+{
+    "question_number": 25,
+    "question_text": "An air mass in a cyclone moves around its eye in a spiral path as shown in the figure. The velocity of the air mass at a radial distance of 80 km from the centre of the eye is 150 km $h^{-1}$. What could be the velocity of the same air mass at a radial distance of 40 km from the centre of the eye?",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "75 km $h^{-1}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "150/2 km $h^{-1}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "150$\\sqrt{2}$ km $h^{-1}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "300 km $h^{-1}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "450$\\sqrt{2}$ km $h^{-1}$",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_5_crop1_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

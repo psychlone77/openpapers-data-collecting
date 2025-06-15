@@ -1,0 +1,38 @@
+{
+    "question_number": 16,
+    "question_text": "Three identical uniform metal discs are perforated to form twelve holes each disc with three different radii as shown in the figures (A), (B) and (C). The three discs A, B and C are arranged such that the holes coincide. The arrangement of the discs in the plane of the disc and passing through the centre are",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "A, B, C",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "B, A, C",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "C, B, A",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "B, C, A",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "A, C, B",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_3_crop4_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

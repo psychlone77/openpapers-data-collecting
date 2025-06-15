@@ -1,0 +1,38 @@
+{
+    "question_number": 14,
+    "question_text": "When wind blows over the surface of a still lake, a bunch of water hyacinth floating on water as shown in Figure is observed to move in the direction of the wind with a velocity $v$. Consider the following statements regarding about the motion of the bunch:",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "Magnitude of $v$ depends on the mass of the bunch.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Magnitude of $v$ depends on the rate at which the momentum is transferred from air molecules to the bunch.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Magnitude of $v$ depends on the viscosity of water.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Only A and B are true.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Only A, B and C are true.",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_3_crop7_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

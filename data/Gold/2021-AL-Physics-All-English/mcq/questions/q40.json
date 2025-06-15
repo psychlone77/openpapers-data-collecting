@@ -1,0 +1,38 @@
+{
+    "question_number": 40,
+    "question_text": "Sixteen 1 $\\Omega$ resistors are connected as shown in the figure. If a battery of negligible internal resistance and e.m.f. 8 V is connected between A and B, the current drawn from the battery is",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "1 A",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "2 A",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "3 A",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "4 A",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "5 A",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_8_crop0_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

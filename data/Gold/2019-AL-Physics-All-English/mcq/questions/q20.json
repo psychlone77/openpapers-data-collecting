@@ -1,0 +1,38 @@
+{
+    "question_number": 20,
+    "question_text": "A coil is made by winding $N$ number of turns around a plastic ring of mean radius $R$ and cross sectional area $A$ as shown in the figure. This coil is placed coaxially with a long straight wire carrying a current $i$, which is changed with current gives the electromotive force $(emf)$ If the rate of change of expressions through the wire is $\frac{di}{dt}$ cos\\(\\omega t\\), then the induced $emf$ is given by",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "(1) $\\frac{\\mu_0 N A}{2\\pi R} \\frac{di}{dt} \\cos \\omega t$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "(2) $\\frac{\\mu_0 N A}{2R} \\frac{di}{dt} \\cos \\omega t$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "(3) $\\frac{\\mu_0 N A}{4\\pi R} \\frac{di}{dt} \\sin \\omega t$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "(4) $\\frac{\\mu_0 N A}{2\\pi R^2} \\frac{di}{dt} \\sin \\omega t$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "(5) $\\frac{4\\pi R}{\\mu_0 N A} \\frac{di}{dt} \\cos \\omega t$",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_3_crop0_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

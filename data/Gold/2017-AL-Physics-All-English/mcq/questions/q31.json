@@ -1,0 +1,38 @@
+{
+    "question_number": 31,
+    "question_text": "Part of a huge man-made garbage dump on a large marshy land suddenly collapsed and sank ejecting nearby houses up which had been built on the marshy land.",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "Principle of floatation",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Pascal's principle",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Principle of moments",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Principle of conservation of momentum",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "A certain mass of ideal gas is taken through a cycle process ABCD. PA is equal as shown in the P-V diagram. Which of the following is not true?",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_6_crop6_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

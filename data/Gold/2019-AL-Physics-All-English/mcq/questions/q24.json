@@ -1,0 +1,38 @@
+{
+    "question_number": 24,
+    "question_text": "A diode and a resistor are connected in such a way that only two terminals are available for external circuit (25 mA). When the applied voltage is reversed, the current doubles. What are the forward bias resistance of the diode, and the value of the resistor?",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "(1) 0 20",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "(2) 10 10",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "(3) 10 20",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "(4) 20 10",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "(5) 20 20",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_3_crop1_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

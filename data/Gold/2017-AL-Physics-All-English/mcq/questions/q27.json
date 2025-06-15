@@ -1,0 +1,38 @@
+{
+    "question_number": 27,
+    "question_text": "The part of a smooth wire XY is placed on the magnetic field consists of a region $CDEFGH$ in the figure. A soap film of surface tension $T$ is forming in the region $CDEFGH$ and a soap film of density $\\sigma$ is formed. A current $I$ is passed through the wire. The magnitude and the direction of the current needed to setup through $D-G$ is",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "$\\frac{2T}{B}$ in the direction of $D \\to G$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\frac{T}{B}$ in the direction of $D \\to G$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\frac{2T}{B}$ in the direction of $G \\to D$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\frac{4T}{B}$ in the direction of $D \\to G$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\frac{4T}{B}$ in the direction of $G \\to D$",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_5_crop3_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

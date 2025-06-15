@@ -1,0 +1,36 @@
+{
+    "question_number": 32,
+    "question_text": "Radioactive element $\\Delta X$ transforms to stable $\\Delta P_b$ after emitting eight $\\alpha$ particles and six $\beta$ particles in successive decays. The numbers of protons and neutrons in the element X respectively are,",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "92, 130",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "92, 146",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "92, 238",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "104, 148",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "146, 92",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

@@ -1,0 +1,38 @@
+{
+    "question_number": 7,
+    "question_text": "A thin transparent convex lens made of ice is immersed in water at $0^\\circ C$, rays of parallel light are made to incident on the lens as shown in the figure. The refractive indices of ice and water with respect to air are 1.31 and 1.33 respectively. Consider the following statements.\n(A) Ice lens behaves as a diverging lens.\n(B) Parallel light rays get converged to a point on the right side of the lens.\n(C) Real images cannot be observed under this situation.",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "only A is true.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "only B is true.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "only C is true.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "only A and C are true.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "only B and C are true.",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_2_crop0_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

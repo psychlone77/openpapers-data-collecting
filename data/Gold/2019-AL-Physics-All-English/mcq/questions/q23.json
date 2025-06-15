@@ -1,0 +1,36 @@
+{
+    "question_number": 23,
+    "question_text": "The gap of 2 cm between two horizontal plates of surface area 500 $cm^2$ is filled with an oil having the coefficient of viscosity 0.2 N $s/m^2$. A horizontal force of 5 N is applied to the upper plate while keeping the lower plate at rest. What is the velocity of the middle layer of the oil, if the velocities of the oil layers vary linearly across the gap from 0 to 50 mm/s?",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "(1) 11 mm/s",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "(2) 25 mm/s",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "(3) 10 mm/s",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "(4) 25 mm/s",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "(5) 50 mm/s",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

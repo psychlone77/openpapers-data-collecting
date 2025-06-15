@@ -1,0 +1,36 @@
+{
+    "question_number": 27,
+    "question_text": "Consider the following statements made regarding electromagnetic (EM) waves.\n(A) They can be transverse or longitudinal.\n(B) They require a medium to propagate.\n(C) They are not deflected by electric or magnetic field.",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "Only (A) is true.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Only (B) is true.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Only (A) and (B) are true.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Only (B) and (C) are true.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "All (A), (B) and (C) are true.",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

@@ -1,0 +1,38 @@
+{
+    "question_number": 5,
+    "question_text": "A student has suggested the following three methods (A), (B) and (C) to increase the voltage sensitivity ($V/cm$) of a potentiometer wire.",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "Increasing the length of the wire with the wire",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Increasing the voltage applied across the wire",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "only A and B are correct",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "only A and C are correct",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "only B and C are correct",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_10_crop0_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

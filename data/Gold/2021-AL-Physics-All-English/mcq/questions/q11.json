@@ -1,0 +1,36 @@
+{
+    "question_number": 11,
+    "question_text": "An object is placed in front of a concave lens as shown in the figure. The paths of the refracted rays emitting from point A of the object are",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "$P$ and $R$ only.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$Q$, $R$ and $S$ only.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$P$, $R$ and $S$ only.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$P$, $Q$, $R$ only.",
+            "option_image": "[]",
+            "is_correct": true
+        },
+        {
+            "option_text": "all $P$, $Q$, $R$ and $S$.",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

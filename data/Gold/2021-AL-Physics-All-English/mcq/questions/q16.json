@@ -1,0 +1,36 @@
+{
+    "question_number": 16,
+    "question_text": "A liquid of density $\\rho$ flowing at speed $v$ through a horizontal tube of cross-sectional area A strikes a vertical wall perpendicularly and flows down along the wall without recoil. The force exerted on the wall by the liquid is",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "$\\rho Av^2$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$2\\rho Av^2$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\rho Av^2$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$9\\rho Av^2$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$18\\rho Av^2$",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

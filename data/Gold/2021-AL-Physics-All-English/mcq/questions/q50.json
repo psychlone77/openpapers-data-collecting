@@ -1,0 +1,36 @@
+{
+    "question_number": 50,
+    "question_text": "An equilateral triangular conducting loop passes a region of uniform magnetic field of flux density $B$ at a uniform velocity $v$. The variation of the current $I$ induced by the magnetic field in the loop with time ($t$) is best represented by",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "[]",
+            "option_image": "page_11_crop6_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_11_crop5_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_11_crop4_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_11_crop3_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_11_crop2_class0.jpg",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

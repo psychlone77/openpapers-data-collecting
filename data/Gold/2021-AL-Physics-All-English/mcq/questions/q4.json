@@ -1,0 +1,36 @@
+{
+    "question_number": 4,
+    "question_text": "If no external forces act on a system, which of the following is conserved in any type of collision?",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "total mechanical energy",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "total linear momentum",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "total kinetic energy",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "total angular velocity",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "mean linear momentum",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

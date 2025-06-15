@@ -1,0 +1,36 @@
+{
+    "question_number": 36,
+    "question_text": "A whistle that is used to train a dog produces a frequency of 22kHz which is more than the threshold of hearing of the human. The trainer of the dog wants to make sure that the whistle is working. While the trainer stands by the side of a long straight road, he asks a friend to blow this whistle from a car moving along the same road. The required speed of the car and the direction of movement of the car so that the hear the whistle at its threshold of hearing of 20 kHz is (Speed of sound in air is 340 m/s)",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "31 m/s away from the trainer",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "32 m/s away from the trainer",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "34 m/s away from the trainer",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "32 m/s towards the trainer",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "34 m/s towards the trainer",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

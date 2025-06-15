@@ -1,0 +1,156 @@
+2025-06-13 22:10:04 - INFO - Main script started
+
+
+2025-06-13 22:10:04 - INFO - Processing 2016-AL-Physics-All-English
+
+2025-06-13 22:10:04 - WARNING - Metadata directory not found, created at ./data/metadata/
+2025-06-13 22:10:04 - INFO - Metadata file not found for 2016-AL-Physics-All-English
+2025-06-13 22:10:04 - INFO - Current progress for 2016-AL-Physics-All-English: 0.
+2025-06-13 22:10:04 - INFO - Steps remaining for 2016-AL-Physics-All-English: bronze_to_silver, silver_to_gold_i, silver_gold_to_gold_q
+
+2025-06-13 22:10:04 - INFO - Converting 2016-AL-Physics-All-English.pdf to images
+2025-06-13 22:10:17 - INFO - Converted 24 pages
+2025-06-13 22:10:17 - INFO - Preprocessed page_1.png
+2025-06-13 22:10:18 - INFO - Preprocessed page_2.png
+2025-06-13 22:10:18 - INFO - Preprocessed page_3.png
+2025-06-13 22:10:18 - INFO - Preprocessed page_4.png
+2025-06-13 22:10:19 - INFO - Preprocessed page_5.png
+2025-06-13 22:10:19 - INFO - Preprocessed page_6.png
+2025-06-13 22:10:19 - INFO - Preprocessed page_7.png
+2025-06-13 22:10:20 - INFO - Preprocessed page_8.png
+2025-06-13 22:10:20 - INFO - Preprocessed page_9.png
+2025-06-13 22:10:20 - INFO - Preprocessed page_10.png
+2025-06-13 22:10:20 - INFO - Preprocessed page_11.png
+2025-06-13 22:10:21 - INFO - Preprocessed page_12.png
+2025-06-13 22:10:21 - INFO - Preprocessed page_13.png
+2025-06-13 22:10:21 - INFO - Preprocessed page_14.png
+2025-06-13 22:10:22 - INFO - Preprocessed page_15.png
+2025-06-13 22:10:22 - INFO - Preprocessed page_16.png
+2025-06-13 22:10:22 - INFO - Preprocessed page_17.png
+2025-06-13 22:10:22 - INFO - Preprocessed page_18.png
+2025-06-13 22:10:23 - INFO - Preprocessed page_19.png
+2025-06-13 22:10:23 - INFO - Preprocessed page_20.png
+2025-06-13 22:10:24 - INFO - Preprocessed page_21.png
+2025-06-13 22:10:24 - INFO - Preprocessed page_22.png
+2025-06-13 22:10:24 - INFO - Preprocessed page_23.png
+2025-06-13 22:10:25 - INFO - Preprocessed page_24.png
+2025-06-13 22:10:25 - INFO - Calling Gemini to organize the pages by question type
+2025-06-13 22:11:50 - INFO - page_1 saved to mcq
+2025-06-13 22:11:50 - INFO - page_2 saved to mcq
+2025-06-13 22:11:50 - INFO - page_3 saved to mcq
+2025-06-13 22:11:50 - INFO - page_4 saved to mcq
+2025-06-13 22:11:50 - INFO - page_5 saved to mcq
+2025-06-13 22:11:50 - INFO - page_6 saved to mcq
+2025-06-13 22:11:50 - INFO - page_7 saved to mcq
+2025-06-13 22:11:50 - INFO - page_8 saved to mcq
+2025-06-13 22:11:50 - INFO - page_9 saved to mcq
+2025-06-13 22:11:51 - INFO - page_10 saved to mcq
+2025-06-13 22:11:51 - INFO - page_11 saved to other
+2025-06-13 22:11:51 - INFO - page_12 saved to structured
+2025-06-13 22:11:51 - INFO - page_13 saved to structured
+2025-06-13 22:11:51 - INFO - page_14 saved to structured
+2025-06-13 22:11:51 - INFO - page_15 saved to structured
+2025-06-13 22:11:51 - INFO - page_16 saved to structured
+2025-06-13 22:11:51 - INFO - page_17 saved to structured
+2025-06-13 22:11:51 - INFO - page_18 saved to other
+2025-06-13 22:11:51 - INFO - page_19 saved to essay
+2025-06-13 22:11:52 - INFO - page_20 saved to essay
+2025-06-13 22:11:52 - INFO - page_21 saved to essay
+2025-06-13 22:11:52 - INFO - page_22 saved to essay
+2025-06-13 22:11:52 - INFO - page_23 saved to essay
+2025-06-13 22:11:52 - INFO - page_24 saved to essay
+2025-06-13 22:11:52 - INFO - Converted PDF to pages
+
+2025-06-13 22:11:52 - INFO - Metadata file not found for 2016-AL-Physics-All-English
+2025-06-13 22:11:52 - INFO - Metadata for 2016-AL-Physics-All-English written to ./data/metadata/2016-AL-Physics-All-English.json
+2025-06-13 22:11:52 - INFO - Extracting images from 2016-AL-Physics-All-English
+2025-06-13 22:11:52 - INFO - Processing file: page_1.png
+2025-06-13 22:11:55 - INFO - No detections found in page_1.png
+2025-06-13 22:11:55 - INFO - Processing file: page_10.png
+2025-06-13 22:11:55 - INFO - Processed 3 detections from page_10.png
+2025-06-13 22:11:55 - INFO - Processing file: page_2.png
+2025-06-13 22:11:56 - INFO - Processed 9 detections from page_2.png
+2025-06-13 22:11:56 - INFO - Processing file: page_3.png
+2025-06-13 22:11:56 - INFO - Processed 12 detections from page_3.png
+2025-06-13 22:11:56 - INFO - Processing file: page_4.png
+2025-06-13 22:11:56 - INFO - Processed 4 detections from page_4.png
+2025-06-13 22:11:56 - INFO - Processing file: page_5.png
+2025-06-13 22:11:57 - INFO - Processed 5 detections from page_5.png
+2025-06-13 22:11:57 - INFO - Processing file: page_6.png
+2025-06-13 22:11:57 - INFO - Processed 4 detections from page_6.png
+2025-06-13 22:11:57 - INFO - Processing file: page_7.png
+2025-06-13 22:11:58 - INFO - Processed 4 detections from page_7.png
+2025-06-13 22:11:58 - INFO - Processing file: page_8.png
+2025-06-13 22:11:58 - INFO - Processed 9 detections from page_8.png
+2025-06-13 22:11:58 - INFO - Processing file: page_9.png
+2025-06-13 22:11:59 - INFO - Processed 8 detections from page_9.png
+2025-06-13 22:11:59 - INFO - Processing file: page_12.png
+2025-06-13 22:11:59 - INFO - Processed 2 detections from page_12.png
+2025-06-13 22:11:59 - INFO - Processing file: page_13.png
+2025-06-13 22:12:00 - INFO - Processed 2 detections from page_13.png
+2025-06-13 22:12:00 - INFO - Processing file: page_14.png
+2025-06-13 22:12:00 - INFO - Processed 2 detections from page_14.png
+2025-06-13 22:12:00 - INFO - Processing file: page_15.png
+2025-06-13 22:12:01 - INFO - Processed 1 detections from page_15.png
+2025-06-13 22:12:01 - INFO - Processing file: page_16.png
+2025-06-13 22:12:01 - INFO - Processed 2 detections from page_16.png
+2025-06-13 22:12:01 - INFO - Processing file: page_17.png
+2025-06-13 22:12:01 - INFO - No detections found in page_17.png
+2025-06-13 22:12:01 - WARNING - No images found for 2016-AL-Physics-All-English
+2025-06-13 22:12:01 - INFO - Processing file: page_19.png
+2025-06-13 22:12:02 - INFO - Processed 5 detections from page_19.png
+2025-06-13 22:12:02 - INFO - Processing file: page_20.png
+2025-06-13 22:12:02 - INFO - Processed 4 detections from page_20.png
+2025-06-13 22:12:02 - INFO - Processing file: page_21.png
+2025-06-13 22:12:03 - INFO - Processed 1 detections from page_21.png
+2025-06-13 22:12:03 - INFO - Processing file: page_22.png
+2025-06-13 22:12:03 - INFO - Processed 4 detections from page_22.png
+2025-06-13 22:12:03 - INFO - Processing file: page_23.png
+2025-06-13 22:12:03 - INFO - Processed 9 detections from page_23.png
+2025-06-13 22:12:03 - INFO - Processing file: page_24.png
+2025-06-13 22:12:04 - INFO - Processed 3 detections from page_24.png
+2025-06-13 22:12:04 - INFO - Extracted images from pages
+
+2025-06-13 22:12:04 - INFO - Metadata for 2016-AL-Physics-All-English written to ./data/metadata/2016-AL-Physics-All-English.json
+2025-06-13 22:12:04 - INFO - Converting 2016-AL-Physics-All-English to JSON
+2025-06-13 22:12:04 - INFO - Processing question type: mcq
+2025-06-13 22:12:05 - INFO - Calling Gemini to convert pdf to json
+2025-06-13 22:12:30 - INFO - Parsing JSON content from Gemini response
+2025-06-13 22:12:30 - INFO - Saved question 1 to q1.json
+2025-06-13 22:12:30 - INFO - Saved question 2 to q2.json
+2025-06-13 22:12:30 - INFO - Saved question 3 to q3.json
+2025-06-13 22:12:30 - INFO - Saved question 4 to q4.json
+2025-06-13 22:12:30 - INFO - Saved question 5 to q5.json
+2025-06-13 22:12:30 - INFO - Saved question 6 to q6.json
+2025-06-13 22:12:30 - INFO - Saved question 7 to q7.json
+2025-06-13 22:12:30 - INFO - Calling Gemini to convert pdf to json
+2025-06-13 22:12:42 - INFO - Parsing JSON content from Gemini response
+2025-06-13 22:12:42 - INFO - Saved question 49 to q49.json
+2025-06-13 22:12:42 - INFO - Saved question 50 to q50.json
+2025-06-13 22:12:42 - INFO - Calling Gemini to convert pdf to json
+2025-06-13 22:13:06 - INFO - Parsing JSON content from Gemini response
+2025-06-13 22:13:06 - INFO - Saved question 7 to q7.json
+2025-06-13 22:13:06 - INFO - Saved question 8 to q8.json
+2025-06-13 22:13:06 - INFO - Saved question 9 to q9.json
+2025-06-13 22:13:06 - INFO - Saved question 10 to q10.json
+2025-06-13 22:13:06 - INFO - Saved question 11 to q11.json
+2025-06-13 22:13:06 - INFO - Saved question 12 to q12.json
+2025-06-13 22:13:06 - INFO - Saved question 13 to q13.json
+2025-06-13 22:13:06 - INFO - Calling Gemini to convert pdf to json
+2025-06-13 22:13:48 - INFO - Parsing JSON content from Gemini response
+2025-06-13 22:13:48 - INFO - Saved question 14 to q14.json
+2025-06-13 22:13:48 - INFO - Saved question 15 to q15.json
+2025-06-13 22:13:48 - INFO - Saved question 16 to q16.json
+2025-06-13 22:13:48 - INFO - Saved question 17 to q17.json
+2025-06-13 22:13:48 - INFO - Saved question 18 to q18.json
+2025-06-13 22:13:48 - INFO - Saved question 19 to q19.json
+2025-06-13 22:13:48 - INFO - Calling Gemini to convert pdf to json
+2025-06-13 22:14:12 - INFO - Parsing JSON content from Gemini response
+2025-06-13 22:14:12 - INFO - Saved question 20 to q20.json
+2025-06-13 22:14:12 - INFO - Saved question 21 to q21.json
+2025-06-13 22:14:12 - INFO - Saved question 22 to q22.json
+2025-06-13 22:14:12 - INFO - Saved question 23 to q23.json
+2025-06-13 22:14:12 - INFO - Saved question 24 to q24.json
+2025-06-13 22:14:12 - INFO - Saved question 25 to q25.json
+2025-06-13 22:14:12 - INFO - Saved question 26 to q26.json
+2025-06-13 22:14:12 - INFO - Calling Gemini to convert pdf to json

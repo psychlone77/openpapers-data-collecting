@@ -1,0 +1,38 @@
+{
+    "question_number": 8,
+    "question_text": "Current drawn from the battery in the circuit shown is",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "$ \\dfrac{6V}{27\\Omega} $",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$ \\dfrac{20V}{27\\Omega} $",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$ \\dfrac{21R}{27\\Omega} $",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$ \\dfrac{27V}{12\\Omega} $",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$ \\dfrac{133V}{88\\Omega} $",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_2_crop7_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

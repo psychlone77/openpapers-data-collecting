@@ -1,0 +1,28 @@
+{
+    "question_number": 40,
+    "question_text": "The figure shows the displacement-time graphs for the motion of two cars with respect to a lamp post situated at the origin. Car 1 is moving towards the lamp post and car 2 is moving away from the lamp post. A student has made the following statements regarding the motion of cars relevant to the points $P$, $Q$ and $R$ marked on the graphs.",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "Relevant to $P$: Both cars are moving towards the lamp post.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Relevant to $Q$: Car 1 coming from left crosses Car 2 coming from right.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Relevant to $R$: Car 2 is coming from right.",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_8_crop1_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

@@ -1,0 +1,36 @@
+{
+    "question_number": 2,
+    "question_text": "In a vernier caliper a length of 19 main scale divisions is equally divided into 20 vernier scale divisions. What should be the length of a main scale division in order to have a least count of 0.025 mm?",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "1 mm",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "1.5 mm",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "2 mm",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "2.5 mm",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "0.5 mm",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

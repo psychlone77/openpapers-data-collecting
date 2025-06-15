@@ -1,0 +1,36 @@
+{
+    "question_number": 1,
+    "question_text": "Unit of pressure is",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "\\( \\text{kg} \\text{m}^{-2} \\)",
+            "option_image": "[]",
+            "is_correct": null
+        },
+        {
+            "option_text": "\\( \\text{kg} \\text{m}^{-1} \\text{s}^{-2} \\)",
+            "option_image": "[]",
+            "is_correct": null
+        },
+        {
+            "option_text": "\\( \\text{kg} \\text{m} \\text{s}^{-2} \\)",
+            "option_image": "[]",
+            "is_correct": null
+        },
+        {
+            "option_text": "\\( \\text{kg} \\text{m}^{2} \\text{s}^{-2} \\)",
+            "option_image": "[]",
+            "is_correct": null
+        },
+        {
+            "option_text": "\\( \\text{kg} \\text{m}^{2} \\text{s}^{-1} \\)",
+            "option_image": "[]",
+            "is_correct": null
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

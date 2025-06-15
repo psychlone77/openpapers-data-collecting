@@ -1,0 +1,38 @@
+{
+    "question_number": 35,
+    "question_text": "A mass is resting on a horizontal surface which keeps up and down performing simple harmonic motion with amplitude A as shown in figure. The maximum frequency with which the surface can move while moving the mass always in contact with the surface is",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "(1) $\frac{2\\sqrt{g}}{2\\pi A}$",
+            "option_image": "[]",
+            "is_correct": null
+        },
+        {
+            "option_text": "(2) $\frac{\\sqrt{g}}{2\\pi A}$",
+            "option_image": "[]",
+            "is_correct": null
+        },
+        {
+            "option_text": "(3) $\frac{3\\sqrt{g}}{2\\pi A}$",
+            "option_image": "[]",
+            "is_correct": null
+        },
+        {
+            "option_text": "(4) $\frac{\\sqrt{2g}}{2\\pi A}$",
+            "option_image": "[]",
+            "is_correct": null
+        },
+        {
+            "option_text": "(5) $\frac{\\sqrt{g}}{2\\pi A}$",
+            "option_image": "[]",
+            "is_correct": null
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_6_crop3_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

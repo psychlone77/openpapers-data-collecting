@@ -1,0 +1,36 @@
+{
+    "question_number": 18,
+    "question_text": "An elephant at rest is observed by a person 1 km away from his location. The sound intensity from trumpet of the elephant heard by the person is $10^{-10}$ W/m$^2$. Assume that the sound comes from a point source. If the threshold of hearing of the person is $10^{-12}$ W/m$^2$, what is the maximum distance from which he can hear this trumpet?",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "1 km",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "2 km",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "3 km",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "10 km",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "20 km",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

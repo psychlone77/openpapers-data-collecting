@@ -1,0 +1,36 @@
+{
+    "question_number": 22,
+    "question_text": "A celestial object is located at the mid point of the line joining the centres of the earth and the moon at a certain time. The mass of the moon is 0.0123 times the mass of the earth. Assume that the distance between the centres of the moon and the earth is 60 times the radius of the earth. The acceleration due to gravity at the object due to the gravity of both the earth and the moon in terms of g is approximately",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "(1) $1.1 \times 10^{-2} g$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "(2) $1.1 \times 10^{-3} g$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "(3) $3.3 \times 10^{-2} g$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "(4) $0.5 g$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "(5) $1.0 g$",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

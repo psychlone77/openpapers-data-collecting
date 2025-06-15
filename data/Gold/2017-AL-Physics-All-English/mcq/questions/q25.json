@@ -1,0 +1,38 @@
+{
+    "question_number": 25,
+    "question_text": "A pipe laid horizontally carries a liquid of density $\\rho$ at a constant speed $v$ from a pressurized large over-head tank. Pipe passes through a shallow region of muddy water as shown in the figure. Pressure at $X$ is $P$. Suppose a small crack has been developed on the pipe line above the muddy water. The liquid spurts out with a velocity $v_0$. Assume that the condition for the muddy water to seep into the pipe is that the liquid pressure $P$ is less than the hydrostatic pressure due to the ground, and that seeping of muddy water into the pipe is negligible. Then,",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "$P + \\rho g h \\le \\frac{1}{2} \\rho v_0^2$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$P + \\rho g h \\ge \\frac{1}{2} \\rho v_0^2$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$P + \\rho g h \\le \\frac{1}{2} \\rho v^2$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$P + \\frac{1}{2} \\rho v^2 + \\rho g h \\le P_0$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$P + \\frac{1}{2} \\rho v^2 + \\rho g h \\ge P_0$",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_5_crop2_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

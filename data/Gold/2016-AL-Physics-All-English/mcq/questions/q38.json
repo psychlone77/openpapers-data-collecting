@@ -1,0 +1,36 @@
+{
+    "question_number": 38,
+    "question_text": "When an object $O$ is placed on the principal axis of a thin convex lens of focal length $f_1$, it forms a real image at a distance $V_1$ with a linear magnification of $m_1$. When the same object is placed at a distance $u$ from a thin convex lens of focal length $f_2$, it forms a real image at a distance $V_2$ and the magnification $m_2$. If $V_1 = V_2 = V$ and $f_1 = f_2 = f$, which of the following conditions will satisfy the conditions?",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "$V < f$ and $m_1 = m_2$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$V > f$ and $m_1 = m_2$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$V < f$ and $m_1 = -m_2$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$V > f$ and $m_1 = -m_2$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$V = f$ and $m_1 = m_2$",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

@@ -1,0 +1,36 @@
+{
+    "question_number": 3,
+    "question_text": "A certain liquid-in-glass thermometer with a uniform bore has been calibrated using the boiling point of water and the melting point of ice. Of the following properties, what is the most essential property that the liquid must possess?",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "high thermal conductivity",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "low specific heat capacity",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "high volume expansivity",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "uniform volume expansion",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "low vapour pressure",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

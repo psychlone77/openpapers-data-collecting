@@ -1,0 +1,36 @@
+{
+    "question_number": 26,
+    "question_text": "Nine identical wires made of the same metal, each of diameter $d$ and length $l$, are connected in parallel to form a single resistor. The resistance of this resistor is equal to the resistance of a single wire of length $l$ and diameter $D$ made of a certain metal. If $D$ is equal to",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "$3d$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$3d$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$6d$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$9d$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$18d$",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

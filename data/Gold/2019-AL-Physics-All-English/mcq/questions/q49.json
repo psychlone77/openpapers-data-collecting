@@ -1,0 +1,38 @@
+{
+    "question_number": 49,
+    "question_text": "What is the current through the battery of the circuit shown in the figure?",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "\\(\\frac{V}{R}\\)",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "\\(\\frac{V}{2R}\\)",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "\\(\\frac{2V}{R}\\)",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "\\(\\frac{V}{4R}\\)",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "\\(\\frac{2V}{R}\\)",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_11_crop10_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

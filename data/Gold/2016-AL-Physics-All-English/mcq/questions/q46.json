@@ -1,0 +1,38 @@
+{
+    "question_number": 46,
+    "question_text": "The height of a rectangular heavy metal block of mass $m$, area of cross-section $A$, and made of a material of Young's modulus $Y$, when placed on a horizontal surface as shown in figure (a) is $L$. If four blocks identical to the above block are placed one above the other as shown in figure (b), the overall height of the four blocks will be",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "$L \\left(1 + \\frac{2m g}{4 A Y} \\right)$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$L \\left(1 + \\frac{8 m g}{4 A Y} \\right)$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$4L$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$L \\left(1 + \\frac{8 m g}{A Y} \\right)$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$4L \\left(1 + \\frac{m g}{A Y} \\right)$",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_9_crop6_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

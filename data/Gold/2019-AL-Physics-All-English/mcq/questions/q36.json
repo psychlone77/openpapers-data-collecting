@@ -1,0 +1,36 @@
+{
+    "question_number": 36,
+    "question_text": "Consider four metal balls of same volume placed on a smooth horizontal surface. Mass of each of the first three balls is $m$ while the mass of the fourth ball is $2m$. They are equally separated on a straight line. The first ball moves with speed $v$ and collides with the second ball resulting a series of linear elastic collisions among the balls. After all the collisions, the motion of each ball is best represented by",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "[]",
+            "option_image": "page_7_crop9_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_7_crop10_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_7_crop7_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_7_crop11_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_7_crop8_class0.jpg",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

@@ -1,0 +1,36 @@
+{
+    "question_number": 5,
+    "question_text": "The pressure, kinetic energy of an ideal gas depends on its",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "absolute temperature",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "specific heat capacity",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "density",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "volume",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "specific heat capacity",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

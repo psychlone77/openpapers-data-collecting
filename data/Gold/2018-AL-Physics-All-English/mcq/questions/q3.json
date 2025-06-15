@@ -1,0 +1,36 @@
+{
+    "question_number": 3,
+    "question_text": "Which of the following statements is not different dimensions from the rest?",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "\\( \\text{LASER light consists of transverse waves.} \\)",
+            "option_image": "[]",
+            "is_correct": null
+        },
+        {
+            "option_text": "\\( \\text{Gamma rays are transverse waves.} \\)",
+            "option_image": "[]",
+            "is_correct": null
+        },
+        {
+            "option_text": "\\( \\text{Sound waves travelling through the crust of the Earth are longitudinal waves.} \\)",
+            "option_image": "[]",
+            "is_correct": null
+        },
+        {
+            "option_text": "\\( \\text{Ultrasound waves are longitudinal waves.} \\)",
+            "option_image": "[]",
+            "is_correct": null
+        },
+        {
+            "option_text": "\\( \\text{FM waves are longitudinal waves.} \\)",
+            "option_image": "[]",
+            "is_correct": null
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

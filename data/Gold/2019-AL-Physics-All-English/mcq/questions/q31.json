@@ -1,0 +1,36 @@
+{
+    "question_number": 31,
+    "question_text": "A ball is dropped freely to a floor from a height of 1 m. If its speed is reduced by 25\\% at each bounce, what would be the height the ball reaches after the first bounce?",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "\\(\\frac{9}{16}\\) m",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "\\(\\frac{3}{4}\\) m",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "\\(\\frac{27}{64}\\) m",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "\\(\\frac{4}{9}\\) m",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "\\(\\frac{5}{8}\\) m",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

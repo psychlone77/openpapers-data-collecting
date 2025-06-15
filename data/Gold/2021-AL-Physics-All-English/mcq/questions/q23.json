@@ -1,0 +1,38 @@
+{
+    "question_number": 23,
+    "question_text": "Consider the circuit shown in the figure. The internal resistance of the 12 V cell is negligible and the centre zero voltmeter is ideal. What is the value of the voltmeter reading?",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "$0 \\, V$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$+5 \\, V$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$-5 \\, V$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$+3 \\, V$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$-3 \\, V$",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_5_crop0_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

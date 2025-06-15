@@ -1,0 +1,36 @@
+{
+    "question_number": 37,
+    "question_text": "Consider the following statements about an astronomical telescope and a compound microscope.",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "(A) Only (A)",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "(B) Only (B)",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "(C) (A) and (B) only",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "(D) (B) and (C) only",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "(E) (A), (B) and (C)",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

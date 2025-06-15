@@ -1,0 +1,36 @@
+{
+    "question_number": 11,
+    "question_text": "Consider the following statements made regarding the velocity of sound in earth atmosphere.\n(A) It increases with increasing temperature.\n(B) It increases with increasing pressure.\n(C) It decrease with increasing humidity.",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "Only A",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Only B",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Only C",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Only A and B",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Only A, B and C",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

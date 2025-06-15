@@ -1,0 +1,38 @@
+{
+    "question_number": 21,
+    "question_text": "Consider the points A, B and C on two equipotential surfaces as shown in the figure. When a proton moves from A to B, the electric field does a work of 32$\times 10^{-19}$ J on it. Charge of an electron is 1.6$\times 10^{-19}$C. The electric potential differences $V_{AB}$, $V_{BC}$ and $V_{CA}$ respectively, are",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "(1) 2V, -2V, and 0V",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "(2) 2V, 2V, and 0V",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "(3) -2V, -2V, and 0V",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "(4) 0.5V, 0.5V, and 0V",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "(5) -0.5V, -0.5V, and 0V",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_3_crop2_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

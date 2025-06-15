@@ -1,0 +1,36 @@
+{
+    "question_number": 20,
+    "question_text": "Water at $0^\\circ C$ is continuously fed into a fully insulated boiler fixed with an immersion heater at a constant rate of $10^{-2}$ kg/s. The specific heat capacity and the specific latent heat of vaporization of water are $4.2 \times 10^3$ J/kg-K and $2.25 \times 10^6$ J/kg respectively. If the steam at $100^\\circ C$ is to be produced at the same rate as that of supply of water, the power of the immersion heater should be",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "$4.2 \times 10^2$ kW",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$2.25$ kW",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$267.0$ kW",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$420$ kW",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$267.0$ kW",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

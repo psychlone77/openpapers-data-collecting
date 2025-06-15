@@ -1,0 +1,39 @@
+{
+    "question_number": 10,
+    "question_text": "Which of the following gates operate according to the truth table given?",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "P only",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "P and R only",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "P, Q and R",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "All P, Q and R",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Q and R only",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_2_crop4_class0.jpg",
+        "page_2_crop8_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

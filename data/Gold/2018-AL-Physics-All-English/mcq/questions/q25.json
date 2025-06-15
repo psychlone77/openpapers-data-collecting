@@ -1,0 +1,38 @@
+{
+    "question_number": 25,
+    "question_text": "In the figure shown, if the internal resistance of the voltage source is negligible, the power dissipated by the network is",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "60mW",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "90mW",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "120mW",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "150mW",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "180mW",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_5_crop2_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

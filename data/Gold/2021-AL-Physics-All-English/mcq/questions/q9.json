@@ -1,0 +1,36 @@
+{
+    "question_number": 9,
+    "question_text": "The figure shows a composite string made of same material. The cross-sectional area of string $B$ is twice that of string $A$. The other end of the string $B$ is attached to a fixed wall. If both strings are under same tension which of the following graphs best represents the variation of speed $v$ of transverse waves generated in strings with distance $x$?",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "[]",
+            "option_image": "page_2_crop4_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_2_crop0_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_2_crop1_class0.jpg",
+            "is_correct": true
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_2_crop2_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_2_crop3_class0.jpg",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

@@ -1,0 +1,38 @@
+{
+    "question_number": 40,
+    "question_text": "In the circuit shown, the two cells have negligible internal resistances. In the circuit,",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "a current of $\\frac{2R}{3R}$ passes through the 2V cell.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "a current of $\\frac{R}{3R}$ passes through the 2V cell.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "a current of $R$ passes through the 2V cell.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "a current of $\\frac{2}{3}$ passes through the 2V cell.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "a current of 2 passes through the 2V cell.",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_7_crop0_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

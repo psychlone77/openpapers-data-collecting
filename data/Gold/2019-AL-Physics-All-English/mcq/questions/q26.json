@@ -1,0 +1,38 @@
+{
+    "question_number": 26,
+    "question_text": "An analogue multimeter connected to a circuit is shown in the figure. The reading of the multimeter is",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "7 mA",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "7 mA",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "1.4 V",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "7 V",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "14 V",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_5_crop2_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

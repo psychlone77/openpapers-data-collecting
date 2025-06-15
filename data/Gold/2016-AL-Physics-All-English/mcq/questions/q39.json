@@ -1,0 +1,38 @@
+{
+    "question_number": 39,
+    "question_text": "Three point charges of +q each are held at vertices B and C of an equilateral triangle ABC of side length a, and another point charge of +q is held at the centroid A. What is the magnitude of the electric field at a point P on the positive unit charge placed at point A when the distance AP is equal to $\\frac{a}{2}$?",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "$\\frac{q}{4\\pi \\epsilon_0 a^2}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\frac{q}{2\\pi \\epsilon_0 a^2}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\frac{\\sqrt{3}q}{4\\pi \\epsilon_0 a^2}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\frac{q}{\\pi \\epsilon_0 a^2}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\frac{2q}{\\pi \\epsilon_0 a^2}$",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_7_crop1_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

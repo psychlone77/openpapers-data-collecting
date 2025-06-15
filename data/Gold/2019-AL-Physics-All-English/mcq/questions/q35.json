@@ -1,0 +1,38 @@
+{
+    "question_number": 35,
+    "question_text": "Consider a massless balloon attached to one end of a light string. The other end of the string is attached to the bottom of a water tank which is fixed in a truck as shown in the figure. The balloon is completely submerged in water. The velocity-time graph shows the motion of the truck.",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "[]",
+            "option_image": "page_7_crop3_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_7_crop2_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_7_crop1_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_7_crop4_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_7_crop5_class0.jpg",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_7_crop6_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

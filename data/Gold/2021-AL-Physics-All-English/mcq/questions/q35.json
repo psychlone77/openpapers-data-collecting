@@ -1,0 +1,38 @@
+{
+    "question_number": 35,
+    "question_text": "A monochromatic ray of light falls on the surface of a glass sphere with incident angle 60° as shown in the figure. Refractive index of glass is $\\sqrt{3}$. The total angle of deviation of the emerging ray from the sphere is",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "60°",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "30°",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "0°",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "90°",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "180°",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_7_crop4_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

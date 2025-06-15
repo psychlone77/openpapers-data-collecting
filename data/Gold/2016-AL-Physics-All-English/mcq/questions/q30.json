@@ -1,0 +1,38 @@
+{
+    "question_number": 30,
+    "question_text": "A uniform disc of mass $m$ and radius $r$ rolls without slipping on the horizontal surface. The horizontal velocity $v$ is initially zero. The disc has a linear velocity $v$ in the horizontal direction at a certain instant. At this instant, the disc is at a height $h$ above the horizontal surface. What is the maximum height $h$ to which the centre of mass of the disc climbs?",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "\\(\\frac{v^2}{2g}\\)",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "\\(\\frac{v^2}{3g}\\)",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "\\(\\frac{3v^2}{4g}\\)",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "\\(\\frac{v^2}{8}\\)",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "\\(\\frac{2v^2}{8g}\\)",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_5_crop4_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

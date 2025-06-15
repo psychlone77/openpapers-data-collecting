@@ -1,0 +1,38 @@
+{
+    "question_number": 38,
+    "question_text": "The bellow prism of refractive index $\\mu$ as shown in figure, is made of a material of thick walls. A ray of monochromatic light PQ travelling in air is incident on the glass prism as shown in figure. In order to make the emergent ray travel along Y and Z directions respectively, the cavity of hollow surface should be filled with transparent fluids of refractive index $\\mu_1$ and $\\mu_2$ respectively.",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "$\\mu_1 > \\mu$, $\\mu_2 = \\mu$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\mu_1 = \\mu$, $\\mu_2 > \\mu$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\mu_1 < \\mu$, $\\mu_2 > \\mu$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\mu_1 > \\mu$, $\\mu_2 < \\mu$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\mu_1 < \\mu$, $\\mu_2 < \\mu$",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_8_crop0_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

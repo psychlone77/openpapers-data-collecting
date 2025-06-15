@@ -1,0 +1,33 @@
+{
+    "question_number": 34,
+    "question_text": "A uniform magnet field of flux density ($B$) 1 T and a uniform electric field of field intensity ($E$) 300 V/m are parallel to each other in a region as shown in the figure. A particle of charge $+q$ enters into the region with velocity $v$ perpendicular to the field. The velocity is in the plane of the paper. The magnitude of the resultant force acting on the particle is",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "0",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "100q",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "300q",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "500q",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_7_crop1_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

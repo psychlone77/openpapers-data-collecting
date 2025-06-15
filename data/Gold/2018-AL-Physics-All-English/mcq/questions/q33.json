@@ -1,0 +1,38 @@
+{
+    "question_number": 33,
+    "question_text": "Consider a non-viscous and incompressible fluid moving with steady streamline flow through a tube of non-uniform cross-sectional area in a vertical plane. Figure shows the streamline flow in a tube. $X$, $Y$ and $Z$ represent three positions of a streamline. Consider the kinetic energies per unit volume ($KE_x$, $KE_y$, $KE_z$), the potential energies per unit volume ($PE_x$, $PE_y$, $PE_z$) and the fluid pressures ($P_x$, $P_y$, $P_z$) at the positions $X$, $Y$ and $Z$ respectively. Of the above inequalities, \n(A) $KE_x > KE_y > KE_z$\n(B) $PE_x < PE_y < PE_z$\n(C) $P_x > P_y > P_z$",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "only A and B are true",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "only B and C are true",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "only A and C are true",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "only B is true",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "A, B and C are true",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_7_crop6_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

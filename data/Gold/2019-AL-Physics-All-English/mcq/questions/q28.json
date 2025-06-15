@@ -1,0 +1,36 @@
+{
+    "question_number": 28,
+    "question_text": "The human blood circulatory system consists of about one billion ($10^9$) capillary vessels each with an average diameter of 8 $\\mu$m. If the blood is pumped from the heart at a rate of 5 litres per minute, what is the average speed of blood flowing through the capillary vessels in cm per minute?",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "32$\\pi$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "16$\\pi$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "4$\\pi$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\dfrac{4}{\\pi}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\dfrac{4}{\\pi}$",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

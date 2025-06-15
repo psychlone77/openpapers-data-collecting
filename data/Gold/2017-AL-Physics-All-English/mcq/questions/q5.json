@@ -1,0 +1,36 @@
+{
+    "question_number": 5,
+    "question_text": "A potentiometer is not used for",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "measuring e.m.f.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "comparing e.m.f.s",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "measuring the internal resistance of a cell.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "comparing varying voltages.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "measuring currents.",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}
