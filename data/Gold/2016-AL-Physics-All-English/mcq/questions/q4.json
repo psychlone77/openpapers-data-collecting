@@ -1,0 +1,36 @@
+{
+    "question_number": 4,
+    "question_text": "Which of the following is not true regarding electromagnetic waves?",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "Speed does not depend on the medium of propagation.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "They are transverse waves.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Can be reflected at the boundary between two media.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Do not necessarily require a material medium for propagation.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Have mutually perpendicular directions of electric and magnetic fields.",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

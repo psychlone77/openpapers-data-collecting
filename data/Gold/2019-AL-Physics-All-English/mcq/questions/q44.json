@@ -1,0 +1,38 @@
+{
+    "question_number": 44,
+    "question_text": "Each of the simple wire loops is placed along the positive direction of the x-axis. The same current $I$ loop can rotate freely about its symmetric axis as shown in figures, carries the same current $I$. A uniform magnetic field is applied on xy plane perpendicular to magnetic field. Which choice represents the order of loops that the initial torque acting on them are in descending order?",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "$P, Q, R, S$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$R, Q, P, S$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$Q, P, R, S$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$S, R, Q, P$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$R, Q, S, P$",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_9_crop2_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

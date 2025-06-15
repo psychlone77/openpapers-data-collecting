@@ -1,0 +1,36 @@
+{
+    "question_number": 2,
+    "question_text": "The dimensions of the gravitational constant G are given by",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "\\( L^3M^{-1}T^{-2} \\)",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "\\( L^3M^{-1}T^2 \\)",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "\\( L^3M^{-1}T^{-2} \\)",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "\\( L^3M^{-1}T^{-2} \\)",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "\\( L^3M^{-1}T^{-2} \\)",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

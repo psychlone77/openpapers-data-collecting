@@ -1,0 +1,38 @@
+{
+    "question_number": 39,
+    "question_text": "As shown in the figure, an incompressible liquid flows steadily through a horizontal pipe. Two narrow vertical tubes are fixed at two places on the horizontal pipe where the cross-sectional areas are A and 2A. If the height difference of the liquid columns in the two vertical tubes is $h$, flow rate of the liquid through the pipe is",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "$\\frac{A}{3} \\sqrt{2gh}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\frac{A}{2} \\sqrt{3gh}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$A \\sqrt{2gh}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$2A \\sqrt{3gh}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$2A \\sqrt{2gh}$",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_8_crop2_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

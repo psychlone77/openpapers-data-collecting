@@ -1,0 +1,36 @@
+{
+    "question_number": 1,
+    "question_text": "The SI unit used to measure the activity of a radioactive source is",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "$Bq$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$Gy$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$J$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$Bq^{-1}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$Sv$",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

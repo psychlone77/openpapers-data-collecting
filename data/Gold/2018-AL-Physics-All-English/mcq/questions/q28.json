@@ -1,0 +1,38 @@
+{
+    "question_number": 28,
+    "question_text": "A uniform straight horizontal plank of length $5l$ and mass $5m$ is kept heavy on two supports separated by a distance $2l$ shown in the figure. A painter of mass $m$ is standing at one end of the entire length of the plank carrying his bucket of paint. What is the maximum mass of the bucket of paint that can be carried by the painter without toppling the plank?",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "$\\frac{2}{3}m$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$2m$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\frac{5m}{4}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$m$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\frac{m}{4}$",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_5_crop4_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

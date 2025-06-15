@@ -1,0 +1,36 @@
+{
+    "question_number": 19,
+    "question_text": "Two mercury-in-glass thermometers $P$ and $Q$ are to be constructed with $P$ having a larger bulb of the same material as that of $Q$ but with twice the volume of $Q$. Assume that the walls of both bulbs have the same thickness. Consider the following statements:\nUsing capillary tubes with appropriate uniform bore radii, the two thermometers can be constructed to have the same capillary length between $0^\\circ C$ and $100^\\circ C$ markings.",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "A higher sensitivity in thermometer $P$ than in measuring temperature.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Only B is true.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "the same response time for rapid changes in the sensitivity of $Q$ thermometer.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Only A and C are true.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "A, B and C are true.",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

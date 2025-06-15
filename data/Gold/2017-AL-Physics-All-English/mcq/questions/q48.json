@@ -1,0 +1,38 @@
+{
+    "question_number": 48,
+    "question_text": "AB and CD represent two parallel straight long conducting wires fixed to a horizontal plane carrying current $I$ in each of them. $L$ is a conducting square loop placed on the same horizontal plane. Consider the following statements and the figure shown between AB and CD. Towards the following statements are correct:",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "(A) The direction of the induced current in the loop is always clock-wise",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "(B) The induced current in the loop gradually increases as it is moved along the line XY",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "(C) The induced current in the loop speed is moving along the line XY",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "(D) The induced current in the loop is zero at the instant the line PQ of the loop passes through the centre of the wires",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "(1) only A is true, (2) only B is true, (3) only A, B and C are true, (4) only B and C are true, (5) only A, B, C and D are true",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_10_crop1_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

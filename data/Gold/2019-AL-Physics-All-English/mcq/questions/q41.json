@@ -1,0 +1,36 @@
+{
+    "question_number": 41,
+    "question_text": "A whistling firecracker having a constant frequency is fired vertically upward. It travels initially with an acceleration, then with a deceleration, and finally blasts before coming to the rest. An observer at ground directly below the firecracker listens to the whistling sound of the firecracker. Consider the following statements regarding the frequency of the sound heard by the observer.\n(A) During the acceleration, it is higher than the whistling frequency and is increasing with time.\n(B) During the deceleration, it is lower than the whistling frequency and is decreasing with time.\n(C) Just before the blast, it becomes equal to the whistling frequency.",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "Only A",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Only B",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Only C",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Only A and B",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Only A and C",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

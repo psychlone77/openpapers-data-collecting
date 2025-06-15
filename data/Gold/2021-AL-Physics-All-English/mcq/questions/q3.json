@@ -1,0 +1,36 @@
+{
+    "question_number": 3,
+    "question_text": "Bending of light when passing a sharp edge is due to",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "reflection",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "total internal reflection",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "diffraction",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "total internal reflection",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "interference",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

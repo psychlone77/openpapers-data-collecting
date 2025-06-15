@@ -1,0 +1,39 @@
+{
+    "question_number": 40,
+    "question_text": "Figure shows how three thermally insulated heat conducting rods of equal lengths and equal cross-sectional areas are connected between two heat reservoirs maintained at temperatures 100 $^\\circ$C and $0^\\circ$C. The thermally insulated heat conducting rods always remains at constant temperature $\theta$. The steady state, the temperature of the reservoir A is",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "90 $^\\circ$C",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "85 $^\\circ$C",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "80 $^\\circ$C",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "75 $^\\circ$C",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "65 $^\\circ$C",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_8_crop1_class0.jpg",
+        "page_8_crop3_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

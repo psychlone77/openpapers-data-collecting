@@ -1,0 +1,36 @@
+{
+    "question_number": 17,
+    "question_text": "A person with radiation body temperature $30^\\circ C$ is in an environment of temperature $20^\\circ C$. The net rate of loss of heat due to radiation from the body is proportional to (Assume that the black body radiation conditions can be applied)",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "$30^4 - 293^4$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$293^4 - 303^4$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$30^4 - 20^4$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$303^4 - 293^4$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$303^4 - 20^4$",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

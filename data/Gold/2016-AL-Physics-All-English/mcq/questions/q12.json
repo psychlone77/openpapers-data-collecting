@@ -1,0 +1,36 @@
+{
+    "question_number": 12,
+    "question_text": "When the body temperature of a person is 35$^\\circ$C the peak wavelength of the radiation emitted from the body occurs as 39 $\\mu$m. If his body temperature increases to 39$^\\circ$C, the peak wavelength will be (Assume that black body radiation conditions can be applied)",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "94 $\\mu$m",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "39 $\\mu$m",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "78 $\\mu$m",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "77 $\\mu$m",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "78 $\\mu$m",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

@@ -1,0 +1,38 @@
+{
+    "question_number": 47,
+    "question_text": "Figure shows three objects (A), (B), and (C), which are made using three uniform wooden cubes of identical dimensions made out of the same material and three identical uniform metal cubes. In (A), (B) and (C) the metal cubes are embedded in the wooden cube, as shown in the figure. If the three objects (A), (B) and (C) are now slowly lowered without changing their orientation and the water level is such that the wooden cubes are completely immersed in water are $H_A$, $H_B$, and $H_C$ respectively, which of the following relationships is true?",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "$H_A = H_B = H_C$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$H_A < H_B < H_C$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$H_A > H_B > H_C$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$H_A = H_B > H_C$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$H_A = H_C > H_B$",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_11_crop1_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

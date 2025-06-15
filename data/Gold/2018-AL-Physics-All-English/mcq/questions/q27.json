@@ -1,0 +1,38 @@
+{
+    "question_number": 27,
+    "question_text": "In the given circuit, the three 741 operational amplifiers of the output voltages $V_1$, $V_2$ and $V_3$ are given. If the input voltages are operated by power supplies of $\\pm 15V$, $\\pm 10V$ and $\\pm 8V$ respectively, the output voltages $V_1$, $V_2$ and $V_3$ are respectively given by:",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "+15V, +10V, -8V",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "+2V, -4V, -4V",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "+15V, +10V, +8V",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "+2V, +4V, +4V",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "-15V, -10V, +8V",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_5_crop1_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

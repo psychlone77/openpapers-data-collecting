@@ -1,0 +1,38 @@
+{
+    "question_number": 12,
+    "question_text": "$A$, $B$, $C$, $D$ and $E$ are five coplanar forces of equal magnitudes acting on a body as shown in figure (a). Which of the following diagrams best represents the direction of the resultant of these forces?",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "[]",
+            "option_image": "page_2_crop3_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_2_crop2_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_2_crop0_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_2_crop4_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_2_crop6_class0.jpg",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_2_crop5_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

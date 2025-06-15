@@ -1,0 +1,38 @@
+{
+    "question_number": 21,
+    "question_text": "A cube of ice of mass 0 g is placed in a small metal sphere trapped inside as shown in the figure. The specific latent heat of fusion of ice is 330 kJ/kg. The mass of the metal sphere in kg is approximately 900 g. The specific latent heat of ice is 330 kJ/kg. The completely melt and form water at $0^\\circ C$. This cube latent heat of ice is 330 kJ/kg.",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "110",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "100",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "91",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "55",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "33",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_4_crop1_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

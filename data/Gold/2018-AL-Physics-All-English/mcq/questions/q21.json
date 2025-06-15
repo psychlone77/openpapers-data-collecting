@@ -1,0 +1,38 @@
+{
+    "question_number": 21,
+    "question_text": "In the circuit shown, value of each capacitor is 1$\\mu$F. The charge stored in capacitors is",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "2 $\\mu$C",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "4 $\\mu$C",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "5 $\\mu$C",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "8 $\\mu$C",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "10 $\\mu$C",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_4_crop3_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

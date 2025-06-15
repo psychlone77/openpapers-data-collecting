@@ -1,0 +1,38 @@
+{
+    "question_number": 19,
+    "question_text": "When the switch $S$ is closed in the circuit shown,",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "only A will glow.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "only B will glow.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "only A and B will glow.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "only B, C and D will glow.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "all A, B, C and D will glow.",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_3_crop1_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

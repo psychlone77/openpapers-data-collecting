@@ -1,0 +1,38 @@
+{
+    "question_number": 27,
+    "question_text": "A structure consisting of straight wire sections of $AO$, $OB$, $CO$ and $OD$ of equal length arranged so that they are perpendicular to each other at $O$ is shown. When this structure is placed perpendicular to a magnetic field as shown in the figure, due to the field it will experience",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "a resultant force along the plane of the paper in the downward direction",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "a resultant force along the plane of the paper in the upward direction",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "a resultant force along the plane of the paper to the right",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "a resultant force along the plane of the paper to the left",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "no resultant force.",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_5_crop1_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

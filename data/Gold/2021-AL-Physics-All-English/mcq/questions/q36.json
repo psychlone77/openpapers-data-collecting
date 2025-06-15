@@ -1,0 +1,38 @@
+{
+    "question_number": 36,
+    "question_text": "An equilateral triangle is constructed using three rods having same cross-sectional area as shown in the figure. All the rods are perfectly lagged. Thermal conductivity of the internal material is twice that of the external material. The temperatures of $A$, $B$ and $C$ are maintained at $100^\\circ C$ and $0^\\circ C$ respectively. At the steady state,",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "1: 1",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "2 : 5",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "1 : 25",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "4 : 5",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "(2)",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_8_crop1_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

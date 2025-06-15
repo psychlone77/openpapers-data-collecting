@@ -1,0 +1,39 @@
+{
+    "question_number": 44,
+    "question_text": "When a long capillary tube of uniform bore radius $r$ is dipped vertically in a beaker of water of density $d$, the water column in the capillary tube rises to a height $h_o$ as shown in figure (a). When the same capillary tube is immersed in a beaker of water with oil layer of thickness $h$ as shown in figure (b). Assuming that the water and oil are immiscible liquids and the angle of contact of water inside the surface of the capillary tube, measured from the oil layer is best represented in the height of the oil layer is",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "[]",
+            "option_image": "page_10_crop1_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_10_crop10_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_10_crop3_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_10_crop5_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_10_crop6_class0.jpg",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_10_crop4_class0.jpg",
+        "page_10_crop2_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

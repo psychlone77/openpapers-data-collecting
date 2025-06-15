@@ -1,0 +1,36 @@
+{
+    "question_number": 10,
+    "question_text": "the body executes simple harmonic motion along the $x$-axis around the point $O$. The variation of the acceleration $(a)$ of the body with the displacement $(x)$ from $O$ is correctly represented in",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "[]",
+            "option_image": "page_2_crop4_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_2_crop5_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_2_crop2_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_2_crop1_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_2_crop3_class0.jpg",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

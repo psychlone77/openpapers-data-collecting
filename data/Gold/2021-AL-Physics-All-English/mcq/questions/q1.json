@@ -1,0 +1,36 @@
+{
+    "question_number": 1,
+    "question_text": "Which of the following pairs of physical quantities have same dimensions?",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "Torque and angular momentum",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Velocity and displacement",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Torque and angular momentum",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Weight and mass",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Velocity and displacement",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

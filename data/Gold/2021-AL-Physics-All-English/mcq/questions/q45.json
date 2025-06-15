@@ -1,0 +1,38 @@
+{
+    "question_number": 45,
+    "question_text": "A solid conducting sphere of radius $2R$ contains a cavity of radius $R$ inside it as shown in the figure. The sphere carries a net charge $+q$. The charge is uniformly distributed in the volume of the conducting sphere. Which of the following graphs best represents the variation of the electric field intensity $E$ with the radial distance $r$ from the centre of the sphere?",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "[]",
+            "option_image": "page_10_crop2_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_10_crop7_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_10_crop0_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_10_crop4_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_10_crop1_class0.jpg",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_10_crop6_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

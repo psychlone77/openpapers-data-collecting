@@ -1,0 +1,36 @@
+{
+    "question_number": 26,
+    "question_text": "A small spherical liquid drop of radius $r$ and density $\\rho$ falls with terminal velocity $v$ in still air. The coefficient of viscosity of air is $\\eta$ and the density of air can be neglected. Consider the following statements regarding the terminal velocity $v$ of the droplet.\n(A) It is directly proportional to $r^2$.\n(B) It is directly proportional to $\\rho$.\n(C) It is inversely proportional to $\\eta$.",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "Only (A) is true.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Only (B) is true.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Only (A) and (B) are true.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Only (B) and (C) are true.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "All (A), (B) and (C) are true.",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

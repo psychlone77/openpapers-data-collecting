@@ -1,0 +1,38 @@
+{
+    "question_number": 12,
+    "question_text": "A solid sphere at a certain temperature is completely immersed and floating in a liquid at $8^\\circ C$ as shown in the figure. Volume expansivity of the liquid is $\\gamma_l$, $\\gamma_l > \\gamma_s$. The entire sphere with the liquid is cooled down to $4^\\circ C$ with volume expansivity $\\gamma_s$.",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "The density of the sphere will be greater than the liquid after cooling.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "The magnitude of the upthrust acting on the sphere will not change.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "The following statements will be true the surface of the liquid after cooling.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "only A and B are true.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "only B and C are true.",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_2_crop6_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

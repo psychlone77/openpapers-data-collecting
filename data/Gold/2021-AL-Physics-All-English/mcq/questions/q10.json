@@ -1,0 +1,36 @@
+{
+    "question_number": 10,
+    "question_text": "The given circuit is equivalent to a",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "NOT gate.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "OR gate.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "AND gate.",
+            "option_image": "[]",
+            "is_correct": true
+        },
+        {
+            "option_text": "NOR gate.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "EXOR gate.",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

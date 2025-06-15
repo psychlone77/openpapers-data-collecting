@@ -1,0 +1,38 @@
+{
+    "question_number": 31,
+    "question_text": "A student used the potentiometer circuit shown in the figure to determine the internal resistance ($r$) of cell $E$. When key $K$ is opened, the balance length is 600 cm and when the key $K$ is closed, the balance length is 500 cm. What is the internal resistance of the cell $E$? ",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "10 $\\Omega$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "12 $\\Omega$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "20 $\\Omega$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "4 $\\Omega$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "5 $\\Omega$",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_7_crop0_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

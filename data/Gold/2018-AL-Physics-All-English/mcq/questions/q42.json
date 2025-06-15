@@ -1,0 +1,38 @@
+{
+    "question_number": 42,
+    "question_text": "In the circuit shown in figure (a), the box with broken lines contains a resistor network. The 2V battery has negligible internal resistance. An ideal voltmeter connected across $a$ gives a reading of 1V. When the voltmeter is connected across $b$, the reading indicates 2 mA. The resistor network inside the box with broken lines is",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "[]",
+            "option_image": "page_9_crop5_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_9_crop4_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_9_crop8_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_9_crop2_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_9_crop11_class0.jpg",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_9_crop1_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

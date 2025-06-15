@@ -1,0 +1,36 @@
+{
+    "question_number": 20,
+    "question_text": "The diameter and mean density of Jupiter are 11 times and $\\frac{1}{5}$ times respectively to that of Earth. If the gravitational intensity at the surface of Earth is $10 \\, N \\, kg^{-1}$, what is the gravitational intensity at the surface of Jupiter?",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "$27.5 \\, N \\, kg^{-1}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$440 \\, N \\, kg^{-1}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$48.4 \\, N \\, kg^{-1}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$110 \\, N \\, kg^{-1}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$440 \\, N \\, kg^{-1}$",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

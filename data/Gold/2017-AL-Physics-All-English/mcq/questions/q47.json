@@ -1,0 +1,38 @@
+{
+    "question_number": 47,
+    "question_text": "Variation of the output potential ($V$) with time ($t$) of an alternating plate capacitor is shown in the figure. The other plate of the capacitor is kept unconnected. The variation of the potential ($V$) at the plate with time($t$) is best represented by",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "[]",
+            "option_image": "page_10_crop10_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_10_crop8_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_10_crop6_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_10_crop11_class0.jpg",
+            "is_correct": true
+        },
+        {
+            "option_text": "[]",
+            "option_image": "page_10_crop13_class0.jpg",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_10_crop12_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

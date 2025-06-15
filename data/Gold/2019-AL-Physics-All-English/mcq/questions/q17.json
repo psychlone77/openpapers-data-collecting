@@ -1,0 +1,38 @@
+{
+    "question_number": 17,
+    "question_text": "The magnitude and the direction of the electric field at point A due to the point charge distribution shown in the figure are",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "$\\frac{6q}{4\\pi\\epsilon_0 a^2} \\uparrow$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\frac{6q}{4\\pi\\epsilon_0 a^2} \\downarrow$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\frac{2q}{4\\pi\\epsilon_0 a^2} \\uparrow$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\frac{6q}{4\\pi\\epsilon_0 a^2} \\rightarrow$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\frac{6q}{4\\pi\\epsilon_0 a^2} \\leftarrow$",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_4_crop6_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

@@ -1,0 +1,36 @@
+{
+    "question_number": 9,
+    "question_text": "Consider the following statements made about the standing wave on a stretched string. \n(A) The energy does not propagate along a standing wave.\n(B) The amplitude of the stationary wave particle in the string depends on its position along the string.\n(C) Maximum displacement achieved varies with time.",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "Only A is true.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Only B is true.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Only A and B are true.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Only B and C are true.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "A, B and C are true.",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

@@ -1,0 +1,38 @@
+{
+    "question_number": 35,
+    "question_text": "Four reservoirs X, B, C and D and E of which the temperatures are maintained. The four other reservoirs X, C, D and E at temperatures shown. Heat is supplied by connecting at 100 $^\\circ C$ supplies heat and maintains the reservoir by operating the reservoirs. The lengths of the connecting rods are not drawn to the scale. If the cross-section. Lengths of the rods will not be having identical areas of cross-section. Conducting rod between X and B is",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "$\frac{1}{2}L$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\frac{2}{3}L$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\frac{3}{2}L$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\frac{2}{5}L$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\frac{5}{2}L$",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_7_crop0_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

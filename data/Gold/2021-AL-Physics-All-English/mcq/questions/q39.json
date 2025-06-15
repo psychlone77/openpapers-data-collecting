@@ -1,0 +1,38 @@
+{
+    "question_number": 39,
+    "question_text": "A sound source $S$ emits sound of constant frequency $f$. An observer $O$ travels in the direction shown at a speed of $0.1u$ where $u$ is the speed of sound in air. Which of the following gives the correct relationship between $f_0$ and the frequency $f$ of the sound heard when the observer is travelling towards the source?",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "$f_0 = f$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$f_0 = f(1 - 1/10)$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$f_0 = f(1 + 1/10)$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$f_0 = f(1 - 0.09)$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$f_0 = f(1 + 0.09)$",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_8_crop2_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

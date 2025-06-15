@@ -1,0 +1,36 @@
+{
+    "question_number": 41,
+    "question_text": "Two light rays of red and blue colour are made to pass separately through a glass prism of refracting angle $60^\\circ$. If both rays suffer minimum deviation while passing the prism, which of the following relations between the refractive indices ($\\mu_r$) of red and ($\\mu_b$) of blue is correct? Given that the angle of incidence of the red ray ($i_r$) is $30^\\circ$ and the angle of refraction of the blue ray ($r_b$) at the surface of incidence of the prism is $30^\\circ$",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "$\\mu_r = \\mu_b$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\mu_r = \\mu_b \\sin 60^\\circ$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\mu_r = \\mu_b \\sin 30^\\circ$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\mu_r = \\mu_b \tan 30^\\circ$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\mu_r = \\mu_b \tan 60^\\circ$",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

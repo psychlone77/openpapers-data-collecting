@@ -1,0 +1,38 @@
+{
+    "question_number": 15,
+    "question_text": "Figure shows a distribution of static electric charges enclosed by a Gaussian surface $S$. $X$ is an unknown charge. If the net outward electric flux through the surface $S$ is zero, then charge $X$ is",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "+3$q$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "+2$q$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "-3$q$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "-$q$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "-2$q$",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_3_crop5_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

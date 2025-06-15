@@ -1,0 +1,38 @@
+{
+    "question_number": 16,
+    "question_text": "A composite rod is formed by connecting two rods A and B as shown in the figure. Longitudinal pulse applied at the free end of the rod A propagates with a speed $v$ respectively. A longitudinal pulse of this wave when it propagates through rod A and B is 420 m s$^{-1}$ and 240 m s$^{-1}$. What is the wavelength of this wave when it propagates through rod A and B respectively. The length of rod A is 2m.",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "1 m",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "2 m",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "3 m",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "4 m",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "5 m",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_4_crop7_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

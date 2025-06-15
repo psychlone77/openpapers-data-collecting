@@ -1,0 +1,36 @@
+{
+    "question_number": 6,
+    "question_text": "In a certain transformer there are 360 turns in the primary coil and 30 turns in the secondary coil. Which of the following voltage changes can be achieved by this transformer?",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "240 V AC voltage to 12 V DC voltage.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "240 V AC voltage to 20 V AC voltage.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "240 V DC voltage to 20 V AC voltage.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "240 V AC voltage to 20 V DC voltage.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "240 V DC voltage to 2880 V DC voltage.",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

@@ -1,0 +1,36 @@
+{
+    "question_number": 2,
+    "question_text": "The percentage error of a certain length measurement has to be kept below 1\\%. If the error in the measurement of the length is 0.1 cm, the minimum length to be measured is",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "$1 \\ cm$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$2 \\ cm$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$10 \\ cm$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$4 \\ cm$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$10 \\ cm$",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

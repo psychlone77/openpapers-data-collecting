@@ -1,0 +1,38 @@
+{
+    "question_number": 49,
+    "question_text": "The figure shows a vertical cross-section of a conical flask filled with water. The height of the water level in the flask is 0.25 m and the radius of the flask at the water level is 0.20 m. The surface of water is exerted by $2.5 \\times 10^3$ N. What is the magnitude of the total force exerted by the water on the inclined surface of the flask? Density of water = $10^3$ kg/m$^3$. (Take $\\pi = 3$)",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "10 N",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "20 N",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "30 N",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "40 N",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "50 N",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_11_crop1_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

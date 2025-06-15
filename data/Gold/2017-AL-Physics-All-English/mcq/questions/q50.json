@@ -1,0 +1,38 @@
+{
+    "question_number": 50,
+    "question_text": "A small sphere is released from rest from point A in a track fixed at a height $2r$ above the ground. The track is frictionless. The radius $r$ as shown in the figure. The sphere leaves the track horizontally at point B and falls under gravity until it hits the ground at a certain point C. If the sphere's velocities at points A, B and C are $v_A$, $v_B$ and $v_C$ respectively, which of the following is true?",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "$v_A = 0$, $v_B = \\sqrt{2gr}$ and $v_C = \\sqrt{6gr}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$v_A = 0$, $v_B = \\sqrt{gr}$ and $v_C = \\sqrt{5gr}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$v_A = 0$, $v_B = \\sqrt{2gr}$ and $v_C = \\sqrt{5gr}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$v_A = 0$, $v_B = \\sqrt{gr}$ and $v_C = \\sqrt{6gr}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$v_A = 0$, $v_B = \\sqrt{2gr}$ and $v_C = \\sqrt{4gr}$",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_10_crop9_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

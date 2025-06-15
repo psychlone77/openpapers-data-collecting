@@ -1,0 +1,38 @@
+{
+    "question_number": 25,
+    "question_text": "Two cells having e.m.f.s of 3.2 V and 3.2 V and equal internal resistances of 0.5 $\\Omega$ are connected in parallel as shown. Power dissipation by the cell combination is",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "0.01 W",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "0.02 W",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "0.03 W",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "0.5 W",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "0.04 W",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_4_crop3_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

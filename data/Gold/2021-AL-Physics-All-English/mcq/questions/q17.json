@@ -1,0 +1,38 @@
+{
+    "question_number": 17,
+    "question_text": "Two point charges $+4q$ and $-q$ are fixed at distance y apart as shown in the figure. Another point charge $+q$ does not experience a net electric force when it is kept along the same line at distance x from $+4q$. The relation between x and y is given by",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "$x = y$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$x = 2y$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$2x = y$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$x = 2y$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$x = y/2$",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_4_crop6_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

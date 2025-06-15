@@ -1,0 +1,36 @@
+{
+    "question_number": 18,
+    "question_text": "Three monochromatic light beams A, B and C have the same intensities i.e., energy flow through unit area per second. However, the wavelength associated with beam A is longer than that of B and the frequency associated with beams B is respectively than that of C. The increase in the number of photons crossing a unit area per second with beams A, B and C is respectively",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "$1 < 2 < 3$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$2 < 1 < 3$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$3 < 2 < 1$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$3 < 1 < 2$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$2 < 3 < 1$",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

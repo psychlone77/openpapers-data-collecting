@@ -1,0 +1,36 @@
+{
+    "question_number": 48,
+    "question_text": "A ball is thrown vertically upward from the ground. The time duration between the two instances that the ball passes the point at a height of 25 m on its path from the ground is 4 s. What is the initial velocity of the ball? (Neglect air resistance)",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "20 m/s",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "25 m/s",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "30 m/s",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "35 m/s",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "40 m/s",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

@@ -1,0 +1,36 @@
+{
+    "question_number": 6,
+    "question_text": "In a certain thermodynamic process in which an ideal gas is used, the increase of the internal energy of the gas is equal to the heat supplied to the gas. This process is",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "(1) a cyclic process",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "(2) an adiabatic process",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "(3) an isothermal process",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "(4) a constant pressure process",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "(5) a constant volume process",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

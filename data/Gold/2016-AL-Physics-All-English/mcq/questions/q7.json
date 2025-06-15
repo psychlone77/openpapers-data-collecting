@@ -1,0 +1,39 @@
+{
+    "question_number": 7,
+    "question_text": "Of the following sets of internal resistances given, the set of internal resistances that suits best for an ammeter and a voltmeter to have in order to measure the current and the voltage across a 1 k$\\Omega$ resistor of the circuit shown is",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "1 $\\Omega$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "5 $\\Omega$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "1 $\\Omega$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "20 $\\Omega$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "5 $\\Omega$",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_2_crop1_class0.jpg",
+        "page_2_crop6_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

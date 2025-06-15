@@ -1,0 +1,36 @@
+{
+    "question_number": 15,
+    "question_text": "Consider the following statements regarding the moment of inertia of a body:",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "It depends on mass of the body.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "It depends on mass distribution of the body.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "It depends on angular velocity of the body.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Only (A) is true.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "All (A), (B) and (C) are true.",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

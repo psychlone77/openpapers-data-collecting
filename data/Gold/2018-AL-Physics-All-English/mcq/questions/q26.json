@@ -1,0 +1,38 @@
+{
+    "question_number": 26,
+    "question_text": "In the figure shown, 1, 2, 3, 4, 5 and 6 represent six identical electric bulbs. Consider the operation of the circuit under conditions (A), (B) and (C) given below.\n(A) When bulbs 2 and 5 are burnt.\n(B) When none of the bulbs are burnt.\n(C) When bulbs 2 and 5 are burnt, glowing at the same brightnes in the circuit can be seen.",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "Only A and B.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "A, B and C.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Only A, B and C.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "B and C only.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Only C.",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_5_crop0_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

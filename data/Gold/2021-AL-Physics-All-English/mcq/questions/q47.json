@@ -1,0 +1,38 @@
+{
+    "question_number": 47,
+    "question_text": "A conducting sphere of radius $2r$ is given a charge of $+3Q$. Another uncharged conducting sphere of radius $r$ is touched to the first sphere and then separated. The arrangement is shown in the figure. What is the electrical potential energy of the system now? (Assume that the charge distributions of spheres are uniform and the system is in free space).",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "\\(\\frac{Q^2}{4\\pi\\epsilon_0 r}\\)",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "\\(\\frac{3Q^2}{8\\pi\\epsilon_0 r}\\)",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "\\(\\frac{3Q^2}{16\\pi\\epsilon_0 r}\\)",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "\\(\\frac{30Q^2}{8\\pi\\epsilon_0 r}\\)",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "\\(\\frac{16Q^2}{30\\pi\\epsilon_0 r}\\)",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_11_crop0_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

@@ -1,0 +1,38 @@
+{
+    "question_number": 37,
+    "question_text": "Number 23 is written on a piece of paper and then it is slowly horizontally upward while looking at the image of the number through it, and keeping its optical axis vertical. Which of the following best represents the variation of the size and shape of the image as the lens is gradually moved up from the number 23?",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "$23 \\dots \\dots \\dots \\Sigma \\Sigma \\Sigma \\dots$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$23 \\dots \\dots \\dots \\Sigma \\Sigma \\Sigma \\dots$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$23 \\dots \\dots \\dots \\Sigma \\Sigma \\Sigma \\dots$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$32 \\dots \\dots \\dots \\Sigma \\Sigma \\Sigma \\dots$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\Sigma \\Sigma \\Sigma \\dots \\dots \\dots 23 \\dots$",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_8_crop2_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

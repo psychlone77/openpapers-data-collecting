@@ -1,0 +1,36 @@
+{
+    "question_number": 13,
+    "question_text": "Consider the following statements regarding the dew point of air having water vapour in a closed container.\n(A) At dew point, unsaturated water vapour becomes saturated water vapour.\n(B) At dew point, if the volume of the container is reduced, the vapour will condense.\n(C) At dew point, if the volume of the container is reduced, the absolute humidity of the air will decrease.",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "Only A and C",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Only A, B, and C",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Only A and B",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Only A",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Only C",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

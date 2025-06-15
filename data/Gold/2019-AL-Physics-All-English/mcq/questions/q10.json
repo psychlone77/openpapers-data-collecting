@@ -1,0 +1,38 @@
+{
+    "question_number": 10,
+    "question_text": "Consider the following statements regarding a three-level LASER system having energies $E_1$, $E_2$, $E_3$ of pumping, radiation as shown in the figure.",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "The LASER action occurs between energy levels 2 and 1.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "The frequency of pumping $< $ energy levels 2.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Only level 3 is known as the metastable energy level.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "It does not change with altitude at constant temperature.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Only B and C",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_2_crop6_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

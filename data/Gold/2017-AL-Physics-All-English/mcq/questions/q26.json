@@ -1,0 +1,38 @@
+{
+    "question_number": 26,
+    "question_text": "In the given circuit, each cell has e.m.f. $E$ and internal resistance $r$. Current $I$ is given by",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "$\\frac{E}{R+r}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\frac{4E}{R}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\frac{2E}{R+r}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\frac{E}{4R+r}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\frac{4E}{R+r}$",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_5_crop1_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

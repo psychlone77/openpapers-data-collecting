@@ -1,0 +1,36 @@
+{
+    "question_number": 21,
+    "question_text": "A beam of monochromatic light is incident on a metal surface which is capable of producing photoelectrons. If the frequency of the light is above the threshold frequency of the metal, the number of photoelectrons ejected from the metal surface is proportional to",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "\\(1\\) frequency of the kinetic energy of a photoelectron",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "\\(2\\) work function of the metal",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "\\(3\\) number of photons that hits the metal surface.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "\\(4\\) frequency of the incident light",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "\\(5\\) number of three photo electrons",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

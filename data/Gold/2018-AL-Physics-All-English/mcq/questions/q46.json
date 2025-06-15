@@ -1,0 +1,38 @@
+{
+    "question_number": 46,
+    "question_text": "Two teams start to play tug-of-war using a rope of uniform strength on a hard flat horizontal surface as shown in the figure. Both teams apply equal forces and as a result, the point $O$ on the rope does not move. Consider the following statements made about this situation.",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "If each of the members of the two groups applies the same force on the rope, the magnitude of the tension throughout the rope is the same.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "If the magnitude of tension on the rope exceeds its breaking tension, the rope will break only at a point between $P$ and $Q$.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "If the magnitude of tension on the rope exceeds its breaking tension, the rope will break only at the coefficient of static friction between the applied by individual and the surface.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "Only A is true.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "All above statements are true.",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_11_crop2_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

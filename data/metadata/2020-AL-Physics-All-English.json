@@ -1,0 +1,31 @@
+{
+  "pdf": "2020-AL-Physics-All-English.pdf",
+  "progress": 3,
+  "steps": {
+    "bronze_to_silver": {
+      "status": "done",
+      "source_layer": "Bronze",
+      "source_path": "./data/Bronze/2020-AL-Physics-All-English.pdf",
+      "target_layer": "Silver",
+      "target_path": "./data/Silver/2020-AL-Physics-All-English",
+      "timestamp": "2025-06-13T22:43:26.150017"
+    },
+    "silver_to_gold_i": {
+      "status": "done",
+      "source_layer": "Silver",
+      "source_path": "./data/Silver/2020-AL-Physics-All-English",
+      "target_layer": "Gold_Images",
+      "target_path": "./data/Gold/2020-AL-Physics-All-English",
+      "timestamp": "2025-06-13T22:43:26.532481"
+    },
+    "silver_gold_to_gold_q": {
+      "status": "done",
+      "source_layer": "Silver + Gold_Images",
+      "source_path": "./data/Silver/2020-AL-Physics-All-English, ./data/Gold/2020-AL-Physics-All-English",
+      "target_layer": "Gold_Questions",
+      "target_path": "./data/Gold/2020-AL-Physics-All-English",
+      "timestamp": "2025-06-13T22:43:26.553239"
+    }
+  },
+  "last_modified": "2025-06-13T22:43:26.553255"
+}

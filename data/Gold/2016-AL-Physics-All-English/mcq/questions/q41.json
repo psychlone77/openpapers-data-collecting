@@ -1,0 +1,38 @@
+{
+    "question_number": 41,
+    "question_text": "Two narrow tubes of equal length but different radii of cross-section are connected end to end, and water is allowed to flow through it as shown in the figure.",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "$\\frac{A_1}{A_2}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\frac{A_2}{A_1}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\sqrt{\\frac{A_1}{A_2}}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\sqrt{\\frac{A_2}{A_1}}$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$\\frac{A_1^2}{A_2^2}$",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_7_crop3_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}

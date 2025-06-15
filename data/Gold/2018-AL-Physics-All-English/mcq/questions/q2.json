@@ -1,0 +1,36 @@
+{
+    "question_number": 2,
+    "question_text": "X, Y and Z represent three physical quantities with \\textbf{different} dimensions. They can be combined to form another physical quantity of the form\n\\( P = AX + BY + CZ \\)",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "\\( AX \\)",
+            "option_image": "[]",
+            "is_correct": null
+        },
+        {
+            "option_text": "\\( AX - CZ \\)",
+            "option_image": "[]",
+            "is_correct": null
+        },
+        {
+            "option_text": "\\( AX + CZ \\)",
+            "option_image": "[]",
+            "is_correct": null
+        },
+        {
+            "option_text": "\\( BY \\)",
+            "option_image": "[]",
+            "is_correct": null
+        },
+        {
+            "option_text": "\\( BY/CZ \\)",
+            "option_image": "[]",
+            "is_correct": null
+        }
+    ],
+    "answer": null,
+    "question_images": [],
+    "marks": null,
+    "difficulty": "normal"
+}

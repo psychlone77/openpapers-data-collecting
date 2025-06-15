@@ -1,0 +1,39 @@
+{
+    "question_number": 49,
+    "question_text": "Three long and straight wires carrying equal currents $I$ are held in fixed positions $A$, $B$ and $C$ perpendicular to the plane of the paper as shown in the figure, where $OA = OB = 1$ m. If the currents in the wires at $x_0$ and $y_0$ are set up and held perpendicular to the plane of the paper, at points $x_0$ and $y_0$ where $x_0 = 2$ m and $y_0 = 2$ m. Which of the following currents set up in the wires at $x_0$ and $y_0$ will produce a resultant magnetic field of magnitude zero at positive $y$-direction at the point $O$.",
+    "subject_unit": null,
+    "options": [
+        {
+            "option_text": "$3I \\odot$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$4I \\odot$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$4I \\otimes$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$4I \\otimes$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_text": "$6I \\odot$",
+            "option_image": "[]",
+            "is_correct": false
+        }
+    ],
+    "answer": null,
+    "question_images": [
+        "page_10_crop0_class0.jpg",
+        "page_10_crop1_class0.jpg"
+    ],
+    "marks": null,
+    "difficulty": "normal"
+}
