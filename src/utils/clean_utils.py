@@ -10,8 +10,8 @@ from metadata import PROGRESS_LEVELS, rollback_metadata_to_step
 # --- Setup CLI Arguments ---
 parser = argparse.ArgumentParser(description="Debug utility for cleaning up PDF-related data.")
 parser.add_argument("pdf", help="Name of the PDF (without .pdf extension). Use 'all' for all PDFs.")
-parser.add_argument("--level", choices=["bronze", "silver", "gold_images", "gold_questions"],
-                    default="bronze", help="Which level of data to delete. All the data upwards including the level specified will be deleted. Options: bronze, silver, gold_images, gold_questions.")
+parser.add_argument("--level", choices=["bronze", "silver", "gold_images", "gold_questions", "primary"],
+                    default="bronze", help="Which level of data to delete. All the data upwards including the level specified will be deleted. Options: bronze, silver, gold_images, gold_questions, primary")
 parser.add_argument("--debug", action="store_true", help="Enable debug logging")
 args = parser.parse_args()
 
@@ -24,6 +24,7 @@ logger.info("Cleaning script started")
 BRONZE_DIR = "./data/Bronze"
 SILVER_DIR = "./data/Silver"
 GOLD_DIR = "./data/Gold"
+PRIMARY_DIR = "./data/primary"
 METADATA_PATH = "./data/metadata"
 
 # --- Utility Functions ---
@@ -51,7 +52,8 @@ def cleanup(pdf_name: str, level: str):
         "gold_questions_structured": os.path.join(GOLD_DIR, pdf_name, "structured", "questions"),
         "gold_images_essay": os.path.join(GOLD_DIR, pdf_name, "essay", "images"),
         "gold_questions_essay": os.path.join(GOLD_DIR, pdf_name, "essay", "questions"),
-        "gold": os.path.join(GOLD_DIR, pdf_name)
+        "gold": os.path.join(GOLD_DIR, pdf_name),
+        "primary": os.path.join(PRIMARY_DIR, pdf_name),
     }
 
     # Cascade deletions depending on level
@@ -59,19 +61,26 @@ def cleanup(pdf_name: str, level: str):
         delete_file(paths["bronze"])
         delete_folder(paths["silver"])
         delete_folder(paths["gold"])
+        rollback_metadata_to_step(pdf_name, "gold_to_primary")
         rollback_metadata_to_step(pdf_name, "unprocessed")
     elif level == "silver":
         delete_folder(paths["silver"])
         delete_folder(paths["gold"])
+        rollback_metadata_to_step(pdf_name, "gold_to_primary")
         rollback_metadata_to_step(pdf_name, "bronze_to_silver")
     elif level == "gold_images":
         delete_folder(paths["gold"])
+        rollback_metadata_to_step(pdf_name, "gold_to_primary")
         rollback_metadata_to_step(pdf_name, "silver_to_gold_i")
     elif level == "gold_questions":
         delete_folder(paths["gold_questions_mcq"])
         delete_folder(paths["gold_questions_structured"])
         delete_folder(paths["gold_questions_essay"])
+        rollback_metadata_to_step(pdf_name, "gold_to_primary")
         rollback_metadata_to_step(pdf_name, "silver_gold_to_gold_q")
+    elif level == "primary":
+        delete_folder(paths["primary"])
+        rollback_metadata_to_step(pdf_name, "gold_to_primary")
 
 # --- Entry Point ---
 if args.pdf == "all":

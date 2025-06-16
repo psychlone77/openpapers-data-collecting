@@ -5,6 +5,7 @@ import argparse
 from pdf.split_to_pages import pdf_to_pages
 from images.image_extract import extract_images
 from gemini.convert_to_json import convert_to_json
+from questions.cleaned_json import clean_jsons
 from utils.logging_config import setup_logger
 from utils.metadata import read_metadata, update_step_metadata, PROGRESS_LEVELS
 
@@ -25,6 +26,7 @@ logger.info("Main script started\n\n")
 global_bronze_path = "./data/Bronze/"
 global_silver_path = "./data/Silver/"
 global_gold_path = "./data/Gold/"
+global_primary_path = "./data/primary/"
 
 if not os.path.exists(global_bronze_path):
     logger.error(f"Bronze directory does not exist: {global_bronze_path}")
@@ -35,6 +37,7 @@ if not os.listdir(global_bronze_path):
 os.makedirs(global_bronze_path, exist_ok=True)
 os.makedirs(global_silver_path, exist_ok=True)
 os.makedirs(global_gold_path, exist_ok=True)
+os.makedirs(global_primary_path, exist_ok=True)
 
 # --- Process each PDF file in the Bronze directory ---
 for file in os.listdir(global_bronze_path):
@@ -52,6 +55,9 @@ for file in os.listdir(global_bronze_path):
     
     gold_path = os.path.join(global_gold_path, pdf)
     logger.debug(f"Gold path: {gold_path}")
+
+    primary_path = os.path.join(global_primary_path, pdf)
+    logger.debug(f"Primary path: {primary_path}")
 
     # --- Read metadata and determine progress ---
     metadata = read_metadata(pdf)
@@ -105,6 +111,19 @@ for file in os.listdir(global_bronze_path):
             source_path = f"{silver_path}, {gold_path}",
             target_layer = "Gold_Questions",
             target_path = gold_path
+        )
+
+    # --- Step 4: Clean JSONs and convert images to base64 (Gold_Questions → Primary) ---
+    if progress < PROGRESS_LEVELS["gold_to_primary"]:
+        clean_jsons(gold_path, primary_path)
+        logger.info(f"Cleaned JSONs and converted images to base64\n")
+        update_step_metadata(
+            pdf_name = pdf,
+            step = "gold_to_primary",
+            source_layer = "Gold",
+            source_path = gold_path,
+            target_layer = "Primary",
+            target_path = primary_path
         )
 
     logger.info(f"Finished processing {pdf}.\n\n")

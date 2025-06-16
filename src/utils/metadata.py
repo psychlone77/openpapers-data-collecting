@@ -18,6 +18,7 @@ PROGRESS_LEVELS = {
     "bronze_to_silver": 1,
     "silver_to_gold_i": 2,
     "silver_gold_to_gold_q": 3,
+    "gold_to_primary": 4
 }
 
 @log_exceptions

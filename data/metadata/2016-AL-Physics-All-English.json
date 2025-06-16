@@ -1,6 +1,6 @@
 {
   "pdf": "2016-AL-Physics-All-English.pdf",
-  "progress": 3,
+  "progress": 4,
   "steps": {
     "bronze_to_silver": {
       "status": "done",
@@ -25,7 +25,15 @@
       "target_layer": "Gold_Questions",
       "target_path": "./data/Gold/2016-AL-Physics-All-English",
       "timestamp": "2025-06-13T22:21:35.412595"
+    },
+    "gold_to_primary": {
+      "status": "done",
+      "source_layer": "Gold",
+      "source_path": "./data/Gold/2016-AL-Physics-All-English",
+      "target_layer": "Primary",
+      "target_path": "./data/primary/2016-AL-Physics-All-English",
+      "timestamp": "2025-06-16T19:52:12.180051"
     }
   },
-  "last_modified": "2025-06-13T22:21:35.412601"
+  "last_modified": "2025-06-16T19:52:12.180062"
 }
