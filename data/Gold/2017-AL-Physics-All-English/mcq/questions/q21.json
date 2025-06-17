@@ -4,27 +4,32 @@
     "subject_unit": null,
     "options": [
         {
-            "option_text": "\\(1\\) frequency of the kinetic energy of a photoelectron",
+            "option_number": 1,
+            "option_text": "the work function of the metal",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "\\(2\\) work function of the metal",
+            "option_number": 2,
+            "option_text": "the reciprocal of the kinetic energy of a photoelectron",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "\\(3\\) number of photons that hits the metal surface.",
+            "option_number": 3,
+            "option_text": "frequency of the incident light",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "\\(4\\) frequency of the incident light",
+            "option_number": 4,
+            "option_text": "number of photons that hits the metal surface",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "\\(5\\) number of three photo electrons",
+            "option_number": 5,
+            "option_text": "number of three photo electrons",
             "option_image": "[]",
             "is_correct": false
         }

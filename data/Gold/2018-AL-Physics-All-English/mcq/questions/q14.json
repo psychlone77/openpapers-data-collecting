@@ -4,27 +4,32 @@
     "subject_unit": null,
     "options": [
         {
-            "option_text": "\\( \\frac{v_0^2}{2\\mu g} \\)",
+            "option_number": 1,
+            "option_text": "$\\frac{2v_0^2}{\\mu g}$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "\\( \\frac{v_0^2}{\\mu g} \\)",
+            "option_number": 2,
+            "option_text": "$\\frac{v_0^2}{2\\mu g}$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "\\( \\frac{2v_0^2}{\\mu g} \\)",
+            "option_number": 3,
+            "option_text": "$\\frac{2\\mu g}{v_0^2}$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "\\( \\frac{v_0^2}{2g} \\)",
+            "option_number": 4,
+            "option_text": "$\\frac{v_0^2}{\\mu g}$",
             "option_image": "[]",
-            "is_correct": false
+            "is_correct": true
         },
         {
-            "option_text": "\\( \\frac{v_0^2}{2\\mu g} \\)",
+            "option_number": 5,
+            "option_text": "$\\frac{\\mu g}{2v_0^2}$",
             "option_image": "[]",
             "is_correct": false
         }

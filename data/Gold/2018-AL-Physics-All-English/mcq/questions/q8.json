@@ -4,27 +4,32 @@
     "subject_unit": null,
     "options": [
         {
-            "option_text": "(1) 90 V",
+            "option_number": 1,
+            "option_text": "\\(1\\) 0 V",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "(2) 8 V",
+            "option_number": 2,
+            "option_text": "\\(2\\) 8 V",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "(3) 12 V",
+            "option_number": 3,
+            "option_text": "\\(3\\) 12 V",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "(4) 72 V",
+            "option_number": 4,
+            "option_text": "\\(4\\) 72 V",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "(5) 7.2 kV",
+            "option_number": 5,
+            "option_text": "\\(5\\) 7.2 kV",
             "option_image": "[]",
             "is_correct": false
         }

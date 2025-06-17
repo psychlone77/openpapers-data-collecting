@@ -4,27 +4,32 @@
     "subject_unit": null,
     "options": [
         {
-            "option_text": "$\\frac{6q}{4\\pi\\epsilon_0 a^2} \\uparrow$",
+            "option_number": 1,
+            "option_text": "$\\frac{6q}{4\\pi\\epsilon_0 a^2}$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "$\\frac{6q}{4\\pi\\epsilon_0 a^2} \\downarrow$",
+            "option_number": 2,
+            "option_text": "$\\frac{6q}{4\\pi\\epsilon_0 a^2}$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "$\\frac{2q}{4\\pi\\epsilon_0 a^2} \\uparrow$",
+            "option_number": 3,
+            "option_text": "$\\frac{2q}{4\\pi\\epsilon_0 a^2}$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "$\\frac{6q}{4\\pi\\epsilon_0 a^2} \\rightarrow$",
+            "option_number": 4,
+            "option_text": "$\\frac{6q}{4\\pi\\epsilon_0 a^2}$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "$\\frac{6q}{4\\pi\\epsilon_0 a^2} \\leftarrow$",
+            "option_number": 5,
+            "option_text": "$\\frac{2q}{4\\pi\\epsilon_0 a^2}$",
             "option_image": "[]",
             "is_correct": false
         }

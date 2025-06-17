@@ -4,27 +4,32 @@
     "subject_unit": null,
     "options": [
         {
-            "option_text": "$ \\dfrac{6V}{27\\Omega} $",
+            "option_number": 1,
+            "option_text": "$6V$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "$ \\dfrac{20V}{27\\Omega} $",
+            "option_number": 2,
+            "option_text": "$20V$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "$ \\dfrac{21R}{27\\Omega} $",
+            "option_number": 3,
+            "option_text": "$21R$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "$ \\dfrac{27V}{12\\Omega} $",
+            "option_number": 4,
+            "option_text": "$27V$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "$ \\dfrac{133V}{88\\Omega} $",
+            "option_number": 5,
+            "option_text": "$133R$",
             "option_image": "[]",
             "is_correct": false
         }

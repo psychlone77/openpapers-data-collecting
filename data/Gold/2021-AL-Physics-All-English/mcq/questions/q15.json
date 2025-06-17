@@ -4,27 +4,20 @@
     "subject_unit": null,
     "options": [
         {
+            "option_number": "A",
             "option_text": "It depends on mass of the body.",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": "B",
             "option_text": "It depends on mass distribution of the body.",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": "C",
             "option_text": "It depends on angular velocity of the body.",
-            "option_image": "[]",
-            "is_correct": false
-        },
-        {
-            "option_text": "Only (A) is true.",
-            "option_image": "[]",
-            "is_correct": false
-        },
-        {
-            "option_text": "All (A), (B) and (C) are true.",
             "option_image": "[]",
             "is_correct": false
         }

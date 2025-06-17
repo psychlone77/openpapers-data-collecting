@@ -4,27 +4,32 @@
     "subject_unit": null,
     "options": [
         {
+            "option_number": 1,
             "option_text": "Two circuits are used in the X-ray production system.",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 2,
             "option_text": "Low voltage is sufficient to heat the cathode.",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 3,
             "option_text": "Energy of the X-rays emitted depends on the current through the filament.",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "X-ray tube must be evacuated to avoid the energy loss of electrons.",
+            "option_number": 4,
+            "option_text": "Energy of the X-rays emitted depends on the current of electrons.",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "Energy of the X-rays emitted depends on the current of electrons.",
+            "option_number": 5,
+            "option_text": "X-ray tube must be evacuated to avoid the energy loss of electrons.",
             "option_image": "[]",
             "is_correct": false
         }

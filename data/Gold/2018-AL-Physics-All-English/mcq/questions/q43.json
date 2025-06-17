@@ -1,31 +1,36 @@
 {
     "question_number": 43,
-    "question_text": "In the circuit shown, $X$ and $Y$ represent the terminals of a variable voltage source and resistor $D$ is an ideal broken line. $P$ is a variable situated in the box with variable resistance of the voltage $V_x$ at point $X$ is plotted against the resistance $R$ between $X$ and $Y$. The following graphs correctly represents the variation of the overall resistance $R$ of the section of the circuit to the right of $XY$?",
+    "question_text": "In the circuit shown, $X$ and $Y$ represent the terminals of a variable voltage source and resistor $D$ is an ideal broken line. $P$ is a variable situated in the box with variable resistance $R$ of the voltage $V_x$ at point $X$ is plotted against the resistance $R$. Which of the following graphs correctly represents the variation of the overall resistance of the section of the circuit to the right of $XY$?",
     "subject_unit": null,
     "options": [
         {
+            "option_number": 1,
             "option_text": "[]",
             "option_image": "page_10_crop9_class0.jpg",
             "is_correct": false
         },
         {
+            "option_number": 2,
             "option_text": "[]",
             "option_image": "page_10_crop12_class0.jpg",
             "is_correct": false
         },
         {
+            "option_number": 3,
             "option_text": "[]",
             "option_image": "page_10_crop8_class0.jpg",
             "is_correct": false
         },
         {
+            "option_number": 4,
             "option_text": "[]",
-            "option_image": "page_10_crop13_class0.jpg",
+            "option_image": "page_10_crop7_class0.jpg",
             "is_correct": false
         },
         {
+            "option_number": 5,
             "option_text": "[]",
-            "option_image": "page_10_crop11_class0.jpg",
+            "option_image": "page_10_crop13_class0.jpg",
             "is_correct": false
         }
     ],

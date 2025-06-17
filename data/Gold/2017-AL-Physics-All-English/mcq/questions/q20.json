@@ -1,37 +1,42 @@
 {
     "question_number": 20,
-    "question_text": "Two digital voltage waveforms $A$ and $B$ shown are connected to the two inputs of the gate shown. The correct output voltage waveform at $F$ is",
+    "question_text": "Two digital voltage waveforms $A$ and $B$ shown are connected to the two inputs of the gate shown. The correct output voltage waveform is at $t = 0$",
     "subject_unit": null,
     "options": [
         {
+            "option_number": 1,
             "option_text": "[]",
-            "option_image": "[page_4_crop5_class0.jpg]",
+            "option_image": "page_4_crop5_class0.jpg",
             "is_correct": false
         },
         {
+            "option_number": 2,
             "option_text": "[]",
-            "option_image": "[page_4_crop6_class0.jpg]",
+            "option_image": "page_4_crop6_class0.jpg",
             "is_correct": false
         },
         {
+            "option_number": 3,
             "option_text": "[]",
-            "option_image": "[page_4_crop4_class0.jpg]",
+            "option_image": "page_4_crop4_class0.jpg",
             "is_correct": false
         },
         {
+            "option_number": 4,
             "option_text": "[]",
-            "option_image": "[page_4_crop3_class0.jpg]",
+            "option_image": "page_4_crop6_class0.jpg",
             "is_correct": false
         },
         {
+            "option_number": 5,
             "option_text": "[]",
-            "option_image": "[page_4_crop2_class0.jpg]",
+            "option_image": "page_4_crop5_class0.jpg",
             "is_correct": false
         }
     ],
     "answer": null,
     "question_images": [
-        "page_4_crop0_class0.jpg"
+        "page_4_crop3_class0.jpg"
     ],
     "marks": null,
     "difficulty": "normal"

@@ -4,27 +4,32 @@
     "subject_unit": null,
     "options": [
         {
-            "option_text": "49 cm",
+            "option_number": 1,
+            "option_text": "$49 \\text{ cm}$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "9.8 cm",
+            "option_number": 2,
+            "option_text": "$9.8 \\text{ cm}$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "10.2 cm",
+            "option_number": 3,
+            "option_text": "$10.2 \\text{ cm}$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "49 cm",
+            "option_number": 4,
+            "option_text": "$49 \\text{ cm}$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "98 cm",
+            "option_number": 5,
+            "option_text": "$98 \\text{ cm}$",
             "option_image": "[]",
             "is_correct": false
         }

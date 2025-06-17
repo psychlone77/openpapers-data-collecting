@@ -1,38 +1,43 @@
 {
     "question_number": 22,
-    "question_text": "Positions of three motor cars \\(1, 2\\) and \\(3\\) travelling along three parallel straight lanes of a road at time \\(t = 0\\) and \\(t = t_0\\) are shown in figure (a), and their corresponding velocity (v) - time (t) graphs are shown in figure (b).",
+    "question_text": "Positions of three cars 1, 2, and 3 travelling along three parallel straight lanes of a road at time $t = 0$ and $t = t_0$ are shown in figure (a), and their corresponding velocity ($v$) time ($t$) graphs are shown in figure (b).",
     "subject_unit": null,
     "options": [
         {
-            "option_text": "\\(1\\) ABD = DEF and ABD = DEF",
+            "option_number": 1,
+            "option_text": "$ABD = DEF$ and $ABD = DEF$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "\\(2\\) BCD = DEF and the areas in the graphs satisfy the conditions",
+            "option_number": 2,
+            "option_text": "$BCD = DEF$ and the areas in the graphs satisfy the conditions",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "\\(3\\) CDB = DEG and ACD = DFG",
+            "option_number": 3,
+            "option_text": "$CDB = DEG$ and $ACD = DEG$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "\\(4\\) BCD = only the areas in the graphs satisfy the conditions",
+            "option_number": 4,
+            "option_text": "$BCD = ABD$ only and $DEF = DFG$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "\\(5\\) ACD = DVG",
+            "option_number": 5,
+            "option_text": "$ACD = DVG$ and $BCD = DFG$",
             "option_image": "[]",
             "is_correct": false
         }
     ],
     "answer": null,
     "question_images": [
-        "page_4_crop1_class0.jpg",
-        "page_4_crop2_class0.jpg"
+        "page_4_crop2_class0.jpg",
+        "page_4_crop1_class0.jpg"
     ],
     "marks": null,
     "difficulty": "normal"

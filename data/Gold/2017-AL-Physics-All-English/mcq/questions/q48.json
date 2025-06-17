@@ -1,37 +1,42 @@
 {
     "question_number": 48,
-    "question_text": "AB and CD represent two parallel straight long conducting wires fixed to a horizontal plane carrying current $I$ in each of them. $L$ is a conducting square loop placed on the same horizontal plane. Consider the following statements and the figure shown between AB and CD. Towards the following statements are correct:",
+    "question_text": "When the switch $S$ in the circuit is closed at time $t = 0$, the voltage $V$ of the power supply varies with time $t$ according to the equation $V = K t^2$, where the power supply $V$ is in volts and $t$ is in seconds. The variation of power dissipation $P$ in the 4 $\\Omega$ resistor with time ($t$) is best represented by",
     "subject_unit": null,
     "options": [
         {
-            "option_text": "(A) The direction of the induced current in the loop is always clock-wise",
-            "option_image": "[]",
+            "option_number": 1,
+            "option_text": "[]",
+            "option_image": "page_8_crop11_class0.jpg",
             "is_correct": false
         },
         {
-            "option_text": "(B) The induced current in the loop gradually increases as it is moved along the line XY",
-            "option_image": "[]",
+            "option_number": 2,
+            "option_text": "[]",
+            "option_image": "page_8_crop5_class0.jpg",
             "is_correct": false
         },
         {
-            "option_text": "(C) The induced current in the loop speed is moving along the line XY",
-            "option_image": "[]",
+            "option_number": 3,
+            "option_text": "[]",
+            "option_image": "page_8_crop8_class0.jpg",
             "is_correct": false
         },
         {
-            "option_text": "(D) The induced current in the loop is zero at the instant the line PQ of the loop passes through the centre of the wires",
-            "option_image": "[]",
+            "option_number": 4,
+            "option_text": "[]",
+            "option_image": "page_8_crop7_class0.jpg",
             "is_correct": false
         },
         {
-            "option_text": "(1) only A is true, (2) only B is true, (3) only A, B and C are true, (4) only B and C are true, (5) only A, B, C and D are true",
-            "option_image": "[]",
+            "option_number": 5,
+            "option_text": "[]",
+            "option_image": "page_8_crop14_class0.jpg",
             "is_correct": false
         }
     ],
     "answer": null,
     "question_images": [
-        "page_10_crop1_class0.jpg"
+        "page_8_crop13_class0.jpg"
     ],
     "marks": null,
     "difficulty": "normal"

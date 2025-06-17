@@ -4,27 +4,32 @@
     "subject_unit": null,
     "options": [
         {
-            "option_text": "the circuit $P$ only",
+            "option_number": 1,
+            "option_text": "the circuit $P$ only.",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "the circuit $Q$ only",
+            "option_number": 2,
+            "option_text": "the circuit $Q$ only.",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "the circuit $R$ only",
+            "option_number": 3,
+            "option_text": "the circuits $R$ and $Q$ only.",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "the circuits $Q$ and $S$ only",
+            "option_number": 4,
+            "option_text": "the circuit $S$ only.",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "the circuit $S$ only",
+            "option_number": 5,
+            "option_text": "the circuit $R$ only.",
             "option_image": "[]",
             "is_correct": false
         }

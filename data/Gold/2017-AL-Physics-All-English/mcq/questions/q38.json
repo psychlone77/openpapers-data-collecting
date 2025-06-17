@@ -1,30 +1,35 @@
 {
     "question_number": 38,
-    "question_text": "A vertical uniform rod of length $L$ when only end fixed to a horizontal surface. The other end is free. When the rod is placed in a vacuum chamber hung from the roof, as shown in figure. Assume that the chamber does not exert any force at contact points with the rod. If $L_1$ is the length of the rod in figure (a) and $L_0$ is the length in figure (b), then the ratio $\frac{L_1}{L_0}$ is given by",
+    "question_text": "A vertical uniform rod of length $L$ is fixed at one end firmly and fixed to a horizontal surface at the other end. When the rod is placed in a vacuum chamber hung from the roof, as shown in figure (b). Assume that the chamber does not exert any force at contact points with the rod. If $L_0$ is the length of the rod in vacuum and $L$ is the length of the rod in air, then the ratio $\frac{L}{L_0}$ is given by",
     "subject_unit": null,
     "options": [
         {
-            "option_text": "$\frac{1}{2}$",
+            "option_number": 1,
+            "option_text": "$\\frac{1}{1+Y}$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "$1 - \frac{1}{e}$",
+            "option_number": 2,
+            "option_text": "$\\frac{1}{1-Y}$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "$\frac{1}{e}$",
+            "option_number": 3,
+            "option_text": "$\\frac{Y}{1-Y}$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "$\frac{1}{2} + 1$",
+            "option_number": 4,
+            "option_text": "$\\frac{Y}{1+Y}$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "$1 - e^{-1}$",
+            "option_number": 5,
+            "option_text": "$\\frac{1-Y}{Y}$",
             "option_image": "[]",
             "is_correct": false
         }

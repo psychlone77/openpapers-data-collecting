@@ -11,6 +11,7 @@ mcq_prompt = """
             difficulty: Difficulty;
         }
         interface Option {
+            option_number: number;
             option_text: string;
             option_image: string;
             is_correct: boolean;
@@ -21,7 +22,7 @@ mcq_prompt = """
     Return the result as raw JSON, do not wrap it in markdown or code blocks.
     make sure all text elements are in latex code
     Always, use the given questions. Do not make up questions and answers.
-    Make sure the outputs are in the expected data type to not cause errors. For an example, the text for both questions and answers must be a string, even if the data is a number, return it as a string for a case like that.
+    Make sure the outputs are in the expected data type to not cause errors. For an example, the text for both questions and answers must be a string, even if the data is a number or in latex, return it as a string for a case like that.
 
     an example is provided for further context:
     [
@@ -31,27 +32,32 @@ mcq_prompt = """
             "subject_unit": "[]",
             "options": [
             {
-                "option_text": "9.8 m/s²",
+                "option_number": 1,
+                "option_text": "$\frac{4}{3}m$",
                 "option_image": "[]",
                 "is_correct": "[]"
             },
             {
-                "option_text": "10 m/s²",
+                "option_number": 2,
+                "option_text": "$\frac{8}{3}m$",
                 "option_image": "[]",
                 "is_correct": "[]"
             },
             {
-                "option_text": "8.9 m/s²",
+                "option_number": 3,
+                "option_text": "$\frac{2}{3}m$",
                 "option_image": "[]",
                 "is_correct": "[]"
             },
             {
-                "option_text": "11 m/s²",
+                "option_number": 4,
+                "option_text": "$\frac{1}{3}m$",
                 "option_image": "[]",
                 "is_correct": "[]"
             },
             {
-                "option_text": "9.0 m/s²",
+                "option_number": 5,
+                "option_text": "$\frac{10}{3}m$",
                 "option_image": "[]",
                 "is_correct": "[]"
             }
@@ -67,26 +73,31 @@ mcq_prompt = """
             "subject_unit": "[]",
             "options": [
             {
+                "option_number": 1,
                 "option_text": "[]",
                 "option_image": "page_2_crop1_class0.jpg",
                 "is_correct": "[]"
             },
             {
+                "option_number": 2,
                 "option_text": "[]",
                 "option_image": "page_2_crop2_class0.jpg",
                 "is_correct": "[]"
             },
             {
+                "option_number": 3,
                 "option_text": "[]",
                 "option_image": "page_2_crop3_class0.jpg",
                 "is_correct": "[]"
             },
             {
+                "option_number": 4,
                 "option_text": "[]",
                 "option_image": "page_2_crop4_class0.jpg",
                 "is_correct": "[]"
             },
             {
+                "option_number": 5,
                 "option_text": "[]",
                 "option_image": "page_2_crop5_class0.jpg",
                 "is_correct": "[]"

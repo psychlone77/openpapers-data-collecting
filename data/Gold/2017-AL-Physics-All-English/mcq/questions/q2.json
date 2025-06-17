@@ -1,30 +1,35 @@
 {
     "question_number": 2,
-    "question_text": "Consider the following physical quantities having different dimensions, and $k$ is a dimensionless constant. \n$C = a + b$\n$D = $k$ab$\n$E = $k$a/b$\nOf the above relationships\n(1) only $C$ is dimensionally valid.\n(2) only $B$ and $C$ are dimensionally valid.\n(3) only $A$ and $C$ are dimensionally valid.\n(4) only $B$, $C$ and $D$ are dimensionally valid.\n(5) only $A$, $B$ and $C$ are dimensionally valid.",
+    "question_text": "Consider the following physical quantities having different dimensions, and $k$ is a dimensionless constant. \n$C = a + b$\n$D = $k$ab$\n$E = $k$a/b$\nOf the above relationships\n(1) only $C$ is dimensionally valid.\n(2) only $B$ is dimensionally valid.\n(3) only $C$ and $D$ are dimensionally valid.\n(4) only $A$, $B$ and $C$ are dimensionally valid.\n(5) only $A$, $B$ and $E$ are dimensionally valid.",
     "subject_unit": null,
     "options": [
         {
+            "option_number": 1,
             "option_text": "only $C$ is dimensionally valid.",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "only $B$ and $C$ are dimensionally valid.",
+            "option_number": 2,
+            "option_text": "only $B$ is dimensionally valid.",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "only $A$ and $C$ are dimensionally valid.",
+            "option_number": 3,
+            "option_text": "only $C$ and $D$ are dimensionally valid.",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "only $B$, $C$ and $D$ are dimensionally valid.",
-            "option_image": "[]",
-            "is_correct": false
-        },
-        {
+            "option_number": 4,
             "option_text": "only $A$, $B$ and $C$ are dimensionally valid.",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_number": 5,
+            "option_text": "only $A$, $B$ and $E$ are dimensionally valid.",
             "option_image": "[]",
             "is_correct": false
         }

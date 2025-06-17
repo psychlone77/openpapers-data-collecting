@@ -4,27 +4,32 @@
     "subject_unit": null,
     "options": [
         {
+            "option_number": 1,
             "option_text": "The wire $W_1$ may have the same length as $W_2$, but a smaller area of cross-section.",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 2,
             "option_text": "The wire $W_2$ may have a larger length and a smaller area of cross-section than $W_1$.",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 3,
             "option_text": "The wire $W_3$ may have the same area of cross-section, but a larger length than that of $W_1$.",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "The wire $W_1$ may have a smaller area of cross-section as well as length larger than $W_1$.",
+            "option_number": 4,
+            "option_text": "The wire $W_1$ may have a smaller area of cross-section as well as length than $W_2$.",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "The wire $W_1$ may have a larger value for the ratio, Area of cross-section/length than $W_1$.",
+            "option_number": 5,
+            "option_text": "The wire $W_1$ may have a larger value for the ratio, Area of cross-section/Length than $W_1$.",
             "option_image": "[]",
             "is_correct": false
         }

@@ -4,27 +4,32 @@
     "subject_unit": null,
     "options": [
         {
-            "option_text": "(A) Only (A)",
+            "option_number": 1,
+            "option_text": "(A) only",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "(B) Only (B)",
+            "option_number": 2,
+            "option_text": "(B) only",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "(C) (A) and (B) only",
+            "option_number": 3,
+            "option_text": "(A) and (B) only",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "(D) (B) and (C) only",
+            "option_number": 4,
+            "option_text": "(B) and (C) only",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "(E) (A), (B) and (C)",
+            "option_number": 5,
+            "option_text": "(A), (B) and (C)",
             "option_image": "[]",
             "is_correct": false
         }

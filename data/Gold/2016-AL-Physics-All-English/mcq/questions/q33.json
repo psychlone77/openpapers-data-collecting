@@ -1,32 +1,37 @@
 {
     "question_number": 33,
-    "question_text": "A rod XY rests between two smooth boards PQ and QR kept inclined to the horizontal as shown in the figure. Angle $\\angle PQR$ is $90^\\circ$. The centre of gravity of the rod is most likely to be situated at the point",
+    "question_text": "A rod XY rests between two smooth boards PQ and QR kept inclined to the horizontal as shown in the figure. Angle PQR is $90^\\circ$. The centre of gravity of the rod is most likely to be situated at the point",
     "subject_unit": null,
     "options": [
         {
-            "option_text": "(1)",
+            "option_number": 1,
+            "option_text": "A",
             "option_image": "[]",
-            "is_correct": null
+            "is_correct": false
         },
         {
-            "option_text": "(2)",
+            "option_number": 2,
+            "option_text": "B",
             "option_image": "[]",
-            "is_correct": null
+            "is_correct": false
         },
         {
-            "option_text": "(3)",
+            "option_number": 3,
+            "option_text": "C",
             "option_image": "[]",
-            "is_correct": null
+            "is_correct": false
         },
         {
-            "option_text": "(4)",
+            "option_number": 4,
+            "option_text": "D",
             "option_image": "[]",
-            "is_correct": null
+            "is_correct": false
         },
         {
-            "option_text": "(5)",
+            "option_number": 5,
+            "option_text": "E",
             "option_image": "[]",
-            "is_correct": null
+            "is_correct": false
         }
     ],
     "answer": null,

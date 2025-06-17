@@ -1,30 +1,35 @@
 {
     "question_number": 50,
-    "question_text": "$A$, $B$, $C$ and $D$ represent vertical cross sections of four identical parallel rectangular metal plates placed normal to the plane of the paper. Each of the plates $A$, $B$, $C$ and $D$ has a small hole at its centre. The three plates are arranged so that their holes are coaxially placed as shown in figure (a). Plate $A$ is grounded and the entire system is in a vacuum. A stationary particle of charge $+q$ and mass $m$ is placed at the end $O$ of the plates. The plates are given suitable voltages $V_A$, $V_B$, $V_C$ and $V_D$ and applied to the plates to obtain the velocity ($v$) -- time ($t$) curve shown in figure (b) for the electron'. (Assume that the given voltages are suitable for practical use and that the edge effects and gravitational effects can be neglected.)",
+    "question_text": "$A$, $B$, $C$ and $D$ represent vertical cross sections of four identical parallel rectangular metal plates placed normal to the plane of the paper. Each of the plates $A$, $B$, $C$ and $D$ has a small hole at its centre. The three plates are arranged so that their holes are coaxially placed as shown in figure (a). Plate $A$ is grounded and the entire system is in a vacuum. A stationary electron is released at the hole in plate $A$. The plates $B$, $C$ and $D$ are applied to the plates to obtain the velocity ($v$) which is shown in figure (b) for the electron'. (Assume that the given voltages are suitable for practical use and that the edge effects and gravitational effects can be neglected).",
     "subject_unit": null,
     "options": [
         {
-            "option_text": "$\\begin{array}{|c|c|c|c|} \\hline V_B & V_C & V_D \\\\ \\hline -3kV & +2.6kV & 0V \\\\ \\hline \\end{array}$",
+            "option_number": 1,
+            "option_text": "$\\begin{array}{|c|c|c|} \\hline V_B & V_C & V_D \\\\ \\hline -3kV & +2.6kV & 0V \\\\ \\hline \\end{array}$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "$\\begin{array}{|c|c|c|c|} \\hline V_B & V_C & V_D \\\\ \\hline +2.5kV & -2.6kV & +3kV \\\\ \\hline \\end{array}$",
+            "option_number": 2,
+            "option_text": "$\\begin{array}{|c|c|c|} \\hline V_B & V_C & V_D \\\\ \\hline +2.5kV & -2.6kV & +3kV \\\\ \\hline \\end{array}$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "$\\begin{array}{|c|c|c|c|} \\hline V_B & V_C & V_D \\\\ \\hline +2.5kV & +2.4kV & +200V \\\\ \\hline \\end{array}$",
+            "option_number": 3,
+            "option_text": "$\\begin{array}{|c|c|c|} \\hline V_B & V_C & V_D \\\\ \\hline +2.5kV & +2.4kV & +200V \\\\ \\hline \\end{array}$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "$\\begin{array}{|c|c|c|c|} \\hline V_B & V_C & V_D \\\\ \\hline +3kV & +2.6kV & -2.8kV \\\\ \\hline \\end{array}$",
+            "option_number": 4,
+            "option_text": "$\\begin{array}{|c|c|c|} \\hline V_B & V_C & V_D \\\\ \\hline +3kV & +2.6kV & -2.8kV \\\\ \\hline \\end{array}$",
             "option_image": "[]",
-            "is_correct": true
+            "is_correct": false
         },
         {
-            "option_text": "$\\begin{array}{|c|c|c|c|} \\hline V_B & V_C & V_D \\\\ \\hline +3kV & +3.2kV & -2.2kV \\\\ \\hline \\end{array}$",
+            "option_number": 5,
+            "option_text": "$\\begin{array}{|c|c|c|} \\hline V_B & V_C & V_D \\\\ \\hline +3kV & +3.2kV & -2.2kV \\\\ \\hline \\end{array}$",
             "option_image": "[]",
             "is_correct": false
         }

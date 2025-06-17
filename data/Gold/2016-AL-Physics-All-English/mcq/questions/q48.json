@@ -4,26 +4,31 @@
     "subject_unit": null,
     "options": [
         {
+            "option_number": 1,
             "option_text": "When the loop passes through position 1, a constant e.m.f. is induced across AD and BC.",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "As the loop passes through position 2, induced e.m.f. will be constant only at position 2.",
+            "option_number": 2,
+            "option_text": "As the loop passes through position 1, a constant e.m.f. will be induced across AD and BC.",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 3,
             "option_text": "At position 3, a constant e.m.f. will be induced only across AD and BC.",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 4,
             "option_text": "The directions of the resultant force on the loop due to magnetic field at positions 1 and 3 are opposite to each other.",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 5,
             "option_text": "The directions of the forces due to magnetic field on the loop at positions 1 and 3 are opposite to each other.",
             "option_image": "[]",
             "is_correct": false
@@ -31,7 +36,7 @@
     ],
     "answer": null,
     "question_images": [
-        "page_9_crop2_class0.jpg"
+        "page_9_crop1_class0.jpg"
     ],
     "marks": null,
     "difficulty": "normal"

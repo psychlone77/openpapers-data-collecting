@@ -1,38 +1,42 @@
 {
     "question_number": 48,
-    "question_text": "An infinitely long thin straight wire held perpendicular to the plane of the paper at point $O$ carries a current $I$ into the paper as shown in the figure. Nine other similar infinitely long wires, parallel to the first wire and carrying the same current $I$ into the paper are placed with their centres at equal distances $r$ from $O$ as shown. Except for wire $A$ and $B$, each wire is at a distance $r$ from any two consecutive wires as in the paper. The magnitude and the direction of the magnetic force per unit length on the wire at the centre $O$ due to other wires. [Take cos 30° = $\\frac{\\sqrt{3}}{2}$]",
+    "question_text": "An infinitely long thin straight wire held perpendicular to the plane of the paper at point $O$ carries a current $I$ into the paper as shown in the figure. Nine other similar infinitely long wires, parallel to each consecutive wires is 30$^\\circ$. Except for wire A and B, the direction of the magnetic force per unit length on the wire at the centre $O$ due to other wires. [Take cos 30$^\\circ = \\frac{\\sqrt{3}}{2}$]",
     "subject_unit": null,
     "options": [
         {
-            "option_text": "$\\frac{\\mu_0 I^2}{2\\pi r} (2+\\sqrt{3})$ in the direction of YO.",
+            "option_number": 1,
+            "option_text": "$\\frac{\\mu_0 I^2}{2\\pi r}(2+\\sqrt{3})$ in the direction of YO.",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "$\\frac{\\mu_0 I^2}{2\\pi r} (1+\\sqrt{3})$ in the direction of OY.",
+            "option_number": 2,
+            "option_text": "$\\frac{\\mu_0 I^2}{2\\pi r}(1+\\sqrt{3})$ in the direction of OY.",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "$\\frac{\\mu_0 I^2}{2\\pi r} (1+\\sqrt{5})$ in the direction of OY.",
+            "option_number": 3,
+            "option_text": "$\\frac{\\mu_0 I^2}{2\\pi r}(1+\\sqrt{5})$ in the direction of OX.",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "$\\frac{\\mu_0 I^2}{2\\pi r} (2+\\sqrt{5})$ in the direction of OX.",
+            "option_number": 4,
+            "option_text": "$\\frac{\\mu_0 I^2}{2\\pi r}(2+\\sqrt{5})$ in the direction of OX.",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "$\\frac{\\mu_0 I^2}{2\\pi r} (2-\\sqrt{5})$ in the direction of YO.",
+            "option_number": 5,
+            "option_text": "$\\frac{\\mu_0 I^2}{2\\pi r}(2-\\sqrt{5})$ in the direction of YO.",
             "option_image": "[]",
             "is_correct": false
         }
     ],
     "answer": null,
     "question_images": [
-        "page_11_crop0_class0.jpg",
-        "page_11_crop3_class0.jpg"
+        "page_11_crop0_class0.jpg"
     ],
     "marks": null,
     "difficulty": "normal"

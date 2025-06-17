@@ -1,30 +1,35 @@
 {
     "question_number": 45,
-    "question_text": "Charges in an isolated distribution of three to point charges are located at distances 2cm, 3cm and 6cm from a point O. Another charge can be brought from infinity to the point O without doing any work once a point charge of -q is placed at a distance r from the point O. The value of r is",
+    "question_text": "Charges in an isolated distribution of three point charges are located at distances 2cm, 3cm and 6cm from a point O. Another charge can be brought from infinity to the point O without doing any work once a point charge of -q is placed at a distance r from the point O. The value of r is",
     "subject_unit": null,
     "options": [
         {
-            "option_text": "1 cm",
+            "option_number": 1,
+            "option_text": "$1 \\text{ cm}$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "2 cm",
+            "option_number": 2,
+            "option_text": "$2 \\text{ cm}$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "3 cm",
+            "option_number": 3,
+            "option_text": "$3 \\text{ cm}$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "4 cm",
+            "option_number": 4,
+            "option_text": "$4 \\text{ cm}$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "5 cm",
+            "option_number": 5,
+            "option_text": "$5 \\text{ cm}$",
             "option_image": "[]",
             "is_correct": false
         }

@@ -4,26 +4,31 @@
     "subject_unit": null,
     "options": [
         {
+            "option_number": 1,
             "option_text": "\\(\\frac{Q^2}{4\\pi\\epsilon_0 r}\\)",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 2,
             "option_text": "\\(\\frac{3Q^2}{8\\pi\\epsilon_0 r}\\)",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 3,
             "option_text": "\\(\\frac{3Q^2}{16\\pi\\epsilon_0 r}\\)",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 4,
             "option_text": "\\(\\frac{30Q^2}{8\\pi\\epsilon_0 r}\\)",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 5,
             "option_text": "\\(\\frac{16Q^2}{30\\pi\\epsilon_0 r}\\)",
             "option_image": "[]",
             "is_correct": false

@@ -1,32 +1,37 @@
 {
     "question_number": 5,
-    "question_text": "Which all following statements made regarding optical instruments under normal adjustment are true?",
+    "question_text": "Which of the following statements made regarding optical instruments under normal adjustment are true?",
     "subject_unit": null,
     "options": [
         {
-            "option_text": "\\( \\text{In a simple microscope, the image of the object is virtual.} \\)",
+            "option_number": 1,
+            "option_text": "In a simple microscope, the image of the object is virtual.",
             "option_image": "[]",
-            "is_correct": null
+            "is_correct": false
         },
         {
-            "option_text": "\\( \\text{When reading small letters, a simple microscope is a short-sighted person has an advantage over a long-sighted person using the eye piece acts as a simple microscope.} \\)",
+            "option_number": 2,
+            "option_text": "When reading small letters, a simple microscope is a short-sighted person has an advantage over a long-sighted person using the eye-piece acts as a simple microscope.",
             "option_image": "[]",
-            "is_correct": null
+            "is_correct": false
         },
         {
-            "option_text": "\\( \\text{In a simple microscope, the image is inverted.} \\)",
+            "option_number": 3,
+            "option_text": "In a compound microscope, the final image is inverted.",
             "option_image": "[]",
-            "is_correct": null
+            "is_correct": false
         },
         {
-            "option_text": "\\( \\text{In an astronomical telescope, the final image is inverted.} \\)",
+            "option_number": 4,
+            "option_text": "In an astronomical telescope, the object distance and the image distance are both considered to be very large.",
             "option_image": "[]",
-            "is_correct": null
+            "is_correct": false
         },
         {
-            "option_text": "\\( \\text{In a compound microscope, the object distance and the image distance are both considered to be very large.} \\)",
+            "option_number": 5,
+            "option_text": "[]",
             "option_image": "[]",
-            "is_correct": null
+            "is_correct": false
         }
     ],
     "answer": null,

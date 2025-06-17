@@ -1,37 +1,42 @@
 {
     "question_number": 23,
-    "question_text": "A monkey climbed a certain vertical height along a vertical rope with length through its uniform speed. If the monkey applied the same power throughout its motion both in the cases the speed with which the monkey climbed in the second case is",
+    "question_text": "A monkey climbed a certain vertical height along a vertical rope with length $L$ in $t_1$ seconds. See figure. Later the same monkey climbed the same vertical height along the same rope with another uniform speed in $t_2$ seconds. If the monkey applied the same power throughout its motion in both the cases, the speed with which the monkey climbed the rope in the second case is",
     "subject_unit": null,
     "options": [
         {
-            "option_text": "\\(1\\) 0.33 m s^{-1}",
+            "option_number": 1,
+            "option_text": "$0.33 m s^{-1}$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "\\(2\\) 2.5 m s^{-1}",
+            "option_number": 2,
+            "option_text": "$2.5 m s^{-1}$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "\\(3\\) 5 m s^{-1}",
+            "option_number": 3,
+            "option_text": "$3 m s^{-1}$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "\\(4\\) 7.5 m s^{-1}",
+            "option_number": 4,
+            "option_text": "$7.5 m s^{-1}$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "\\(5\\) 10 m s^{-1}",
+            "option_number": 5,
+            "option_text": "$10 m s^{-1}$",
             "option_image": "[]",
             "is_correct": false
         }
     ],
     "answer": null,
     "question_images": [
-        "page_4_crop3_class0.jpg"
+        "page_4_crop0_class0.jpg"
     ],
     "marks": null,
     "difficulty": "normal"
