@@ -1,0 +1,427 @@
+2025-06-17 21:47:52 - INFO - Main script started
+
+
+2025-06-17 21:47:52 - INFO - Processing 2016-AL-Physics-All-English
+
+2025-06-17 21:47:52 - INFO - Current progress for 2016-AL-Physics-All-English: 3.
+2025-06-17 21:47:52 - INFO - Steps remaining for 2016-AL-Physics-All-English: gold_to_primary
+
+2025-06-17 21:47:52 - INFO - Converted page_2_crop4_class0.jpg to base64
+2025-06-17 21:47:52 - INFO - Converted page_2_crop8_class0.jpg to base64
+2025-06-17 21:47:52 - INFO - Converted page_2_crop0_class0.jpg to base64
+2025-06-17 21:47:52 - INFO - Converted page_3_crop7_class0.jpg to base64
+2025-06-17 21:47:52 - INFO - Converted option image page_3_crop11_class0.jpg to base64
+2025-06-17 21:47:52 - INFO - Converted option image page_3_crop9_class0.jpg to base64
+2025-06-17 21:47:52 - INFO - Converted option image page_3_crop8_class0.jpg to base64
+2025-06-17 21:47:53 - INFO - Converted option image page_3_crop10_class0.jpg to base64
+2025-06-17 21:47:53 - INFO - Converted option image page_3_crop2_class0.jpg to base64
+2025-06-17 21:47:53 - INFO - Converted page_3_crop5_class0.jpg to base64
+2025-06-17 21:47:53 - INFO - Converted option image page_3_crop0_class0.jpg to base64
+2025-06-17 21:47:53 - INFO - Converted option image page_3_crop1_class0.jpg to base64
+2025-06-17 21:47:53 - INFO - Converted option image page_3_crop2_class0.jpg to base64
+2025-06-17 21:47:53 - INFO - Converted option image page_3_crop3_class0.jpg to base64
+2025-06-17 21:47:53 - INFO - Converted option image page_3_crop6_class0.jpg to base64
+2025-06-17 21:47:53 - INFO - Converted page_4_crop1_class0.jpg to base64
+2025-06-17 21:47:53 - INFO - Converted page_4_crop0_class0.jpg to base64
+2025-06-17 21:47:53 - INFO - Converted page_4_crop2_class0.jpg to base64
+2025-06-17 21:47:53 - INFO - Converted page_4_crop3_class0.jpg to base64
+2025-06-17 21:47:53 - INFO - Converted page_5_crop1_class0.jpg to base64
+2025-06-17 21:47:53 - INFO - Converted page_5_crop0_class0.jpg to base64
+2025-06-17 21:47:53 - INFO - Converted page_5_crop2_class0.jpg to base64
+2025-06-17 21:47:53 - INFO - Converted page_5_crop3_class0.jpg to base64
+2025-06-17 21:47:53 - INFO - Converted page_5_crop4_class0.jpg to base64
+2025-06-17 21:47:53 - INFO - Converted page_6_crop2_class0.jpg to base64
+2025-06-17 21:47:53 - INFO - Converted page_6_crop0_class0.jpg to base64
+2025-06-17 21:47:53 - INFO - Converted page_6_crop3_class0.jpg to base64
+2025-06-17 21:47:53 - INFO - Converted page_6_crop1_class0.jpg to base64
+2025-06-17 21:47:53 - INFO - Converted page_7_crop1_class0.jpg to base64
+2025-06-17 21:47:53 - INFO - Converted page_7_crop0_class0.jpg to base64
+2025-06-17 21:47:53 - INFO - Converted page_7_crop3_class0.jpg to base64
+2025-06-17 21:47:53 - INFO - Converted page_7_crop2_class0.jpg to base64
+2025-06-17 21:47:53 - INFO - Converted page_8_crop0_class0.jpg to base64
+2025-06-17 21:47:53 - INFO - Converted option image page_8_crop2_class0.jpg to base64
+2025-06-17 21:47:53 - INFO - Converted option image page_8_crop3_class0.jpg to base64
+2025-06-17 21:47:53 - INFO - Converted option image page_8_crop5_class0.jpg to base64
+2025-06-17 21:47:53 - INFO - Converted option image page_8_crop4_class0.jpg to base64
+2025-06-17 21:47:54 - INFO - Converted option image page_8_crop6_class0.jpg to base64
+2025-06-17 21:47:54 - INFO - Converted page_8_crop1_class0.jpg to base64
+2025-06-17 21:47:54 - INFO - Converted page_8_crop7_class0.jpg to base64
+2025-06-17 21:47:54 - INFO - Converted page_9_crop6_class0.jpg to base64
+2025-06-17 21:47:54 - INFO - Converted page_9_crop7_class0.jpg to base64
+2025-06-17 21:47:54 - INFO - Converted option image page_9_crop3_class0.jpg to base64
+2025-06-17 21:47:54 - INFO - Converted option image page_9_crop6_class0.jpg to base64
+2025-06-17 21:47:54 - INFO - Converted option image page_9_crop4_class0.jpg to base64
+2025-06-17 21:47:54 - INFO - Converted option image page_9_crop0_class0.jpg to base64
+2025-06-17 21:47:54 - INFO - Converted option image page_9_crop7_class0.jpg to base64
+2025-06-17 21:47:54 - INFO - Converted page_9_crop1_class0.jpg to base64
+2025-06-17 21:47:54 - INFO - Converted page_10_crop0_class0.jpg to base64
+2025-06-17 21:47:54 - INFO - Converted page_10_crop1_class0.jpg to base64
+2025-06-17 21:47:54 - INFO - Converted page_10_crop2_class0.jpg to base64
+2025-06-17 21:47:54 - INFO - Converted page_2_crop1_class0.jpg to base64
+2025-06-17 21:47:54 - INFO - Converted page_2_crop6_class0.jpg to base64
+2025-06-17 21:47:54 - INFO - Cleaned 50 questions into ./data/primary/2016-AL-Physics-All-English\mcq.json
+2025-06-17 21:47:54 - INFO - Cleaned JSONs and converted images to base64
+
+2025-06-17 21:47:54 - INFO - Metadata for 2016-AL-Physics-All-English written to ./data/metadata/2016-AL-Physics-All-English.json
+2025-06-17 21:47:54 - INFO - Finished processing 2016-AL-Physics-All-English.
+
+
+2025-06-17 21:47:54 - INFO - Processing 2017-AL-Physics-All-English
+
+2025-06-17 21:47:54 - INFO - Current progress for 2017-AL-Physics-All-English: 3.
+2025-06-17 21:47:54 - INFO - Steps remaining for 2017-AL-Physics-All-English: gold_to_primary
+
+2025-06-17 21:47:54 - INFO - Converted option image page_2_crop4_class0.jpg to base64
+2025-06-17 21:47:54 - INFO - Converted option image page_2_crop5_class0.jpg to base64
+2025-06-17 21:47:54 - INFO - Converted option image page_2_crop2_class0.jpg to base64
+2025-06-17 21:47:54 - INFO - Converted option image page_2_crop1_class0.jpg to base64
+2025-06-17 21:47:54 - INFO - Converted option image page_2_crop3_class0.jpg to base64
+2025-06-17 21:47:54 - INFO - Converted page_2_crop6_class0.jpg to base64
+2025-06-17 21:47:54 - INFO - Converted page_3_crop2_class0.jpg to base64
+2025-06-17 21:47:54 - INFO - Converted page_3_crop5_class0.jpg to base64
+2025-06-17 21:47:54 - INFO - Converted page_3_crop4_class0.jpg to base64
+2025-06-17 21:47:54 - INFO - Converted page_3_crop3_class0.jpg to base64
+2025-06-17 21:47:54 - INFO - Converted page_3_crop0_class0.jpg to base64
+2025-06-17 21:47:54 - INFO - Converted page_3_crop1_class0.jpg to base64
+2025-06-17 21:47:54 - INFO - Converted page_4_crop3_class0.jpg to base64
+2025-06-17 21:47:54 - INFO - Converted option image page_4_crop5_class0.jpg to base64
+2025-06-17 21:47:54 - INFO - Converted option image page_4_crop6_class0.jpg to base64
+2025-06-17 21:47:55 - INFO - Converted option image page_4_crop4_class0.jpg to base64
+2025-06-17 21:47:55 - INFO - Converted option image page_4_crop6_class0.jpg to base64
+2025-06-17 21:47:55 - INFO - Converted option image page_4_crop5_class0.jpg to base64
+2025-06-17 21:47:55 - INFO - Converted page_4_crop2_class0.jpg to base64
+2025-06-17 21:47:55 - INFO - Converted page_4_crop1_class0.jpg to base64
+2025-06-17 21:47:55 - INFO - Converted page_4_crop0_class0.jpg to base64
+2025-06-17 21:47:55 - INFO - Converted page_5_crop0_class0.jpg to base64
+2025-06-17 21:47:55 - INFO - Converted option image page_5_crop4_class0.jpg to base64
+2025-06-17 21:47:55 - INFO - Converted page_5_crop2_class0.jpg to base64
+2025-06-17 21:47:55 - INFO - Converted page_5_crop1_class0.jpg to base64
+2025-06-17 21:47:55 - INFO - Converted page_5_crop3_class0.jpg to base64
+2025-06-17 21:47:55 - INFO - Converted page_6_crop2_class0.jpg to base64
+2025-06-17 21:47:55 - INFO - Converted page_1_crop0_class0.jpg to base64
+2025-06-17 21:47:55 - INFO - Converted page_6_crop7_class0.jpg to base64
+2025-06-17 21:47:55 - INFO - Converted option image page_6_crop8_class0.jpg to base64
+2025-06-17 21:47:55 - INFO - Converted option image page_6_crop1_class0.jpg to base64
+2025-06-17 21:47:55 - INFO - Converted option image page_6_crop3_class0.jpg to base64
+2025-06-17 21:47:55 - INFO - Converted option image page_6_crop0_class0.jpg to base64
+2025-06-17 21:47:55 - INFO - Converted option image page_6_crop4_class0.jpg to base64
+2025-06-17 21:47:55 - INFO - Converted page_6_crop5_class0.jpg to base64
+2025-06-17 21:47:55 - INFO - Converted page_7_crop2_class0.jpg to base64
+2025-06-17 21:47:55 - INFO - Converted page_7_crop0_class0.jpg to base64
+2025-06-17 21:47:55 - INFO - Converted page_7_crop1_class0.jpg to base64
+2025-06-17 21:47:55 - INFO - Converted page_8_crop1_class0.jpg to base64
+2025-06-17 21:47:55 - INFO - Converted page_8_crop18_class0.jpg to base64
+2025-06-17 21:47:55 - INFO - Converted option image page_8_crop9_class0.jpg to base64
+2025-06-17 21:47:55 - INFO - Converted option image page_8_crop4_class0.jpg to base64
+2025-06-17 21:47:55 - INFO - Converted option image page_8_crop15_class0.jpg to base64
+2025-06-17 21:47:55 - INFO - Converted option image page_8_crop17_class0.jpg to base64
+2025-06-17 21:47:55 - INFO - Converted option image page_8_crop16_class0.jpg to base64
+2025-06-17 21:47:55 - INFO - Converted page_9_crop11_class0.jpg to base64
+2025-06-17 21:47:55 - INFO - Converted page_9_crop14_class0.jpg to base64
+2025-06-17 21:47:55 - INFO - Converted option image page_9_crop7_class0.jpg to base64
+2025-06-17 21:47:55 - INFO - Converted option image page_9_crop2_class0.jpg to base64
+2025-06-17 21:47:55 - INFO - Converted option image page_9_crop0_class0.jpg to base64
+2025-06-17 21:47:56 - INFO - Converted option image page_9_crop4_class0.jpg to base64
+2025-06-17 21:47:56 - INFO - Converted option image page_9_crop1_class0.jpg to base64
+2025-06-17 21:47:56 - INFO - Converted page_9_crop3_class0.jpg to base64
+2025-06-17 21:47:56 - INFO - Converted page_9_crop6_class0.jpg to base64
+2025-06-17 21:47:56 - INFO - Converted option image page_9_crop8_class0.jpg to base64
+2025-06-17 21:47:56 - INFO - Converted option image page_9_crop12_class0.jpg to base64
+2025-06-17 21:47:56 - INFO - Converted option image page_9_crop5_class0.jpg to base64
+2025-06-17 21:47:56 - INFO - Converted option image page_9_crop9_class0.jpg to base64
+2025-06-17 21:47:56 - INFO - Converted option image page_9_crop13_class0.jpg to base64
+2025-06-17 21:47:56 - INFO - Converted page_10_crop12_class0.jpg to base64
+2025-06-17 21:47:56 - INFO - Converted option image page_10_crop10_class0.jpg to base64
+2025-06-17 21:47:56 - INFO - Converted option image page_10_crop8_class0.jpg to base64
+2025-06-17 21:47:56 - INFO - Converted option image page_10_crop6_class0.jpg to base64
+2025-06-17 21:47:56 - INFO - Converted option image page_10_crop11_class0.jpg to base64
+2025-06-17 21:47:56 - INFO - Converted option image page_10_crop13_class0.jpg to base64
+2025-06-17 21:47:56 - INFO - Converted page_8_crop13_class0.jpg to base64
+2025-06-17 21:47:56 - INFO - Converted option image page_8_crop11_class0.jpg to base64
+2025-06-17 21:47:56 - INFO - Converted option image page_8_crop5_class0.jpg to base64
+2025-06-17 21:47:56 - INFO - Converted option image page_8_crop8_class0.jpg to base64
+2025-06-17 21:47:57 - INFO - Converted option image page_8_crop7_class0.jpg to base64
+2025-06-17 21:47:57 - INFO - Converted option image page_8_crop14_class0.jpg to base64
+2025-06-17 21:47:57 - INFO - Converted page_8_crop12_class0.jpg to base64
+2025-06-17 21:47:57 - INFO - Converted option image page_8_crop2_class0.jpg to base64
+2025-06-17 21:47:57 - INFO - Converted option image page_8_crop10_class0.jpg to base64
+2025-06-17 21:47:57 - INFO - Converted option image page_8_crop3_class0.jpg to base64
+2025-06-17 21:47:57 - INFO - Converted option image page_8_crop6_class0.jpg to base64
+2025-06-17 21:47:57 - INFO - Converted option image page_8_crop0_class0.jpg to base64
+2025-06-17 21:47:57 - INFO - Converted page_10_crop9_class0.jpg to base64
+2025-06-17 21:47:57 - INFO - Converted page_2_crop0_class0.jpg to base64
+2025-06-17 21:47:57 - INFO - Converted page_2_crop7_class0.jpg to base64
+2025-06-17 21:47:57 - INFO - Cleaned 47 questions into ./data/primary/2017-AL-Physics-All-English\mcq.json
+2025-06-17 21:47:57 - INFO - Cleaned JSONs and converted images to base64
+
+2025-06-17 21:47:57 - INFO - Metadata for 2017-AL-Physics-All-English written to ./data/metadata/2017-AL-Physics-All-English.json
+2025-06-17 21:47:57 - INFO - Finished processing 2017-AL-Physics-All-English.
+
+
+2025-06-17 21:47:57 - INFO - Processing 2018-AL-Physics-All-English
+
+2025-06-17 21:47:57 - INFO - Current progress for 2018-AL-Physics-All-English: 3.
+2025-06-17 21:47:57 - INFO - Steps remaining for 2018-AL-Physics-All-English: gold_to_primary
+
+2025-06-17 21:47:57 - INFO - Converted page_2_crop7_class0.jpg to base64
+2025-06-17 21:47:57 - INFO - Converted option image page_2_crop9_class0.jpg to base64
+2025-06-17 21:47:57 - INFO - Converted option image page_2_crop11_class0.jpg to base64
+2025-06-17 21:47:57 - INFO - Converted option image page_2_crop12_class0.jpg to base64
+2025-06-17 21:47:57 - INFO - Converted option image page_2_crop10_class0.jpg to base64
+2025-06-17 21:47:57 - INFO - Converted option image page_2_crop8_class0.jpg to base64
+2025-06-17 21:47:57 - INFO - Converted page_2_crop4_class0.jpg to base64
+2025-06-17 21:47:57 - INFO - Converted option image page_2_crop3_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted option image page_2_crop2_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted option image page_2_crop0_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted option image page_2_crop1_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted option image page_2_crop5_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted page_2_crop8_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted page_3_crop2_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted page_3_crop0_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted page_3_crop1_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted page_3_crop3_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted page_3_crop4_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted page_3_crop5_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted page_4_crop3_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted option image page_4_crop0_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted option image page_4_crop1_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted option image page_4_crop4_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted option image page_4_crop2_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted option image page_4_crop5_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted page_4_crop6_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted page_5_crop3_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted page_5_crop2_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted page_5_crop0_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted page_5_crop1_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted page_5_crop4_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted page_6_crop0_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted page_6_crop1_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted page_6_crop2_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted option image page_6_crop3_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted option image page_6_crop3_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted option image page_6_crop3_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted option image page_6_crop3_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted option image page_6_crop3_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted page_7_crop6_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted page_7_crop2_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted page_7_crop3_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted option image page_7_crop7_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted option image page_7_crop1_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted option image page_7_crop0_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted option image page_7_crop1_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted option image page_7_crop0_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted page_7_crop5_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted page_7_crop4_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted page_8_crop2_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted page_8_crop0_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted page_9_crop0_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted option image page_9_crop7_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted option image page_9_crop9_class0.jpg to base64
+2025-06-17 21:47:58 - INFO - Converted option image page_9_crop9_class0.jpg to base64
+2025-06-17 21:47:59 - INFO - Converted option image page_9_crop3_class0.jpg to base64
+2025-06-17 21:47:59 - INFO - Converted option image page_9_crop10_class0.jpg to base64
+2025-06-17 21:47:59 - INFO - Converted page_8_crop1_class0.jpg to base64
+2025-06-17 21:47:59 - INFO - Converted page_8_crop3_class0.jpg to base64
+2025-06-17 21:47:59 - INFO - Converted page_9_crop1_class0.jpg to base64
+2025-06-17 21:47:59 - INFO - Converted option image page_9_crop5_class0.jpg to base64
+2025-06-17 21:47:59 - INFO - Converted option image page_9_crop4_class0.jpg to base64
+2025-06-17 21:47:59 - INFO - Converted option image page_9_crop8_class0.jpg to base64
+2025-06-17 21:47:59 - INFO - Converted option image page_9_crop2_class0.jpg to base64
+2025-06-17 21:47:59 - INFO - Converted option image page_9_crop11_class0.jpg to base64
+2025-06-17 21:47:59 - INFO - Converted page_10_crop0_class0.jpg to base64
+2025-06-17 21:47:59 - INFO - Converted option image page_10_crop9_class0.jpg to base64
+2025-06-17 21:47:59 - INFO - Converted option image page_10_crop12_class0.jpg to base64
+2025-06-17 21:47:59 - INFO - Converted option image page_10_crop8_class0.jpg to base64
+2025-06-17 21:47:59 - INFO - Converted option image page_10_crop7_class0.jpg to base64
+2025-06-17 21:47:59 - INFO - Converted option image page_10_crop13_class0.jpg to base64
+2025-06-17 21:47:59 - INFO - Converted page_10_crop5_class0.jpg to base64
+2025-06-17 21:47:59 - INFO - Converted page_10_crop3_class0.jpg to base64
+2025-06-17 21:47:59 - INFO - Converted option image page_10_crop2_class0.jpg to base64
+2025-06-17 21:47:59 - INFO - Converted option image page_10_crop10_class0.jpg to base64
+2025-06-17 21:47:59 - INFO - Converted option image page_10_crop4_class0.jpg to base64
+2025-06-17 21:47:59 - INFO - Converted option image page_10_crop6_class0.jpg to base64
+2025-06-17 21:47:59 - INFO - Converted option image page_10_crop7_class0.jpg to base64
+2025-06-17 21:47:59 - INFO - Converted page_11_crop2_class0.jpg to base64
+2025-06-17 21:47:59 - INFO - Converted page_11_crop1_class0.jpg to base64
+2025-06-17 21:47:59 - INFO - Converted page_11_crop0_class0.jpg to base64
+2025-06-17 21:48:00 - INFO - Converted page_12_crop7_class0.jpg to base64
+2025-06-17 21:48:00 - INFO - Converted option image page_12_crop4_class0.jpg to base64
+2025-06-17 21:48:00 - INFO - Converted option image page_12_crop2_class0.jpg to base64
+2025-06-17 21:48:00 - INFO - Converted option image page_12_crop0_class0.jpg to base64
+2025-06-17 21:48:00 - INFO - Converted option image page_12_crop5_class0.jpg to base64
+2025-06-17 21:48:00 - INFO - Converted option image page_12_crop1_class0.jpg to base64
+2025-06-17 21:48:00 - INFO - Converted page_12_crop8_class0.jpg to base64
+2025-06-17 21:48:00 - INFO - Converted page_12_crop3_class0.jpg to base64
+2025-06-17 21:48:00 - INFO - Cleaned 49 questions into ./data/primary/2018-AL-Physics-All-English\mcq.json
+2025-06-17 21:48:00 - INFO - Cleaned JSONs and converted images to base64
+
+2025-06-17 21:48:00 - INFO - Metadata for 2018-AL-Physics-All-English written to ./data/metadata/2018-AL-Physics-All-English.json
+2025-06-17 21:48:00 - INFO - Finished processing 2018-AL-Physics-All-English.
+
+
+2025-06-17 21:48:00 - INFO - Processing 2019-AL-Physics-All-English
+
+2025-06-17 21:48:00 - INFO - Current progress for 2019-AL-Physics-All-English: 3.
+2025-06-17 21:48:00 - INFO - Steps remaining for 2019-AL-Physics-All-English: gold_to_primary
+
+2025-06-17 21:48:00 - INFO - Converted page_2_crop6_class0.jpg to base64
+2025-06-17 21:48:00 - INFO - Converted page_4_crop7_class0.jpg to base64
+2025-06-17 21:48:00 - INFO - Converted page_4_crop6_class0.jpg to base64
+2025-06-17 21:48:00 - INFO - Converted option image page_4_crop0_class0.jpg to base64
+2025-06-17 21:48:00 - INFO - Converted option image page_4_crop2_class0.jpg to base64
+2025-06-17 21:48:00 - INFO - Converted option image page_4_crop3_class0.jpg to base64
+2025-06-17 21:48:01 - INFO - Converted option image page_4_crop1_class0.jpg to base64
+2025-06-17 21:48:01 - INFO - Converted option image page_4_crop4_class0.jpg to base64
+2025-06-17 21:48:01 - INFO - Converted page_3_crop0_class0.jpg to base64
+2025-06-17 21:48:01 - INFO - Converted page_3_crop2_class0.jpg to base64
+2025-06-17 21:48:01 - INFO - Converted page_3_crop1_class0.jpg to base64
+2025-06-17 21:48:01 - INFO - Converted page_5_crop1_class0.jpg to base64
+2025-06-17 21:48:01 - INFO - Converted page_5_crop2_class0.jpg to base64
+2025-06-17 21:48:01 - INFO - Converted page_5_crop0_class0.jpg to base64
+2025-06-17 21:48:01 - INFO - Converted page_6_crop0_class0.jpg to base64
+2025-06-17 21:48:01 - INFO - Converted option image page_6_crop2_class0.jpg to base64
+2025-06-17 21:48:01 - INFO - Converted option image page_6_crop6_class0.jpg to base64
+2025-06-17 21:48:01 - INFO - Converted option image page_6_crop5_class0.jpg to base64
+2025-06-17 21:48:01 - INFO - Converted option image page_6_crop3_class0.jpg to base64
+2025-06-17 21:48:01 - INFO - Converted option image page_6_crop1_class0.jpg to base64
+2025-06-17 21:48:01 - INFO - Converted page_6_crop4_class0.jpg to base64
+2025-06-17 21:48:01 - INFO - Converted page_7_crop0_class0.jpg to base64
+2025-06-17 21:48:01 - INFO - Converted page_7_crop6_class0.jpg to base64
+2025-06-17 21:48:01 - INFO - Converted option image page_7_crop3_class0.jpg to base64
+2025-06-17 21:48:01 - INFO - Converted option image page_7_crop2_class0.jpg to base64
+2025-06-17 21:48:01 - INFO - Converted option image page_7_crop1_class0.jpg to base64
+2025-06-17 21:48:02 - INFO - Converted option image page_7_crop4_class0.jpg to base64
+2025-06-17 21:48:02 - INFO - Converted option image page_7_crop5_class0.jpg to base64
+2025-06-17 21:48:02 - INFO - Converted option image page_7_crop9_class0.jpg to base64
+2025-06-17 21:48:02 - INFO - Converted option image page_7_crop10_class0.jpg to base64
+2025-06-17 21:48:02 - INFO - Converted option image page_7_crop7_class0.jpg to base64
+2025-06-17 21:48:02 - INFO - Converted option image page_7_crop11_class0.jpg to base64
+2025-06-17 21:48:02 - INFO - Converted option image page_7_crop8_class0.jpg to base64
+2025-06-17 21:48:02 - INFO - Converted page_8_crop0_class0.jpg to base64
+2025-06-17 21:48:02 - INFO - Converted page_8_crop3_class0.jpg to base64
+2025-06-17 21:48:02 - INFO - Converted page_8_crop2_class0.jpg to base64
+2025-06-17 21:48:02 - INFO - Converted page_8_crop1_class0.jpg to base64
+2025-06-17 21:48:02 - INFO - Converted page_9_crop0_class0.jpg to base64
+2025-06-17 21:48:02 - INFO - Converted page_9_crop1_class0.jpg to base64
+2025-06-17 21:48:02 - INFO - Converted page_9_crop2_class0.jpg to base64
+2025-06-17 21:48:02 - INFO - Converted page_9_crop3_class0.jpg to base64
+2025-06-17 21:48:02 - INFO - Converted page_10_crop2_class0.jpg to base64
+2025-06-17 21:48:02 - INFO - Converted page_10_crop1_class0.jpg to base64
+2025-06-17 21:48:02 - INFO - Converted option image page_10_crop4_class0.jpg to base64
+2025-06-17 21:48:02 - INFO - Converted option image page_10_crop5_class0.jpg to base64
+2025-06-17 21:48:02 - INFO - Converted option image page_10_crop3_class0.jpg to base64
+2025-06-17 21:48:02 - INFO - Converted option image page_10_crop6_class0.jpg to base64
+2025-06-17 21:48:02 - INFO - Converted option image page_10_crop7_class0.jpg to base64
+2025-06-17 21:48:02 - INFO - Converted page_10_crop0_class0.jpg to base64
+2025-06-17 21:48:02 - INFO - Converted page_10_crop8_class0.jpg to base64
+2025-06-17 21:48:02 - INFO - Converted page_11_crop10_class0.jpg to base64
+2025-06-17 21:48:03 - INFO - Converted option image page_11_crop11_class0.jpg to base64
+2025-06-17 21:48:03 - INFO - Converted option image page_11_crop6_class0.jpg to base64
+2025-06-17 21:48:03 - INFO - Converted option image page_11_crop1_class0.jpg to base64
+2025-06-17 21:48:03 - INFO - Converted option image page_11_crop3_class0.jpg to base64
+2025-06-17 21:48:03 - INFO - Converted option image page_11_crop4_class0.jpg to base64
+2025-06-17 21:48:03 - INFO - Converted page_11_crop0_class0.jpg to base64
+2025-06-17 21:48:03 - INFO - Converted option image page_1_crop3_class0.jpg to base64
+2025-06-17 21:48:03 - INFO - Converted option image page_1_crop0_class0.jpg to base64
+2025-06-17 21:48:03 - INFO - Converted option image page_1_crop4_class0.jpg to base64
+2025-06-17 21:48:03 - INFO - Converted option image page_1_crop2_class0.jpg to base64
+2025-06-17 21:48:03 - INFO - Converted option image page_1_crop1_class0.jpg to base64
+2025-06-17 21:48:03 - INFO - Converted page_12_crop0_class0.jpg to base64
+2025-06-17 21:48:03 - INFO - Converted page_2_crop1_class0.jpg to base64
+2025-06-17 21:48:03 - INFO - Converted option image page_2_crop7_class0.jpg to base64
+2025-06-17 21:48:03 - INFO - Converted option image page_2_crop2_class0.jpg to base64
+2025-06-17 21:48:03 - INFO - Converted option image page_2_crop4_class0.jpg to base64
+2025-06-17 21:48:03 - INFO - Converted option image page_2_crop3_class0.jpg to base64
+2025-06-17 21:48:04 - INFO - Converted option image page_2_crop5_class0.jpg to base64
+2025-06-17 21:48:04 - INFO - Converted page_2_crop0_class0.jpg to base64
+2025-06-17 21:48:04 - INFO - Cleaned 50 questions into ./data/primary/2019-AL-Physics-All-English\mcq.json
+2025-06-17 21:48:04 - INFO - Cleaned JSONs and converted images to base64
+
+2025-06-17 21:48:04 - INFO - Metadata for 2019-AL-Physics-All-English written to ./data/metadata/2019-AL-Physics-All-English.json
+2025-06-17 21:48:04 - INFO - Finished processing 2019-AL-Physics-All-English.
+
+
+2025-06-17 21:48:04 - INFO - Processing 2020-AL-Physics-All-English
+
+2025-06-17 21:48:04 - INFO - Current progress for 2020-AL-Physics-All-English: 3.
+2025-06-17 21:48:04 - INFO - Steps remaining for 2020-AL-Physics-All-English: gold_to_primary
+
+2025-06-17 21:48:04 - INFO - Cleaned 0 questions into ./data/primary/2020-AL-Physics-All-English\mcq.json
+2025-06-17 21:48:04 - INFO - Cleaned JSONs and converted images to base64
+
+2025-06-17 21:48:04 - INFO - Metadata for 2020-AL-Physics-All-English written to ./data/metadata/2020-AL-Physics-All-English.json
+2025-06-17 21:48:04 - INFO - Finished processing 2020-AL-Physics-All-English.
+
+
+2025-06-17 21:48:04 - INFO - Processing 2021-AL-Physics-All-English
+
+2025-06-17 21:48:04 - INFO - Current progress for 2021-AL-Physics-All-English: 3.
+2025-06-17 21:48:04 - INFO - Steps remaining for 2021-AL-Physics-All-English: gold_to_primary
+
+2025-06-17 21:48:04 - INFO - Converted page_3_crop9_class0.jpg to base64
+2025-06-17 21:48:04 - INFO - Converted option image page_3_crop4_class0.jpg to base64
+2025-06-17 21:48:04 - INFO - Converted option image page_3_crop8_class0.jpg to base64
+2025-06-17 21:48:04 - INFO - Converted option image page_3_crop5_class0.jpg to base64
+2025-06-17 21:48:04 - INFO - Converted option image page_3_crop2_class0.jpg to base64
+2025-06-17 21:48:04 - INFO - Converted option image page_3_crop6_class0.jpg to base64
+2025-06-17 21:48:04 - INFO - Converted page_3_crop0_class0.jpg to base64
+2025-06-17 21:48:04 - INFO - Converted option image page_3_crop3_class0.jpg to base64
+2025-06-17 21:48:05 - INFO - Converted option image page_3_crop7_class0.jpg to base64
+2025-06-17 21:48:05 - INFO - Converted option image page_3_crop10_class0.jpg to base64
+2025-06-17 21:48:05 - INFO - Converted option image page_3_crop14_class0.jpg to base64
+2025-06-17 21:48:05 - INFO - Converted option image page_3_crop1_class0.jpg to base64
+2025-06-17 21:48:05 - INFO - Converted page_4_crop6_class0.jpg to base64
+2025-06-17 21:48:05 - INFO - Converted page_4_crop5_class0.jpg to base64
+2025-06-17 21:48:05 - INFO - Converted option image page_4_crop1_class0.jpg to base64
+2025-06-17 21:48:05 - INFO - Converted option image page_4_crop2_class0.jpg to base64
+2025-06-17 21:48:05 - INFO - Converted option image page_4_crop4_class0.jpg to base64
+2025-06-17 21:48:05 - INFO - Converted option image page_4_crop0_class0.jpg to base64
+2025-06-17 21:48:05 - INFO - Converted option image page_4_crop3_class0.jpg to base64
+2025-06-17 21:48:05 - INFO - Converted page_5_crop1_class0.jpg to base64
+2025-06-17 21:48:05 - INFO - Converted page_5_crop0_class0.jpg to base64
+2025-06-17 21:48:05 - INFO - Converted page_5_crop2_class0.jpg to base64
+2025-06-17 21:48:05 - INFO - Converted page_5_crop3_class0.jpg to base64
+2025-06-17 21:48:05 - INFO - Converted page_6_crop0_class0.jpg to base64
+2025-06-17 21:48:05 - INFO - Converted page_7_crop0_class0.jpg to base64
+2025-06-17 21:48:05 - INFO - Converted page_7_crop3_class0.jpg to base64
+2025-06-17 21:48:05 - INFO - Converted page_7_crop2_class0.jpg to base64
+2025-06-17 21:48:05 - INFO - Converted page_7_crop1_class0.jpg to base64
+2025-06-17 21:48:05 - INFO - Converted page_7_crop4_class0.jpg to base64
+2025-06-17 21:48:05 - INFO - Converted page_8_crop1_class0.jpg to base64
+2025-06-17 21:48:05 - INFO - Converted page_8_crop2_class0.jpg to base64
+2025-06-17 21:48:05 - INFO - Converted page_8_crop0_class0.jpg to base64
+2025-06-17 21:48:05 - INFO - Converted page_9_crop3_class0.jpg to base64
+2025-06-17 21:48:05 - INFO - Converted option image page_9_crop2_class0.jpg to base64
+2025-06-17 21:48:05 - INFO - Converted option image page_9_crop4_class0.jpg to base64
+2025-06-17 21:48:06 - INFO - Converted option image page_9_crop0_class0.jpg to base64
+2025-06-17 21:48:06 - INFO - Converted option image page_9_crop1_class0.jpg to base64
+2025-06-17 21:48:06 - INFO - Converted option image page_9_crop5_class0.jpg to base64
+2025-06-17 21:48:06 - INFO - Converted page_10_crop7_class0.jpg to base64
+2025-06-17 21:48:06 - INFO - Converted page_10_crop6_class0.jpg to base64
+2025-06-17 21:48:06 - INFO - Converted option image page_10_crop2_class0.jpg to base64
+2025-06-17 21:48:06 - INFO - Converted option image page_10_crop6_class0.jpg to base64
+2025-06-17 21:48:06 - INFO - Converted option image page_10_crop0_class0.jpg to base64
+2025-06-17 21:48:06 - INFO - Converted option image page_10_crop4_class0.jpg to base64
+2025-06-17 21:48:06 - INFO - Converted option image page_10_crop1_class0.jpg to base64
+2025-06-17 21:48:06 - INFO - Converted page_10_crop4_class0.jpg to base64
+2025-06-17 21:48:06 - INFO - Converted page_10_crop3_class0.jpg to base64
+2025-06-17 21:48:06 - INFO - Converted page_11_crop0_class0.jpg to base64
+2025-06-17 21:48:06 - INFO - Converted page_11_crop1_class0.jpg to base64
+2025-06-17 21:48:06 - INFO - Converted option image page_11_crop6_class0.jpg to base64
+2025-06-17 21:48:06 - INFO - Converted option image page_11_crop5_class0.jpg to base64
+2025-06-17 21:48:06 - INFO - Converted option image page_11_crop4_class0.jpg to base64
+2025-06-17 21:48:06 - INFO - Converted option image page_11_crop3_class0.jpg to base64
+2025-06-17 21:48:06 - INFO - Converted option image page_11_crop2_class0.jpg to base64
+2025-06-17 21:48:06 - INFO - Converted option image page_2_crop4_class0.jpg to base64
+2025-06-17 21:48:06 - INFO - Converted option image page_2_crop0_class0.jpg to base64
+2025-06-17 21:48:07 - INFO - Converted option image page_2_crop1_class0.jpg to base64
+2025-06-17 21:48:07 - INFO - Converted option image page_2_crop2_class0.jpg to base64
+2025-06-17 21:48:07 - INFO - Converted option image page_2_crop3_class0.jpg to base64
+2025-06-17 21:48:07 - INFO - Cleaned 50 questions into ./data/primary/2021-AL-Physics-All-English\mcq.json
+2025-06-17 21:48:07 - INFO - Cleaned JSONs and converted images to base64
+
+2025-06-17 21:48:07 - INFO - Metadata for 2021-AL-Physics-All-English written to ./data/metadata/2021-AL-Physics-All-English.json
+2025-06-17 21:48:07 - INFO - Finished processing 2021-AL-Physics-All-English.
+
+
+2025-06-17 21:48:07 - INFO - Main script completed successfully.
