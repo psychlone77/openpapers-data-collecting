@@ -4,26 +4,31 @@
     "subject_unit": null,
     "options": [
         {
+            "option_number": 1,
             "option_text": "$\\dfrac{kQ}{r}$",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 2,
             "option_text": "$\\dfrac{kQ}{\\sqrt{r^2+d^2}}$",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 3,
             "option_text": "$\\dfrac{kQd}{r\\sqrt{r^2+d^2}}$",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 4,
             "option_text": "$\\dfrac{kQ}{r^2+d^2}$",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 5,
             "option_text": "$\\dfrac{kQ}{r^2}$",
             "option_image": "[]",
             "is_correct": false

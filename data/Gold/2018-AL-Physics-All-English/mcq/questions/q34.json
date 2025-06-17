@@ -4,26 +4,31 @@
     "subject_unit": null,
     "options": [
         {
+            "option_number": 1,
             "option_text": "[]",
             "option_image": "page_7_crop7_class0.jpg",
             "is_correct": false
         },
         {
+            "option_number": 2,
             "option_text": "[]",
             "option_image": "page_7_crop1_class0.jpg",
             "is_correct": false
         },
         {
+            "option_number": 3,
             "option_text": "[]",
             "option_image": "page_7_crop0_class0.jpg",
             "is_correct": false
         },
         {
+            "option_number": 4,
             "option_text": "[]",
-            "option_image": "page_7_crop0_class0.jpg",
+            "option_image": "page_7_crop1_class0.jpg",
             "is_correct": false
         },
         {
+            "option_number": 5,
             "option_text": "[]",
             "option_image": "page_7_crop0_class0.jpg",
             "is_correct": false
@@ -31,7 +36,8 @@
     ],
     "answer": null,
     "question_images": [
-        "page_7_crop2_class0.jpg"
+        "page_7_crop2_class0.jpg",
+        "page_7_crop3_class0.jpg"
     ],
     "marks": null,
     "difficulty": "normal"

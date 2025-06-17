@@ -4,27 +4,32 @@
     "subject_unit": null,
     "options": [
         {
-            "option_text": "10 $\\Omega$",
+            "option_number": 1,
+            "option_text": "$10 \\Omega$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "12 $\\Omega$",
+            "option_number": 2,
+            "option_text": "$12 \\Omega$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "20 $\\Omega$",
+            "option_number": 3,
+            "option_text": "$20 \\Omega$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "4 $\\Omega$",
+            "option_number": 4,
+            "option_text": "$50 \\Omega$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "5 $\\Omega$",
+            "option_number": 5,
+            "option_text": "$60 \\Omega$",
             "option_image": "[]",
             "is_correct": false
         }

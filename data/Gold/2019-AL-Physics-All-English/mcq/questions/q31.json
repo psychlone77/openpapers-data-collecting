@@ -4,27 +4,32 @@
     "subject_unit": null,
     "options": [
         {
-            "option_text": "\\(\\frac{9}{16}\\) m",
+            "option_number": 1,
+            "option_text": "$\\frac{1}{4} \\text{ m}$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "\\(\\frac{3}{4}\\) m",
+            "option_number": 2,
+            "option_text": "$ \\frac{9}{16} \\text{ m}$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "\\(\\frac{27}{64}\\) m",
+            "option_number": 3,
+            "option_text": "$ \\frac{3}{4} \\text{ m}$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "\\(\\frac{4}{9}\\) m",
+            "option_number": 4,
+            "option_text": "$ \\frac{4}{9} \\text{ m}$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "\\(\\frac{5}{8}\\) m",
+            "option_number": 5,
+            "option_text": "$ \\frac{5}{4} \\text{ m}$",
             "option_image": "[]",
             "is_correct": false
         }

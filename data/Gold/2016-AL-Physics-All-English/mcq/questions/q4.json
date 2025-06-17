@@ -4,29 +4,34 @@
     "subject_unit": null,
     "options": [
         {
-            "option_text": "Speed does not depend on the medium of propagation.",
-            "option_image": "[]",
-            "is_correct": false
-        },
-        {
+            "option_number": 1,
             "option_text": "They are transverse waves.",
             "option_image": "[]",
-            "is_correct": false
+            "is_correct": null
         },
         {
+            "option_number": 2,
+            "option_text": "They can travel through vacuum.",
+            "option_image": "[]",
+            "is_correct": null
+        },
+        {
+            "option_number": 3,
+            "option_text": "Speed does not depend on the medium of propagation.",
+            "option_image": "[]",
+            "is_correct": null
+        },
+        {
+            "option_number": 4,
+            "option_text": "Electric and magnetic fields are perpendicular to each other.",
+            "option_image": "[]",
+            "is_correct": null
+        },
+        {
+            "option_number": 5,
             "option_text": "Can be reflected at the boundary between two media.",
             "option_image": "[]",
-            "is_correct": false
-        },
-        {
-            "option_text": "Do not necessarily require a material medium for propagation.",
-            "option_image": "[]",
-            "is_correct": false
-        },
-        {
-            "option_text": "Have mutually perpendicular directions of electric and magnetic fields.",
-            "option_image": "[]",
-            "is_correct": false
+            "is_correct": null
         }
     ],
     "answer": null,

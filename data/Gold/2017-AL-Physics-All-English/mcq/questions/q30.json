@@ -1,31 +1,36 @@
 {
     "question_number": 30,
-    "question_text": "As shown in the figure (b), an alternating voltage source is producing the voltage waveform shown in figure (a) is connected to the primary circuit of a transformer. The primary circuit is well insulated electrically from the secondary coil of 5 kV as shown in the figure (c). Estimate that the primary coil is well insulated.",
+    "question_text": "As shown in the figure (b), an alternating voltage source is producing the voltage waveform shown in figure (a) is connected to the primary circuit of a transformer. The primary circuit is well insulated electrically from the secondary coil of 5 kV as shown in the figure (c). Estimate that the primary coil is well insulated electrically from the secondary coil.",
     "subject_unit": null,
     "options": [
         {
+            "option_number": 1,
+            "option_text": "[]",
+            "option_image": "page_6_crop8_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_number": 2,
             "option_text": "[]",
             "option_image": "page_6_crop1_class0.jpg",
             "is_correct": false
         },
         {
+            "option_number": 3,
+            "option_text": "[]",
+            "option_image": "page_6_crop3_class0.jpg",
+            "is_correct": false
+        },
+        {
+            "option_number": 4,
             "option_text": "[]",
             "option_image": "page_6_crop0_class0.jpg",
             "is_correct": false
         },
         {
+            "option_number": 5,
             "option_text": "[]",
             "option_image": "page_6_crop4_class0.jpg",
-            "is_correct": false
-        },
-        {
-            "option_text": "[]",
-            "option_image": "page_6_crop5_class0.jpg",
-            "is_correct": false
-        },
-        {
-            "option_text": "[]",
-            "option_image": "page_6_crop8_class0.jpg",
             "is_correct": false
         }
     ],

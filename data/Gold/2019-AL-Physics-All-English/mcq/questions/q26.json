@@ -4,26 +4,31 @@
     "subject_unit": null,
     "options": [
         {
+            "option_number": 1,
             "option_text": "7 mA",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 2,
             "option_text": "7 mA",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 3,
             "option_text": "1.4 V",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 4,
             "option_text": "7 V",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 5,
             "option_text": "14 V",
             "option_image": "[]",
             "is_correct": false

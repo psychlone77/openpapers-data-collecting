@@ -4,27 +4,32 @@
     "subject_unit": null,
     "options": [
         {
+            "option_number": 1,
             "option_text": "both loops A and B move towards the right",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 2,
             "option_text": "both loops A and B move towards the left",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 3,
             "option_text": "loop A and B move away from each other",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "both loops A and B move towards each other",
+            "option_number": 4,
+            "option_text": "loops A and B move towards each other",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "loop A moves towards the right and loop B moves towards the left",
+            "option_number": 5,
+            "option_text": "loop A moves towards the right and loop B remains at rest",
             "option_image": "[]",
             "is_correct": false
         }

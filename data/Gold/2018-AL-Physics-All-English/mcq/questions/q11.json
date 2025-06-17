@@ -1,30 +1,35 @@
 {
     "question_number": 11,
-    "question_text": "The accelerations due to gravity on the surface of a uniform spherical planet of radius $R_1$ and a uniform spherical planet of radius $R_2$ are equal. If the mass of $M_1$ is twice the mass of $M_2$, $R_1$ and $R_2$ are related by",
+    "question_text": "The accelerations due to gravity on the surface of a uniform spherical planet of radius $R_1$ and a uniform spherical planet of radius $R_2$ are equal. If the mass of $4$ is twice the mass of $R_1$,",
     "subject_unit": null,
     "options": [
         {
-            "option_text": "(1) $R_1 = 2R_2$",
+            "option_number": 1,
+            "option_text": "\\(1\\) $R_2 = \\frac{1}{2} R_1$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "(2) $R_1 = R_2$",
+            "option_number": 2,
+            "option_text": "\\(2\\) $R_2 = R_1$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "(3) $R_1 = \\frac{R_2}{2}$",
+            "option_number": 3,
+            "option_text": "\\(3\\) $R_2 = 2R_1$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "(4) $R_1 = \\frac{R_2}{\\sqrt{2}}$",
+            "option_number": 4,
+            "option_text": "\\(4\\) $R_2 = 4R_1$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "(5) $R_1 = R_2 \\sqrt{2}$",
+            "option_number": 5,
+            "option_text": "\\(5\\) $R_2 = \\frac{1}{4} R_1$",
             "option_image": "[]",
             "is_correct": false
         }

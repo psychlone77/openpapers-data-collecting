@@ -4,27 +4,32 @@
     "subject_unit": null,
     "options": [
         {
-            "option_text": "It may have been due to ice may have not been properly wiped out before adding to the calorimeter.",
+            "option_number": 1,
+            "option_text": "It may have been due to dew having formed on the outer surface of the calorimeter while doing the experiment.",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "Water on the pieces of ice dew being formed on the outer surface of the calorimeter while doing the experiment.",
+            "option_number": 2,
+            "option_text": "Water on the pieces of ice may have not been properly wiped out before adding to the calorimeter.",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "Temperature of the ice used may have been lower than 0$^\\circ C$.",
+            "option_number": 3,
+            "option_text": "Temperature of the ice used may have been lower than 0$^\\circ$C.",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "only A and B can be accepted",
+            "option_number": 4,
+            "option_text": "only B and C can be accepted.",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "only B and C can be accepted",
+            "option_number": 5,
+            "option_text": "only A and B can be accepted.",
             "option_image": "[]",
             "is_correct": false
         }

@@ -4,27 +4,32 @@
     "subject_unit": null,
     "options": [
         {
+            "option_number": 1,
             "option_text": "$\\psi_S = +q$",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 2,
             "option_text": "$\\psi_S = +q$",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 3,
             "option_text": "$\\psi_S = -q$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "$\\psi_S = +q$",
+            "option_number": 4,
+            "option_text": "$\\psi_S = -q$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "$\\psi_S = -q$",
+            "option_number": 5,
+            "option_text": "$\\psi_S = +q$",
             "option_image": "[]",
             "is_correct": false
         }

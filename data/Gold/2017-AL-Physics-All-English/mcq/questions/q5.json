@@ -4,29 +4,34 @@
     "subject_unit": null,
     "options": [
         {
-            "option_text": "measuring e.m.f.",
+            "option_number": 1,
+            "option_text": "measuring emf.",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "comparing e.m.f.s",
+            "option_number": 2,
+            "option_text": "comparing emfs.",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 3,
             "option_text": "measuring the internal resistance of a cell.",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 4,
             "option_text": "comparing varying voltages.",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 5,
             "option_text": "measuring currents.",
             "option_image": "[]",
-            "is_correct": false
+            "is_correct": true
         }
     ],
     "answer": null,

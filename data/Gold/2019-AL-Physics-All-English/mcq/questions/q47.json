@@ -4,27 +4,32 @@
     "subject_unit": null,
     "options": [
         {
-            "option_text": "$0$",
+            "option_number": 1,
+            "option_text": "0",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "$\\frac{V_mI_m}{2}$",
+            "option_number": 2,
+            "option_text": "\\( \\frac{V_m I_m}{2} \\)",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "$\\frac{V_mI_m}{\\sqrt{2}}$",
+            "option_number": 3,
+            "option_text": "\\( \\frac{V_m I_m}{\\sqrt{2}} \\)",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "$V_mI_m$",
+            "option_number": 4,
+            "option_text": "\\( V_m I_m \\)",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "$2V_mI_m$",
+            "option_number": 5,
+            "option_text": "\\( 2 V_m I_m \\)",
             "option_image": "[]",
             "is_correct": false
         }

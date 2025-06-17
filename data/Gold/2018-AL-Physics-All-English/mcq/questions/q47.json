@@ -1,30 +1,35 @@
 {
     "question_number": 47,
-    "question_text": "Figure shows three objects (A), (B), and (C), which are made using three uniform wooden cubes of identical dimensions made out of the same material and three identical uniform metal cubes. In (A), (B) and (C) the metal cubes are embedded in the wooden cube, as shown in the figure. If the three objects (A), (B) and (C) are now slowly lowered without changing their orientation and the water level is such that the wooden cubes are completely immersed in water are $H_A$, $H_B$, and $H_C$ respectively, which of the following relationships is true?",
+    "question_text": "Figure shows three objects (A), (B), and (C), which are made using three uniform wooden cubes of identical dimensions made out of the same material and three identical uniform metal cubes. In (A), (B) and (C) the metal cubes are embedded in the wooden cube, as shown in the figure. If the three objects (A), (B) and (C) are now slowly lowered without changing their orientation and the three objects (A), (B) and (C) respectively, which of the following relationships is true? (Assume that the densities of wood and metal are $\rho_w$ and $\rho_m$ respectively, where $\rho_m > \rho_w$). The objects are immersed in water $\rho_w < \rho_w$.",
     "subject_unit": null,
     "options": [
         {
+            "option_number": 1,
             "option_text": "$H_A = H_B = H_C$",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 2,
             "option_text": "$H_A < H_B < H_C$",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 3,
+            "option_text": "$H_A = H_B = H_C$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_number": 4,
             "option_text": "$H_A > H_B > H_C$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "$H_A = H_B > H_C$",
-            "option_image": "[]",
-            "is_correct": false
-        },
-        {
-            "option_text": "$H_A = H_C > H_B$",
+            "option_number": 5,
+            "option_text": "$H_A < H_B < H_C$",
             "option_image": "[]",
             "is_correct": false
         }

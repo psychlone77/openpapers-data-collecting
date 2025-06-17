@@ -4,27 +4,32 @@
     "subject_unit": null,
     "options": [
         {
+            "option_number": 1,
             "option_text": "Direction of the motion of particles in the string is normal to the direction of propagation of the wave.",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 2,
             "option_text": "The speed of the wave is directly proportional to the square root of the mass per unit length of the string when the tension of the string is constant.",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 3,
             "option_text": "Energy carried by the wave depends on the amplitude of the wave.",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 4,
             "option_text": "Two adjacent particles of the string do not move with the same speed at a given instant.",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "The speed of the wave is independent of the amplitude of the wave.",
+            "option_number": 5,
+            "option_text": "The speed of the wave is independent of the frequency of the wave.",
             "option_image": "[]",
             "is_correct": false
         }

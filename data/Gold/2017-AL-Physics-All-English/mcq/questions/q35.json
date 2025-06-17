@@ -1,30 +1,35 @@
 {
     "question_number": 35,
-    "question_text": "Four reservoirs X, B, C and D and E of which the temperatures are maintained. The four other reservoirs X, C, D and E at temperatures shown. Heat is supplied by connecting at 100 $^\\circ C$ supplies heat and maintains the reservoir by operating the reservoirs. The lengths of the connecting rods are not drawn to the scale. If the cross-section. Lengths of the rods will not be having identical areas of cross-section. Conducting rod between X and B is",
+    "question_text": "Four reservoirs X, B, C and D and E of equal capacity are connected as shown. The reservoir X is maintained at 100$^\\circ$C while the temperatures of the other reservoirs are 50$^\\circ$C, 25$^\\circ$C, 25$^\\circ$C and 25$^\\circ$C respectively. The lengths of the rods are not drawn to the scale. If the cross-section conducting rod between X and B is twice the area of cross-section. Lengths of the rods will be",
     "subject_unit": null,
     "options": [
         {
-            "option_text": "$\frac{1}{2}L$",
+            "option_number": 1,
+            "option_text": "$2L$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "$\frac{2}{3}L$",
+            "option_number": 2,
+            "option_text": "$L/2$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "$\frac{3}{2}L$",
+            "option_number": 3,
+            "option_text": "$L$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "$\frac{2}{5}L$",
+            "option_number": 4,
+            "option_text": "$2$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "$\frac{5}{2}L$",
+            "option_number": 5,
+            "option_text": "$2/L$",
             "option_image": "[]",
             "is_correct": false
         }

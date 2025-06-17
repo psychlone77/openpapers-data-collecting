@@ -1,29 +1,34 @@
 {
     "question_number": 35,
-    "question_text": "Figure shows vertical cross-sections of three ideal solid spheres $A$, $B$ and $C$ of equal masses, of radius $r$ and having thin walls. The spheres can be rotated about a vertical axis passing through respective centres. If $A$, $B$ and $C$ are made of materials of different densities, the rotational kinetic energies to be provided for same bodies if $A$, $B$ and $C$ attain equal angular speeds, which of the disc passing through its centre, all figures are drawn to the same scale. $KE_A$, $KE_B$, $KE_C$ respectively are the rotational kinetic energies to be provided to the bodies $A$, $B$ and $C$ to attain equal angular speeds.",
+    "question_text": "Figure shows vertical cross-sections of three solid spheres $A$, $B$ and $C$ of equal masses. The spheres are of radius $r$ and having thin walls. The spheres can be rotated about a vertical axis passing through respective centres. If $A$, $B$ and $C$ are all figures provided for same scale, if $A$, $B$ and $C$ all figures respectively are of the disc passing through its centre, and all equal angular speeds, which of the following expressions are drawn to the bodies $A$, $B$, $KE_A$, $KE_B$, $KE_C$ respectively are the rotational kinetic energies to be",
     "subject_unit": null,
     "options": [
         {
+            "option_number": 1,
             "option_text": "$KE_A < KE_B < KE_C$",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 2,
             "option_text": "$KE_A = KE_B = KE_C$",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 3,
             "option_text": "$KE_C < KE_B < KE_A$",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 4,
             "option_text": "$KE_B < KE_A < KE_C$",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 5,
             "option_text": "$KE_B < KE_C < KE_A$",
             "option_image": "[]",
             "is_correct": false
@@ -32,7 +37,6 @@
     "answer": null,
     "question_images": [
         "page_7_crop5_class0.jpg",
-        "page_7_crop3_class0.jpg",
         "page_7_crop4_class0.jpg"
     ],
     "marks": null,

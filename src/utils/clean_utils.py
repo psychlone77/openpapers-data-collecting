@@ -61,22 +61,22 @@ def cleanup(pdf_name: str, level: str):
         delete_file(paths["bronze"])
         delete_folder(paths["silver"])
         delete_folder(paths["gold"])
-        rollback_metadata_to_step(pdf_name, "gold_to_primary")
+        delete_folder(paths["primary"])
         rollback_metadata_to_step(pdf_name, "unprocessed")
     elif level == "silver":
         delete_folder(paths["silver"])
         delete_folder(paths["gold"])
-        rollback_metadata_to_step(pdf_name, "gold_to_primary")
+        delete_folder(paths["primary"])
         rollback_metadata_to_step(pdf_name, "bronze_to_silver")
     elif level == "gold_images":
         delete_folder(paths["gold"])
-        rollback_metadata_to_step(pdf_name, "gold_to_primary")
+        delete_folder(paths["primary"])
         rollback_metadata_to_step(pdf_name, "silver_to_gold_i")
     elif level == "gold_questions":
         delete_folder(paths["gold_questions_mcq"])
         delete_folder(paths["gold_questions_structured"])
         delete_folder(paths["gold_questions_essay"])
-        rollback_metadata_to_step(pdf_name, "gold_to_primary")
+        delete_folder(paths["primary"])
         rollback_metadata_to_step(pdf_name, "silver_gold_to_gold_q")
     elif level == "primary":
         delete_folder(paths["primary"])

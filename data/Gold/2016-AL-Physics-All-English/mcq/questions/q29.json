@@ -1,29 +1,34 @@
 {
     "question_number": 29,
-    "question_text": "Two children of masses $m_1$ and $m_2$ are standing in equilibrium as shown in figure, on a uniform rod at constant speeds $v_1$ and $v_2$ respectively. Then they start moving simultaneously on the rod. Consider the following statements about the motion of the two children.\nFor the equilibrium to be maintained at any time $t$,\n(A) they should always move in opposite directions.\n(B) they should always move such that the moment always equal to zero.\n(C) they should move so that the moment produced by one child about $O$ is always equal and opposite to the moment produced by the other child about $O$.",
+    "question_text": "Two children of masses $m_1$ and $m_2$ are standing in equilibrium as shown in figure, on a uniform rod at constant speeds $v_1$ and $v_2$ respectively. Then they start moving simultaneously on the rod. Consider the following statements about the motion of the two children.\nFor the equilibrium to be maintained at any time $t$,",
     "subject_unit": null,
     "options": [
         {
-            "option_text": "only A is true.",
+            "option_number": 1,
+            "option_text": "they should always move in opposite directions.",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "only B is true.",
+            "option_number": 2,
+            "option_text": "the rate of change of the momentum always equal to zero.",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "only C is true.",
+            "option_number": 3,
+            "option_text": "they should move so that the moment produced by one child about $O$ is always equal and opposite to the moment produced by the other child about $O$.",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 4,
             "option_text": "only A, B and C are true.",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 5,
             "option_text": "only B and C are true.",
             "option_image": "[]",
             "is_correct": false

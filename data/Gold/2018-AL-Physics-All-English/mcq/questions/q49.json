@@ -1,29 +1,34 @@
 {
     "question_number": 49,
-    "question_text": "A toy car shown in figure (a) having an isolated metal axle $PQ$ travels with a constant speed $v$ along a sinusoidal path whose vertical cross-section is in the $x$-$z$ plane. The origin $O$ is at $z = 0$. The axle $PQ$ coincides with the $y$ axis. If a uniform magnetic field of flux density $\\mathbf{B}$ exists throughout the region in the direction of the positive $z$ axis, then the variation of the induced emf ($e$) at the end $P$ of the axle with respect to end $Q$ with time ($t$) is best represented by. (Neglect the effect of the Earth magnetic field.)",
+    "question_text": "A toy car shown in figure (a) having an isolated metal axle $PQ$ travels with a constant speed $v$ along a sinusoidal path whose vertical cross-section is in the $x$-$y$ plane. The axle $PQ$ is of length $l$. If the axle $PQ$ coincides with the $y$ axis at $t = 0$, a uniform magnetic field of flux density $B$ exists throughout the region in the $z$ direction. Which of the following shows the variation of the induced emf ($e$) at the end $P$ of the axle with respect to end $Q$ with time ($t$) is best represented by. (Neglect the effect of the Earth magnetic field).",
     "subject_unit": null,
     "options": [
         {
+            "option_number": 1,
             "option_text": "[]",
             "option_image": "page_12_crop4_class0.jpg",
             "is_correct": false
         },
         {
+            "option_number": 2,
             "option_text": "[]",
             "option_image": "page_12_crop2_class0.jpg",
             "is_correct": false
         },
         {
+            "option_number": 3,
             "option_text": "[]",
             "option_image": "page_12_crop0_class0.jpg",
-            "is_correct": true
+            "is_correct": false
         },
         {
+            "option_number": 4,
             "option_text": "[]",
             "option_image": "page_12_crop5_class0.jpg",
             "is_correct": false
         },
         {
+            "option_number": 5,
             "option_text": "[]",
             "option_image": "page_12_crop1_class0.jpg",
             "is_correct": false

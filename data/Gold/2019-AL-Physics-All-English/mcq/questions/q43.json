@@ -4,27 +4,32 @@
     "subject_unit": null,
     "options": [
         {
+            "option_number": 1,
             "option_text": "$n_1 \\sin i = n_2 \\sin r_1$",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 2,
             "option_text": "$n_2 \\sin r_2 = n_3 \\cos r_3$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "$n_3 \\sin r_4 = \\sin r_5$",
+            "option_number": 3,
+            "option_text": "$n_3 \\sin r_4 = \\cos r_5$",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 4,
             "option_text": "$n_1 \\cos i = n_2 \\sin r_2$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "$n_2 \\sin r_2 = n_3 \\cos r_3$",
+            "option_number": 5,
+            "option_text": "$n_2 \\sin r_1 = n_3 \\cos r_3$",
             "option_image": "[]",
             "is_correct": false
         }
@@ -32,7 +37,7 @@
     "answer": null,
     "question_images": [
         "page_9_crop1_class0.jpg",
-        "page_9_crop3_class0.jpg"
+        "page_9_crop2_class0.jpg"
     ],
     "marks": null,
     "difficulty": "normal"

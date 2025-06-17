@@ -1,36 +1,44 @@
 {
     "question_number": 44,
-    "question_text": "Absolute humidities of air inside three closed rooms A, B and C of volumes $V_A$, $V_B$ and $V_C$ are $S_A$, $S_B$ and $S_C$ respectively. The dew point in air in room A is $T_A$. When the doors are opened as shown in figure (b) the air in the three rooms are allowed to mix and attain a common dew point at $T_0$. Then the dew point at the three rooms will remain at $T_0$ if",
+    "question_text": "Absolute humidities of air inside three closed rooms A, B and C of volumes $V_A$, $V_B$ and $V_C$ are $S_A$, $S_B$ and $S_C$ respectively. The dew point in air in room A is $T_A$. When the doors are opened as shown in figure (b) the air in the three rooms are allowed to mix and attain a common dew point at $T_0$. The dew point at the three rooms will remain at $T_0$ if",
     "subject_unit": null,
     "options": [
         {
+            "option_number": 1,
             "option_text": "$S_A = \\frac{V_A S_A + V_B S_B + V_C S_C}{V_A + V_B + V_C}$",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 2,
             "option_text": "$S_A = \\frac{V_A S_A + S_B + S_C}{V_A + V_B + V_C}$",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 3,
             "option_text": "$S_A = \\frac{S_A + S_B + S_C}{3}$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "$S_A = \\frac{V_A S_A + V_B S_B + V_C S_C}{V_A + V_B + V_C}$",
+            "option_number": 4,
+            "option_text": "$S_A = \\frac{V_B S_B + V_C S_C}{V_B + V_C}$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "$S_A = \\frac{S_A + S_B + S_C}{3}$",
+            "option_number": 5,
+            "option_text": "$S_A = \\frac{S_B + S_C}{2}$",
             "option_image": "[]",
             "is_correct": false
         }
     ],
     "answer": null,
-    "question_images": "[page_8_crop1_class0.jpg]",
+    "question_images": [
+        "page_8_crop1_class0.jpg",
+        "page_8_crop7_class0.jpg"
+    ],
     "marks": null,
     "difficulty": "normal"
 }

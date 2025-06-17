@@ -4,29 +4,34 @@
     "subject_unit": null,
     "options": [
         {
-            "option_text": "(1) $f(1 + \frac{r\\omega}{v})$",
+            "option_number": 1,
+            "option_text": "$f(1 + \frac{r\\omega}{v})$",
             "option_image": "[]",
-            "is_correct": null
+            "is_correct": false
         },
         {
-            "option_text": "(2) $f(1 - \frac{r\\omega}{v})$",
+            "option_number": 2,
+            "option_text": "$f(1 - \frac{r\\omega}{v})$",
             "option_image": "[]",
-            "is_correct": null
+            "is_correct": false
         },
         {
-            "option_text": "(3) $f(1 + \frac{r\\omega}{v})$",
+            "option_number": 3,
+            "option_text": "$f(1 + \frac{r\\omega}{v})$",
             "option_image": "[]",
-            "is_correct": null
+            "is_correct": false
         },
         {
-            "option_text": "(4) $f(1 - \frac{r\\omega}{v})$",
+            "option_number": 4,
+            "option_text": "$f(1 + \frac{r\\omega}{v})$",
             "option_image": "[]",
-            "is_correct": null
+            "is_correct": false
         },
         {
-            "option_text": "(5) $f$",
+            "option_number": 5,
+            "option_text": "$f(1 + \frac{r\\omega}{v})$",
             "option_image": "[]",
-            "is_correct": null
+            "is_correct": false
         }
     ],
     "answer": null,

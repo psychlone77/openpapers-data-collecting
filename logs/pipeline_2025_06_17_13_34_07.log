@@ -1,0 +1,67 @@
+2025-06-17 13:34:07 - INFO - Main script started
+
+
+2025-06-17 13:34:07 - INFO - Processing 2016-AL-Physics-All-English
+
+2025-06-17 13:34:07 - INFO - Current progress for 2016-AL-Physics-All-English: 2.
+2025-06-17 13:34:07 - INFO - Steps remaining for 2016-AL-Physics-All-English: silver_gold_to_gold_q, gold_to_primary
+
+2025-06-17 13:34:07 - INFO - Converting 2016-AL-Physics-All-English to JSON
+2025-06-17 13:34:07 - INFO - Processing question type: mcq
+2025-06-17 13:34:07 - INFO - Calling Gemini to convert pdf to json
+2025-06-17 13:34:34 - INFO - Parsing JSON content from Gemini response
+2025-06-17 13:34:34 - INFO - Saved question 1 to q1.json
+2025-06-17 13:34:34 - INFO - Saved question 2 to q2.json
+2025-06-17 13:34:34 - INFO - Saved question 3 to q3.json
+2025-06-17 13:34:34 - INFO - Saved question 4 to q4.json
+2025-06-17 13:34:34 - INFO - Saved question 5 to q5.json
+2025-06-17 13:34:34 - INFO - Saved question 6 to q6.json
+2025-06-17 13:34:34 - INFO - Saved question 7 to q7.json
+2025-06-17 13:34:34 - INFO - Calling Gemini to convert pdf to json
+2025-06-17 13:34:47 - INFO - Parsing JSON content from Gemini response
+2025-06-17 13:34:47 - INFO - Saved question 49 to q49.json
+2025-06-17 13:34:47 - INFO - Saved question 50 to q50.json
+2025-06-17 13:34:47 - INFO - Calling Gemini to convert pdf to json
+2025-06-17 13:35:13 - INFO - Parsing JSON content from Gemini response
+2025-06-17 13:35:13 - INFO - Saved question 7 to q7.json
+2025-06-17 13:35:13 - INFO - Saved question 8 to q8.json
+2025-06-17 13:35:13 - INFO - Saved question 9 to q9.json
+2025-06-17 13:35:13 - INFO - Saved question 10 to q10.json
+2025-06-17 13:35:13 - INFO - Saved question 11 to q11.json
+2025-06-17 13:35:13 - INFO - Saved question 12 to q12.json
+2025-06-17 13:35:13 - INFO - Saved question 13 to q13.json
+2025-06-17 13:35:13 - INFO - Calling Gemini to convert pdf to json
+2025-06-17 13:35:39 - INFO - Parsing JSON content from Gemini response
+2025-06-17 13:35:39 - INFO - Saved question 14 to q14.json
+2025-06-17 13:35:39 - INFO - Saved question 15 to q15.json
+2025-06-17 13:35:39 - INFO - Saved question 16 to q16.json
+2025-06-17 13:35:39 - INFO - Saved question 17 to q17.json
+2025-06-17 13:35:39 - INFO - Saved question 18 to q18.json
+2025-06-17 13:35:39 - INFO - Saved question 19 to q19.json
+2025-06-17 13:35:39 - INFO - Calling Gemini to convert pdf to json
+2025-06-17 13:36:07 - INFO - Parsing JSON content from Gemini response
+2025-06-17 13:36:07 - INFO - Saved question 20 to q20.json
+2025-06-17 13:36:07 - INFO - Saved question 21 to q21.json
+2025-06-17 13:36:07 - INFO - Saved question 22 to q22.json
+2025-06-17 13:36:07 - INFO - Saved question 23 to q23.json
+2025-06-17 13:36:07 - INFO - Saved question 24 to q24.json
+2025-06-17 13:36:07 - INFO - Saved question 25 to q25.json
+2025-06-17 13:36:07 - INFO - Saved question 26 to q26.json
+2025-06-17 13:36:07 - INFO - Calling Gemini to convert pdf to json
+2025-06-17 13:36:28 - INFO - Parsing JSON content from Gemini response
+2025-06-17 13:36:28 - ERROR - Unhandled exception in 'convert_to_json': Invalid control character at: line 91 column 299 (char 2967)
+Traceback (most recent call last):
+  File "E:\CSE\Semester 6\CS3940 - Professional Portfolio\Lab\openpapers-data-collecting\src\utils\decorators.py", line 28, in wrapper
+    return func(*args, **kwargs)
+  File "E:\CSE\Semester 6\CS3940 - Professional Portfolio\Lab\openpapers-data-collecting\src\gemini\convert_to_json.py", line 177, in convert_to_json
+    parsed = json.loads(json_data)
+  File "C:\Program Files\Python313\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Program Files\Python313\Lib\json\decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python313\Lib\json\decoder.py", line 361, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ~~~~~~~~~~~~~~^^^^^^^^
+json.decoder.JSONDecodeError: Invalid control character at: line 91 column 299 (char 2967)

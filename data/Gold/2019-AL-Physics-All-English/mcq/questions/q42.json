@@ -4,26 +4,31 @@
     "subject_unit": null,
     "options": [
         {
+            "option_number": 1,
             "option_text": "Aluminium",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 2,
             "option_text": "Iron",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 3,
             "option_text": "Copper",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 4,
             "option_text": "Silver",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 5,
             "option_text": "Lead",
             "option_image": "[]",
             "is_correct": false
@@ -31,8 +36,7 @@
     ],
     "answer": null,
     "question_images": [
-        "page_9_crop0_class0.jpg",
-        "page_9_crop2_class0.jpg"
+        "page_9_crop0_class0.jpg"
     ],
     "marks": null,
     "difficulty": "normal"

@@ -4,27 +4,32 @@
     "subject_unit": null,
     "options": [
         {
-            "option_text": "(1) a cyclic process",
+            "option_number": 1,
+            "option_text": "\\(1\\) a cyclic process",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "(2) an adiabatic process",
+            "option_number": 2,
+            "option_text": "\\(2\\) an adiabatic process",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "(3) an isothermal process",
+            "option_number": 3,
+            "option_text": "\\(3\\) an isothermal process",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "(4) a constant pressure process",
+            "option_number": 4,
+            "option_text": "\\(4\\) a constant pressure process",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "(5) a constant volume process",
+            "option_number": 5,
+            "option_text": "\\(5\\) a constant volume process",
             "option_image": "[]",
             "is_correct": false
         }

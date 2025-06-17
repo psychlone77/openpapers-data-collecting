@@ -1,32 +1,37 @@
 {
     "question_number": 37,
-    "question_text": "A ray of light is incident perpendicular to the surface AC of a right angled glass prism as shown in the figure. Minimum value of the refractive index of the material of the prism for which the ray will not emerge from the face AB is",
+    "question_text": "A ray of light is incident perpendicular to the surface AC of a right angled glass prism as shown in the figure. Minimum value of the refractive index of the material of the prism for which the ray will not emerge from the surface AB is",
     "subject_unit": null,
     "options": [
         {
-            "option_text": "(1) 1.22",
+            "option_number": 1,
+            "option_text": "1.22",
             "option_image": "[]",
-            "is_correct": null
+            "is_correct": false
         },
         {
-            "option_text": "(2) 1.41",
+            "option_number": 2,
+            "option_text": "1.41",
             "option_image": "[]",
-            "is_correct": null
+            "is_correct": false
         },
         {
-            "option_text": "(3) 1.58",
+            "option_number": 3,
+            "option_text": "1.58",
             "option_image": "[]",
-            "is_correct": null
+            "is_correct": false
         },
         {
-            "option_text": "(4) 1.73",
+            "option_number": 4,
+            "option_text": "1.73",
             "option_image": "[]",
-            "is_correct": null
+            "is_correct": false
         },
         {
-            "option_text": "[]",
+            "option_number": 5,
+            "option_text": "1.87",
             "option_image": "[]",
-            "is_correct": null
+            "is_correct": false
         }
     ],
     "answer": null,

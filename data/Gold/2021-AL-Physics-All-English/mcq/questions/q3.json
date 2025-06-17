@@ -4,27 +4,32 @@
     "subject_unit": null,
     "options": [
         {
-            "option_text": "reflection",
+            "option_number": 1,
+            "option_text": "reflection.",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "total internal reflection",
+            "option_number": 2,
+            "option_text": "total internal reflection.",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "diffraction",
+            "option_number": 3,
+            "option_text": "diffraction.",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "total internal reflection",
+            "option_number": 4,
+            "option_text": "total angular velocity",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "interference",
+            "option_number": 5,
+            "option_text": "interference.",
             "option_image": "[]",
             "is_correct": false
         }

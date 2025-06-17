@@ -4,26 +4,31 @@
     "subject_unit": null,
     "options": [
         {
+            "option_number": 1,
             "option_text": "If each of the members of the two groups applies the same force on the rope, the magnitude of the tension throughout the rope is the same.",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 2,
             "option_text": "If the magnitude of tension on the rope exceeds its breaking tension, the rope will break only at a point between $P$ and $Q$.",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 3,
             "option_text": "If the magnitude of tension on the rope exceeds its breaking tension, the rope will break only at the coefficient of static friction between the applied by individual and the surface.",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "Only A is true.",
+            "option_number": 4,
+            "option_text": "Only $B$ is true.",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 5,
             "option_text": "All above statements are true.",
             "option_image": "[]",
             "is_correct": false

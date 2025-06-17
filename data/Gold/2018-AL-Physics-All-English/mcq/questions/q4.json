@@ -1,29 +1,34 @@
 {
     "question_number": 4,
-    "question_text": "A glass bottle of special shape, a vertical cross-section of which is shown in figure and consists of a large spherical cavity of radius $r$ and a narrow tapered tube of length $l$. The initial volume of the large cavity is the half of the volume of the water in the bottle. When the bottle is heated, the variation of height $h$ of the water surface measured from the level with height $r$ (if the expansion of the bottle is negligible), the variation of $h$ with the temperature of the water ($\theta$) is best represented by",
+    "question_text": "A glass bottle of special shape, a vertical cross-section of which is shown in figure and consists of a large spherical cavity of radius $r$ and a narrow tapered tube of length $l$. The initial volume of the large cavity is the half of the volume of the water in the bottle. When the bottle is heated, the variation of the volume of the water is negligible, the variation of height ($h$) of the water surface measured from the level $X$, with the temperature of the water ($\theta$) is best represented by",
     "subject_unit": null,
     "options": [
         {
+            "option_number": 1,
             "option_text": "[]",
             "option_image": "page_9_crop7_class0.jpg",
             "is_correct": false
         },
         {
+            "option_number": 2,
             "option_text": "[]",
             "option_image": "page_9_crop9_class0.jpg",
             "is_correct": false
         },
         {
+            "option_number": 3,
             "option_text": "[]",
             "option_image": "page_9_crop9_class0.jpg",
             "is_correct": false
         },
         {
+            "option_number": 4,
             "option_text": "[]",
             "option_image": "page_9_crop3_class0.jpg",
             "is_correct": false
         },
         {
+            "option_number": 5,
             "option_text": "[]",
             "option_image": "page_9_crop10_class0.jpg",
             "is_correct": false

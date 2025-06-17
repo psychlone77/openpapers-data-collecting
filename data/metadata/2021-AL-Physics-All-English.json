@@ -24,7 +24,7 @@
       "source_path": "./data/Silver/2021-AL-Physics-All-English, ./data/Gold/2021-AL-Physics-All-English",
       "target_layer": "Gold_Questions",
       "target_path": "./data/Gold/2021-AL-Physics-All-English",
-      "timestamp": "2025-06-13T22:50:08.049868"
+      "timestamp": "2025-06-17T14:27:22.265242"
     },
     "gold_to_primary": {
       "status": "done",
@@ -32,8 +32,8 @@
       "source_path": "./data/Gold/2021-AL-Physics-All-English",
       "target_layer": "Primary",
       "target_path": "./data/primary/2021-AL-Physics-All-English",
-      "timestamp": "2025-06-16T19:52:12.430875"
+      "timestamp": "2025-06-17T14:27:22.561469"
     }
   },
-  "last_modified": "2025-06-16T19:52:12.430884"
+  "last_modified": "2025-06-17T14:27:22.561475"
 }

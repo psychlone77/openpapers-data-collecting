@@ -1,32 +1,37 @@
 {
     "question_number": 32,
-    "question_text": "A boy, sitting on a smooth bendable towards his body, the angular velocity becomes equal to $\\omega_1$, are the moments of inertia of rotating systems when the hands are extended and bent towards his body respectively, then",
+    "question_text": "A boy, sitting on a smooth bend with a weight in the angular velocity becomes equal to an angular velocity when he bends his hands towards his body, the each extended hand is rotating with an angular velocity $\\omega_0$. When he brings the density of his orange seeds ($kg/m^3$) is approximately equal to",
     "subject_unit": null,
     "options": [
         {
-            "option_text": "$\\omega_1 < \\omega_0, I_1 > I_0 and \\omega_1 \\omega_0 I_1$",
+            "option_number": 1,
+            "option_text": "$\\omega_0 < \\omega_1 < \\omega_2$ and $\\omega_0 < \\omega_3 < \\omega_4$",
             "option_image": "[]",
-            "is_correct": null
+            "is_correct": false
         },
         {
-            "option_text": "$\\omega_1 > \\omega_0, I_1 < I_0 and \\omega_1 \\omega_0 I_1$",
+            "option_number": 2,
+            "option_text": "$\\omega_0 < \\omega_1 < \\omega_2$ and $\\omega_0 > \\omega_3 > \\omega_4$",
             "option_image": "[]",
-            "is_correct": null
+            "is_correct": false
         },
         {
-            "option_text": "$\\omega_1 < \\omega_0, I_1 < I_0 and \\omega_1 \\omega_0 I_1$",
+            "option_number": 3,
+            "option_text": "$\\omega_0 > \\omega_1 > \\omega_2$ and $\\omega_0 < \\omega_3 < \\omega_4$",
             "option_image": "[]",
-            "is_correct": null
+            "is_correct": false
         },
         {
-            "option_text": "$\\omega_1 > \\omega_0, I_1 > I_0 and \\omega_1 \\omega_0 I_1$",
+            "option_number": 4,
+            "option_text": "$\\omega_0 > \\omega_1 > \\omega_2$ and $\\omega_0 > \\omega_3 > \\omega_4$",
             "option_image": "[]",
-            "is_correct": null
+            "is_correct": false
         },
         {
-            "option_text": "$\\omega_1 = \\omega_0, I_1 = I_0 and \\omega_1 \\omega_0 I_1$",
+            "option_number": 5,
+            "option_text": "$\\omega_0 = \\omega_1 = \\omega_2$ and $\\omega_0 = \\omega_3 = \\omega_4$",
             "option_image": "[]",
-            "is_correct": null
+            "is_correct": false
         }
     ],
     "answer": null,

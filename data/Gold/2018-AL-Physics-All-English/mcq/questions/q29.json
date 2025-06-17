@@ -1,29 +1,34 @@
 {
     "question_number": 29,
-    "question_text": "Three tanks A, B and C open at the top are initially filled with water to levels as shown in figure. They could be filled at very slow speed to an outlet where static conditions could apply below the valve. $V_1$ and $V_2$ allow water to flow only downwards. When the valve is closed, the water level in A, B and C are below the valve. When the system is put into operation with the initial conditions shown in the figure, which of the following statements best describes subsequent operation of the system?",
+    "question_text": "Three tanks A, B and C open at the top are initially filled with water to levels as shown in figure. They could be filled at very slow speed to an outlet where static conditions could apply below the valve. $V_1$ and $V_2$ allow water to flow only downwards. When the valve is closed, the water level in A, B and C are below the valve. When the system is put into operation with the initial conditions shown in the figure, which of the following statements best describes subsequent operation at the outlet?",
     "subject_unit": null,
     "options": [
         {
+            "option_number": 1,
             "option_text": "Only A will contribute to the flow at the outlet.",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 2,
             "option_text": "Initially A contributes to the flow at the outlet followed by B and then C in succession.",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 3,
             "option_text": "Initially C starts to contribute to the flow at the outlet followed by B and then A in succession.",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 4,
             "option_text": "Initially, all three tanks contribute to the flow at the outlet simultaneously.",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 5,
             "option_text": "The experiment will never contribute to the flow at the outlet major contribution from C.",
             "option_image": "[]",
             "is_correct": false

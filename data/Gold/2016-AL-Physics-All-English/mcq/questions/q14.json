@@ -4,26 +4,31 @@
     "subject_unit": null,
     "options": [
         {
+            "option_number": 1,
             "option_text": "Magnitude of $v$ depends on the mass of the bunch.",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 2,
             "option_text": "Magnitude of $v$ depends on the rate at which the momentum is transferred from air molecules to the bunch.",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 3,
             "option_text": "Magnitude of $v$ depends on the viscosity of water.",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 4,
             "option_text": "Only A and B are true.",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 5,
             "option_text": "Only A, B and C are true.",
             "option_image": "[]",
             "is_correct": false

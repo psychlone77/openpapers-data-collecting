@@ -1,29 +1,34 @@
 {
     "question_number": 38,
-    "question_text": "The bellow prism of refractive index $\\mu$ as shown in figure, is made of a material of thick walls. A ray of monochromatic light PQ travelling in air is incident on the glass prism as shown in figure. In order to make the emergent ray travel along Y and Z directions respectively, the cavity of hollow surface should be filled with transparent fluids of refractive index $\\mu_1$ and $\\mu_2$ respectively.",
+    "question_text": "The bellow glass prism with thick walls as shown in figure, is made of a material of refractive index $\\mu$. A ray of monochromatic light PQ travelling in air is incident on the glass prism as shown in figure. In order to make the emergent ray travel along Y and Z directions respectively, the cavity of hollow surface along the path of the ray must be filled with transparent fluids of refractive index $\\mu_1$ where",
     "subject_unit": null,
     "options": [
         {
-            "option_text": "$\\mu_1 > \\mu$, $\\mu_2 = \\mu$",
+            "option_number": 1,
+            "option_text": "$\\mu_1 = \\mu_2 = \\mu$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "$\\mu_1 = \\mu$, $\\mu_2 > \\mu$",
-            "option_image": "[]",
-            "is_correct": false
-        },
-        {
-            "option_text": "$\\mu_1 < \\mu$, $\\mu_2 > \\mu$",
-            "option_image": "[]",
-            "is_correct": false
-        },
-        {
+            "option_number": 2,
             "option_text": "$\\mu_1 > \\mu$, $\\mu_2 < \\mu$",
             "option_image": "[]",
             "is_correct": false
         },
         {
+            "option_number": 3,
+            "option_text": "$\\mu_1 < \\mu$, $\\mu_2 > \\mu$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_number": 4,
+            "option_text": "$\\mu_1 > \\mu$, $\\mu_2 > \\mu$",
+            "option_image": "[]",
+            "is_correct": false
+        },
+        {
+            "option_number": 5,
             "option_text": "$\\mu_1 < \\mu$, $\\mu_2 < \\mu$",
             "option_image": "[]",
             "is_correct": false

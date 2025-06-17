@@ -1,30 +1,35 @@
 {
     "question_number": 38,
-    "question_text": "A flywheel of moment of inertia 4 kg $m^2$ is rotated with uniform angular speed of 10 rad $s^{-1}$ by a motor of power 20 W. When the motor is switched off, an angular deceleration of the flywheel is",
+    "question_text": "A flywheel of moment of inertia 4 kg m$^2$ is rotated with uniform angular speed of 10 rad s$^{-1}$ by a motor of power 20 W. When the motor is switched off, an angular deceleration of the flywheel is",
     "subject_unit": null,
     "options": [
         {
-            "option_text": "1 rad $s^{-2}$",
+            "option_number": 1,
+            "option_text": "1 rad s$^{-2}$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "2 rad $s^{-2}$",
+            "option_number": 2,
+            "option_text": "2 rad s$^{-2}$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "25 rad $s^{-2}$",
+            "option_number": 3,
+            "option_text": "25 rad s$^{-2}$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "200 rad $s^{-2}$",
+            "option_number": 4,
+            "option_text": "200 rad s$^{-2}$",
             "option_image": "[]",
             "is_correct": false
         },
         {
-            "option_text": "400 rad $s^{-2}$",
+            "option_number": 5,
+            "option_text": "400 rad s$^{-2}$",
             "option_image": "[]",
             "is_correct": false
         }

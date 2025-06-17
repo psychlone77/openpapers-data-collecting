@@ -1,29 +1,34 @@
 {
     "question_number": 10,
-    "question_text": "The logic circuit shown in figure (a) is equivalent to",
+    "question_text": "The logic circuit shown in figure \\((a)\\) is equivalent to",
     "subject_unit": null,
     "options": [
         {
+            "option_number": 1,
             "option_text": "[]",
             "option_image": "page_2_crop9_class0.jpg",
             "is_correct": false
         },
         {
+            "option_number": 2,
             "option_text": "[]",
             "option_image": "page_2_crop11_class0.jpg",
             "is_correct": false
         },
         {
+            "option_number": 3,
             "option_text": "[]",
             "option_image": "page_2_crop12_class0.jpg",
             "is_correct": false
         },
         {
+            "option_number": 4,
             "option_text": "[]",
             "option_image": "page_2_crop10_class0.jpg",
             "is_correct": false
         },
         {
+            "option_number": 5,
             "option_text": "[]",
             "option_image": "page_2_crop8_class0.jpg",
             "is_correct": false
