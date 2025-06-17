@@ -14,6 +14,7 @@ The data in the process of conversion can be found in separate layers in the `./
 - **Bronze**: The papers in raw PDF format, named according to the scheme.
 - **Silver**: The papers split to pages, each page saved as an image, in a folder suitable to the question type, as `mcq`, `structured`, `essay` or `other`
 - **Gold**: Includes the diagrams and jsons extracted from the PDFs.
+- **Primary**: Includes the final version of the data, a list of jsons with images in base64 format.
 - **Metadata**: Contains metadata regarding levels of PDF processes.
 
 ## Using the pipeline
@@ -35,13 +36,14 @@ This can also be run with `--debug` tag at the end to run in debug mode.
 
 For the {pdf-name} use the PDF name as mentioned above. Or use `all` to clean for all PDFs.
 
-For the {level-of-cleaning} the process level can be used. Options: ["bronze", "silver", "gold_images", "gold_questions"]. When a level is specified, all the layers above will also be cleaned. And the metadata will be changed accordingly.
+For the {level-of-cleaning} the process level can be used. Options: ["bronze", "silver", "gold_images", "gold_questions", "primary]. When a level is specified, all the layers above will also be cleaned. And the metadata will be changed accordingly.
 
 ## Scripts
 The main script `./src/pdf_to_jon_pipeline.py` is used to orchestrate the pipeline. This calls 3 other files for the 3 steps of the pipeline.
 - `./src/pdf/split_to_pages.py` : Used to separate the PDF into pages, preprocess them for clarification, and organize them by question type.
 - `./src/images/image_extract.py` : Used to extract the diagrams from the pages. This is done using a YOLO model, which is included in the same directory.
 - `./src/gemini/convert_to_json.py` : Used to extract the questions into json from the pages, and connect them with relevant images extracted in the previous step. This is done using gemini API.
+- `./src/questions/cleaned_json.py` : Used for final cleaning. The jsons are combined into one list of jsons. Where the images are used in place instead of references, in base64 format.
 
 `./src/utils/` contains the utilities for the pipeline.
 - `./src/utils/logging_config.py` : Used for logging the details of pipeline run. The logs will include timestamp, the level of log and self explanatory messages.
