@@ -1,0 +1,236 @@
+2025-06-17 21:42:00 - INFO - Main script started
+
+
+2025-06-17 21:42:00 - INFO - Processing 2016-AL-Physics-All-English
+
+2025-06-17 21:42:00 - INFO - Current progress for 2016-AL-Physics-All-English: 3.
+2025-06-17 21:42:00 - INFO - Steps remaining for 2016-AL-Physics-All-English: gold_to_primary
+
+2025-06-17 21:42:00 - INFO - Converted page_2_crop4_class0.jpg to base64
+2025-06-17 21:42:00 - INFO - Converted page_2_crop8_class0.jpg to base64
+2025-06-17 21:42:00 - INFO - Converted page_2_crop0_class0.jpg to base64
+2025-06-17 21:42:00 - INFO - Converted page_3_crop7_class0.jpg to base64
+2025-06-17 21:42:00 - INFO - Converted page_3_crop5_class0.jpg to base64
+2025-06-17 21:42:00 - INFO - Converted page_4_crop1_class0.jpg to base64
+2025-06-17 21:42:00 - INFO - Converted page_4_crop0_class0.jpg to base64
+2025-06-17 21:42:01 - INFO - Converted page_4_crop2_class0.jpg to base64
+2025-06-17 21:42:01 - INFO - Converted page_4_crop3_class0.jpg to base64
+2025-06-17 21:42:01 - INFO - Converted page_5_crop1_class0.jpg to base64
+2025-06-17 21:42:01 - INFO - Converted page_5_crop0_class0.jpg to base64
+2025-06-17 21:42:01 - INFO - Converted page_5_crop2_class0.jpg to base64
+2025-06-17 21:42:01 - INFO - Converted page_5_crop3_class0.jpg to base64
+2025-06-17 21:42:01 - INFO - Converted page_5_crop4_class0.jpg to base64
+2025-06-17 21:42:02 - INFO - Converted page_6_crop2_class0.jpg to base64
+2025-06-17 21:42:02 - INFO - Converted page_6_crop0_class0.jpg to base64
+2025-06-17 21:42:02 - INFO - Converted page_6_crop3_class0.jpg to base64
+2025-06-17 21:42:02 - INFO - Converted page_6_crop1_class0.jpg to base64
+2025-06-17 21:42:02 - INFO - Converted page_7_crop1_class0.jpg to base64
+2025-06-17 21:42:02 - INFO - Converted page_7_crop0_class0.jpg to base64
+2025-06-17 21:42:02 - INFO - Converted page_7_crop3_class0.jpg to base64
+2025-06-17 21:42:02 - INFO - Converted page_7_crop2_class0.jpg to base64
+2025-06-17 21:42:02 - INFO - Converted page_8_crop0_class0.jpg to base64
+2025-06-17 21:42:02 - INFO - Converted page_8_crop1_class0.jpg to base64
+2025-06-17 21:42:03 - INFO - Converted page_8_crop7_class0.jpg to base64
+2025-06-17 21:42:03 - INFO - Converted page_9_crop6_class0.jpg to base64
+2025-06-17 21:42:03 - INFO - Converted page_9_crop7_class0.jpg to base64
+2025-06-17 21:42:03 - INFO - Converted page_9_crop1_class0.jpg to base64
+2025-06-17 21:42:03 - INFO - Converted page_10_crop0_class0.jpg to base64
+2025-06-17 21:42:03 - INFO - Converted page_10_crop1_class0.jpg to base64
+2025-06-17 21:42:03 - INFO - Converted page_10_crop2_class0.jpg to base64
+2025-06-17 21:42:03 - INFO - Converted page_2_crop1_class0.jpg to base64
+2025-06-17 21:42:03 - INFO - Converted page_2_crop6_class0.jpg to base64
+2025-06-17 21:42:04 - INFO - Cleaned 50 questions into ./data/primary/2016-AL-Physics-All-English\mcq.json
+2025-06-17 21:42:04 - INFO - Cleaned JSONs and converted images to base64
+
+2025-06-17 21:42:04 - INFO - Metadata for 2016-AL-Physics-All-English written to ./data/metadata/2016-AL-Physics-All-English.json
+2025-06-17 21:42:04 - INFO - Finished processing 2016-AL-Physics-All-English.
+
+
+2025-06-17 21:42:04 - INFO - Processing 2017-AL-Physics-All-English
+
+2025-06-17 21:42:04 - INFO - Current progress for 2017-AL-Physics-All-English: 3.
+2025-06-17 21:42:04 - INFO - Steps remaining for 2017-AL-Physics-All-English: gold_to_primary
+
+2025-06-17 21:42:04 - INFO - Converted page_2_crop6_class0.jpg to base64
+2025-06-17 21:42:04 - INFO - Converted page_3_crop2_class0.jpg to base64
+2025-06-17 21:42:04 - INFO - Converted page_3_crop5_class0.jpg to base64
+2025-06-17 21:42:04 - INFO - Converted page_3_crop4_class0.jpg to base64
+2025-06-17 21:42:04 - INFO - Converted page_3_crop3_class0.jpg to base64
+2025-06-17 21:42:05 - INFO - Converted page_3_crop0_class0.jpg to base64
+2025-06-17 21:42:05 - INFO - Converted page_3_crop1_class0.jpg to base64
+2025-06-17 21:42:05 - INFO - Converted page_4_crop3_class0.jpg to base64
+2025-06-17 21:42:05 - INFO - Converted page_4_crop2_class0.jpg to base64
+2025-06-17 21:42:05 - INFO - Converted page_4_crop1_class0.jpg to base64
+2025-06-17 21:42:05 - INFO - Converted page_4_crop0_class0.jpg to base64
+2025-06-17 21:42:05 - INFO - Converted page_5_crop0_class0.jpg to base64
+2025-06-17 21:42:06 - INFO - Converted page_5_crop2_class0.jpg to base64
+2025-06-17 21:42:06 - INFO - Converted page_5_crop1_class0.jpg to base64
+2025-06-17 21:42:06 - INFO - Converted page_5_crop3_class0.jpg to base64
+2025-06-17 21:42:06 - INFO - Converted page_6_crop2_class0.jpg to base64
+2025-06-17 21:42:06 - INFO - Converted page_1_crop0_class0.jpg to base64
+2025-06-17 21:42:06 - INFO - Converted page_6_crop7_class0.jpg to base64
+2025-06-17 21:42:06 - INFO - Converted page_6_crop5_class0.jpg to base64
+2025-06-17 21:42:06 - INFO - Converted page_7_crop2_class0.jpg to base64
+2025-06-17 21:42:07 - INFO - Converted page_7_crop0_class0.jpg to base64
+2025-06-17 21:42:07 - INFO - Converted page_7_crop1_class0.jpg to base64
+2025-06-17 21:42:07 - INFO - Converted page_8_crop1_class0.jpg to base64
+2025-06-17 21:42:07 - INFO - Converted page_8_crop18_class0.jpg to base64
+2025-06-17 21:42:07 - INFO - Converted page_9_crop11_class0.jpg to base64
+2025-06-17 21:42:07 - INFO - Converted page_9_crop14_class0.jpg to base64
+2025-06-17 21:42:07 - INFO - Converted page_9_crop3_class0.jpg to base64
+2025-06-17 21:42:07 - INFO - Converted page_9_crop6_class0.jpg to base64
+2025-06-17 21:42:07 - INFO - Converted page_10_crop12_class0.jpg to base64
+2025-06-17 21:42:07 - INFO - Converted page_8_crop13_class0.jpg to base64
+2025-06-17 21:42:07 - INFO - Converted page_8_crop12_class0.jpg to base64
+2025-06-17 21:42:08 - INFO - Converted page_10_crop9_class0.jpg to base64
+2025-06-17 21:42:08 - INFO - Converted page_2_crop0_class0.jpg to base64
+2025-06-17 21:42:08 - INFO - Converted page_2_crop7_class0.jpg to base64
+2025-06-17 21:42:08 - INFO - Cleaned 47 questions into ./data/primary/2017-AL-Physics-All-English\mcq.json
+2025-06-17 21:42:08 - INFO - Cleaned JSONs and converted images to base64
+
+2025-06-17 21:42:08 - INFO - Metadata for 2017-AL-Physics-All-English written to ./data/metadata/2017-AL-Physics-All-English.json
+2025-06-17 21:42:08 - INFO - Finished processing 2017-AL-Physics-All-English.
+
+
+2025-06-17 21:42:08 - INFO - Processing 2018-AL-Physics-All-English
+
+2025-06-17 21:42:08 - INFO - Current progress for 2018-AL-Physics-All-English: 3.
+2025-06-17 21:42:08 - INFO - Steps remaining for 2018-AL-Physics-All-English: gold_to_primary
+
+2025-06-17 21:42:08 - INFO - Converted page_2_crop7_class0.jpg to base64
+2025-06-17 21:42:08 - INFO - Converted page_2_crop4_class0.jpg to base64
+2025-06-17 21:42:08 - INFO - Converted page_2_crop8_class0.jpg to base64
+2025-06-17 21:42:09 - INFO - Converted page_3_crop2_class0.jpg to base64
+2025-06-17 21:42:09 - INFO - Converted page_3_crop0_class0.jpg to base64
+2025-06-17 21:42:09 - INFO - Converted page_3_crop1_class0.jpg to base64
+2025-06-17 21:42:09 - INFO - Converted page_3_crop3_class0.jpg to base64
+2025-06-17 21:42:09 - INFO - Converted page_3_crop4_class0.jpg to base64
+2025-06-17 21:42:09 - INFO - Converted page_3_crop5_class0.jpg to base64
+2025-06-17 21:42:09 - INFO - Converted page_4_crop3_class0.jpg to base64
+2025-06-17 21:42:09 - INFO - Converted page_4_crop6_class0.jpg to base64
+2025-06-17 21:42:09 - INFO - Converted page_5_crop3_class0.jpg to base64
+2025-06-17 21:42:09 - INFO - Converted page_5_crop2_class0.jpg to base64
+2025-06-17 21:42:09 - INFO - Converted page_5_crop0_class0.jpg to base64
+2025-06-17 21:42:09 - INFO - Converted page_5_crop1_class0.jpg to base64
+2025-06-17 21:42:09 - INFO - Converted page_5_crop4_class0.jpg to base64
+2025-06-17 21:42:10 - INFO - Converted page_6_crop0_class0.jpg to base64
+2025-06-17 21:42:10 - INFO - Converted page_6_crop1_class0.jpg to base64
+2025-06-17 21:42:10 - INFO - Converted page_6_crop2_class0.jpg to base64
+2025-06-17 21:42:10 - INFO - Converted page_7_crop6_class0.jpg to base64
+2025-06-17 21:42:10 - INFO - Converted page_7_crop2_class0.jpg to base64
+2025-06-17 21:42:10 - INFO - Converted page_7_crop3_class0.jpg to base64
+2025-06-17 21:42:10 - INFO - Converted page_7_crop5_class0.jpg to base64
+2025-06-17 21:42:10 - INFO - Converted page_7_crop4_class0.jpg to base64
+2025-06-17 21:42:10 - INFO - Converted page_8_crop2_class0.jpg to base64
+2025-06-17 21:42:10 - INFO - Converted page_8_crop0_class0.jpg to base64
+2025-06-17 21:42:10 - INFO - Converted page_9_crop0_class0.jpg to base64
+2025-06-17 21:42:11 - INFO - Converted page_8_crop1_class0.jpg to base64
+2025-06-17 21:42:11 - INFO - Converted page_8_crop3_class0.jpg to base64
+2025-06-17 21:42:11 - INFO - Converted page_9_crop1_class0.jpg to base64
+2025-06-17 21:42:11 - INFO - Converted page_10_crop0_class0.jpg to base64
+2025-06-17 21:42:11 - INFO - Converted page_10_crop5_class0.jpg to base64
+2025-06-17 21:42:11 - INFO - Converted page_10_crop3_class0.jpg to base64
+2025-06-17 21:42:11 - INFO - Converted page_11_crop2_class0.jpg to base64
+2025-06-17 21:42:11 - INFO - Converted page_11_crop1_class0.jpg to base64
+2025-06-17 21:42:11 - INFO - Converted page_11_crop0_class0.jpg to base64
+2025-06-17 21:42:11 - INFO - Converted page_12_crop7_class0.jpg to base64
+2025-06-17 21:42:11 - INFO - Converted page_12_crop8_class0.jpg to base64
+2025-06-17 21:42:11 - INFO - Converted page_12_crop3_class0.jpg to base64
+2025-06-17 21:42:11 - INFO - Cleaned 49 questions into ./data/primary/2018-AL-Physics-All-English\mcq.json
+2025-06-17 21:42:11 - INFO - Cleaned JSONs and converted images to base64
+
+2025-06-17 21:42:11 - INFO - Metadata for 2018-AL-Physics-All-English written to ./data/metadata/2018-AL-Physics-All-English.json
+2025-06-17 21:42:11 - INFO - Finished processing 2018-AL-Physics-All-English.
+
+
+2025-06-17 21:42:11 - INFO - Processing 2019-AL-Physics-All-English
+
+2025-06-17 21:42:11 - INFO - Current progress for 2019-AL-Physics-All-English: 3.
+2025-06-17 21:42:11 - INFO - Steps remaining for 2019-AL-Physics-All-English: gold_to_primary
+
+2025-06-17 21:42:12 - INFO - Converted page_2_crop6_class0.jpg to base64
+2025-06-17 21:42:12 - INFO - Converted page_4_crop7_class0.jpg to base64
+2025-06-17 21:42:12 - INFO - Converted page_4_crop6_class0.jpg to base64
+2025-06-17 21:42:12 - INFO - Converted page_3_crop0_class0.jpg to base64
+2025-06-17 21:42:12 - INFO - Converted page_3_crop2_class0.jpg to base64
+2025-06-17 21:42:12 - INFO - Converted page_3_crop1_class0.jpg to base64
+2025-06-17 21:42:12 - INFO - Converted page_5_crop1_class0.jpg to base64
+2025-06-17 21:42:12 - INFO - Converted page_5_crop2_class0.jpg to base64
+2025-06-17 21:42:12 - INFO - Converted page_5_crop0_class0.jpg to base64
+2025-06-17 21:42:12 - INFO - Converted page_6_crop0_class0.jpg to base64
+2025-06-17 21:42:13 - INFO - Converted page_6_crop4_class0.jpg to base64
+2025-06-17 21:42:13 - INFO - Converted page_7_crop0_class0.jpg to base64
+2025-06-17 21:42:13 - INFO - Converted page_7_crop6_class0.jpg to base64
+2025-06-17 21:42:13 - INFO - Converted page_8_crop0_class0.jpg to base64
+2025-06-17 21:42:13 - INFO - Converted page_8_crop3_class0.jpg to base64
+2025-06-17 21:42:13 - INFO - Converted page_8_crop2_class0.jpg to base64
+2025-06-17 21:42:13 - INFO - Converted page_8_crop1_class0.jpg to base64
+2025-06-17 21:42:13 - INFO - Converted page_9_crop0_class0.jpg to base64
+2025-06-17 21:42:13 - INFO - Converted page_9_crop1_class0.jpg to base64
+2025-06-17 21:42:13 - INFO - Converted page_9_crop2_class0.jpg to base64
+2025-06-17 21:42:13 - INFO - Converted page_9_crop3_class0.jpg to base64
+2025-06-17 21:42:14 - INFO - Converted page_10_crop2_class0.jpg to base64
+2025-06-17 21:42:14 - INFO - Converted page_10_crop1_class0.jpg to base64
+2025-06-17 21:42:14 - INFO - Converted page_10_crop0_class0.jpg to base64
+2025-06-17 21:42:14 - INFO - Converted page_10_crop8_class0.jpg to base64
+2025-06-17 21:42:14 - INFO - Converted page_11_crop10_class0.jpg to base64
+2025-06-17 21:42:14 - INFO - Converted page_11_crop0_class0.jpg to base64
+2025-06-17 21:42:14 - INFO - Converted page_12_crop0_class0.jpg to base64
+2025-06-17 21:42:14 - INFO - Converted page_2_crop1_class0.jpg to base64
+2025-06-17 21:42:14 - INFO - Converted page_2_crop0_class0.jpg to base64
+2025-06-17 21:42:14 - INFO - Cleaned 50 questions into ./data/primary/2019-AL-Physics-All-English\mcq.json
+2025-06-17 21:42:14 - INFO - Cleaned JSONs and converted images to base64
+
+2025-06-17 21:42:14 - INFO - Metadata for 2019-AL-Physics-All-English written to ./data/metadata/2019-AL-Physics-All-English.json
+2025-06-17 21:42:14 - INFO - Finished processing 2019-AL-Physics-All-English.
+
+
+2025-06-17 21:42:14 - INFO - Processing 2020-AL-Physics-All-English
+
+2025-06-17 21:42:15 - INFO - Current progress for 2020-AL-Physics-All-English: 3.
+2025-06-17 21:42:15 - INFO - Steps remaining for 2020-AL-Physics-All-English: gold_to_primary
+
+2025-06-17 21:42:15 - INFO - Cleaned 0 questions into ./data/primary/2020-AL-Physics-All-English\mcq.json
+2025-06-17 21:42:15 - INFO - Cleaned JSONs and converted images to base64
+
+2025-06-17 21:42:15 - INFO - Metadata for 2020-AL-Physics-All-English written to ./data/metadata/2020-AL-Physics-All-English.json
+2025-06-17 21:42:15 - INFO - Finished processing 2020-AL-Physics-All-English.
+
+
+2025-06-17 21:42:15 - INFO - Processing 2021-AL-Physics-All-English
+
+2025-06-17 21:42:15 - INFO - Current progress for 2021-AL-Physics-All-English: 3.
+2025-06-17 21:42:15 - INFO - Steps remaining for 2021-AL-Physics-All-English: gold_to_primary
+
+2025-06-17 21:42:15 - INFO - Converted page_3_crop9_class0.jpg to base64
+2025-06-17 21:42:15 - INFO - Converted page_3_crop0_class0.jpg to base64
+2025-06-17 21:42:15 - INFO - Converted page_4_crop6_class0.jpg to base64
+2025-06-17 21:42:15 - INFO - Converted page_4_crop5_class0.jpg to base64
+2025-06-17 21:42:16 - INFO - Converted page_5_crop1_class0.jpg to base64
+2025-06-17 21:42:16 - INFO - Converted page_5_crop0_class0.jpg to base64
+2025-06-17 21:42:16 - INFO - Converted page_5_crop2_class0.jpg to base64
+2025-06-17 21:42:16 - INFO - Converted page_5_crop3_class0.jpg to base64
+2025-06-17 21:42:16 - INFO - Converted page_6_crop0_class0.jpg to base64
+2025-06-17 21:42:17 - INFO - Converted page_7_crop0_class0.jpg to base64
+2025-06-17 21:42:17 - INFO - Converted page_7_crop3_class0.jpg to base64
+2025-06-17 21:42:17 - INFO - Converted page_7_crop2_class0.jpg to base64
+2025-06-17 21:42:17 - INFO - Converted page_7_crop1_class0.jpg to base64
+2025-06-17 21:42:17 - INFO - Converted page_7_crop4_class0.jpg to base64
+2025-06-17 21:42:17 - INFO - Converted page_8_crop1_class0.jpg to base64
+2025-06-17 21:42:17 - INFO - Converted page_8_crop2_class0.jpg to base64
+2025-06-17 21:42:17 - INFO - Converted page_8_crop0_class0.jpg to base64
+2025-06-17 21:42:17 - INFO - Converted page_9_crop3_class0.jpg to base64
+2025-06-17 21:42:18 - INFO - Converted page_10_crop7_class0.jpg to base64
+2025-06-17 21:42:18 - INFO - Converted page_10_crop6_class0.jpg to base64
+2025-06-17 21:42:18 - INFO - Converted page_10_crop4_class0.jpg to base64
+2025-06-17 21:42:18 - INFO - Converted page_10_crop3_class0.jpg to base64
+2025-06-17 21:42:18 - INFO - Converted page_11_crop0_class0.jpg to base64
+2025-06-17 21:42:18 - INFO - Converted page_11_crop1_class0.jpg to base64
+2025-06-17 21:42:18 - INFO - Cleaned 50 questions into ./data/primary/2021-AL-Physics-All-English\mcq.json
+2025-06-17 21:42:18 - INFO - Cleaned JSONs and converted images to base64
+
+2025-06-17 21:42:18 - INFO - Metadata for 2021-AL-Physics-All-English written to ./data/metadata/2021-AL-Physics-All-English.json
+2025-06-17 21:42:18 - INFO - Finished processing 2021-AL-Physics-All-English.
+
+
+2025-06-17 21:42:18 - INFO - Main script completed successfully.

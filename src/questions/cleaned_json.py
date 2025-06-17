@@ -8,6 +8,7 @@ from utils.decorators import log_exceptions
 
 logger = logging.getLogger(__name__)
 
+@log_exceptions
 def safe_parse_list(val):
     """Converts stringified list to list, returns [] if invalid or empty."""
     if isinstance(val, list):
@@ -45,6 +46,10 @@ def clean_jsons(input_dir: str, output_dir: str):
             with open(filepath, "r", encoding="utf-8") as f:
                 question_data = json.load(f)
 
+            # --- Sanitize question_text ---
+            if isinstance(question_data.get("question_text"), str) and question_data["question_text"].strip() == "[]":
+                question_data["question_text"] = ""
+
             # --- Clean question_images ---
             base64_images = []
             raw_qimgs = safe_parse_list(question_data.get("question_images", []))
@@ -58,13 +63,29 @@ def clean_jsons(input_dir: str, output_dir: str):
                     logger.warning(f"Question image not found: {img_path.replace('\\', '/')}")
             question_data["question_images"] = base64_images
 
-            # --- Clean option_image ---
+            # --- Clean option_image and sanitize option_text ---
             options = question_data.get("options")
             if options:
                 for opt in options:
-                    raw_oimg_list = safe_parse_list(opt.get("option_image"))
-                    if raw_oimg_list:
-                        img_name = raw_oimg_list[0]
+                    if isinstance(opt.get("option_text"), str) and opt["option_text"].strip() == "[]":
+                        opt["option_text"] = ""
+
+                    opt_img_field = opt.get("option_image")
+
+                    if isinstance(opt_img_field, str):
+                        if opt_img_field.strip() == "[]":
+                            opt["option_image"] = ""
+                        else:
+                            img_name = opt_img_field.strip()
+                            page_folder = img_name.split("_crop")[0]
+                            img_path = os.path.join(images_dir, page_folder, img_name)
+                            if os.path.exists(img_path):
+                                opt["option_image"] = convert_jpg_to_base64(img_path)
+                                logger.info(f"Converted option image {img_name} to base64")
+                            else:
+                                logger.warning(f"Option image not found: {img_path.replace('\\', '/')}")
+                    elif isinstance(opt_img_field, list) and len(opt_img_field) > 0:
+                        img_name = opt_img_field[0]
                         page_folder = img_name.split("_crop")[0]
                         img_path = os.path.join(images_dir, page_folder, img_name)
                         if os.path.exists(img_path):
@@ -76,7 +97,7 @@ def clean_jsons(input_dir: str, output_dir: str):
                         opt["option_image"] = ""
 
             all_questions.append(question_data)
-        
+
         all_questions.sort(key=lambda q: q.get("question_number", 0))
 
         os.makedirs(output_dir, exist_ok=True)
