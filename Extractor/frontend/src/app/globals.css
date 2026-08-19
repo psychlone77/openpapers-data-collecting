@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-bg-canvas: #15171B;
+  --color-bg-surface: #1D2025;
+  --color-bg-surface-raised: #262A31;
+  --color-border-hairline: #33383F;
+  --color-text-primary: #EDEEF0;
+  --color-text-muted: #8A8F98;
+  --color-accent-active: #5B8CFF;
+  --color-status-live: #3DD68C;
+  --color-status-idle: #8A8F98;
+  --color-status-warn: #E8A33D;
+  --color-box-text: #5B8CFF;
+  --color-box-table: #E8A33D;
+  --color-box-image: #D9678C;
+  --color-box-formula: #3DD68C;
+
+  --font-display: 'Inter Tight', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+body {
+  background-color: var(--color-bg-canvas);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+}
+
+/* Base custom styles for Katex */
+.katex { font-size: 1.1em !important; }
