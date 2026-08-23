@@ -279,10 +279,11 @@ function KaTeXPreview({ content }: { content: string }) {
       <ReactMarkdown
         remarkPlugins={[remarkMath]}
         rehypePlugins={[rehypeKatex]}
+        urlTransform={(value) => value}
         components={{
           img: ({ node, src, ...props }) => {
             if (!src) return null;
-            return <img src={src} {...props} />;
+            return <img src={src} {...props} className="max-w-full max-h-48 object-contain rounded my-2 bg-white/5" />;
           }
         }}
       >
@@ -305,13 +306,11 @@ function InlineKaTeXPreview({ content }: { content: string }) {
       <ReactMarkdown
         remarkPlugins={[remarkMath]}
         rehypePlugins={[rehypeKatex]}
+        urlTransform={(value) => value}
         components={{
           p: ({ node, ...props }) => <span {...props} />,
           div: ({ node, ...props }) => <span {...props} />, // prevent math-display from breaking inline
-          img: ({ node, src, ...props }) => {
-            if (!src) return null;
-            return <img src={src} {...props} />;
-          }
+          img: () => <span className="text-blue-400/70 italic text-[10px] uppercase font-bold mx-1">[Image]</span>
         }}
       >
         {normalizedContent}

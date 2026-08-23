@@ -38,7 +38,7 @@ interface AppState {
   addTreeItem: (item: TreeItem) => void;
   updateTreeItem: (id: string, updates: Partial<TreeItem>) => void;
   removeTreeItem: (id: string) => void;
-  updateTreeItemImage: (bboxId: string, newBase64: string) => void;
+  updateTreeItemImage: (bboxId: string, newBase64: string, originalText?: string) => void;
 }
 
 export const useStore = create<AppState>((set) => ({
@@ -68,13 +68,18 @@ export const useStore = create<AppState>((set) => ({
   updateTreeItem: (id, updates) => set((state) => ({
     treeItems: state.treeItems.map(item => item.id === id ? { ...item, ...updates } : item)
   })),
-  updateTreeItemImage: (bboxId, newBase64) => set((state) => {
+  updateTreeItemImage: (bboxId, newBase64, originalText) => set((state) => {
     const regex = new RegExp(`!\\[${bboxId}\\]\\([^)]+\\)`);
     const newItems = state.treeItems.map(item => {
       if (item.content.match(regex)) {
         return {
           ...item,
           content: item.content.replace(regex, `![${bboxId}](${newBase64})`)
+        };
+      } else if (originalText && originalText.trim() && item.content.includes(originalText.trim())) {
+        return {
+          ...item,
+          content: item.content.replace(originalText.trim(), `![${bboxId}](${newBase64})`)
         };
       }
       return item;

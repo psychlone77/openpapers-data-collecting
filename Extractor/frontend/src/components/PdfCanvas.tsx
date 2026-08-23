@@ -25,6 +25,7 @@ interface BBox {
   width?: number;
   height?: number;
   pageNumber?: number;
+  content?: string;
 }
 
 export function PdfCanvas() {
@@ -258,6 +259,46 @@ export function PdfCanvas() {
       }));
     };
 
+    const triggerImageCrop = async (targetBox: BBox) => {
+      const storeState = useStore.getState();
+      if (!storeState.uploadedPdfPath) return;
+
+      try {
+        let bbox: number[] = [];
+        if (targetBox.x0 !== undefined && targetBox.y0 !== undefined && targetBox.x1 !== undefined && targetBox.y1 !== undefined) {
+           bbox = [targetBox.x0, targetBox.y0, targetBox.x1, targetBox.y1];
+        } else if (svgRef.current) {
+           const cvsW = svgRef.current.clientWidth || 1;
+           const cvsH = svgRef.current.clientHeight || 1;
+           bbox = [
+             targetBox.x! / cvsW,
+             targetBox.y! / cvsH,
+             (targetBox.x! + targetBox.width!) / cvsW,
+             (targetBox.y! + targetBox.height!) / cvsH
+           ];
+        }
+        
+        if (bbox.length === 4) {
+           const res = await fetch('http://localhost:8000/pdf/crop', {
+             method: 'POST',
+             headers: { 'Content-Type': 'application/json' },
+             body: JSON.stringify({
+               pdf_path: storeState.uploadedPdfPath,
+               page_number: (targetBox.pageNumber || 1) - 1, // backend is 0-indexed
+               bbox: bbox
+             })
+           });
+           
+           if (res.ok) {
+             const data = await res.json();
+             storeState.updateTreeItemImage(targetBox.id, data.image_base64, targetBox.content);
+           }
+        }
+      } catch(e) {
+        console.error("Error cropping updated image bounding box:", e);
+      }
+    };
+
     const handleWindowMouseUp = async () => {
       const currentDragState = dragState;
       setDragState(null);
@@ -266,45 +307,13 @@ export function PdfCanvas() {
       const { initialBox } = currentDragState;
       
       const updatedBox = boxesRef.current.find(b => b.id === initialBox.id);
-      const storeState = useStore.getState();
-      
-      if (updatedBox && updatedBox.type === 'image' && storeState.uploadedPdfPath) {
-        try {
-          let bbox: number[] = [];
-          if (updatedBox.x0 !== undefined && updatedBox.y0 !== undefined && updatedBox.x1 !== undefined && updatedBox.y1 !== undefined) {
-             bbox = [updatedBox.x0, updatedBox.y0, updatedBox.x1, updatedBox.y1];
-          } else if (svgRef.current) {
-             const cvsW = svgRef.current.clientWidth || 1;
-             const cvsH = svgRef.current.clientHeight || 1;
-             bbox = [
-               updatedBox.x! / cvsW,
-               updatedBox.y! / cvsH,
-               (updatedBox.x! + updatedBox.width!) / cvsW,
-               (updatedBox.y! + updatedBox.height!) / cvsH
-             ];
-          }
-          
-          if (bbox.length === 4) {
-             const res = await fetch('http://localhost:8000/pdf/crop', {
-               method: 'POST',
-               headers: { 'Content-Type': 'application/json' },
-               body: JSON.stringify({
-                 pdf_path: storeState.uploadedPdfPath,
-                 page_number: (updatedBox.pageNumber || 1) - 1, // backend is 0-indexed
-                 bbox: bbox
-               })
-             });
-             
-             if (res.ok) {
-               const data = await res.json();
-               storeState.updateTreeItemImage(updatedBox.id, data.image_base64);
-             }
-          }
-        } catch(e) {
-          console.error("Error cropping updated image bounding box:", e);
-        }
+      if (updatedBox && updatedBox.type === 'image') {
+        await triggerImageCrop(updatedBox);
       }
     };
+
+    // Attach trigger function to window so we can call it from inline handlers easily without prop drilling
+    (window as any).triggerImageCropFromCanvas = triggerImageCrop;
 
     window.addEventListener('mousemove', handleWindowMouseMove);
     window.addEventListener('mouseup', handleWindowMouseUp);
@@ -438,7 +447,15 @@ export function PdfCanvas() {
                           <div className={`absolute -top-10 left-0 flex gap-1 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'} transition-opacity z-50 bg-black/80 rounded p-1 shadow`}>
                             <select
                               value={box.type}
-                              onChange={(e) => updateBox(box.id, { type: e.target.value })}
+                              onChange={async (e) => {
+                                const newType = e.target.value;
+                                updateBox(box.id, { type: newType });
+                                if (newType === 'image') {
+                                  if ((window as any).triggerImageCropFromCanvas) {
+                                    (window as any).triggerImageCropFromCanvas({ ...box, type: 'image' });
+                                  }
+                                }
+                              }}
                               onClick={(e) => e.stopPropagation()}
                               className="text-xs bg-transparent text-white outline-none cursor-pointer"
                             >
