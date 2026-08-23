@@ -23,38 +23,27 @@ class ASTService:
         question_pattern = re.compile(r"^(\d+)\.\s+(.*)")
         order_counter = 0
         
-        # 2. Iterate through each page
-        for page_idx in sorted(pages.keys()):
-            # Create a Page root node
-            page_id = f"page-{page_idx + 1}"
-            tree_items.append({
-                "id": page_id,
-                "parentId": None,
-                "type": "question", # Will be rendered specially if we want, or just a section
-                "content": f"## Page {page_idx + 1}",
-                "order": order_counter
-            })
-            order_counter += 1
-            
+        current_question_id = None
+        current_content = []
+        
+        # Helper to commit current question
+        def commit_question():
+            nonlocal current_question_id, current_content, order_counter
+            if current_question_id and current_content:
+                if not current_question_id.startswith("q-header-"):
+                    tree_items.append({
+                        "id": current_question_id,
+                        "parentId": None, # Root level
+                        "type": "question",
+                        "content": "\n\n".join(current_content).strip(),
+                        "order": order_counter
+                    })
+                    order_counter += 1
             current_question_id = None
             current_content = []
             
-            # Helper to commit current question
-            def commit_question():
-                nonlocal current_question_id, current_content, order_counter
-                if current_question_id and current_content:
-                    if not current_question_id.startswith("q-header-"):
-                        tree_items.append({
-                            "id": current_question_id,
-                            "parentId": page_id,
-                            "type": "question",
-                            "content": "\n\n".join(current_content).strip(),
-                            "order": order_counter
-                        })
-                        order_counter += 1
-                current_question_id = None
-                current_content = []
-                
+        # 2. Iterate through each page
+        for page_idx in sorted(pages.keys()):
             for elem in pages[page_idx]:
                 if not isinstance(elem, dict):
                     continue
@@ -106,6 +95,6 @@ class ASTService:
                         current_question_id = f"q-header-{uuid.uuid4().hex[:8]}"
                     current_content.append(text)
                     
-            commit_question()
+        commit_question()
             
         return tree_items, bounding_boxes
