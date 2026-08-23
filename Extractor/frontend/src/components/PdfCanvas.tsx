@@ -14,11 +14,16 @@ type BoxType = 'text' | 'table' | 'image' | 'formula';
 
 interface BBox {
   id: string;
-  type: BoxType;
-  x: number;
-  y: number;
-  width: number;
-  height: number;
+  type: string;
+  x0?: number;
+  y0?: number;
+  x1?: number;
+  y1?: number;
+  // Legacy support for user drawing
+  x?: number;
+  y?: number;
+  width?: number;
+  height?: number;
   pageNumber?: number;
 }
 
@@ -28,6 +33,14 @@ export function PdfCanvas() {
   const [numPages, setNumPages] = useState<number>();
   const [pageNumber, setPageNumber] = useState<number>(1);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const [activeBoxId, setActiveBoxId] = useState<string | null>(null);
+  const [dragState, setDragState] = useState<{
+    type: 'move' | 'n' | 's' | 'e' | 'w' | 'ne' | 'nw' | 'se' | 'sw';
+    startX: number;
+    startY: number;
+    initialBox: BBox;
+  } | null>(null);
 
   // Visibility filters for box types
   const [filters, setFilters] = useState<Record<BoxType, boolean>>({
@@ -46,11 +59,56 @@ export function PdfCanvas() {
     setPageNumber(1);
   }
 
-  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const [isProcessing, setIsProcessing] = useState(false);
+
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file && file.type === 'application/pdf') {
       setPdfFile(file);
       setBoxes([]);
+
+      // Upload to backend
+      const formData = new FormData();
+      formData.append('file', file);
+
+      try {
+        const response = await fetch('http://localhost:8000/pdf/upload', {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          useStore.getState().setUploadedPdfPath(data.pdf_path);
+
+          // Call MinerU processing
+          setIsProcessing(true);
+          try {
+            const processRes = await fetch('http://localhost:8000/pdf/process', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ pdf_path: data.pdf_path }),
+            });
+
+            if (processRes.ok) {
+              const processData = await processRes.json();
+              useStore.getState().setTreeItems(processData.tree_items);
+              setBoxes(processData.bounding_boxes);
+            } else {
+              alert("MinerU processing failed.");
+            }
+          } catch (err) {
+            console.error("Error calling MinerU process API:", err);
+          } finally {
+            setIsProcessing(false);
+          }
+
+        } else {
+          console.error("Failed to upload PDF to backend");
+        }
+      } catch (err) {
+        console.error("Error uploading PDF:", err);
+      }
     }
   };
 
@@ -100,23 +158,162 @@ export function PdfCanvas() {
   };
 
   const handleMouseUp = () => {
-    if (isDrawing && currentBox && currentBox.width > 5 && currentBox.height > 5) {
-      setBoxes([...boxes, { ...currentBox, id: Math.random().toString(36).substring(7), pageNumber }]);
+    if (isDrawing && currentBox && (currentBox.width || 0) > 5 && (currentBox.height || 0) > 5) {
+      // eslint-disable-next-line react-hooks/purity
+      setBoxes([...boxes, { ...currentBox, id: `box-${Date.now()}-${Math.floor(Math.random() * 1000)}`, pageNumber }]);
     }
     setIsDrawing(false);
     setCurrentBox(null);
-    setStartPoint(null);
   };
 
-  const deleteBox = (id: string, e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (activeTool === 'pointer') {
-      setBoxes(prev => prev.filter(b => b.id !== id));
-    }
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const deleteBox = (id: string) => {
+    setBoxes(boxes.filter(b => b.id !== id));
   };
 
   const currentPageBoxes = boxes.filter(b => b.pageNumber === pageNumber);
+
+  const updateBox = (id: string, updates: Partial<BBox>) => {
+    setBoxes(prev => prev.map(b => b.id === id ? { ...b, ...updates } : b));
+  };
+
+  // Track latest boxes in a ref for event listeners
+  const boxesRef = useRef<BBox[]>([]);
+  useEffect(() => {
+    boxesRef.current = boxes;
+  }, [boxes]);
+
+  // Global mouse events for Box dragging/resizing
+  useEffect(() => {
+    if (!dragState) return;
+
+    const handleWindowMouseMove = (e: MouseEvent) => {
+      const dx = (e.clientX - dragState.startX) / pdfScale;
+      const dy = (e.clientY - dragState.startY) / pdfScale;
+
+      const { initialBox } = dragState;
+      const isNorm = initialBox.x0 !== undefined;
+      const cvsW = svgRef.current?.clientWidth || 1;
+      const cvsH = svgRef.current?.clientHeight || 1;
+
+      const pxLeft = isNorm ? (initialBox.x0! * cvsW) : initialBox.x!;
+      const pxTop = isNorm ? (initialBox.y0! * cvsH) : initialBox.y!;
+      const pxWidth = isNorm ? ((initialBox.x1! - initialBox.x0!) * cvsW) : initialBox.width!;
+      const pxHeight = isNorm ? ((initialBox.y1! - initialBox.y0!) * cvsH) : initialBox.height!;
+
+      let newLeft = pxLeft;
+      let newTop = pxTop;
+      let newWidth = pxWidth;
+      let newHeight = pxHeight;
+
+      if (dragState.type === 'move') {
+        newLeft += dx;
+        newTop += dy;
+      } else {
+        if (dragState.type.includes('w')) {
+          newLeft += dx;
+          newWidth -= dx;
+        }
+        if (dragState.type.includes('e')) {
+          newWidth += dx;
+        }
+        if (dragState.type.includes('n')) {
+          newTop += dy;
+          newHeight -= dy;
+        }
+        if (dragState.type.includes('s')) {
+          newHeight += dy;
+        }
+      }
+
+      // Enforce minimum size
+      if (newWidth < 10) {
+        if (dragState.type.includes('w')) newLeft -= (10 - newWidth);
+        newWidth = 10;
+      }
+      if (newHeight < 10) {
+        if (dragState.type.includes('n')) newTop -= (10 - newHeight);
+        newHeight = 10;
+      }
+
+      setBoxes(prev => prev.map(b => {
+        if (b.id !== initialBox.id) return b;
+        if (isNorm) {
+          return {
+            ...b,
+            x0: newLeft / cvsW,
+            y0: newTop / cvsH,
+            x1: (newLeft + newWidth) / cvsW,
+            y1: (newTop + newHeight) / cvsH,
+          };
+        } else {
+          return {
+            ...b,
+            x: newLeft,
+            y: newTop,
+            width: newWidth,
+            height: newHeight,
+          };
+        }
+      }));
+    };
+
+    const handleWindowMouseUp = async () => {
+      const currentDragState = dragState;
+      setDragState(null);
+      
+      if (!currentDragState) return;
+      const { initialBox } = currentDragState;
+      
+      const updatedBox = boxesRef.current.find(b => b.id === initialBox.id);
+      const storeState = useStore.getState();
+      
+      if (updatedBox && updatedBox.type === 'image' && storeState.uploadedPdfPath) {
+        try {
+          let bbox: number[] = [];
+          if (updatedBox.x0 !== undefined && updatedBox.y0 !== undefined && updatedBox.x1 !== undefined && updatedBox.y1 !== undefined) {
+             bbox = [updatedBox.x0, updatedBox.y0, updatedBox.x1, updatedBox.y1];
+          } else if (svgRef.current) {
+             const cvsW = svgRef.current.clientWidth || 1;
+             const cvsH = svgRef.current.clientHeight || 1;
+             bbox = [
+               updatedBox.x! / cvsW,
+               updatedBox.y! / cvsH,
+               (updatedBox.x! + updatedBox.width!) / cvsW,
+               (updatedBox.y! + updatedBox.height!) / cvsH
+             ];
+          }
+          
+          if (bbox.length === 4) {
+             const res = await fetch('http://localhost:8000/pdf/crop', {
+               method: 'POST',
+               headers: { 'Content-Type': 'application/json' },
+               body: JSON.stringify({
+                 pdf_path: storeState.uploadedPdfPath,
+                 page_number: (updatedBox.pageNumber || 1) - 1, // backend is 0-indexed
+                 bbox: bbox
+               })
+             });
+             
+             if (res.ok) {
+               const data = await res.json();
+               storeState.updateTreeItemImage(updatedBox.id, data.image_base64);
+             }
+          }
+        } catch(e) {
+          console.error("Error cropping updated image bounding box:", e);
+        }
+      }
+    };
+
+    window.addEventListener('mousemove', handleWindowMouseMove);
+    window.addEventListener('mouseup', handleWindowMouseUp);
+
+    return () => {
+      window.removeEventListener('mousemove', handleWindowMouseMove);
+      window.removeEventListener('mouseup', handleWindowMouseUp);
+    };
+  }, [dragState, pdfScale]);
 
   return (
     <div className="w-full h-full flex flex-col relative bg-[#111316]">
@@ -161,9 +358,17 @@ export function PdfCanvas() {
         {/* Upload Button */}
         <button
           onClick={() => fileInputRef.current?.click()}
-          className="px-3 py-1 text-xs font-semibold rounded bg-white text-black hover:bg-gray-200 transition-colors"
+          className="px-3 py-1 text-xs font-semibold rounded bg-white text-black hover:bg-gray-200 transition-colors flex items-center gap-2"
+          disabled={isProcessing}
         >
-          Upload PDF
+          {isProcessing ? (
+            <>
+              <div className="w-3 h-3 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
+              Processing...
+            </>
+          ) : (
+            "Upload PDF"
+          )}
         </button>
       </div>
 
@@ -183,7 +388,11 @@ export function PdfCanvas() {
             </button>
           </div>
         ) : (
-          <div className="relative shadow-2xl bg-white" style={{ width: 'max-content', height: 'max-content' }}>
+          <div 
+            className="relative shadow-2xl bg-white" 
+            style={{ width: 'max-content', height: 'max-content' }}
+            onClick={() => setActiveBoxId(null)}
+          >
 
             <Document
               file={pdfFile}
@@ -199,28 +408,79 @@ export function PdfCanvas() {
                 renderAnnotationLayer={true}
                 className="relative"
               >
-                {/* HTML Overlay for buttons */}
+                {/* HTML Overlay for interactivity */}
                 <div className="absolute inset-0 z-30 pointer-events-none">
-                  {currentPageBoxes.map(box => (
-                    <div
-                      key={box.id}
-                      className="absolute pointer-events-auto group"
-                      style={{
-                        left: box.x, top: box.y, width: box.width, height: box.height
-                      }}
-                    >
-                      <button
-                        onClick={(e) => { e.stopPropagation(); setBoxes(prev => prev.filter(b => b.id !== box.id)); }}
-                        className="absolute -top-2.5 -right-2.5 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-sm z-50 hover:bg-red-600 cursor-pointer"
-                        title="Remove bounding box"
+                  {currentPageBoxes.map(box => {
+                    const isVisible = (filters as any)[box.type] ?? true;
+                    if (!isVisible) return null;
+
+                    const isActive = activeBoxId === box.id;
+                    const left = box.x !== undefined ? box.x : (box.x0 !== undefined && svgRef.current ? box.x0 * svgRef.current.clientWidth : 0);
+                    const top = box.y !== undefined ? box.y : (box.y0 !== undefined && svgRef.current ? box.y0 * svgRef.current.clientHeight : 0);
+                    const width = box.width !== undefined ? box.width : (box.x1 !== undefined && box.x0 !== undefined && svgRef.current ? (box.x1 - box.x0) * svgRef.current.clientWidth : 0);
+                    const height = box.height !== undefined ? box.height : (box.y1 !== undefined && box.y0 !== undefined && svgRef.current ? (box.y1 - box.y0) * svgRef.current.clientHeight : 0);
+
+                    return (
+                      <div
+                        key={box.id}
+                        className={`absolute group pointer-events-auto transition-colors ${isActive ? 'outline outline-2 outline-blue-500 bg-blue-500/10 z-40' : ''}`}
+                        style={{ left, top, width, height }}
+                        onClick={(e) => { e.stopPropagation(); setActiveBoxId(box.id); }}
+                        onMouseDown={(e) => {
+                          if (isActive && e.button === 0) {
+                            e.stopPropagation();
+                            setDragState({ type: 'move', startX: e.clientX, startY: e.clientY, initialBox: box });
+                          }
+                        }}
                       >
-                        <svg width="10" height="10" viewBox="0 0 10 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                          <line x1="2" y1="2" x2="8" y2="8" />
-                          <line x1="8" y1="2" x2="2" y2="8" />
-                        </svg>
-                      </button>
-                    </div>
-                  ))}
+                        {/* Toolbar */}
+                        {(isActive || (!activeBoxId && true)) && (
+                          <div className={`absolute -top-10 left-0 flex gap-1 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'} transition-opacity z-50 bg-black/80 rounded p-1 shadow`}>
+                            <select
+                              value={box.type}
+                              onChange={(e) => updateBox(box.id, { type: e.target.value })}
+                              onClick={(e) => e.stopPropagation()}
+                              className="text-xs bg-transparent text-white outline-none cursor-pointer"
+                            >
+                              <option value="text">Text</option>
+                              <option value="table">Table</option>
+                              <option value="image">Image</option>
+                              <option value="formula">Formula</option>
+                            </select>
+                            <button
+                              onClick={(e) => { e.stopPropagation(); deleteBox(box.id); setActiveBoxId(null); }}
+                              className="text-red-400 hover:text-red-300 px-1"
+                              title="Delete box"
+                            >
+                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path></svg>
+                            </button>
+                          </div>
+                        )}
+
+                        {/* Resize Handles */}
+                        {isActive && (
+                          <>
+                            {['nw', 'n', 'ne', 'e', 'se', 's', 'sw', 'w'].map((pos) => (
+                              <div
+                                key={pos}
+                                className="absolute bg-white border border-blue-500 w-2 h-2 rounded-full"
+                                style={{
+                                  top: pos.includes('n') ? -4 : pos.includes('s') ? '100%' : '50%',
+                                  left: pos.includes('w') ? -4 : pos.includes('e') ? '100%' : '50%',
+                                  transform: pos.length === 1 ? 'translate(-50%, -50%)' : (pos.includes('s') && pos.includes('e') ? 'translate(-100%, -100%)' : 'translate(0, 0)'), // Simplified positioning
+                                  cursor: `${pos}-resize`,
+                                }}
+                                onMouseDown={(e) => {
+                                  e.stopPropagation();
+                                  setDragState({ type: pos as any, startX: e.clientX, startY: e.clientY, initialBox: box });
+                                }}
+                              />
+                            ))}
+                          </>
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
 
                 {/* SVG Overlay Layer for Drawing Boxes */}
@@ -237,28 +497,40 @@ export function PdfCanvas() {
                   onMouseLeave={handleMouseUp}
                 >
                   {/* Render confirmed boxes */}
-                  {currentPageBoxes.map((box) => (
-                    <rect
-                      key={box.id}
-                      x={box.x}
-                      y={box.y}
-                      width={box.width}
-                      height={box.height}
-                      fill={`var(--color-box-${box.type})`}
-                      fillOpacity={0.15}
-                      stroke={`var(--color-box-${box.type})`}
-                      strokeWidth={2}
-                      className="pointer-events-auto cursor-pointer hover:fill-opacity-30 transition-all"
-                    />
-                  ))}
+                  {currentPageBoxes.map((box) => {
+                    const bx = box.x !== undefined ? box.x : (box.x0 !== undefined && svgRef.current ? box.x0 * svgRef.current.clientWidth : 0);
+                    const by = box.y !== undefined ? box.y : (box.y0 !== undefined && svgRef.current ? box.y0 * svgRef.current.clientHeight : 0);
+                    const bw = box.width !== undefined ? box.width : (box.x1 !== undefined && box.x0 !== undefined && svgRef.current ? (box.x1 - box.x0) * svgRef.current.clientWidth : 0);
+                    const bh = box.height !== undefined ? box.height : (box.y1 !== undefined && box.y0 !== undefined && svgRef.current ? (box.y1 - box.y0) * svgRef.current.clientHeight : 0);
+
+                    // Skip rendering if filtered out
+                    // box.type could be text, table, image, formula. default to true if unknown type
+                    const isVisible = (filters as any)[box.type] ?? true;
+                    if (!isVisible) return null;
+
+                    return (
+                      <rect
+                        key={box.id}
+                        x={bx}
+                        y={by}
+                        width={bw}
+                        height={bh}
+                        fill={`var(--color-box-${['table', 'image', 'formula'].includes(box.type) ? box.type : 'text'})`}
+                        fillOpacity={0.15}
+                        stroke={`var(--color-box-${['table', 'image', 'formula'].includes(box.type) ? box.type : 'text'})`}
+                        strokeWidth={2}
+                        className="pointer-events-auto cursor-pointer hover:fill-opacity-30 transition-all"
+                      />
+                    );
+                  })}
 
                   {/* Render active drawing box */}
                   {isDrawing && currentBox && (
                     <rect
-                      x={currentBox.x}
-                      y={currentBox.y}
-                      width={currentBox.width}
-                      height={currentBox.height}
+                      x={currentBox.x || 0}
+                      y={currentBox.y || 0}
+                      width={currentBox.width || 0}
+                      height={currentBox.height || 0}
                       fill="var(--color-accent-active)"
                       fillOpacity={0.1}
                       stroke="var(--color-accent-active)"
@@ -317,7 +589,16 @@ export function PdfCanvas() {
   );
 }
 
-function FilterPill({ type, active, onClick, icon, color, label }: any) {
+interface FilterPillProps {
+  type: string;
+  active: boolean;
+  onClick: () => void;
+  icon: React.ReactNode;
+  color: string;
+  label: string;
+}
+
+function FilterPill({ active, onClick, icon, color, label }: FilterPillProps) {
   return (
     <button
       onClick={onClick}

@@ -1,5 +1,5 @@
 import { useStore } from "@/store/useStore";
-import { Server, Play, Square, Activity } from "lucide-react";
+import { Play, Square, Activity } from "lucide-react";
 
 export function TopBar() {
   const { gpuStatus, setGpuStatus } = useStore();

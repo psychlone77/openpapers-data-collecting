@@ -1,0 +1,30 @@
+{
+  "name": "openpapers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NisithDivantha/OpenPapers.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NisithDivantha/OpenPapers/issues"
+  },
+  "homepage": "https://github.com/NisithDivantha/OpenPapers#readme",
+  "dependencies": {
+    "@prisma/client": "^6.19.3",
+    "puppeteer": "^25.7.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "prisma": "^6.19.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^7.0.2"
+  }
+}

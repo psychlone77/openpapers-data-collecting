@@ -20,6 +20,18 @@ class PDFService:
                 raise ValueError("Page number out of bounds")
             
             page = doc[page_number]
+            
+            # Check if bbox is normalized (all values <= 1.0)
+            is_normalized = all(0 <= val <= 1.01 for val in bbox)
+            if is_normalized:
+                pw, ph = page.rect.width, page.rect.height
+                bbox = [
+                    bbox[0] * pw,
+                    bbox[1] * ph,
+                    bbox[2] * pw,
+                    bbox[3] * ph
+                ]
+                
             # fitz.Rect takes (x0, y0, x1, y1)
             rect = fitz.Rect(*bbox)
             
