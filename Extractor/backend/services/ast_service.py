@@ -21,25 +21,33 @@ class ASTService:
                 pages[page_idx] = [page_elements]
             
         question_pattern = re.compile(r"^(\d+)\.\s+(.*)")
+        option_pattern = re.compile(r"^\(\d+\)\s+(.*)")
+        subq_pattern = re.compile(r"^([a-zA-Z]\.|[ivxIVX]+\.|\([a-zA-Z]\)|\([ivxIVX]+\))\s+(.*)")
+        
         order_counter = 0
         
-        current_question_id = None
+        current_node_id = None
         current_content = []
+        current_type = "question"
+        current_parent_id = None
         
-        # Helper to commit current question
-        def commit_question():
-            nonlocal current_question_id, current_content, order_counter
-            if current_question_id and current_content:
-                if not current_question_id.startswith("q-header-"):
+        latest_q_id = None
+        latest_subq_id = None
+        
+        # Helper to commit current node
+        def commit_node():
+            nonlocal current_node_id, current_content, order_counter, current_type, current_parent_id
+            if current_node_id and current_content:
+                if not current_node_id.startswith("q-header-"):
                     tree_items.append({
-                        "id": current_question_id,
-                        "parentId": None, # Root level
-                        "type": "question",
-                        "content": "\n\n".join(current_content).strip(),
+                        "id": current_node_id,
+                        "parentId": current_parent_id,
+                        "type": current_type,
+                        "content": "\n".join(current_content).strip(),
                         "order": order_counter
                     })
                     order_counter += 1
-            current_question_id = None
+            current_node_id = None
             current_content = []
             
         # 2. Iterate through each page
@@ -85,16 +93,45 @@ class ASTService:
                 if not text:
                     continue
                     
-                match = question_pattern.match(text)
-                if match:
-                    commit_question()
-                    current_question_id = f"q-{uuid.uuid4().hex[:8]}"
-                    current_content.append(text)
-                else:
-                    if not current_question_id:
-                        current_question_id = f"q-header-{uuid.uuid4().hex[:8]}"
-                    current_content.append(text)
+                # Split text by line to handle combined blocks
+                lines = text.split("\n")
+                for line in lines:
+                    line_str = line.strip()
+                    if not line_str:
+                        continue
+                        
+                    q_match = question_pattern.match(line_str)
+                    opt_match = option_pattern.match(line_str)
+                    subq_match = subq_pattern.match(line_str)
                     
-        commit_question()
+                    if q_match:
+                        commit_node()
+                        current_node_id = f"q-{uuid.uuid4().hex[:8]}"
+                        current_type = "question"
+                        current_parent_id = None
+                        latest_q_id = current_node_id
+                        latest_subq_id = None
+                        current_content.append(line_str)
+                    elif opt_match:
+                        commit_node()
+                        current_node_id = f"opt-{uuid.uuid4().hex[:8]}"
+                        current_type = "option"
+                        current_parent_id = latest_subq_id or latest_q_id
+                        current_content.append(line_str)
+                    elif subq_match:
+                        commit_node()
+                        current_node_id = f"subq-{uuid.uuid4().hex[:8]}"
+                        current_type = "subquestion"
+                        current_parent_id = latest_q_id
+                        latest_subq_id = current_node_id
+                        current_content.append(line_str)
+                    else:
+                        if not current_node_id:
+                            current_node_id = f"q-header-{uuid.uuid4().hex[:8]}"
+                            current_type = "question"
+                            current_parent_id = None
+                        current_content.append(line_str)
+                    
+        commit_node()
             
         return tree_items, bounding_boxes

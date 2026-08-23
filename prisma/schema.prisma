@@ -1,0 +1,158 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator client_python {
+  provider             = "prisma-client-py"
+  interface            = "asyncio"
+  recursive_type_depth = 5
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Stream {
+  id        String    @id @default(uuid())
+  name      String    @unique
+  subjects  Subject[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Subject {
+  id        String   @id @default(uuid())
+  name      String   @unique
+  streams   Stream[]
+  papers    Paper[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Paper {
+  id         String      @id @default(uuid())
+  name       String
+  year       Int
+  medium     String      @default("Unknown")
+  subjectId  String
+  subject    Subject     @relation(fields: [subjectId], references: [id], onDelete: Cascade)
+  parts      PaperPart[]
+  
+  // Link to Extractor Document
+  curationDocuments CurationDocument[] 
+  
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
+}
+
+model PaperPart {
+  id        String     @id @default(uuid())
+  name      String
+  type      String     // MCQ, ESSAY, STRUCTURED_ESSAY
+  paperId   String
+  paper     Paper      @relation(fields: [paperId], references: [id], onDelete: Cascade)
+  questions Question[]
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+}
+
+model Question {
+  id        String   @id @default(uuid())
+  number    Int
+  text      String?
+  imageUrl  String?
+  partId    String
+  part      PaperPart @relation(fields: [partId], references: [id], onDelete: Cascade)
+  answers   Answer[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Answer {
+  id         String   @id @default(uuid())
+  text       String?
+  imageUrl   String?
+  isCorrect  Boolean  @default(false)
+  questionId String
+  question   Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+// ==========================================
+// Extractor (Universal Hierarchical Data Model)
+// ==========================================
+
+model CurationDocument {
+  id              String     @id @default(uuid())
+  paperId         String?    // Optional link back to the main Paper model
+  paper           Paper?     @relation(fields: [paperId], references: [id], onDelete: SetNull)
+  originalFilePath String
+  status          String     @default("PENDING") // PENDING, EXTRACTING, CURATING, COMPLETED
+  metadata        Json?      // Store Year, Subject, Grade, Paper Type from UI
+  nodes           CurationNode[]
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+}
+
+enum CurationNodeType {
+  mcq
+  structured_parent
+  structured_part
+  essay
+}
+
+model CurationNode {
+  id               String       @id @default(uuid())
+  documentId       String?
+  document         CurationDocument? @relation(fields: [documentId], references: [id], onDelete: Cascade)
+  
+  // Hierarchical Self-Relation
+  parentId         String?
+  parent           CurationNode?     @relation("CurationNodeHierarchy", fields: [parentId], references: [id])
+  children         CurationNode[]    @relation("CurationNodeHierarchy")
+  
+  type             CurationNodeType
+  content_markdown String?
+  marks_allocated  Float?
+  order_index      Int          @default(0)
+  
+  mcq_options      CurationMcqOption[]
+  rubrics          CurationRubricAndSolution[]
+  assets           CurationNodeAsset[]
+
+  createdAt        DateTime     @default(now())
+  updatedAt        DateTime     @updatedAt
+}
+
+model CurationMcqOption {
+  id          String   @id @default(uuid())
+  nodeId      String
+  node        CurationNode @relation(fields: [nodeId], references: [id], onDelete: Cascade)
+  content     String
+  isCorrect   Boolean  @default(false)
+  explanation String?
+  order_index Int      @default(0)
+}
+
+model CurationRubricAndSolution {
+  id           String   @id @default(uuid())
+  nodeId       String
+  node         CurationNode @relation(fields: [nodeId], references: [id], onDelete: Cascade)
+  model_answer String?
+  marking_scheme String?
+  criteria     Json?
+}
+
+model CurationNodeAsset {
+  id           String   @id @default(uuid())
+  nodeId       String?
+  node         CurationNode? @relation(fields: [nodeId], references: [id], onDelete: Cascade)
+  
+  assetType    String   // image, table, formula
+  cdnUrl       String
+  pageNumber   Int
+  bbox         Json     // [x0, y0, x1, y1]
+  confidence   Float?   // MinerU confidence score
+}
