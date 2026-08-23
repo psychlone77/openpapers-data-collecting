@@ -84,10 +84,11 @@ export function QuestionTree() {
             items={flatItems.map(i => i.id)}
             strategy={verticalListSortingStrategy}
           >
-            {flatItems.map(item => (
+            {flatItems.map((item, index) => (
               <SortableNodeCard
                 key={item.id}
                 node={item}
+                index={index + 1}
                 treeItems={treeItems}
                 isSelected={selectedNodeId === item.id}
                 onClick={() => setSelectedNodeId(item.id)}
@@ -109,7 +110,7 @@ export function QuestionTree() {
   );
 }
 
-function SortableNodeCard({ node, isSelected, onClick, treeItems }: { node: TreeItem, isSelected: boolean, onClick: () => void, treeItems: TreeItem[] }) {
+function SortableNodeCard({ node, index, isSelected, onClick, treeItems }: { node: TreeItem, index: number, isSelected: boolean, onClick: () => void, treeItems: TreeItem[] }) {
   const {
     attributes,
     listeners,
@@ -177,7 +178,12 @@ function SortableNodeCard({ node, isSelected, onClick, treeItems }: { node: Tree
         </div>
 
         {/* Type Badge */}
-        <div className="w-2 h-8 rounded-sm mr-3 flex-shrink-0" style={{ backgroundColor: getTypeColor() }} />
+        <div className="w-2 h-8 rounded-sm mr-2 flex-shrink-0" style={{ backgroundColor: getTypeColor() }} />
+        
+        {/* Number Badge */}
+        <div className="flex items-center justify-center w-6 h-6 rounded bg-black/20 text-[10px] font-bold text-[var(--color-text-muted)] mr-3 flex-shrink-0">
+          {index}
+        </div>
 
         <div className="flex-1 min-w-0 flex flex-col mr-2">
           <div className="flex items-center gap-2 mb-1">

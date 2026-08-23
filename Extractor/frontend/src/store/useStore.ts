@@ -39,6 +39,7 @@ interface AppState {
   updateTreeItem: (id: string, updates: Partial<TreeItem>) => void;
   removeTreeItem: (id: string) => void;
   updateTreeItemImage: (bboxId: string, newBase64: string, originalText?: string) => void;
+  removeBoxContentFromTree: (bboxId: string, originalText?: string) => void;
 }
 
 export const useStore = create<AppState>((set) => ({
@@ -83,6 +84,20 @@ export const useStore = create<AppState>((set) => ({
         };
       }
       return item;
+    });
+    return { treeItems: newItems };
+  }),
+  removeBoxContentFromTree: (bboxId, originalText) => set((state) => {
+    const regex = new RegExp(`!\\[${bboxId}\\]\\([^)]*\\)`, 'g');
+    const newItems = state.treeItems.map(item => {
+      let newContent = item.content.replace(regex, '');
+      if (originalText && originalText.trim()) {
+        newContent = newContent.replace(originalText.trim(), '');
+      }
+      return {
+        ...item,
+        content: newContent.trim()
+      };
     });
     return { treeItems: newItems };
   }),

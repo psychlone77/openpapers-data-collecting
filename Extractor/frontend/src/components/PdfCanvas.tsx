@@ -167,9 +167,12 @@ export function PdfCanvas() {
     setCurrentBox(null);
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const deleteBox = (id: string) => {
+    const boxToDelete = boxes.find(b => b.id === id);
     setBoxes(boxes.filter(b => b.id !== id));
+    if (boxToDelete) {
+      useStore.getState().removeBoxContentFromTree(id, boxToDelete.content);
+    }
   };
 
   const currentPageBoxes = boxes.filter(b => b.pageNumber === pageNumber);
