@@ -29,7 +29,7 @@ interface BBox {
 }
 
 export function PdfCanvas() {
-  const { selectedNodeId, pdfScale, setPdfScale, pdfFile, setPdfFile } = useStore();
+  const { selectedNodeId, pdfScale, setPdfScale, pdfFile, setPdfFile, paperType, setPaperType, language, setLanguage } = useStore();
   const [activeTool, setActiveTool] = useState<'pointer' | 'draw'>('pointer');
   const [numPages, setNumPages] = useState<number>();
   const [pageNumber, setPageNumber] = useState<number>(1);
@@ -45,7 +45,7 @@ export function PdfCanvas() {
 
   // Visibility filters for box types
   const [filters, setFilters] = useState<Record<BoxType, boolean>>({
-    text: true,
+    text: false, // Hidden by default as requested to reduce clutter
     table: true,
     image: true,
     formula: true,
@@ -88,12 +88,17 @@ export function PdfCanvas() {
             const processRes = await fetch('http://localhost:8000/pdf/process', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ pdf_path: data.pdf_path }),
+              body: JSON.stringify({ 
+                pdf_path: data.pdf_path,
+                language: useStore.getState().language,
+                paper_type: useStore.getState().paperType 
+              }),
             });
 
             if (processRes.ok) {
               const processData = await processRes.json();
-              useStore.getState().setTreeItems(processData.tree_items);
+              useStore.getState().setCurationMarkdown(processData.curation_markdown || '');
+              useStore.getState().setImages(processData.images_dict || {});
               setBoxes(processData.bounding_boxes);
             } else {
               alert("MinerU processing failed.");
@@ -367,6 +372,28 @@ export function PdfCanvas() {
           <FilterPill type="formula" active={filters.formula} onClick={() => toggleFilter('formula')} icon={<Sigma size={14} />} color="var(--color-box-formula)" label="Formula" />
         </div>
 
+        {/* Metadata Selectors */}
+        <div className="flex items-center gap-2 px-2 border-r border-[var(--color-border-hairline)]">
+          <select 
+            value={language}
+            onChange={(e) => setLanguage(e.target.value)}
+            className="text-xs bg-transparent border border-[var(--color-border-hairline)] rounded px-2 py-1 text-white outline-none cursor-pointer hover:border-[var(--color-accent-active)]"
+          >
+            <option value="en">English (EN)</option>
+            <option value="ta">Tamil (TA)</option>
+            <option value="si">Sinhala (SI)</option>
+          </select>
+          <select 
+            value={paperType}
+            onChange={(e) => setPaperType(e.target.value)}
+            className="text-xs bg-transparent border border-[var(--color-border-hairline)] rounded px-2 py-1 text-white outline-none cursor-pointer hover:border-[var(--color-accent-active)]"
+          >
+            <option value="MCQ">MCQ</option>
+            <option value="ESSAY">Essay</option>
+            <option value="STRUCTURED_ESSAY">Structured Essay</option>
+          </select>
+        </div>
+
         {/* Upload Button */}
         <button
           onClick={() => fileInputRef.current?.click()}
@@ -422,15 +449,16 @@ export function PdfCanvas() {
               >
                 {/* HTML Overlay for interactivity */}
                 <div className="absolute inset-0 z-30 pointer-events-none">
+                  {console.log("Rendering HTML overlay. currentPageBoxes:", currentPageBoxes)}
                   {currentPageBoxes.map(box => {
                     const isVisible = (filters as any)[box.type] ?? true;
                     if (!isVisible) return null;
 
                     const isActive = activeBoxId === box.id;
-                    const left = box.x !== undefined ? box.x : (box.x0 !== undefined && svgRef.current ? box.x0 * svgRef.current.clientWidth : 0);
-                    const top = box.y !== undefined ? box.y : (box.y0 !== undefined && svgRef.current ? box.y0 * svgRef.current.clientHeight : 0);
-                    const width = box.width !== undefined ? box.width : (box.x1 !== undefined && box.x0 !== undefined && svgRef.current ? (box.x1 - box.x0) * svgRef.current.clientWidth : 0);
-                    const height = box.height !== undefined ? box.height : (box.y1 !== undefined && box.y0 !== undefined && svgRef.current ? (box.y1 - box.y0) * svgRef.current.clientHeight : 0);
+                    const left = box.x !== undefined ? box.x : (box.x0 !== undefined ? `${box.x0 * 100}%` : 0);
+                    const top = box.y !== undefined ? box.y : (box.y0 !== undefined ? `${box.y0 * 100}%` : 0);
+                    const width = box.width !== undefined ? box.width : (box.x1 !== undefined && box.x0 !== undefined ? `${(box.x1 - box.x0) * 100}%` : 0);
+                    const height = box.height !== undefined ? box.height : (box.y1 !== undefined && box.y0 !== undefined ? `${(box.y1 - box.y0) * 100}%` : 0);
 
                     return (
                       <div
@@ -518,10 +546,19 @@ export function PdfCanvas() {
                 >
                   {/* Render confirmed boxes */}
                   {currentPageBoxes.map((box) => {
-                    const bx = box.x !== undefined ? box.x : (box.x0 !== undefined && svgRef.current ? box.x0 * svgRef.current.clientWidth : 0);
-                    const by = box.y !== undefined ? box.y : (box.y0 !== undefined && svgRef.current ? box.y0 * svgRef.current.clientHeight : 0);
-                    const bw = box.width !== undefined ? box.width : (box.x1 !== undefined && box.x0 !== undefined && svgRef.current ? (box.x1 - box.x0) * svgRef.current.clientWidth : 0);
-                    const bh = box.height !== undefined ? box.height : (box.y1 !== undefined && box.y0 !== undefined && svgRef.current ? (box.y1 - box.y0) * svgRef.current.clientHeight : 0);
+                    const bx = box.x !== undefined ? box.x : (box.x0 !== undefined ? `${box.x0 * 100}%` : 0);
+                    const by = box.y !== undefined ? box.y : (box.y0 !== undefined ? `${box.y0 * 100}%` : 0);
+                    const bw = box.width !== undefined ? box.width : (box.x1 !== undefined && box.x0 !== undefined ? `${(box.x1 - box.x0) * 100}%` : 0);
+                    const bh = box.height !== undefined ? box.height : (box.y1 !== undefined && box.y0 !== undefined ? `${(box.y1 - box.y0) * 100}%` : 0);
+
+                    const isActive = activeBoxId === box.id;
+                    let color = '';
+                    switch (box.type) {
+                      case 'text': color = 'var(--color-box-text)'; break;
+                      case 'table': color = 'var(--color-box-table)'; break;
+                      case 'image': color = 'var(--color-box-image)'; break;
+                      case 'formula': color = 'var(--color-box-formula)'; break;
+                    }
 
                     // Skip rendering if filtered out
                     // box.type could be text, table, image, formula. default to true if unknown type
@@ -531,15 +568,13 @@ export function PdfCanvas() {
                     return (
                       <rect
                         key={box.id}
-                        x={bx}
-                        y={by}
-                        width={bw}
-                        height={bh}
-                        fill={`var(--color-box-${['table', 'image', 'formula'].includes(box.type) ? box.type : 'text'})`}
-                        fillOpacity={0.15}
-                        stroke={`var(--color-box-${['table', 'image', 'formula'].includes(box.type) ? box.type : 'text'})`}
-                        strokeWidth={2}
-                        className="pointer-events-auto cursor-pointer hover:fill-opacity-30 transition-all"
+                        x={bx} y={by} width={bw} height={bh}
+                        fill={isActive ? '#3b82f6' : (color || '#888')}
+                        fillOpacity={isActive ? 0.3 : 0.1}
+                        stroke={isActive ? '#3b82f6' : (color || '#888')}
+                        strokeWidth="1"
+                        className="transition-colors cursor-pointer"
+                        onClick={() => setActiveBoxId(box.id)}
                       />
                     );
                   })}

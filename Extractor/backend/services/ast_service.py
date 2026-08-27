@@ -4,53 +4,81 @@ from typing import List, Dict, Any, Tuple
 
 class ASTService:
     @staticmethod
-    def parse_model_output_to_tree(model_output: List[Dict[str, Any]], pdf_path: str = None) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]]]:
+    def parse_model_output_to_curation_markdown(model_output: List[Dict[str, Any]], pdf_path: str = None, language: str = "en", paper_type: str = "MCQ") -> Tuple[str, List[Dict[str, Any]], Dict[str, str]]:
         """
-        Parses MinerU model_output into a list of Question tree items, grouped by page,
-        and also returns the extracted bounding boxes.
+        Parses MinerU JSON output into the new Curation Syntax markdown, bounding boxes, and images dict.
         """
-        tree_items = []
         bounding_boxes = []
+        markdown_lines = []
+        images_dict = {}
         
-        # 1. First, group items by page (it's already a list of pages)
+        # Group items by page
         pages = {}
         for page_idx, page_elements in enumerate(model_output):
             if isinstance(page_elements, list):
                 pages[page_idx] = page_elements
             else:
                 pages[page_idx] = [page_elements]
-            
+                
+        # Fix element order for standalone options (MinerU often puts diagrams/tables before the option number)
+        for page_idx in pages:
+            elements = pages[page_idx]
+            i = 0
+            while i < len(elements):
+                elem = elements[i]
+                if isinstance(elem, dict) and elem.get("type", "text") == "text":
+                    text = elem.get("content", "") or elem.get("text", "")
+                    if re.match(r"^\(\d+\)\s*$", text.strip()):
+                        j = i - 1
+                        has_table = False
+                        has_image = False
+                        
+                        while j >= 0:
+                            prev_elem = elements[j]
+                            if not isinstance(prev_elem, dict):
+                                break
+                            ptype = prev_elem.get("type", "text")
+                            if ptype == "table":
+                                if has_table: break
+                                has_table = True
+                            elif ptype == "image":
+                                if has_image: break
+                                has_image = True
+                            else:
+                                break
+                            j -= 1
+                            
+                        if j + 1 < i:
+                            opt_elem = elements.pop(i)
+                            elements.insert(j + 1, opt_elem)
+                i += 1
+                
         question_pattern = re.compile(r"^(\d+)\.\s+(.*)")
-        option_pattern = re.compile(r"^\(\d+\)\s+(.*)")
+        option_pattern = re.compile(r"^\(\d+\)\s*(.*)")
         subq_pattern = re.compile(r"^([a-zA-Z]\.|[ivxIVX]+\.|\([a-zA-Z]\)|\([ivxIVX]+\))\s+(.*)")
         
-        order_counter = 0
+        current_q = None
         
-        current_node_id = None
-        current_content = []
-        current_type = "question"
-        current_parent_id = None
-        
-        latest_q_id = None
-        latest_subq_id = None
-        
-        # Helper to commit current node
-        def commit_node():
-            nonlocal current_node_id, current_content, order_counter, current_type, current_parent_id
-            if current_node_id and current_content:
-                if not current_node_id.startswith("q-header-"):
-                    tree_items.append({
-                        "id": current_node_id,
-                        "parentId": current_parent_id,
-                        "type": current_type,
-                        "content": "\n".join(current_content).strip(),
-                        "order": order_counter
-                    })
-                    order_counter += 1
-            current_node_id = None
-            current_content = []
-            
-        # 2. Iterate through each page
+        def flush_question():
+            if current_q:
+                markdown_lines.append("")
+                markdown_lines.append(f"::: Q {current_q['label']} :::")
+                markdown_lines.append(f"@type {current_q['type']}")
+                markdown_lines.append(f"@lang {language}")
+                
+                for line in current_q['prompt']:
+                    markdown_lines.append(line)
+                    
+                if current_q['images']:
+                    markdown_lines.append("@images")
+                    for img in current_q['images']:
+                        markdown_lines.append(img)
+                        
+                if current_q['options']:
+                    markdown_lines.append("@options")
+                    for opt in current_q['options']:
+                        markdown_lines.append(opt)
+
         for page_idx in sorted(pages.keys()):
             for elem in pages[page_idx]:
                 if not isinstance(elem, dict):
@@ -59,7 +87,7 @@ class ASTService:
                 elem_type = elem.get("type", "text")
                 bbox = elem.get("bbox")
                 
-                # Generate unique ID and extract bounding box
+                # Bounding box generation
                 bbox_id = None
                 if bbox and len(bbox) == 4:
                     bbox_id = f"mineru-box-{uuid.uuid4().hex[:8]}"
@@ -74,17 +102,23 @@ class ASTService:
                         "content": elem.get("text", "") or elem.get("content", "") or elem.get("table_body", "")
                     })
 
-                # MinerU puts the text in "content" or "text" or "text_body"
+                # Ignore headers, footers, and page numbers from text parsing
+                if elem_type in ["header", "footer", "page_number"]:
+                    continue
+                
                 text = elem.get("content", "") or elem.get("text", "")
                 
+                is_image_elem = False
                 if elem_type == "table":
                     text = elem.get("table_body", "") or text
                 elif elem_type == "image":
+                    is_image_elem = True
                     if pdf_path and bbox_id and bbox and len(bbox) == 4:
                         try:
                             from services.pdf_service import PDFService
                             b64 = PDFService.extract_crop(pdf_path, page_idx, bbox)
-                            text = f"![{bbox_id}]({b64})"
+                            text = f"![image]({bbox_id})"
+                            images_dict[bbox_id] = b64
                         except Exception as e:
                             text = f"[Image detected] <!-- error: {str(e)} -->"
                     else:
@@ -92,8 +126,11 @@ class ASTService:
                     
                 if not text:
                     continue
+                
+                # Standardize LaTeX delimiters to markdown math delimiters for remark-math compatibility
+                text = text.replace(r'\(', '$').replace(r'\)', '$')
+                text = text.replace(r'\[', '$$').replace(r'\]', '$$')
                     
-                # Split text by line to handle combined blocks
                 lines = text.split("\n")
                 for line in lines:
                     line_str = line.strip()
@@ -104,34 +141,49 @@ class ASTService:
                     opt_match = option_pattern.match(line_str)
                     subq_match = subq_pattern.match(line_str)
                     
-                    if q_match:
-                        commit_node()
-                        current_node_id = f"q-{uuid.uuid4().hex[:8]}"
-                        current_type = "question"
-                        current_parent_id = None
-                        latest_q_id = current_node_id
-                        latest_subq_id = None
-                        current_content.append(line_str)
-                    elif opt_match:
-                        commit_node()
-                        current_node_id = f"opt-{uuid.uuid4().hex[:8]}"
-                        current_type = "option"
-                        current_parent_id = latest_subq_id or latest_q_id
-                        current_content.append(line_str)
-                    elif subq_match:
-                        commit_node()
-                        current_node_id = f"subq-{uuid.uuid4().hex[:8]}"
-                        current_type = "subquestion"
-                        current_parent_id = latest_q_id
-                        latest_subq_id = current_node_id
-                        current_content.append(line_str)
-                    else:
-                        if not current_node_id:
-                            current_node_id = f"q-header-{uuid.uuid4().hex[:8]}"
-                            current_type = "question"
-                            current_parent_id = None
-                        current_content.append(line_str)
+                    if not current_q and not q_match:
+                        continue
                     
-        commit_node()
-            
-        return tree_items, bounding_boxes
+                    if q_match:
+                        flush_question()
+                        current_q = {
+                            'label': q_match.group(1),
+                            'type': "MCQ" if paper_type.upper() == "MCQ" else "CONTAINER",
+                            'prompt': [q_match.group(2)] if q_match.group(2) else [],
+                            'images': [],
+                            'options': [],
+                            'has_options': False
+                        }
+                    elif subq_match and paper_type.upper() != "MCQ":
+                        flush_question()
+                        subq_label = subq_match.group(1).replace(".", "").replace("(", "").replace(")", "")
+                        parent_label = current_q['label'] if current_q else ""
+                        label = f"{parent_label}.{subq_label}" if parent_label else subq_label
+                        
+                        current_q = {
+                            'label': label,
+                            'type': "ESSAY",
+                            'prompt': [subq_match.group(2)] if subq_match.group(2) else [],
+                            'images': [],
+                            'options': [],
+                            'has_options': False
+                        }
+                    elif opt_match:
+                        if current_q:
+                            current_q['has_options'] = True
+                            current_q['options'].append(line_str)
+                    else:
+                        if current_q:
+                            if is_image_elem:
+                                if current_q['has_options']:
+                                    current_q['options'].append(line_str)
+                                else:
+                                    current_q['images'].append(line_str)
+                            else:
+                                if current_q['has_options']:
+                                    current_q['options'].append(line_str)
+                                else:
+                                    current_q['prompt'].append(line_str)
+        
+        flush_question()
+        return "\n".join(markdown_lines), bounding_boxes, images_dict

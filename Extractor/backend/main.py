@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from prisma import Prisma
-from routers import pdf_router, vast_router
+from routers import pdf_router, vast_router, curation_router
 
 app = FastAPI(title="Extractor Curation Studio API")
 db = Prisma(auto_register=True)
@@ -17,6 +17,7 @@ app.add_middleware(
 
 app.include_router(pdf_router.router)
 app.include_router(vast_router.router)
+app.include_router(curation_router.router)
 
 @app.on_event("startup")
 async def startup():

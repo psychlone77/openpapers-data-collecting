@@ -32,14 +32,19 @@ interface AppState {
   leftPaneWidth: number;
   setLeftPaneWidth: (width: number) => void;
 
-  // Tree State
-  treeItems: TreeItem[];
-  setTreeItems: (items: TreeItem[] | ((prev: TreeItem[]) => TreeItem[])) => void;
-  addTreeItem: (item: TreeItem) => void;
-  updateTreeItem: (id: string, updates: Partial<TreeItem>) => void;
-  removeTreeItem: (id: string) => void;
+  // Curation State
+  curationMarkdown: string;
+  setCurationMarkdown: (md: string) => void;
   updateTreeItemImage: (bboxId: string, newBase64: string, originalText?: string) => void;
   removeBoxContentFromTree: (bboxId: string, originalText?: string) => void;
+
+  // Document Metadata
+  paperType: string;
+  setPaperType: (type: string) => void;
+  language: string;
+  setLanguage: (lang: string) => void;
+  images: Record<string, string>;
+  setImages: (images: Record<string, string>) => void;
 }
 
 export const useStore = create<AppState>((set) => ({
@@ -61,59 +66,120 @@ export const useStore = create<AppState>((set) => ({
   leftPaneWidth: 50, // Percentage
   setLeftPaneWidth: (width) => set({ leftPaneWidth: width }),
 
-  treeItems: [],
-  setTreeItems: (items) => set((state) => ({
-    treeItems: typeof items === 'function' ? items(state.treeItems) : items
-  })),
-  addTreeItem: (item) => set((state) => ({ treeItems: [...state.treeItems, item] })),
-  updateTreeItem: (id, updates) => set((state) => ({
-    treeItems: state.treeItems.map(item => item.id === id ? { ...item, ...updates } : item)
-  })),
+  curationMarkdown: "",
+  setCurationMarkdown: (md) => set({ curationMarkdown: md }),
+  
+  paperType: "MCQ",
+  setPaperType: (type) => set({ paperType: type }),
+  language: "en",
+  setLanguage: (lang) => set({ language: lang }),
+  
+  images: {},
+  setImages: (images) => set({ images }),
+  
   updateTreeItemImage: (bboxId, newBase64, originalText) => set((state) => {
-    const regex = new RegExp(`!\\[${bboxId}\\]\\([^)]+\\)`);
-    const newItems = state.treeItems.map(item => {
-      if (item.content.match(regex)) {
-        return {
-          ...item,
-          content: item.content.replace(regex, `![${bboxId}](${newBase64})`)
-        };
-      } else if (originalText && originalText.trim() && item.content.includes(originalText.trim())) {
-        return {
-          ...item,
-          content: item.content.replace(originalText.trim(), `![${bboxId}](${newBase64})`)
-        };
-      }
-      return item;
-    });
-    return { treeItems: newItems };
-  }),
-  removeBoxContentFromTree: (bboxId, originalText) => set((state) => {
-    const regex = new RegExp(`!\\[${bboxId}\\]\\([^)]*\\)`, 'g');
-    const newItems = state.treeItems.map(item => {
-      let newContent = item.content.replace(regex, '');
-      if (originalText && originalText.trim()) {
-        newContent = newContent.replace(originalText.trim(), '');
-      }
-      return {
-        ...item,
-        content: newContent.trim()
-      };
-    });
-    return { treeItems: newItems };
-  }),
-  removeTreeItem: (id) => set((state) => {
-    // Also remove any children recursively if needed, but for now just filter out
-    // A proper implementation would remove all descendants too.
-    const removeIds = new Set<string>([id]);
-    let currentSize = 0;
-    while (removeIds.size > currentSize) {
-      currentSize = removeIds.size;
-      state.treeItems.forEach(item => {
-        if (item.parentId && removeIds.has(item.parentId)) {
-          removeIds.add(item.id);
-        }
-      });
+    // Save to image dictionary
+    const newImages = { ...state.images, [bboxId]: newBase64 };
+    
+    // 1. Check if the inline reference ![image](bboxId) already exists
+    const inlineRegex = new RegExp(`!\\[(image)?\\]\\(${bboxId}\\)`);
+    if (inlineRegex.test(state.curationMarkdown)) {
+       return { images: newImages };
     }
-    return { treeItems: state.treeItems.filter(item => !removeIds.has(item.id)) };
+    
+    // 2. Check for old reference style ![image][bboxId] and clean it up to the new style
+    const oldInlineRegex = new RegExp(`!\\[(image)?\\]\\[${bboxId}\\]`);
+    if (oldInlineRegex.test(state.curationMarkdown)) {
+       const cleaned = state.curationMarkdown.replace(oldInlineRegex, `![image](${bboxId})`);
+       // Also strip out any [bboxId]: data... at the bottom if it exists
+       const oldRefRegex = new RegExp(`\n*\\[${bboxId}\\]:\\s*(data:image/[^\\s]+)`, 'g');
+       return { images: newImages, curationMarkdown: cleaned.replace(oldRefRegex, '') };
+    }
+    
+    // 3. If it was originally text, we need to replace the text with the inline reference
+    if (originalText && originalText.trim()) {
+      // Normalize math delimiters to match what the backend generated
+      const normalizedText = originalText
+        .replace(/\\\(/g, '$')
+        .replace(/\\\)/g, '$')
+        .replace(/\\\[/g, '$$$$')
+        .replace(/\\\]/g, '$$$$');
+
+      const lines = normalizedText.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+      const firstLine = lines.length > 0 ? lines[0] : null;
+      
+      if (firstLine && state.curationMarkdown.includes(firstLine)) {
+        let newMarkdown = state.curationMarkdown;
+        try {
+          // Attempt to match the entire block to avoid leaving orphaned lines
+          const escapedLines = lines.map(l => l.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+          const regexStr = escapedLines.join('\\s+');
+          const blockRegex = new RegExp(regexStr);
+          if (blockRegex.test(state.curationMarkdown)) {
+            newMarkdown = state.curationMarkdown.replace(blockRegex, `![image](${bboxId})`);
+            return { images: newImages, curationMarkdown: newMarkdown };
+          }
+        } catch (e) {
+          // Ignore regex errors and fallback
+        }
+        
+        // Fallback to replacing just the first line
+        newMarkdown = state.curationMarkdown.replace(
+          firstLine, 
+          `![image](${bboxId})`
+        );
+        return { images: newImages, curationMarkdown: newMarkdown };
+      }
+    }
+    
+    // 4. Fallback if nothing matched (e.g. text was manually deleted/edited)
+    return { images: newImages, curationMarkdown: state.curationMarkdown + `\n\n@images\n![image](${bboxId})` };
+  }),
+  
+  removeBoxContentFromTree: (bboxId, originalText) => set((state) => {
+    let newMarkdown = state.curationMarkdown;
+
+    // 1. Remove inline image reference if it exists
+    const inlineRegex = new RegExp(`!\\[(image)?\\]\\(${bboxId}\\)`, 'g');
+    newMarkdown = newMarkdown.replace(inlineRegex, '');
+
+    const oldInlineRegex = new RegExp(`!\\[(image)?\\]\\[${bboxId}\\]`, 'g');
+    newMarkdown = newMarkdown.replace(oldInlineRegex, '');
+
+    // 2. Remove original text if it exists
+    if (originalText && originalText.trim()) {
+      const normalizedText = originalText
+        .replace(/\\\(/g, '$')
+        .replace(/\\\)/g, '$')
+        .replace(/\\\[/g, '$$$$')
+        .replace(/\\\]/g, '$$$$');
+
+      const lines = normalizedText.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+      const firstLine = lines.length > 0 ? lines[0] : null;
+
+      if (firstLine && newMarkdown.includes(firstLine)) {
+        try {
+          const escapedLines = lines.map(l => l.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+          const regexStr = escapedLines.join('\\s+');
+          const blockRegex = new RegExp(regexStr, 'g');
+          if (blockRegex.test(newMarkdown)) {
+            newMarkdown = newMarkdown.replace(blockRegex, '');
+          } else {
+             // Fallback
+             newMarkdown = newMarkdown.replace(firstLine, '');
+          }
+        } catch (e) {
+          newMarkdown = newMarkdown.replace(firstLine, '');
+        }
+      }
+    }
+
+    // Clean up empty lines created by deletion
+    newMarkdown = newMarkdown.replace(/\n{3,}/g, '\n\n').trim();
+
+    const newImages = { ...state.images };
+    delete newImages[bboxId];
+
+    return { curationMarkdown: newMarkdown, images: newImages };
   }),
 }));
