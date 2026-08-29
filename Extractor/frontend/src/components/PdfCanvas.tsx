@@ -11,7 +11,7 @@ import 'react-pdf/dist/Page/TextLayer.css';
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
 export function PdfCanvas() {
-  const { selectedNodeId, pdfScale, setPdfScale, pdfFile, setPdfFile, paperType, setPaperType, language, setLanguage, boxes, setBoxes } = useStore();
+  const { selectedNodeId, pdfScale, setPdfScale, pdfFile, setPdfFile, uploadedPdfPath, paperType, setPaperType, language, setLanguage, boxes, setBoxes, submissionStatus } = useStore();
   const [activeTool, setActiveTool] = useState<'pointer' | 'draw'>('pointer');
   const [numPages, setNumPages] = useState<number>();
   const [pageNumber, setPageNumber] = useState<number>(1);
@@ -23,6 +23,8 @@ export function PdfCanvas() {
     startY: number;
     initialBox: BBox;
   } | null>(null);
+  
+  const safeBoxes = Array.isArray(boxes) ? boxes : (typeof boxes === 'string' ? JSON.parse(boxes) : []);
 
   // Visibility filters for box types
   const [filters, setFilters] = useState<Record<BoxType, boolean>>({
@@ -36,16 +38,21 @@ export function PdfCanvas() {
     setFilters(prev => ({ ...prev, [type]: !prev[type] }));
   };
 
+  const hasAutoNavigated = useRef(false);
+
   // Jump to the first page with boxes when they are loaded
   useEffect(() => {
-    if (boxes && boxes.length > 0) {
+    if (hasAutoNavigated.current) return;
+    const safeBoxes = Array.isArray(boxes) ? boxes : (typeof boxes === 'string' ? JSON.parse(boxes) : []);
+    if (safeBoxes && safeBoxes.length > 0) {
       // Find the lowest page number among all boxes
-      const minPage = Math.min(...boxes.map(b => b.pageNumber || 1));
+      const minPage = Math.min(...safeBoxes.map((b: any) => b.pageNumber || 1));
       if (minPage > 0 && minPage !== pageNumber) {
         setPageNumber(minPage);
       }
+      hasAutoNavigated.current = true;
     }
-  }, [boxes]);
+  }, [boxes, pageNumber]);
 
   function onDocumentLoadSuccess({ numPages }: { numPages: number }) {
     setNumPages(numPages);
@@ -102,24 +109,24 @@ export function PdfCanvas() {
   const handleMouseUp = () => {
     if (isDrawing && currentBox && (currentBox.width || 0) > 5 && (currentBox.height || 0) > 5) {
       // eslint-disable-next-line react-hooks/purity
-      setBoxes([...boxes, { ...currentBox, id: `box-${Date.now()}-${Math.floor(Math.random() * 1000)}`, pageNumber }]);
+      setBoxes([...safeBoxes, { ...currentBox, id: `box-${Date.now()}-${Math.floor(Math.random() * 1000)}`, pageNumber }]);
     }
     setIsDrawing(false);
     setCurrentBox(null);
   };
 
   const deleteBox = (id: string) => {
-    const boxToDelete = boxes.find(b => b.id === id);
-    setBoxes(boxes.filter(b => b.id !== id));
+    const boxToDelete = safeBoxes.find((b: any) => b.id === id);
+    setBoxes(safeBoxes.filter((b: any) => b.id !== id));
     if (boxToDelete) {
       useStore.getState().removeBoxContentFromTree(id, boxToDelete.content);
     }
   };
 
-  const currentPageBoxes = boxes.filter(b => b.pageNumber === pageNumber);
+  const currentPageBoxes = safeBoxes.filter((b: any) => b.pageNumber === pageNumber);
 
   const updateBox = (id: string, updates: Partial<BBox>) => {
-    setBoxes(prev => prev.map(b => b.id === id ? { ...b, ...updates } : b));
+    setBoxes(safeBoxes.map((b: any) => b.id === id ? { ...b, ...updates } : b));
   };
 
   // Track latest boxes in a ref for event listeners
@@ -181,7 +188,7 @@ export function PdfCanvas() {
         newHeight = 10;
       }
 
-      setBoxes(prev => prev.map(b => {
+      setBoxes(boxesRef.current.map((b: any) => {
         if (b.id !== initialBox.id) return b;
         if (isNorm) {
           return {
@@ -223,11 +230,17 @@ export function PdfCanvas() {
         }
         
         if (bbox.length === 4) {
+           // If uploadedPdfPath is an API URL (e.g. from page.tsx), extract the real file path
+           let realPdfPath = storeState.uploadedPdfPath;
+           if (realPdfPath.includes('?path=')) {
+             realPdfPath = decodeURIComponent(realPdfPath.split('?path=')[1]);
+           }
+
            const res = await fetch('http://localhost:8000/pdf/crop', {
              method: 'POST',
              headers: { 'Content-Type': 'application/json' },
              body: JSON.stringify({
-               pdf_path: storeState.uploadedPdfPath,
+               pdf_path: realPdfPath,
                page_number: (targetBox.pageNumber || 1) - 1, // backend is 0-indexed
                bbox: bbox
              })
@@ -271,39 +284,41 @@ export function PdfCanvas() {
   return (
     <div className="w-full h-full flex flex-col relative bg-[#111316]">
       {/* Legend / Toolbar Overlay */}
-      <div className="absolute top-4 left-1/2 -translate-x-1/2 z-50 flex items-center gap-4 bg-[var(--color-bg-surface-raised)] border border-[var(--color-border-hairline)] px-3 py-2 rounded-lg shadow-xl shadow-black/50">
+      {submissionStatus !== "PENDING_MINERU" && (
+        <div className="absolute top-4 left-1/2 -translate-x-1/2 z-50 flex items-center gap-4 bg-[var(--color-bg-surface-raised)] border border-[var(--color-border-hairline)] px-3 py-2 rounded-lg shadow-xl shadow-black/50">
 
-        {/* Tool selector */}
-        <div className="flex items-center gap-1 border-r border-[var(--color-border-hairline)] pr-3">
-          <button
-            onClick={() => setActiveTool('pointer')}
-            className={`p-1.5 rounded transition-colors ${activeTool === 'pointer' ? 'bg-[var(--color-accent-active)] text-white' : 'text-[var(--color-text-muted)] hover:text-white hover:bg-white/10'}`}
-            title="Pointer Tool"
-          >
-            <MousePointer2 size={16} />
-          </button>
-          <button
-            onClick={() => setActiveTool('draw')}
-            className={`p-1.5 rounded transition-colors ${activeTool === 'draw' ? 'bg-[var(--color-accent-active)] text-white' : 'text-[var(--color-text-muted)] hover:text-white hover:bg-white/10'}`}
-            title="Draw Bounding Box"
-          >
-            <Square size={16} />
-          </button>
+          {/* Tool selector */}
+          <div className="flex items-center gap-1 border-r border-[var(--color-border-hairline)] pr-3">
+            <button
+              onClick={() => setActiveTool('pointer')}
+              className={`p-1.5 rounded transition-colors ${activeTool === 'pointer' ? 'bg-[var(--color-accent-active)] text-white' : 'text-[var(--color-text-muted)] hover:text-white hover:bg-white/10'}`}
+              title="Pointer Tool"
+            >
+              <MousePointer2 size={16} />
+            </button>
+            <button
+              onClick={() => setActiveTool('draw')}
+              className={`p-1.5 rounded transition-colors ${activeTool === 'draw' ? 'bg-[var(--color-accent-active)] text-white' : 'text-[var(--color-text-muted)] hover:text-white hover:bg-white/10'}`}
+              title="Draw Bounding Box"
+            >
+              <Square size={16} />
+            </button>
+          </div>
+
+          {/* Legend Filters */}
+          <div className="flex items-center gap-2 px-3 border-r border-[var(--color-border-hairline)]">
+            <FilterPill type="text" active={filters.text} onClick={() => toggleFilter('text')} icon={<Type size={14} />} color="var(--color-box-text)" label="Text" />
+            <FilterPill type="table" active={filters.table} onClick={() => toggleFilter('table')} icon={<Table size={14} />} color="var(--color-box-table)" label="Table" />
+            <FilterPill type="image" active={filters.image} onClick={() => toggleFilter('image')} icon={<ImageIcon size={14} />} color="var(--color-box-image)" label="Image" />
+            <FilterPill type="formula" active={filters.formula} onClick={() => toggleFilter('formula')} icon={<Sigma size={14} />} color="var(--color-box-formula)" label="Formula" />
+          </div>
+
         </div>
-
-        {/* Legend Filters */}
-        <div className="flex items-center gap-2 px-3 border-r border-[var(--color-border-hairline)]">
-          <FilterPill type="text" active={filters.text} onClick={() => toggleFilter('text')} icon={<Type size={14} />} color="var(--color-box-text)" label="Text" />
-          <FilterPill type="table" active={filters.table} onClick={() => toggleFilter('table')} icon={<Table size={14} />} color="var(--color-box-table)" label="Table" />
-          <FilterPill type="image" active={filters.image} onClick={() => toggleFilter('image')} icon={<ImageIcon size={14} />} color="var(--color-box-image)" label="Image" />
-          <FilterPill type="formula" active={filters.formula} onClick={() => toggleFilter('formula')} icon={<Sigma size={14} />} color="var(--color-box-formula)" label="Formula" />
-        </div>
-
-      </div>
+      )}
 
       {/* PDF Scrollable Container */}
       <div className="flex-1 overflow-auto flex justify-center p-8 pt-20">
-        {!pdfFile ? (
+        {!pdfFile && !uploadedPdfPath ? (
           <div className="w-full max-w-md bg-[var(--color-bg-surface-raised)] border border-[var(--color-border-hairline)] rounded-lg p-12 flex flex-col items-center justify-center text-center mt-32 relative z-50 shadow-2xl">
             <ImageIcon className="w-16 h-16 text-[var(--color-text-muted)] mb-6" />
             <h3 className="text-xl font-display font-medium text-white mb-2">No PDF Loaded</h3>
@@ -319,7 +334,7 @@ export function PdfCanvas() {
           >
 
             <Document
-              file={pdfFile}
+              file={pdfFile || uploadedPdfPath}
               onLoadSuccess={onDocumentLoadSuccess}
               className="flex flex-col items-center"
               loading={<div className="p-20 text-black">Loading PDF...</div>}
@@ -335,7 +350,7 @@ export function PdfCanvas() {
                 {/* HTML Overlay for interactivity */}
                 <div className="absolute inset-0 z-30 pointer-events-none">
                   {console.log("Rendering HTML overlay. currentPageBoxes:", currentPageBoxes)}
-                  {currentPageBoxes.map(box => {
+                  {currentPageBoxes.map((box: BBox) => {
                     const isVisible = (filters as any)[box.type] ?? true;
                     if (!isVisible) return null;
 
@@ -434,7 +449,7 @@ export function PdfCanvas() {
                   onMouseLeave={handleMouseUp}
                 >
                   {/* Render confirmed boxes */}
-                  {currentPageBoxes.map((box) => {
+                  {currentPageBoxes.map((box: BBox) => {
                     const bx = box.x !== undefined ? box.x : (box.x0 !== undefined ? `${box.x0 * 100}%` : 0);
                     const by = box.y !== undefined ? box.y : (box.y0 !== undefined ? `${box.y0 * 100}%` : 0);
                     const bw = box.width !== undefined ? box.width : (box.x1 !== undefined && box.x0 !== undefined ? `${(box.x1 - box.x0) * 100}%` : 0);

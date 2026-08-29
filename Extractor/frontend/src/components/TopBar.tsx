@@ -1,8 +1,30 @@
+"use client";
+
+import { Play, Square, Activity, Loader2 } from "lucide-react";
+import { useState, useEffect } from "react";
 import { useStore } from "@/store/useStore";
-import { Play, Square, Activity } from "lucide-react";
 
 export function TopBar() {
-  const { gpuStatus, setGpuStatus, year, examination, subject, paperType } = useStore();
+  const { submissionId, submissionStatus, curationMarkdown, images, boxes, year, examination, subject, paperType, setSubmissionStatus } = useStore();
+  const [isExtracting, setIsExtracting] = useState(false);
+
+  useEffect(() => {
+    let interval: NodeJS.Timeout;
+    if (isExtracting && submissionId) {
+      interval = setInterval(async () => {
+        try {
+          const res = await fetch(`http://localhost:8000/api/queue/${submissionId}`);
+          const data = await res.json();
+          if (data.submission.status !== "PENDING_MINERU") {
+            window.location.reload();
+          }
+        } catch (e) {
+          console.error(e);
+        }
+      }, 3000);
+    }
+    return () => clearInterval(interval);
+  }, [isExtracting, submissionId]);
 
   return (
     <div className="h-14 shrink-0 bg-[var(--color-bg-surface)] border-b border-[var(--color-border-hairline)] flex items-center justify-between px-4">
@@ -28,34 +50,82 @@ export function TopBar() {
           <Activity size={14} /> Saved · 2s ago
         </div>
 
-        {/* GPU Status & Actions */}
-        <div className="flex items-center gap-3 bg-black/20 p-1.5 rounded-lg border border-[var(--color-border-hairline)]">
-          <div className="flex items-center gap-2 text-xs font-mono px-2">
-            <span className={`w-2 h-2 rounded-full ${gpuStatus === 'live' ? 'bg-[var(--color-status-live)] shadow-[0_0_8px_var(--color-status-live)]' : gpuStatus === 'connecting' ? 'bg-[var(--color-status-warn)] animate-pulse' : 'bg-[var(--color-status-idle)]'}`} />
-            <span className="text-[var(--color-text-muted)] w-28">
-              {gpuStatus === 'live' ? 'Running · 04:12' : gpuStatus === 'connecting' ? 'Booting Worker...' : 'Worker Idle'}
-            </span>
-          </div>
-          
-          {gpuStatus === 'idle' ? (
-            <button 
-              onClick={() => {
-                setGpuStatus('connecting');
-                setTimeout(() => setGpuStatus('live'), 3000); // Mock boot
-              }} 
-              className="flex items-center gap-1.5 px-3 py-1 text-xs font-semibold rounded bg-[var(--color-text-primary)] text-black hover:bg-white transition-colors focus:outline-none focus:ring-2 focus:ring-white/50"
-            >
-              <Play size={12} fill="currentColor" /> Connect
-            </button>
-          ) : (
-            <button 
-              onClick={() => setGpuStatus('idle')} 
-              className="flex items-center gap-1.5 px-3 py-1 text-xs font-semibold rounded bg-red-500/10 text-red-400 hover:bg-red-500/20 transition-colors focus:outline-none focus:ring-2 focus:ring-red-500/50"
-            >
-              <Square size={12} fill="currentColor" /> Destroy
-            </button>
-          )}
-        </div>
+        {/* Submit Actions */}
+        {submissionStatus === "PENDING_MINERU" && (
+          <button 
+            disabled={isExtracting}
+            onClick={async () => {
+              try {
+                setIsExtracting(true);
+                await fetch(`http://localhost:8000/api/queue/${submissionId}/trigger-mineru`, {
+                  method: 'POST'
+                });
+              } catch (e) {
+                console.error(e);
+                alert("Failed to start extraction.");
+                setIsExtracting(false);
+              }
+            }}
+            className="flex items-center gap-1.5 px-4 py-1.5 text-sm font-semibold rounded-lg bg-[var(--color-accent-active)] text-black hover:bg-[var(--color-accent-hover)] transition-colors disabled:opacity-50"
+          >
+            {isExtracting ? (
+              <><Loader2 size={16} className="animate-spin" /> Extracting...</>
+            ) : (
+              <><Play size={16} /> Extract with MinerU</>
+            )}
+          </button>
+        )}
+        
+        {submissionId && submissionStatus === "PENDING_USER_VALIDATION" && (
+          <button 
+            onClick={async () => {
+              try {
+                const res = await fetch(`http://localhost:8000/api/curation/submission/${submissionId}/submit`, {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({
+                    curationMarkdown,
+                    images,
+                    boxes,
+                    explanation: "Fixed some extraction errors." // hardcoded for now, ideally an input modal
+                  })
+                });
+                if (res.ok) {
+                  alert("Submitted for maintainer verification!");
+                  window.location.href = '/queue';
+                }
+              } catch (e) {
+                console.error(e);
+                alert("Failed to submit.");
+              }
+            }}
+            className="flex items-center gap-1.5 px-4 py-1.5 text-sm font-semibold rounded-lg bg-[var(--color-accent-active)] text-black hover:bg-[var(--color-accent-hover)] transition-colors"
+          >
+            Submit for Verification
+          </button>
+        )}
+
+        {submissionId && submissionStatus === "PENDING_MAINTAINER_VERIFICATION" && (
+          <button 
+            onClick={async () => {
+              try {
+                const res = await fetch(`http://localhost:8000/api/curation/submission/${submissionId}/approve`, {
+                  method: 'POST'
+                });
+                if (res.ok) {
+                  alert("Submission approved successfully!");
+                  window.location.href = '/queue';
+                }
+              } catch (e) {
+                console.error(e);
+                alert("Failed to approve.");
+              }
+            }}
+            className="flex items-center gap-1.5 px-4 py-1.5 text-sm font-semibold rounded-lg bg-green-500 text-white hover:bg-green-600 transition-colors"
+          >
+            Approve Verification
+          </button>
+        )}
       </div>
     </div>
   );

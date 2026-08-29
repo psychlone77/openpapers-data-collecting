@@ -131,8 +131,8 @@ export function QuestionTree() {
             blockquote: ({ node, ...props }) => <blockquote data-line={getLine(node)} {...props} />,
             img: ({ node, src, ...props }) => {
               if (!src) return null;
-              const realSrc = images[src] || src;
-              return <img data-line={getLine(node)} src={realSrc} {...props} className="max-w-full max-h-48 object-contain rounded my-2 bg-white/5" />;
+              const realSrc = images[src as string] || src;
+              return <img data-line={getLine(node)} src={realSrc as string} {...props} className="max-w-full max-h-48 object-contain rounded my-2 bg-white/5" />;
             }
           }}
         >
@@ -142,39 +142,12 @@ export function QuestionTree() {
     </div>
   );
 
-  const handleSave = async () => {
-    try {
-      const response = await fetch('http://localhost:8000/api/curation/save', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          curationMarkdown,
-          images
-        })
-      });
-      const data = await response.json();
-      if (response.ok) {
-        alert(data.message || 'Saved successfully!');
-      } else {
-        alert('Error saving: ' + (data.detail || data.message));
-      }
-    } catch (error) {
-      alert('Network error saving to database');
-    }
-  };
+
 
   return (
     <div className="w-full h-full flex flex-col bg-[var(--color-bg-canvas)]">
       <div className="p-4 border-b border-[var(--color-border-hairline)] flex items-center justify-between bg-[var(--color-bg-surface)]">
         <h2 className="text-sm font-semibold text-[var(--color-text-muted)] uppercase tracking-wider">Curation Output</h2>
-        <button
-          onClick={handleSave}
-          className="px-3 py-1.5 bg-indigo-500 hover:bg-indigo-600 text-white rounded text-xs font-semibold shadow transition-colors"
-        >
-          Save to Database
-        </button>
       </div>
 
       <div className="flex px-2 border-b border-[var(--color-border-hairline)] bg-[var(--color-bg-surface)]">
