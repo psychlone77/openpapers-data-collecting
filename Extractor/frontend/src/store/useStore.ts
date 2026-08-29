@@ -73,6 +73,11 @@ interface AppState {
   setSelectedPages: (pages: number[]) => void;
   isAddPaperWizardOpen: boolean;
   setIsAddPaperWizardOpen: (isOpen: boolean) => void;
+  
+  submissionId: string | null;
+  setSubmissionId: (id: string | null) => void;
+  submissionStatus: string | null;
+  setSubmissionStatus: (status: string | null) => void;
 
   images: Record<string, string>;
   setImages: (images: Record<string, string>) => void;
@@ -117,6 +122,11 @@ export const useStore = create<AppState>((set) => ({
   setSelectedPages: (pages) => set({ selectedPages: pages }),
   isAddPaperWizardOpen: true,
   setIsAddPaperWizardOpen: (isOpen) => set({ isAddPaperWizardOpen: isOpen }),
+  
+  submissionId: null,
+  setSubmissionId: (id) => set({ submissionId: id }),
+  submissionStatus: null,
+  setSubmissionStatus: (status) => set({ submissionStatus: status }),
   
   images: {},
   setImages: (images) => set({ images }),

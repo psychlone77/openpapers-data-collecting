@@ -4,6 +4,7 @@ import { useState, useRef } from "react";
 import { useStore } from "@/store/useStore";
 import { Document, Page, pdfjs } from 'react-pdf';
 import { UploadCloud, CheckCircle2, ChevronRight, ChevronLeft, Check, Circle, Loader2 } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 import 'react-pdf/dist/Page/AnnotationLayer.css';
 import 'react-pdf/dist/Page/TextLayer.css';
 
@@ -23,12 +24,13 @@ export function AddPaperWizard() {
     examination, setExamination,
     subject, setSubject,
     selectedPages, setSelectedPages,
-    setIsAddPaperWizardOpen,
     setUploadedPdfPath
   } = useStore();
 
+  const router = useRouter();
   const [numPages, setNumPages] = useState<number>(0);
   const [isProcessing, setIsProcessing] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
   const [previewPage, setPreviewPage] = useState<number>(1);
   const [isDraggingFile, setIsDraggingFile] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -94,34 +96,53 @@ export function AddPaperWizard() {
       const uploadData = await uploadRes.json();
       setUploadedPdfPath(uploadData.pdf_path);
 
-      // 2. Process with MinerU (sending selected pages metadata to backend)
-      const processRes = await fetch('http://localhost:8000/pdf/process', {
+      // 2. Submit to Queue
+      const queueRes = await fetch('http://localhost:8000/api/queue', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           pdf_path: uploadData.pdf_path,
-          language: language,
-          paper_type: paperType,
-          pages: selectedPages // New field
+          metadata: {
+            language,
+            paperType,
+            year,
+            examination,
+            subject
+          },
+          pages: selectedPages,
+          submitter_email: "mock_user@example.com" // Mock email for now
         }),
       });
 
-      if (!processRes.ok) throw new Error("MinerU processing failed");
-      const processData = await processRes.json();
-
-      useStore.getState().setCurationMarkdown(processData.curation_markdown || '');
-      useStore.getState().setImages(processData.images_dict || {});
-      useStore.getState().setBoxes(processData.bounding_boxes || []);
-
-      // Close wizard and show Studio
-      setIsAddPaperWizardOpen(false);
+      if (!queueRes.ok) throw new Error("Failed to add to queue");
+      
+      setShowSuccess(true);
+      
     } catch (err) {
       console.error("Error processing paper:", err);
-      alert("Error processing paper. See console.");
+      alert("Error adding paper to queue.");
     } finally {
       setIsProcessing(false);
     }
   };
+
+  if (showSuccess) {
+    return (
+      <div className="w-full h-full flex flex-col items-center justify-center bg-[var(--color-bg-canvas)] p-8">
+        <CheckCircle2 size={64} className="text-green-500 mb-6" />
+        <h2 className="text-3xl font-display font-semibold mb-2">Successfully Added to Queue</h2>
+        <p className="text-[var(--color-text-muted)] max-w-md text-center mb-8">
+          Your paper has been added to the extraction queue. Once the maintainers process it with MinerU, you will be notified by email to validate the extraction.
+        </p>
+        <button 
+          onClick={() => router.push('/')}
+          className="bg-[var(--color-bg-surface-raised)] text-white font-medium px-6 py-2 rounded-lg border border-[var(--color-border-hairline)] hover:border-[var(--color-accent-active)] transition-colors"
+        >
+          Return to Home
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div className="w-full h-full flex items-center justify-center bg-[var(--color-bg-canvas)] p-8 overflow-y-auto">
@@ -338,7 +359,7 @@ export function AddPaperWizard() {
               </>
             ) : (
               <>
-                Continue
+                Add to Queue
                 <ChevronRight size={18} />
               </>
             )}

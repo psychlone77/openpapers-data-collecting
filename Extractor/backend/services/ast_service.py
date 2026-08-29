@@ -103,16 +103,19 @@ class ASTService:
                 bbox_id = None
                 if bbox and len(bbox) == 4:
                     bbox_id = f"mineru-box-{uuid.uuid4().hex[:8]}"
-                    original_page_number = selected_pages[page_idx] if selected_pages and page_idx < len(selected_pages) else page_idx + 1
+                    original_page_number = page_idx + 1
                     
                     # Normalize bounding box using PDF dimensions if available
                     pw, ph = pdf_page_dims.get(page_idx, (1.0, 1.0))
                     # If dimensions weren't found, keep original values
                     
-                    nx0 = bbox[0] / pw if pw > 1.0 else bbox[0]
-                    ny0 = bbox[1] / ph if ph > 1.0 else bbox[1]
-                    nx1 = bbox[2] / pw if pw > 1.0 else bbox[2]
-                    ny1 = bbox[3] / ph if ph > 1.0 else bbox[3]
+                    # Only normalize if the coordinates are absolute (e.g. > 1.0 or if pw/ph were not found)
+                    is_absolute = max(bbox) > 1.5 # Using 1.5 to be safe against slight overflows
+                    
+                    nx0 = bbox[0] / pw if is_absolute and pw > 1.0 else bbox[0]
+                    ny0 = bbox[1] / ph if is_absolute and ph > 1.0 else bbox[1]
+                    nx1 = bbox[2] / pw if is_absolute and pw > 1.0 else bbox[2]
+                    ny1 = bbox[3] / ph if is_absolute and ph > 1.0 else bbox[3]
                     
                     # Clamp to [0, 1]
                     nx0 = max(0.0, min(1.0, nx0))

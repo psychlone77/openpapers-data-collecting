@@ -5,7 +5,7 @@ generator client {
 generator client_python {
   provider             = "prisma-client-py"
   interface            = "asyncio"
-  recursive_type_depth = 5
+  recursive_type_depth = "5"
 }
 
 datasource db {
@@ -17,8 +17,7 @@ model User {
   id           String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   username     String        @unique @db.VarChar(50)
   role         String?       @default("USER") @db.VarChar(20)
-  createdAt    DateTime?     @default(now()) @map("created_at") @db.Timestamptz
-  
+  createdAt    DateTime?     @default(now()) @map("created_at") @db.Timestamptz(6)
   explanations Explanation[]
 
   @@map("users")
@@ -28,52 +27,53 @@ model Exam {
   id          String    @id @db.VarChar(20)
   name        String    @db.VarChar(100)
   country     String?   @default("LK") @db.VarChar(10)
-  description String?   @db.Text
-  
+  description String?
   subjects    Subject[]
 
   @@map("exams")
 }
 
 model Subject {
-  id        String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  examId    String?       @map("exam_id") @db.VarChar(20)
-  code      String?       @db.VarChar(10)
-  name      String        @db.VarChar(100)
-  stream    String?       @db.VarChar(50)
-  
-  exam      Exam?         @relation(fields: [examId], references: [id], onDelete: Cascade)
-  units     SubjectUnit[]
-  papers    Paper[]
+  id     String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  examId String?       @map("exam_id") @db.VarChar(20)
+  code   String?       @db.VarChar(10)
+  name   String        @db.VarChar(100)
+  stream String?       @db.VarChar(50)
+  papers Paper[]
+  units  SubjectUnit[]
+  exam   Exam?         @relation(fields: [examId], references: [id], onDelete: Cascade)
 
   @@unique([examId, code])
   @@map("subjects")
 }
 
 model SubjectUnit {
-  id           String         @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  subjectId    String?        @map("subject_id") @db.Uuid
-  unitNumber   Int            @map("unit_number")
-  nameEn       String?        @map("name_en") @db.VarChar(255)
-  nameSi       String?        @map("name_si") @db.VarChar(255)
-  nameTa       String?        @map("name_ta") @db.VarChar(255)
-  
-  subject      Subject?       @relation(fields: [subjectId], references: [id], onDelete: Cascade)
-  questions    QuestionUnit[]
+  id         String         @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  subjectId  String?        @map("subject_id") @db.Uuid
+  unitNumber Int            @map("unit_number")
+  nameEn     String?        @map("name_en") @db.VarChar(255)
+  nameSi     String?        @map("name_si") @db.VarChar(255)
+  nameTa     String?        @map("name_ta") @db.VarChar(255)
+  questions  QuestionUnit[]
+  subject    Subject?       @relation(fields: [subjectId], references: [id], onDelete: Cascade)
 
   @@unique([subjectId, unitNumber])
   @@map("subject_units")
 }
 
 model Paper {
-  id               String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  subjectId        String?    @map("subject_id") @db.Uuid
+  id               String            @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  subjectId        String?           @map("subject_id") @db.Uuid
   year             Int
-  part             String     @db.VarChar(50)
-  type             String     @db.VarChar(20)
-  timeLimitMinutes Int?       @map("time_limit_minutes")
-  
-  subject          Subject?   @relation(fields: [subjectId], references: [id], onDelete: Cascade)
+  part             String            @db.VarChar(50)
+  type             String            @db.VarChar(20)
+  timeLimitMinutes Int?              @map("time_limit_minutes")
+  boundingBoxes    Json?             @map("bounding_boxes")
+  curationMarkdown String?           @map("curation_markdown")
+  imagesDict       Json?             @map("images_dict")
+  pdfPath          String?           @map("pdf_path")
+  submissions      PaperSubmission[]
+  subject          Subject?          @relation(fields: [subjectId], references: [id], onDelete: Cascade)
   questions        Question[]
 
   @@unique([subjectId, year, part])
@@ -91,14 +91,13 @@ model Question {
   difficulty        Int?
   correctAnswerKeys String[]               @map("correct_answer_keys")
   marksAllocated    Int?                   @map("marks_allocated")
-  createdAt         DateTime?              @default(now()) @map("created_at") @db.Timestamptz
-
+  createdAt         DateTime?              @default(now()) @map("created_at") @db.Timestamptz(6)
+  explanations      Explanation[]
+  localizations     QuestionLocalization[]
+  units             QuestionUnit[]
   paper             Paper?                 @relation(fields: [paperId], references: [id], onDelete: Cascade)
   parentQuestion    Question?              @relation("QuestionHierarchy", fields: [parentQuestionId], references: [id], onDelete: Cascade)
   childQuestions    Question[]             @relation("QuestionHierarchy")
-  units             QuestionUnit[]
-  localizations     QuestionLocalization[]
-  explanations      Explanation[]
 
   @@index([paperId], map: "idx_questions_paper_id")
   @@index([parentQuestionId], map: "idx_questions_parent_id")
@@ -106,11 +105,10 @@ model Question {
 }
 
 model QuestionUnit {
-  questionId String       @map("question_id") @db.Uuid
-  unitId     String       @map("unit_id") @db.Uuid
-  
-  question   Question     @relation(fields: [questionId], references: [id], onDelete: Cascade)
-  unit       SubjectUnit  @relation(fields: [unitId], references: [id], onDelete: Cascade)
+  questionId String      @map("question_id") @db.Uuid
+  unitId     String      @map("unit_id") @db.Uuid
+  question   Question    @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  unit       SubjectUnit @relation(fields: [unitId], references: [id], onDelete: Cascade)
 
   @@id([questionId, unitId])
   @@map("question_units")
@@ -120,10 +118,9 @@ model QuestionLocalization {
   id           String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   questionId   String?   @map("question_id") @db.Uuid
   languageCode String    @map("language_code") @db.VarChar(2)
-  promptText   String?   @map("prompt_text") @db.Text
-  promptImages Json?     @default("[]") @map("prompt_images") @db.JsonB
-  options      Json?     @db.JsonB
-  
+  promptText   String?   @map("prompt_text")
+  promptImages Json?     @default("[]") @map("prompt_images")
+  options      Json?
   question     Question? @relation(fields: [questionId], references: [id], onDelete: Cascade)
 
   @@unique([questionId, languageCode])
@@ -136,17 +133,36 @@ model Explanation {
   questionId    String?   @map("question_id") @db.Uuid
   authorId      String?   @map("author_id") @db.Uuid
   languageCode  String    @map("language_code") @db.VarChar(2)
-  contentText   String    @map("content_text") @db.Text
-  contentImages Json?     @default("[]") @map("content_images") @db.JsonB
+  contentText   String    @map("content_text")
+  contentImages Json?     @default("[]") @map("content_images")
   upvotes       Int?      @default(0)
   downvotes     Int?      @default(0)
   isVerified    Boolean?  @default(false) @map("is_verified")
-  createdAt     DateTime? @default(now()) @map("created_at") @db.Timestamptz
-  updatedAt     DateTime? @default(now()) @map("updated_at") @db.Timestamptz
-
-  question      Question? @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  createdAt     DateTime? @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt     DateTime? @default(now()) @map("updated_at") @db.Timestamptz(6)
   author        User?     @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  question      Question? @relation(fields: [questionId], references: [id], onDelete: Cascade)
 
   @@index([questionId], map: "idx_explanations_question_id")
   @@map("explanations")
+}
+
+model PaperSubmission {
+  id               String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  type             String    @db.VarChar(20)
+  status           String    @db.VarChar(50)
+  pdfPath          String?   @map("pdf_path")
+  paperId          String?   @map("paper_id") @db.Uuid
+  submitterEmail   String?   @map("submitter_email") @db.VarChar(255)
+  metadata         Json?
+  rawMineruOutput  Json?     @map("raw_mineru_output")
+  curationMarkdown String?   @map("curation_markdown")
+  imagesDict       Json?     @map("images_dict")
+  boundingBoxes    Json?     @map("bounding_boxes")
+  createdAt        DateTime? @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt        DateTime? @default(now()) @map("updated_at") @db.Timestamptz(6)
+  paper            Paper?    @relation(fields: [paperId], references: [id], onDelete: Cascade)
+
+  @@index([status], map: "idx_paper_submissions_status")
+  @@map("paper_submissions")
 }

@@ -1,4 +1,5 @@
 from fastapi import APIRouter, HTTPException, UploadFile, File
+from fastapi.responses import FileResponse
 from pydantic import BaseModel
 from typing import List
 import os
@@ -7,6 +8,12 @@ import uuid
 from services.pdf_service import PDFService
 
 router = APIRouter(prefix="/pdf", tags=["PDF Extraction"])
+
+@router.get("/files")
+async def get_file(path: str):
+    if not os.path.exists(path):
+        raise HTTPException(status_code=404, detail="File not found")
+    return FileResponse(path)
 
 @router.post("/upload")
 async def upload_pdf(file: UploadFile = File(...)):
@@ -87,7 +94,7 @@ async def process_pdf(request: ProcessRequest):
                 target_pdf_path = cropped_pdf_path
             doc.close()
         
-        url = "http://182.224.239.168:61812/file_parse"
+        url = "http://182.224.239.168:61803/file_parse"
         
         with open(target_pdf_path, "rb") as f:
             files = {
