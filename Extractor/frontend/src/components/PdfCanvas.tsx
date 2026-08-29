@@ -348,7 +348,11 @@ export function PdfCanvas() {
                     return (
                       <div
                         key={box.id}
-                        className={`absolute group pointer-events-auto transition-colors ${isActive ? 'outline outline-2 outline-blue-500 bg-blue-500/10 z-40' : ''}`}
+                        className={`absolute group pointer-events-auto transition-colors ${
+                          isActive 
+                            ? (dragState?.type === 'move' ? 'outline outline-2 outline-blue-500 bg-blue-500/10 z-40 cursor-grabbing' : 'outline outline-2 outline-blue-500 bg-blue-500/10 z-40 cursor-grab hover:bg-blue-500/20')
+                            : 'hover:outline hover:outline-2 hover:outline-blue-500/50 hover:bg-blue-500/5 cursor-pointer'
+                        }`}
                         style={{ left, top, width, height }}
                         onClick={(e) => { e.stopPropagation(); setActiveBoxId(box.id); }}
                         onMouseDown={(e) => {

@@ -11,13 +11,13 @@ export function TopBar() {
         
         {/* Metadata Chips */}
         <div className="flex items-center gap-2">
-          <span className="px-2 py-1 text-xs rounded bg-[var(--color-bg-surface-raised)] text-[var(--color-text-muted)] border border-[var(--color-border-hairline)] hover:text-white cursor-pointer transition-colors">
+          <span className="px-2 py-1 text-xs rounded bg-[var(--color-bg-surface-raised)] text-[var(--color-text-muted)] border border-[var(--color-border-hairline)]">
             {year}
           </span>
-          <span className="px-2 py-1 text-xs rounded bg-[var(--color-bg-surface-raised)] text-[var(--color-text-muted)] border border-[var(--color-border-hairline)] hover:text-white cursor-pointer transition-colors">
+          <span className="px-2 py-1 text-xs rounded bg-[var(--color-bg-surface-raised)] text-[var(--color-text-muted)] border border-[var(--color-border-hairline)]">
             {examination === "A/L" ? "AL" : "OL"} {subject}
           </span>
-          <span className="px-2 py-1 text-xs rounded bg-[var(--color-bg-surface-raised)] text-[var(--color-text-muted)] border border-[var(--color-border-hairline)] hover:text-white cursor-pointer transition-colors">
+          <span className="px-2 py-1 text-xs rounded bg-[var(--color-bg-surface-raised)] text-[var(--color-text-muted)] border border-[var(--color-border-hairline)]">
             {paperType}
           </span>
         </div>
@@ -43,14 +43,14 @@ export function TopBar() {
                 setGpuStatus('connecting');
                 setTimeout(() => setGpuStatus('live'), 3000); // Mock boot
               }} 
-              className="flex items-center gap-1.5 px-3 py-1 text-xs font-semibold rounded bg-[var(--color-text-primary)] text-black hover:bg-white transition-colors"
+              className="flex items-center gap-1.5 px-3 py-1 text-xs font-semibold rounded bg-[var(--color-text-primary)] text-black hover:bg-white transition-colors focus:outline-none focus:ring-2 focus:ring-white/50"
             >
               <Play size={12} fill="currentColor" /> Connect
             </button>
           ) : (
             <button 
               onClick={() => setGpuStatus('idle')} 
-              className="flex items-center gap-1.5 px-3 py-1 text-xs font-semibold rounded bg-red-500/10 text-red-400 hover:bg-red-500/20 transition-colors"
+              className="flex items-center gap-1.5 px-3 py-1 text-xs font-semibold rounded bg-red-500/10 text-red-400 hover:bg-red-500/20 transition-colors focus:outline-none focus:ring-2 focus:ring-red-500/50"
             >
               <Square size={12} fill="currentColor" /> Destroy
             </button>
