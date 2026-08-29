@@ -4,7 +4,7 @@ from typing import List, Dict, Any, Tuple
 
 class ASTService:
     @staticmethod
-    def parse_model_output_to_curation_markdown(model_output: List[Dict[str, Any]], pdf_path: str = None, language: str = "en", paper_type: str = "MCQ") -> Tuple[str, List[Dict[str, Any]], Dict[str, str]]:
+    def parse_model_output_to_curation_markdown(model_output: List[Dict[str, Any]], pdf_path: str = None, language: str = "en", paper_type: str = "MCQ", selected_pages: List[int] = None) -> Tuple[str, List[Dict[str, Any]], Dict[str, str]]:
         """
         Parses MinerU JSON output into the new Curation Syntax markdown, bounding boxes, and images dict.
         """
@@ -12,7 +12,7 @@ class ASTService:
         markdown_lines = []
         images_dict = {}
         
-        # Group items by page
+        # 1. First, group items by page (it's already a list of pages)
         pages = {}
         for page_idx, page_elements in enumerate(model_output):
             if isinstance(page_elements, list):
@@ -20,6 +20,18 @@ class ASTService:
             else:
                 pages[page_idx] = [page_elements]
                 
+        # 1.5 Get PDF page dimensions to normalize bounding boxes
+        pdf_page_dims = {}
+        if pdf_path:
+            import fitz
+            try:
+                doc = fitz.open(pdf_path)
+                for i in range(len(doc)):
+                    pdf_page_dims[i] = (doc[i].rect.width, doc[i].rect.height)
+                doc.close()
+            except Exception as e:
+                print(f"Failed to get PDF dimensions: {e}")
+            
         # Fix element order for standalone options (MinerU often puts diagrams/tables before the option number)
         for page_idx in pages:
             elements = pages[page_idx]
@@ -91,14 +103,31 @@ class ASTService:
                 bbox_id = None
                 if bbox and len(bbox) == 4:
                     bbox_id = f"mineru-box-{uuid.uuid4().hex[:8]}"
+                    original_page_number = selected_pages[page_idx] if selected_pages and page_idx < len(selected_pages) else page_idx + 1
+                    
+                    # Normalize bounding box using PDF dimensions if available
+                    pw, ph = pdf_page_dims.get(page_idx, (1.0, 1.0))
+                    # If dimensions weren't found, keep original values
+                    
+                    nx0 = bbox[0] / pw if pw > 1.0 else bbox[0]
+                    ny0 = bbox[1] / ph if ph > 1.0 else bbox[1]
+                    nx1 = bbox[2] / pw if pw > 1.0 else bbox[2]
+                    ny1 = bbox[3] / ph if ph > 1.0 else bbox[3]
+                    
+                    # Clamp to [0, 1]
+                    nx0 = max(0.0, min(1.0, nx0))
+                    ny0 = max(0.0, min(1.0, ny0))
+                    nx1 = max(0.0, min(1.0, nx1))
+                    ny1 = max(0.0, min(1.0, ny1))
+                    
                     bounding_boxes.append({
                         "id": bbox_id,
                         "type": elem_type,
-                        "pageNumber": page_idx + 1,
-                        "x0": bbox[0],
-                        "y0": bbox[1],
-                        "x1": bbox[2],
-                        "y1": bbox[3],
+                        "pageNumber": original_page_number,
+                        "x0": nx0,
+                        "y0": ny0,
+                        "x1": nx1,
+                        "y1": ny1,
                         "content": elem.get("text", "") or elem.get("content", "") or elem.get("table_body", "")
                     })
 
@@ -116,7 +145,7 @@ class ASTService:
                     if pdf_path and bbox_id and bbox and len(bbox) == 4:
                         try:
                             from services.pdf_service import PDFService
-                            b64 = PDFService.extract_crop(pdf_path, page_idx, bbox)
+                            b64 = PDFService.extract_crop(pdf_path, page_idx, [nx0, ny0, nx1, ny1])
                             text = f"![image]({bbox_id})"
                             images_dict[bbox_id] = b64
                         except Exception as e:

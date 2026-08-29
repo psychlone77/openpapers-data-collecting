@@ -55,6 +55,7 @@ class ProcessRequest(BaseModel):
     pdf_path: str
     language: str = "en"
     paper_type: str = "MCQ"
+    pages: List[int] = None
 
 class ProcessResponse(BaseModel):
     curation_markdown: str
@@ -68,120 +69,95 @@ async def process_pdf(request: ProcessRequest):
 
     import json
     try:
-        # Dummy response for development: read from cached JSON to simulate real flow
-        cached_res_path = os.path.join(os.path.dirname(__file__), "..", "mineru_last_res.json")
-        if not os.path.exists(cached_res_path):
-            raise HTTPException(status_code=500, detail="mineru_last_res.json not found to simulate dummy response")
+        import httpx
+        import json
+        
+        target_pdf_path = request.pdf_path
+        if request.pages:
+            import fitz
+            doc = fitz.open(request.pdf_path)
+            page_indices = [p - 1 for p in request.pages if 0 <= p - 1 < len(doc)]
+            if page_indices:
+                cropped_pdf_path = request.pdf_path.replace(".pdf", "_cropped.pdf")
+                new_doc = fitz.open()
+                for p in page_indices:
+                    new_doc.insert_pdf(doc, from_page=p, to_page=p)
+                new_doc.save(cropped_pdf_path)
+                new_doc.close()
+                target_pdf_path = cropped_pdf_path
+            doc.close()
+        
+        url = "http://182.224.239.168:61812/file_parse"
+        
+        with open(target_pdf_path, "rb") as f:
+            files = {
+                "files": (os.path.basename(target_pdf_path), f, "application/pdf")
+            }
+            data = {
+                "effort": "high",
+                "parse_method": "ocr",
+                "formula_enable": True,
+                "table_enable": True,
+                "image_analysis": True,
+                "return_md": True,
+                "return_model_output": True,
+                "return_content_list": True,
+                "return_images": True,
+            }
             
-        with open(cached_res_path, "r", encoding="utf-8") as f:
-            res = json.load(f)
-            
-        model_output_data = {}
-        results_dict = res.get("results", {})
-        if results_dict and isinstance(results_dict, dict):
-            # Usually keyed by filename, grab the first one
-            first_key = list(results_dict.keys())[0]
-            file_result = results_dict[first_key]
-            
-            # model_output might be a string (JSON encoded) or dict
-            mo = file_result.get("model_output", {})
-            if isinstance(mo, str):
-                try:
-                    model_output_data = json.loads(mo)
-                except:
-                    model_output_data = {}
-            else:
-                model_output_data = mo
+            async with httpx.AsyncClient(timeout=300.0) as client:
+                response = await client.post(url, files=files, data=data)
                 
-        # Parse model_output into curation syntax markdown and bounding boxes
-        from services.ast_service import ASTService
-        curation_markdown, bounding_boxes, images_dict = ASTService.parse_model_output_to_curation_markdown(
-            model_output_data, 
-            request.pdf_path,
-            request.language,
-            request.paper_type
-        )
-        
-        return ProcessResponse(
-            curation_markdown=curation_markdown,
-            bounding_boxes=bounding_boxes,
-            images_dict=images_dict
-        )
-        
-        # --- ORIGINAL MINERU IMPLEMENTATION (COMMENTED OUT FOR DEVELOPMENT) ---
-        # import httpx
-        # import json
-        # 
-        # url = "http://154.9.228.248:23709/file_parse"
-        # 
-        # with open(request.pdf_path, "rb") as f:
-        #     files = {
-        #         "files": (os.path.basename(request.pdf_path), f, "application/pdf")
-        #     }
-        #     data = {
-        #         "effort": "high",
-        #         "parse_method": "ocr",
-        #         "formula_enable": True,
-        #         "table_enable": True,
-        #         "image_analysis": True,
-        #         "return_md": True,
-        #         "return_model_output": True,
-        #         "return_content_list": True,
-        #         "return_images": True,
-        #     }
-        #     
-        #     async with httpx.AsyncClient(timeout=300.0) as client:
-        #         response = await client.post(url, files=files, data=data)
-        #         
-        #         if response.status_code != 200:
-        #             raise HTTPException(status_code=response.status_code, detail=f"MinerU Error: {response.text}")
-        #         
-        #         res = response.json()
-        #         
-        #         # Save response for debugging
-        #         with open("mineru_last_res.json", "w") as out:
-        #             json.dump(res, out, indent=2)
-        #         
-        #         markdown_text = ""
-        #         model_output_data = {}
-        #         
-        #         results_dict = res.get("results", {})
-        #         if results_dict and isinstance(results_dict, dict):
-        #             # Usually keyed by filename, grab the first one
-        #             first_key = list(results_dict.keys())[0]
-        #             file_result = results_dict[first_key]
-        #             
-        #             markdown_text = file_result.get("md_content", "")
-        #             
-        #             # model_output might be a string (JSON encoded) or dict
-        #             mo = file_result.get("model_output", {})
-        #             if isinstance(mo, str):
-        #                 try:
-        #                     model_output_data = json.loads(mo)
-        #                 except:
-        #                     model_output_data = {}
-        #             else:
-        #                 model_output_data = mo
-        #         
-        #         if not markdown_text:
-        #             markdown_text = "Failed to extract markdown from MinerU response. See mineru_last_res.json."
-        #             
-        #         model_output = model_output_data
-        #         
-        #         # Parse model_output into curation syntax markdown and bounding boxes
-        #         from services.ast_service import ASTService
-        #         curation_markdown, bounding_boxes = ASTService.parse_model_output_to_curation_markdown(
-        #             model_output_data, 
-        #             request.pdf_path,
-        #             request.language,
-        #             request.paper_type
-        #         )
-        #         
-        #         return ProcessResponse(
-        #             curation_markdown=curation_markdown,
-        #             bounding_boxes=bounding_boxes
-        #         )
-        # ----------------------------------------------------------------------
+                if response.status_code != 200:
+                    raise HTTPException(status_code=response.status_code, detail=f"MinerU Error: {response.text}")
+                
+                res = response.json()
+                
+                # Save response for debugging
+                with open("mineru_last_res.json", "w") as out:
+                    json.dump(res, out, indent=2)
+                
+                markdown_text = ""
+                model_output_data = {}
+                
+                results_dict = res.get("results", {})
+                if results_dict and isinstance(results_dict, dict):
+                    # Usually keyed by filename, grab the first one
+                    first_key = list(results_dict.keys())[0]
+                    file_result = results_dict[first_key]
+                    
+                    markdown_text = file_result.get("md_content", "")
+                    
+                    # model_output might be a string (JSON encoded) or dict
+                    mo = file_result.get("model_output", {})
+                    if isinstance(mo, str):
+                        try:
+                            model_output_data = json.loads(mo)
+                        except:
+                            model_output_data = {}
+                    else:
+                        model_output_data = mo
+                
+                if not markdown_text:
+                    markdown_text = "Failed to extract markdown from MinerU response. See mineru_last_res.json."
+                    
+                model_output = model_output_data
+                
+                # Parse model_output into curation syntax markdown and bounding boxes
+                from services.ast_service import ASTService
+                curation_markdown, bounding_boxes, images_dict = ASTService.parse_model_output_to_curation_markdown(
+                    model_output_data, 
+                    target_pdf_path,
+                    request.language,
+                    request.paper_type,
+                    request.pages
+                )
+                
+                return ProcessResponse(
+                    curation_markdown=curation_markdown,
+                    bounding_boxes=bounding_boxes,
+                    images_dict=images_dict
+                )
     except Exception as e:
         import traceback
         traceback.print_exc()

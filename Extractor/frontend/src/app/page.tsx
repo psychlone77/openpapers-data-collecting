@@ -11,8 +11,13 @@ const PdfCanvas = dynamic(() => import('@/components/PdfCanvas').then(mod => mod
   loading: () => <div className="p-20 text-[var(--color-text-muted)] flex items-center justify-center h-full">Loading Canvas...</div>
 });
 
+const AddPaperWizard = dynamic(() => import('@/components/AddPaperWizard').then(mod => mod.AddPaperWizard), {
+  ssr: false,
+  loading: () => <div className="p-20 text-[var(--color-text-muted)] flex items-center justify-center h-full">Loading Wizard...</div>
+});
+
 export default function Home() {
-  const { leftPaneWidth, setLeftPaneWidth } = useStore();
+  const { leftPaneWidth, setLeftPaneWidth, isAddPaperWizardOpen } = useStore();
   const [isDragging, setIsDragging] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -45,6 +50,10 @@ export default function Home() {
       window.removeEventListener("mouseup", handleMouseUp);
     };
   }, [isDragging, setLeftPaneWidth]);
+
+  if (isAddPaperWizardOpen) {
+    return <AddPaperWizard />;
+  }
 
   return (
     <div className="flex flex-col h-screen overflow-hidden bg-[var(--color-bg-canvas)]">

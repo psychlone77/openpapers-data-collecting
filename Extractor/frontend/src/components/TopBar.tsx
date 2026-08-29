@@ -2,7 +2,7 @@ import { useStore } from "@/store/useStore";
 import { Play, Square, Activity } from "lucide-react";
 
 export function TopBar() {
-  const { gpuStatus, setGpuStatus } = useStore();
+  const { gpuStatus, setGpuStatus, year, examination, subject, paperType } = useStore();
 
   return (
     <div className="h-14 shrink-0 bg-[var(--color-bg-surface)] border-b border-[var(--color-border-hairline)] flex items-center justify-between px-4">
@@ -12,13 +12,13 @@ export function TopBar() {
         {/* Metadata Chips */}
         <div className="flex items-center gap-2">
           <span className="px-2 py-1 text-xs rounded bg-[var(--color-bg-surface-raised)] text-[var(--color-text-muted)] border border-[var(--color-border-hairline)] hover:text-white cursor-pointer transition-colors">
-            2019
+            {year}
           </span>
           <span className="px-2 py-1 text-xs rounded bg-[var(--color-bg-surface-raised)] text-[var(--color-text-muted)] border border-[var(--color-border-hairline)] hover:text-white cursor-pointer transition-colors">
-            AL Physics
+            {examination === "A/L" ? "AL" : "OL"} {subject}
           </span>
           <span className="px-2 py-1 text-xs rounded bg-[var(--color-bg-surface-raised)] text-[var(--color-text-muted)] border border-[var(--color-border-hairline)] hover:text-white cursor-pointer transition-colors">
-            MCQ
+            {paperType}
           </span>
         </div>
       </div>

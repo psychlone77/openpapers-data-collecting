@@ -4,6 +4,23 @@ export type GpuStatus = 'idle' | 'connecting' | 'live';
 
 export type NodeType = 'question' | 'subquestion' | 'option' | 'hint' | 'rubric' | 'asset';
 
+export type BoxType = 'text' | 'table' | 'image' | 'formula';
+
+export interface BBox {
+  id: string;
+  type: string;
+  x0?: number;
+  y0?: number;
+  x1?: number;
+  y1?: number;
+  x?: number;
+  y?: number;
+  width?: number;
+  height?: number;
+  pageNumber?: number;
+  content?: string;
+}
+
 export interface TreeItem {
   id: string;
   parentId: string | null;
@@ -32,6 +49,9 @@ interface AppState {
   leftPaneWidth: number;
   setLeftPaneWidth: (width: number) => void;
 
+  boxes: BBox[];
+  setBoxes: (boxes: BBox[]) => void;
+
   // Curation State
   curationMarkdown: string;
   setCurationMarkdown: (md: string) => void;
@@ -43,6 +63,17 @@ interface AppState {
   setPaperType: (type: string) => void;
   language: string;
   setLanguage: (lang: string) => void;
+  year: string;
+  setYear: (year: string) => void;
+  examination: string;
+  setExamination: (exam: string) => void;
+  subject: string;
+  setSubject: (subject: string) => void;
+  selectedPages: number[];
+  setSelectedPages: (pages: number[]) => void;
+  isAddPaperWizardOpen: boolean;
+  setIsAddPaperWizardOpen: (isOpen: boolean) => void;
+
   images: Record<string, string>;
   setImages: (images: Record<string, string>) => void;
 }
@@ -66,6 +97,9 @@ export const useStore = create<AppState>((set) => ({
   leftPaneWidth: 50, // Percentage
   setLeftPaneWidth: (width) => set({ leftPaneWidth: width }),
 
+  boxes: [],
+  setBoxes: (boxes) => set({ boxes }),
+
   curationMarkdown: "",
   setCurationMarkdown: (md) => set({ curationMarkdown: md }),
   
@@ -73,6 +107,16 @@ export const useStore = create<AppState>((set) => ({
   setPaperType: (type) => set({ paperType: type }),
   language: "en",
   setLanguage: (lang) => set({ language: lang }),
+  year: new Date().getFullYear().toString(),
+  setYear: (year) => set({ year }),
+  examination: "A/L",
+  setExamination: (exam) => set({ examination: exam }),
+  subject: "Physics",
+  setSubject: (subject) => set({ subject }),
+  selectedPages: [],
+  setSelectedPages: (pages) => set({ selectedPages: pages }),
+  isAddPaperWizardOpen: true,
+  setIsAddPaperWizardOpen: (isOpen) => set({ isAddPaperWizardOpen: isOpen }),
   
   images: {},
   setImages: (images) => set({ images }),

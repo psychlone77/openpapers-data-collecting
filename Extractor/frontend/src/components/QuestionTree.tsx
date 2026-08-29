@@ -3,6 +3,7 @@ import { useStore } from '@/store/useStore';
 import ReactMarkdown from 'react-markdown';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
+import rehypeRaw from 'rehype-raw';
 
 export function QuestionTree() {
   const curationMarkdown = useStore(state => state.curationMarkdown);
@@ -31,11 +32,11 @@ export function QuestionTree() {
       isSyncingEditor.current = setTimeout(() => { isSyncingEditor.current = null; }, 50);
 
       const { scrollTop, scrollHeight, clientHeight } = editorRef.current;
-      
+
       // Handle exact bottom
       if (Math.abs(scrollHeight - clientHeight - scrollTop) <= 2) {
-         previewRef.current.scrollTop = previewRef.current.scrollHeight - previewRef.current.clientHeight;
-         return;
+        previewRef.current.scrollTop = previewRef.current.scrollHeight - previewRef.current.clientHeight;
+        return;
       }
 
       const percentage = scrollTop / (scrollHeight - clientHeight || 1);
@@ -66,11 +67,11 @@ export function QuestionTree() {
       isSyncingPreview.current = setTimeout(() => { isSyncingPreview.current = null; }, 50);
 
       const { scrollTop, scrollHeight, clientHeight } = previewRef.current;
-      
+
       // Handle exact bottom
       if (Math.abs(scrollHeight - clientHeight - scrollTop) <= 2) {
-         editorRef.current.scrollTop = editorRef.current.scrollHeight - editorRef.current.clientHeight;
-         return;
+        editorRef.current.scrollTop = editorRef.current.scrollHeight - editorRef.current.clientHeight;
+        return;
       }
 
       let el1 = { line: 1, offset: 0 };
@@ -109,7 +110,7 @@ export function QuestionTree() {
   );
 
   const renderPreview = () => (
-    <div 
+    <div
       ref={previewRef}
       onScroll={() => handleScroll('preview')}
       className="relative w-full h-full bg-[var(--color-bg-surface)] p-4 rounded border border-[var(--color-border-hairline)] overflow-auto"
@@ -118,7 +119,7 @@ export function QuestionTree() {
         <ReactMarkdown
           urlTransform={(value: string) => value}
           remarkPlugins={[remarkMath]}
-          rehypePlugins={[rehypeKatex]}
+          rehypePlugins={[rehypeKatex, rehypeRaw]}
           components={{
             p: ({ node, ...props }) => <p data-line={getLine(node)} {...props} />,
             h1: ({ node, ...props }) => <h1 data-line={getLine(node)} {...props} />,
@@ -168,8 +169,8 @@ export function QuestionTree() {
     <div className="w-full h-full flex flex-col bg-[var(--color-bg-canvas)]">
       <div className="p-4 border-b border-[var(--color-border-hairline)] flex items-center justify-between bg-[var(--color-bg-surface)]">
         <h2 className="text-sm font-semibold text-[var(--color-text-muted)] uppercase tracking-wider">Curation Output</h2>
-        <button 
-          onClick={handleSave} 
+        <button
+          onClick={handleSave}
           className="px-3 py-1.5 bg-indigo-500 hover:bg-indigo-600 text-white rounded text-xs font-semibold shadow transition-colors"
         >
           Save to Database

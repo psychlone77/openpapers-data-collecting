@@ -29,3 +29,27 @@ body {
 
 /* Base custom styles for Katex */
 .katex { font-size: 1.1em !important; }
+
+/* Markdown Content Styling */
+.markdown-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.875rem;
+}
+
+.markdown-content th,
+.markdown-content td {
+  border: 1px solid var(--color-border-hairline);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+
+.markdown-content th {
+  background-color: var(--color-bg-surface-raised);
+  font-weight: 600;
+}
+
+.markdown-content tr:nth-child(even) {
+  background-color: var(--color-bg-surface-raised);
+}

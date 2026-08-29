@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { MousePointer2, Square, Type, Image as ImageIcon, Sigma, Table, ZoomIn, ZoomOut } from 'lucide-react';
-import { useStore } from '@/store/useStore';
+import { useStore, BBox, BoxType } from '@/store/useStore';
 import { Document, Page, pdfjs } from 'react-pdf';
 import 'react-pdf/dist/Page/AnnotationLayer.css';
 import 'react-pdf/dist/Page/TextLayer.css';
@@ -10,30 +10,11 @@ import 'react-pdf/dist/Page/TextLayer.css';
 // Set up the PDF.js worker
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
-type BoxType = 'text' | 'table' | 'image' | 'formula';
-
-interface BBox {
-  id: string;
-  type: string;
-  x0?: number;
-  y0?: number;
-  x1?: number;
-  y1?: number;
-  // Legacy support for user drawing
-  x?: number;
-  y?: number;
-  width?: number;
-  height?: number;
-  pageNumber?: number;
-  content?: string;
-}
-
 export function PdfCanvas() {
-  const { selectedNodeId, pdfScale, setPdfScale, pdfFile, setPdfFile, paperType, setPaperType, language, setLanguage } = useStore();
+  const { selectedNodeId, pdfScale, setPdfScale, pdfFile, setPdfFile, paperType, setPaperType, language, setLanguage, boxes, setBoxes } = useStore();
   const [activeTool, setActiveTool] = useState<'pointer' | 'draw'>('pointer');
   const [numPages, setNumPages] = useState<number>();
   const [pageNumber, setPageNumber] = useState<number>(1);
-  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const [activeBoxId, setActiveBoxId] = useState<string | null>(null);
   const [dragState, setDragState] = useState<{
@@ -45,7 +26,7 @@ export function PdfCanvas() {
 
   // Visibility filters for box types
   const [filters, setFilters] = useState<Record<BoxType, boolean>>({
-    text: false, // Hidden by default as requested to reduce clutter
+    text: true, // Show text by default so users see extracted content
     table: true,
     image: true,
     formula: true,
@@ -55,71 +36,26 @@ export function PdfCanvas() {
     setFilters(prev => ({ ...prev, [type]: !prev[type] }));
   };
 
-  function onDocumentLoadSuccess({ numPages }: { numPages: number }) {
-    setNumPages(numPages);
-    setPageNumber(1);
-  }
-
-  const [isProcessing, setIsProcessing] = useState(false);
-
-  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file && file.type === 'application/pdf') {
-      setPdfFile(file);
-      setBoxes([]);
-
-      // Upload to backend
-      const formData = new FormData();
-      formData.append('file', file);
-
-      try {
-        const response = await fetch('http://localhost:8000/pdf/upload', {
-          method: 'POST',
-          body: formData,
-        });
-
-        if (response.ok) {
-          const data = await response.json();
-          useStore.getState().setUploadedPdfPath(data.pdf_path);
-
-          // Call MinerU processing
-          setIsProcessing(true);
-          try {
-            const processRes = await fetch('http://localhost:8000/pdf/process', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ 
-                pdf_path: data.pdf_path,
-                language: useStore.getState().language,
-                paper_type: useStore.getState().paperType 
-              }),
-            });
-
-            if (processRes.ok) {
-              const processData = await processRes.json();
-              useStore.getState().setCurationMarkdown(processData.curation_markdown || '');
-              useStore.getState().setImages(processData.images_dict || {});
-              setBoxes(processData.bounding_boxes);
-            } else {
-              alert("MinerU processing failed.");
-            }
-          } catch (err) {
-            console.error("Error calling MinerU process API:", err);
-          } finally {
-            setIsProcessing(false);
-          }
-
-        } else {
-          console.error("Failed to upload PDF to backend");
-        }
-      } catch (err) {
-        console.error("Error uploading PDF:", err);
+  // Jump to the first page with boxes when they are loaded
+  useEffect(() => {
+    if (boxes && boxes.length > 0) {
+      // Find the lowest page number among all boxes
+      const minPage = Math.min(...boxes.map(b => b.pageNumber || 1));
+      if (minPage > 0 && minPage !== pageNumber) {
+        setPageNumber(minPage);
       }
     }
-  };
+  }, [boxes]);
+
+  function onDocumentLoadSuccess({ numPages }: { numPages: number }) {
+    setNumPages(numPages);
+    // Don't blindly set pageNumber to 1 here if we already have boxes that dictate a different page
+    if (!boxes || boxes.length === 0) {
+      setPageNumber(1);
+    }
+  }
 
   // --- Drawing logic ---
-  const [boxes, setBoxes] = useState<BBox[]>([]);
   const [isDrawing, setIsDrawing] = useState(false);
   const [startPoint, setStartPoint] = useState<{ x: number; y: number } | null>(null);
   const [currentBox, setCurrentBox] = useState<BBox | null>(null);
@@ -334,15 +270,6 @@ export function PdfCanvas() {
 
   return (
     <div className="w-full h-full flex flex-col relative bg-[#111316]">
-      {/* Hidden file input */}
-      <input
-        type="file"
-        accept="application/pdf"
-        className="hidden"
-        ref={fileInputRef}
-        onChange={handleFileUpload}
-      />
-
       {/* Legend / Toolbar Overlay */}
       <div className="absolute top-4 left-1/2 -translate-x-1/2 z-50 flex items-center gap-4 bg-[var(--color-bg-surface-raised)] border border-[var(--color-border-hairline)] px-3 py-2 rounded-lg shadow-xl shadow-black/50">
 
@@ -372,59 +299,17 @@ export function PdfCanvas() {
           <FilterPill type="formula" active={filters.formula} onClick={() => toggleFilter('formula')} icon={<Sigma size={14} />} color="var(--color-box-formula)" label="Formula" />
         </div>
 
-        {/* Metadata Selectors */}
-        <div className="flex items-center gap-2 px-2 border-r border-[var(--color-border-hairline)]">
-          <select 
-            value={language}
-            onChange={(e) => setLanguage(e.target.value)}
-            className="text-xs bg-transparent border border-[var(--color-border-hairline)] rounded px-2 py-1 text-white outline-none cursor-pointer hover:border-[var(--color-accent-active)]"
-          >
-            <option value="en">English (EN)</option>
-            <option value="ta">Tamil (TA)</option>
-            <option value="si">Sinhala (SI)</option>
-          </select>
-          <select 
-            value={paperType}
-            onChange={(e) => setPaperType(e.target.value)}
-            className="text-xs bg-transparent border border-[var(--color-border-hairline)] rounded px-2 py-1 text-white outline-none cursor-pointer hover:border-[var(--color-accent-active)]"
-          >
-            <option value="MCQ">MCQ</option>
-            <option value="ESSAY">Essay</option>
-            <option value="STRUCTURED_ESSAY">Structured Essay</option>
-          </select>
-        </div>
-
-        {/* Upload Button */}
-        <button
-          onClick={() => fileInputRef.current?.click()}
-          className="px-3 py-1 text-xs font-semibold rounded bg-white text-black hover:bg-gray-200 transition-colors flex items-center gap-2"
-          disabled={isProcessing}
-        >
-          {isProcessing ? (
-            <>
-              <div className="w-3 h-3 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
-              Processing...
-            </>
-          ) : (
-            "Upload PDF"
-          )}
-        </button>
       </div>
 
       {/* PDF Scrollable Container */}
       <div className="flex-1 overflow-auto flex justify-center p-8 pt-20">
         {!pdfFile ? (
-          <div className="flex flex-col items-center justify-center h-full text-[var(--color-text-muted)] mt-20">
-            <div className="w-16 h-16 mb-4 rounded-full bg-[var(--color-bg-surface-raised)] flex items-center justify-center">
-              <ImageIcon size={24} />
-            </div>
-            <p>No document loaded.</p>
-            <button
-              onClick={() => fileInputRef.current?.click()}
-              className="mt-4 px-4 py-2 text-sm font-semibold rounded bg-[var(--color-accent-active)] text-white hover:bg-blue-600 transition-colors"
-            >
-              Select PDF File
-            </button>
+          <div className="w-full max-w-md bg-[var(--color-bg-surface-raised)] border border-[var(--color-border-hairline)] rounded-lg p-12 flex flex-col items-center justify-center text-center mt-32 relative z-50 shadow-2xl">
+            <ImageIcon className="w-16 h-16 text-[var(--color-text-muted)] mb-6" />
+            <h3 className="text-xl font-display font-medium text-white mb-2">No PDF Loaded</h3>
+            <p className="text-sm text-[var(--color-text-muted)] mb-8">
+              Please go to the Add Paper wizard to upload a PDF.
+            </p>
           </div>
         ) : (
           <div 
