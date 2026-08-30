@@ -94,9 +94,9 @@ model Question {
   id                String                 @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   paperId           String?                @map("paper_id") @db.Uuid
   parentQuestionId  String?                @map("parent_question_id") @db.Uuid
-  label             String                 @db.VarChar(10)
+  label             String                 @db.VarChar(50)
   sortOrder         Int                    @default(0) @map("sort_order")
-  type              String                 @db.VarChar(20)
+  type              String                 @db.VarChar(50)
   difficulty        Int?
   correctAnswerKeys String[]               @map("correct_answer_keys")
   marksAllocated    Int?                   @map("marks_allocated")

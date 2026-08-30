@@ -130,6 +130,7 @@ async def approve_submission(id: str):
         
         questions_updated = 0
         questions_created = 0
+        sort_order_counter = 1
         
         for i in range(1, len(blocks), 2):
             label = blocks[i]
@@ -187,7 +188,7 @@ async def approve_submission(id: str):
                     where={"id": question.id},
                     data={
                         "type": q_type,
-                        "sortOrder": int(label) if label.isdigit() else 0
+                        "sortOrder": sort_order_counter
                     }
                 )
                 
@@ -222,7 +223,7 @@ async def approve_submission(id: str):
                     "paperId": paper.id,
                     "label": label,
                     "type": q_type,
-                    "sortOrder": int(label) if label.isdigit() else 0
+                    "sortOrder": sort_order_counter
                 })
                 
                 loc_create_data = {
@@ -237,6 +238,28 @@ async def approve_submission(id: str):
                 await db.questionlocalization.create(data=loc_create_data)
                 questions_created += 1
             
+            sort_order_counter += 1
+            
+        # 4. Link Parent Questions
+        all_questions = await db.question.find_many(where={"paperId": paper.id})
+        label_to_id = {q.label: q.id for q in all_questions}
+        
+        for q in all_questions:
+            if '.' in q.label:
+                parent_label = q.label.rsplit('.', 1)[0]
+                parent_id = label_to_id.get(parent_label)
+                if parent_id and q.parentQuestionId != parent_id:
+                    await db.question.update(
+                        where={"id": q.id},
+                        data={"parentQuestionId": parent_id}
+                    )
+            elif q.parentQuestionId is not None:
+                # If there's no dot but it had a parent previously, unlink it (cleanup)
+                await db.question.update(
+                    where={"id": q.id},
+                    data={"parentQuestionId": None}
+                )
+
         # Complete the submission
         await db.papersubmission.update(
             where={"id": id},

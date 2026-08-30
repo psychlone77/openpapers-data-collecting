@@ -16,8 +16,7 @@ class ALStructuredParser(BaseExamParser):
         
         current_q = None
         active_q_num = None
-        active_part = None
-        active_subpart = None
+        active_parts = []
         
         def flush_question():
             if current_q:
@@ -93,8 +92,7 @@ class ALStructuredParser(BaseExamParser):
                     if q_match:
                         flush_question()
                         active_q_num = q_match.group(1)
-                        active_part = None
-                        active_subpart = None
+                        active_parts = []
                         
                         prompt_text = q_match.group(2).strip() if q_match.group(2) else ""
                         nested_subq = subq_pattern.match(prompt_text) if prompt_text else None
@@ -113,26 +111,33 @@ class ALStructuredParser(BaseExamParser):
                         flush_question()
                         subq_label = subq_match.group(1).replace(".", "").replace("(", "").replace(")", "").strip()
                         
-                        lbl_lower = subq_label.lower()
-                        is_sub = False
-                        if lbl_lower in ["ii", "iii", "iv", "vi", "vii", "viii", "ix"]:
-                            is_sub = True
-                        elif lbl_lower == "i":
-                            is_sub = True
-                        elif lbl_lower == "v" and active_subpart and active_subpart.lower() in ["iv", "iii"]:
-                            is_sub = True
-                        elif lbl_lower == "x" and active_subpart and active_subpart.lower() in ["ix", "viii"]:
-                            is_sub = True
+                        def get_label_type(lbl):
+                            if lbl.islower() and lbl in ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix", "x"]:
+                                return "ROMAN_LOWER"
+                            if lbl.isupper() and lbl in ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"]:
+                                return "ROMAN_UPPER"
+                            if len(lbl) == 1 and lbl.isalpha() and lbl.islower():
+                                return "ALPHA_LOWER"
+                            if len(lbl) == 1 and lbl.isalpha() and lbl.isupper():
+                                return "ALPHA_UPPER"
+                            return "UNKNOWN"
                             
-                        if is_sub:
-                            active_subpart = subq_label
+                        lbl_type = get_label_type(subq_label)
+                        
+                        found_idx = -1
+                        for idx, (p_lbl, p_type) in enumerate(active_parts):
+                            if p_type == lbl_type:
+                                found_idx = idx
+                                break
+                                
+                        if found_idx != -1:
+                            active_parts = active_parts[:found_idx]
+                            active_parts.append((subq_label, lbl_type))
                         else:
-                            active_part = subq_label
-                            active_subpart = None
+                            active_parts.append((subq_label, lbl_type))
                             
                         parts = [active_q_num] if active_q_num else []
-                        if active_part: parts.append(active_part)
-                        if active_subpart: parts.append(active_subpart)
+                        parts.extend([p[0] for p in active_parts])
                         
                         label = ".".join(parts) if parts else subq_label
                         
