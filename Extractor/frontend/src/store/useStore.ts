@@ -209,27 +209,42 @@ export const useStore = create<AppState>((set) => ({
         .replace(/\\\]/g, '$$$$');
 
       const lines = normalizedText.split('\n').map(l => l.trim()).filter(l => l.length > 0);
-      const firstLine = lines.length > 0 ? lines[0] : null;
+      let firstLine = lines.length > 0 ? lines[0] : null;
 
-      if (firstLine && newMarkdown.includes(firstLine)) {
-        try {
-          const escapedLines = lines.map(l => l.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
-          const regexStr = escapedLines.join('\\s+');
-          const blockRegex = new RegExp(regexStr, 'g');
-          if (blockRegex.test(newMarkdown)) {
-            newMarkdown = newMarkdown.replace(blockRegex, '');
-          } else {
-             // Fallback
-             newMarkdown = newMarkdown.replace(firstLine, '');
+      if (firstLine) {
+        // If exact line isn't found, try stripping common prefixes like (a), 1., (i)
+        // since the backend parser strips these out to form labels.
+        if (!newMarkdown.includes(firstLine)) {
+          const stripped = firstLine.replace(/^(\d+\.|[a-zA-Z]\.|\([a-zA-Z]+\)|\([ivxIVX]+\)|\s+)+/g, '').trim();
+          if (stripped && newMarkdown.includes(stripped)) {
+             firstLine = stripped;
+             // also update lines[0] so the regex block matches
+             lines[0] = stripped;
           }
-        } catch (e) {
-          newMarkdown = newMarkdown.replace(firstLine, '');
+        }
+
+        if (newMarkdown.includes(firstLine)) {
+          try {
+            const escapedLines = lines.map(l => l.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+            const regexStr = escapedLines.join('\\s+');
+            const blockRegex = new RegExp(regexStr, 'g');
+            if (blockRegex.test(newMarkdown)) {
+              newMarkdown = newMarkdown.replace(blockRegex, '');
+            } else {
+               newMarkdown = newMarkdown.replace(firstLine, '');
+            }
+          } catch (e) {
+            newMarkdown = newMarkdown.replace(firstLine, '');
+          }
         }
       }
     }
 
     // Clean up empty lines created by deletion
     newMarkdown = newMarkdown.replace(/\n{3,}/g, '\n\n').trim();
+
+    // Clean up @images if it has no images under it
+    newMarkdown = newMarkdown.replace(/@images\s+(?=[^\!]*?(?:@|:::|$))/g, '');
 
     const newImages = { ...state.images };
     delete newImages[bboxId];

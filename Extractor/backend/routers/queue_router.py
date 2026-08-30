@@ -32,7 +32,7 @@ async def add_to_queue(request: AddToQueueRequest):
     submission = await db.papersubmission.create(data={
         "type": "NEW_PAPER",
         "status": "PENDING_MINERU",
-        "pdfPath": request.pdf_path,
+        "pdfUrl": request.pdf_path,
         "metadata": metadata_json,
         "submitterEmail": request.submitter_email
     })
@@ -60,8 +60,10 @@ async def get_submission(id: str):
     
     # Check if we have paper context
     paper = None
-    if submission.paperId:
-        paper = await db.paper.find_unique(where={"id": submission.paperId})
+    if submission.paperDataId:
+        paper_data = await db.paperdata.find_unique(where={"id": submission.paperDataId}, include={"paper": True})
+        if paper_data:
+            paper = paper_data.paper
         
     return {
         "submission": submission,
@@ -99,7 +101,7 @@ async def run_mineru_task(submission_id: str):
         if not submission:
             return
             
-        target_pdf_path = submission.pdfPath
+        target_pdf_path = submission.pdfUrl
         
         # Determine language/paper_type from metadata or defaults
         language = "en"
@@ -188,7 +190,7 @@ async def run_mineru_task(submission_id: str):
                         "boundingBoxes": json.dumps(bounding_boxes),
                         "imagesDict": json.dumps(images_dict),
                         "status": "PENDING_USER_VALIDATION",
-                        "pdfPath": target_pdf_path
+                        "pdfUrl": target_pdf_path
                     }
                 )
                 

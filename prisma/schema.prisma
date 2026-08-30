@@ -62,23 +62,32 @@ model SubjectUnit {
 }
 
 model Paper {
-  id               String            @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  subjectId        String?           @map("subject_id") @db.Uuid
+  id               String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  subjectId        String?    @map("subject_id") @db.Uuid
   year             Int
-  part             String            @db.VarChar(50)
-  type             String            @db.VarChar(20)
-  timeLimitMinutes Int?              @map("time_limit_minutes")
-  boundingBoxes    Json?             @map("bounding_boxes")
-  curationMarkdown String?           @map("curation_markdown")
-  imagesDict       Json?             @map("images_dict")
-  pdfPath          String?           @map("pdf_path")
-  submissions      PaperSubmission[]
-  subject          Subject?          @relation(fields: [subjectId], references: [id], onDelete: Cascade)
+  part             String     @db.VarChar(50)
+  type             String     @db.VarChar(20)
+  timeLimitMinutes Int?       @map("time_limit_minutes")
+  subject          Subject?   @relation(fields: [subjectId], references: [id], onDelete: Cascade)
   questions        Question[]
+  paperData        PaperData?
 
   @@unique([subjectId, year, part])
   @@index([subjectId], map: "idx_papers_subject_id")
   @@map("papers")
+}
+
+model PaperData {
+  id               String            @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  paperId          String            @unique @map("paper_id") @db.Uuid
+  boundingBoxes    Json?             @map("bounding_boxes")
+  curationMarkdown String?           @map("curation_markdown")
+  imagesDict       Json?             @map("images_dict")
+  pdfUrl           String?           @map("pdf_url")
+  submissions      PaperSubmission[]
+  paper            Paper             @relation(fields: [paperId], references: [id], onDelete: Cascade)
+
+  @@map("paper_data")
 }
 
 model Question {
@@ -148,20 +157,20 @@ model Explanation {
 }
 
 model PaperSubmission {
-  id               String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  type             String    @db.VarChar(20)
-  status           String    @db.VarChar(50)
-  pdfPath          String?   @map("pdf_path")
-  paperId          String?   @map("paper_id") @db.Uuid
-  submitterEmail   String?   @map("submitter_email") @db.VarChar(255)
+  id               String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  type             String     @db.VarChar(20)
+  status           String     @db.VarChar(50)
+  pdfUrl           String?    @map("pdf_url")
+  paperDataId      String?    @map("paper_data_id") @db.Uuid
+  submitterEmail   String?    @map("submitter_email") @db.VarChar(255)
   metadata         Json?
-  rawMineruOutput  Json?     @map("raw_mineru_output")
-  curationMarkdown String?   @map("curation_markdown")
-  imagesDict       Json?     @map("images_dict")
-  boundingBoxes    Json?     @map("bounding_boxes")
-  createdAt        DateTime? @default(now()) @map("created_at") @db.Timestamptz(6)
-  updatedAt        DateTime? @default(now()) @map("updated_at") @db.Timestamptz(6)
-  paper            Paper?    @relation(fields: [paperId], references: [id], onDelete: Cascade)
+  rawMineruOutput  Json?      @map("raw_mineru_output")
+  curationMarkdown String?    @map("curation_markdown")
+  imagesDict       Json?      @map("images_dict")
+  boundingBoxes    Json?      @map("bounding_boxes")
+  createdAt        DateTime?  @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt        DateTime?  @default(now()) @map("updated_at") @db.Timestamptz(6)
+  paperData        PaperData? @relation(fields: [paperDataId], references: [id], onDelete: Cascade)
 
   @@index([status], map: "idx_paper_submissions_status")
   @@map("paper_submissions")

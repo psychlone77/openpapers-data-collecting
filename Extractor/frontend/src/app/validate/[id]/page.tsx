@@ -41,7 +41,7 @@ export default function ValidatePage() {
         setSubmissionStatus(sub.status);
         
         // Ensure path uses forward slashes and is correctly formatted for pdfjs
-        setUploadedPdfPath(`http://localhost:8000/pdf/files?path=${encodeURIComponent(sub.pdfPath)}`);
+        setUploadedPdfPath(`http://localhost:8000/pdf/files?path=${encodeURIComponent(sub.pdfUrl)}`);
         setCurationMarkdown(sub.curationMarkdown || "");
         let parsedImages = sub.imagesDict || {};
         if (typeof parsedImages === 'string') {

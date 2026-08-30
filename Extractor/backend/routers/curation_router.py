@@ -89,21 +89,41 @@ async def approve_submission(id: str):
                 "year": year,
                 "part": part,
                 "type": metadata.get("paperType", "MCQ"),
-                "curationMarkdown": submission.curationMarkdown,
-                "imagesDict": Json(submission.imagesDict) if submission.imagesDict else None,
-                "boundingBoxes": Json(submission.boundingBoxes) if submission.boundingBoxes else None,
-                "pdfPath": submission.pdfPath
+                "paperData": {
+                    "create": {
+                        "curationMarkdown": submission.curationMarkdown,
+                        "imagesDict": Json(submission.imagesDict) if submission.imagesDict else None,
+                        "boundingBoxes": Json(submission.boundingBoxes) if submission.boundingBoxes else None,
+                        "pdfUrl": submission.pdfUrl
+                    }
+                }
             })
+            paper_data = await db.paperdata.find_unique(where={"paperId": paper.id})
+            paper_data_id = paper_data.id if paper_data else None
         else:
             await db.paper.update(
                 where={"id": paper.id},
                 data={
-                    "curationMarkdown": submission.curationMarkdown,
-                    "imagesDict": Json(submission.imagesDict) if submission.imagesDict else None,
-                    "boundingBoxes": Json(submission.boundingBoxes) if submission.boundingBoxes else None,
-                    "pdfPath": submission.pdfPath
+                    "paperData": {
+                        "upsert": {
+                            "create": {
+                                "curationMarkdown": submission.curationMarkdown,
+                                "imagesDict": Json(submission.imagesDict) if submission.imagesDict else None,
+                                "boundingBoxes": Json(submission.boundingBoxes) if submission.boundingBoxes else None,
+                                "pdfUrl": submission.pdfUrl
+                            },
+                            "update": {
+                                "curationMarkdown": submission.curationMarkdown,
+                                "imagesDict": Json(submission.imagesDict) if submission.imagesDict else None,
+                                "boundingBoxes": Json(submission.boundingBoxes) if submission.boundingBoxes else None,
+                                "pdfUrl": submission.pdfUrl
+                            }
+                        }
+                    }
                 }
             )
+            paper_data = await db.paperdata.find_unique(where={"paperId": paper.id})
+            paper_data_id = paper_data.id if paper_data else None
 
         # 2. Parse Markdown
         blocks = re.split(r'\n:::\s*Q\s+([^\s:]+)\s*:::\n', "\n" + submission.curationMarkdown)
@@ -222,7 +242,7 @@ async def approve_submission(id: str):
             where={"id": id},
             data={
                 "status": "COMPLETED",
-                "paperId": paper.id
+                "paperDataId": paper_data_id
             }
         )
             
@@ -240,7 +260,7 @@ async def start_paper_edit(paper_id: str):
         
     paper = await db.paper.find_unique(
         where={"id": paper_id},
-        include={"subject": True}
+        include={"subject": True, "paperData": True}
     )
     if not paper:
         raise HTTPException(status_code=404, detail="Paper not found")
@@ -256,12 +276,12 @@ async def start_paper_edit(paper_id: str):
     submission = await db.papersubmission.create(data={
         "type": "EDIT_PAPER",
         "status": "PENDING_USER_VALIDATION", # Skips MinerU
-        "pdfPath": paper.pdfPath,
-        "paperId": paper.id,
+        "pdfUrl": paper.paperData.pdfUrl if paper.paperData else None,
+        "paperDataId": paper.paperData.id if paper.paperData else None,
         "metadata": json.dumps(metadata),
-        "curationMarkdown": paper.curationMarkdown,
-        "imagesDict": paper.imagesDict,
-        "boundingBoxes": paper.boundingBoxes
+        "curationMarkdown": paper.paperData.curationMarkdown if paper.paperData else None,
+        "imagesDict": paper.paperData.imagesDict if paper.paperData else None,
+        "boundingBoxes": paper.paperData.boundingBoxes if paper.paperData else None
     })
     
     return {"status": "success", "submission_id": submission.id}
@@ -289,7 +309,7 @@ async def search_papers(exam: str = "", year: str = "", subject: str = ""):
 
     papers = await db.paper.find_many(
         where=where_clause,
-        include={"subject": True},
+        include={"subject": True, "paperData": True},
         take=20
     )
     
@@ -299,7 +319,7 @@ async def search_papers(exam: str = "", year: str = "", subject: str = ""):
         results.append({
             "id": p.id,
             "name": name,
-            "hasMarkdown": bool(p.curationMarkdown)
+            "hasMarkdown": bool(p.paperData and p.paperData.curationMarkdown)
         })
             
     return {"papers": results}
