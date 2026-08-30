@@ -104,13 +104,14 @@ async def run_mineru_task(submission_id: str):
         # Determine language/paper_type from metadata or defaults
         language = "en"
         paper_type = "MCQ"
-        pages = None
-        
+        exam_type = "unknown"
+        pages = None        
         if submission.metadata:
             try:
                 metadata_dict = json.loads(submission.metadata) if isinstance(submission.metadata, str) else submission.metadata
                 language = metadata_dict.get("language", "en")
                 paper_type = metadata_dict.get("paperType", "MCQ")
+                exam_type = metadata_dict.get("examType", "unknown")
                 pages = metadata_dict.get("pages")
             except:
                 pass
@@ -129,7 +130,7 @@ async def run_mineru_task(submission_id: str):
                 target_pdf_path = cropped_pdf_path
             doc.close()
 
-        url = "http://182.224.239.168:61803/file_parse"
+        url = "http://1.208.108.242:33525/file_parse"
         
         with open(target_pdf_path, "rb") as f:
             files = {
@@ -175,6 +176,7 @@ async def run_mineru_task(submission_id: str):
                     target_pdf_path,
                     language,
                     paper_type,
+                    exam_type,
                     pages
                 )
                 

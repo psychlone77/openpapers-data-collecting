@@ -3,7 +3,7 @@ import json
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 from typing import Dict, Any, List, Optional
-from prisma import Prisma
+from prisma import Prisma, Json
 
 router = APIRouter(prefix="/api/curation", tags=["curation"])
 db = Prisma()
@@ -50,7 +50,10 @@ async def approve_submission(id: str):
             raise HTTPException(status_code=400, detail="No curation markdown to approve")
 
         # 1. Ensure minimal parent entities exist for this test
-        metadata = json.loads(submission.metadata) if submission.metadata else {}
+        if isinstance(submission.metadata, dict):
+            metadata = submission.metadata
+        else:
+            metadata = json.loads(submission.metadata) if submission.metadata else {}
         exam_id = metadata.get("examination", "A/L")
         subject_name = metadata.get("subject", "Physics")
         year = int(metadata.get("year", 2025))
@@ -87,8 +90,8 @@ async def approve_submission(id: str):
                 "part": part,
                 "type": metadata.get("paperType", "MCQ"),
                 "curationMarkdown": submission.curationMarkdown,
-                "imagesDict": submission.imagesDict,
-                "boundingBoxes": submission.boundingBoxes,
+                "imagesDict": Json(submission.imagesDict) if submission.imagesDict else None,
+                "boundingBoxes": Json(submission.boundingBoxes) if submission.boundingBoxes else None,
                 "pdfPath": submission.pdfPath
             })
         else:
@@ -96,8 +99,8 @@ async def approve_submission(id: str):
                 where={"id": paper.id},
                 data={
                     "curationMarkdown": submission.curationMarkdown,
-                    "imagesDict": submission.imagesDict,
-                    "boundingBoxes": submission.boundingBoxes,
+                    "imagesDict": Json(submission.imagesDict) if submission.imagesDict else None,
+                    "boundingBoxes": Json(submission.boundingBoxes) if submission.boundingBoxes else None,
                     "pdfPath": submission.pdfPath
                 }
             )
@@ -169,24 +172,30 @@ async def approve_submission(id: str):
                 )
                 
                 # Update localization
+                loc_update_data = {
+                    "promptText": prompt,
+                    "promptImages": Json(prompt_images_json) if prompt_images_json else Json([])
+                }
+                if options_json:
+                    loc_update_data["options"] = Json(options_json)
+                    
                 loc = next((l for l in question.localizations if l.languageCode == lang), None)
                 if loc:
                     await db.questionlocalization.update(
                         where={"id": loc.id},
-                        data={
-                            "promptText": prompt,
-                            "promptImages": json.dumps(prompt_images_json),
-                            "options": json.dumps(options_json) if options_json else None
-                        }
+                        data=loc_update_data
                     )
                 else:
-                    await db.questionlocalization.create(data={
-                        "questionId": question.id,
+                    loc_create_data = {
+                        "question": {"connect": {"id": question.id}},
                         "languageCode": lang,
                         "promptText": prompt,
-                        "promptImages": json.dumps(prompt_images_json),
-                        "options": json.dumps(options_json) if options_json else None
-                    })
+                        "promptImages": Json(prompt_images_json) if prompt_images_json else Json([])
+                    }
+                    if options_json:
+                        loc_create_data["options"] = Json(options_json)
+                        
+                    await db.questionlocalization.create(data=loc_create_data)
                 questions_updated += 1
             else:
                 question = await db.question.create(data={
@@ -196,13 +205,16 @@ async def approve_submission(id: str):
                     "sortOrder": int(label) if label.isdigit() else 0
                 })
                 
-                await db.questionlocalization.create(data={
-                    "questionId": question.id,
+                loc_create_data = {
+                    "question": {"connect": {"id": question.id}},
                     "languageCode": lang,
                     "promptText": prompt,
-                    "promptImages": json.dumps(prompt_images_json),
-                    "options": json.dumps(options_json) if options_json else None
-                })
+                    "promptImages": Json(prompt_images_json) if prompt_images_json else Json([])
+                }
+                if options_json:
+                    loc_create_data["options"] = Json(options_json)
+                    
+                await db.questionlocalization.create(data=loc_create_data)
                 questions_created += 1
             
         # Complete the submission

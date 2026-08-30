@@ -62,6 +62,7 @@ class ProcessRequest(BaseModel):
     pdf_path: str
     language: str = "en"
     paper_type: str = "MCQ"
+    exam_type: str = "unknown"
     pages: List[int] = None
 
 class ProcessResponse(BaseModel):
@@ -94,7 +95,7 @@ async def process_pdf(request: ProcessRequest):
                 target_pdf_path = cropped_pdf_path
             doc.close()
         
-        url = "http://182.224.239.168:61803/file_parse"
+        url = "http://1.208.108.242:33525/file_parse"
         
         with open(target_pdf_path, "rb") as f:
             files = {
@@ -157,6 +158,7 @@ async def process_pdf(request: ProcessRequest):
                     target_pdf_path,
                     request.language,
                     request.paper_type,
+                    request.exam_type,
                     request.pages
                 )
                 
