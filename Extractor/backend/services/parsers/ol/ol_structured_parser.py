@@ -2,7 +2,7 @@ import re
 from typing import List, Dict, Any, Tuple
 from services.parsers.base_parser import BaseExamParser
 
-class OLParser(BaseExamParser):
+class OLStructuredParser(BaseExamParser):
     def parse(self, model_output: List[Dict[str, Any]], pdf_path: str = None, pdf_page_dims: Dict[int, Tuple[float, float]] = None) -> Tuple[str, List[Dict[str, Any]], Dict[str, str]]:
         bounding_boxes = []
         markdown_lines = []
@@ -12,7 +12,6 @@ class OLParser(BaseExamParser):
         self._fix_element_order(pages)
         
         question_pattern = re.compile(r"^(\d+)\.\s+(.*)")
-        option_pattern = re.compile(r"^\(\d+\)\s*(.*)")
         subq_pattern = re.compile(r"^([a-zA-Z]\.|[ivxIVX]+\.|\([a-zA-Z]\)|\([ivxIVX]+\))\s+(.*)")
         
         current_q = None
@@ -33,11 +32,6 @@ class OLParser(BaseExamParser):
                     markdown_lines.append("@images")
                     for img in current_q['images']:
                         markdown_lines.append(img)
-                        
-                if current_q['options']:
-                    markdown_lines.append("@options")
-                    for opt in current_q['options']:
-                        markdown_lines.append(opt)
 
         for page_idx in sorted(pages.keys()):
             for elem in pages[page_idx]:
@@ -92,7 +86,6 @@ class OLParser(BaseExamParser):
                         continue
                         
                     q_match = question_pattern.match(line_str)
-                    opt_match = option_pattern.match(line_str)
                     subq_match = subq_pattern.match(line_str)
                     
                     if not current_q and not q_match:
@@ -108,17 +101,15 @@ class OLParser(BaseExamParser):
                         
                         current_q = {
                             'label': active_q_num,
-                            'type': "MCQ" if self.paper_type.upper() == "MCQ" else "CONTAINER",
+                            'type': "CONTAINER",
                             'prompt': [] if nested_subq else ([prompt_text] if prompt_text else []),
-                            'images': [],
-                            'options': [],
-                            'has_options': False
+                            'images': []
                         }
                         
                         if nested_subq:
                             lines.insert(0, prompt_text)
                             
-                    elif subq_match and self.paper_type.upper() != "MCQ":
+                    elif subq_match:
                         flush_question()
                         subq_label = subq_match.group(1).replace(".", "").replace("(", "").replace(")", "").strip()
                         
@@ -155,35 +146,21 @@ class OLParser(BaseExamParser):
                         prompt_text = subq_match.group(2).strip() if subq_match.group(2) else ""
                         nested_subq = subq_pattern.match(prompt_text) if prompt_text else None
                         
-                        q_type = "CONTAINER" if nested_subq else ("STRUCTURED ESSAY" if self.paper_type.upper() in ["STRUCTURED", "STRUCTURED ESSAY", "STRUCTURED_ESSAY"] else "ESSAY")
-                        
                         current_q = {
                             'label': label,
-                            'type': q_type,
+                            'type': "CONTAINER" if nested_subq else "STRUCTURED ESSAY",
                             'prompt': [] if nested_subq else ([prompt_text] if prompt_text else []),
-                            'images': [],
-                            'options': [],
-                            'has_options': False
+                            'images': []
                         }
                         
                         if nested_subq:
                             lines.insert(0, prompt_text)
-                    elif opt_match:
-                        if current_q:
-                            current_q['has_options'] = True
-                            current_q['options'].append(line_str)
                     else:
                         if current_q:
                             if is_image_elem:
-                                if current_q['has_options']:
-                                    current_q['options'].append(line_str)
-                                else:
-                                    current_q['images'].append(line_str)
+                                current_q['images'].append(line_str)
                             else:
-                                if current_q['has_options']:
-                                    current_q['options'].append(line_str)
-                                else:
-                                    current_q['prompt'].append(line_str)
+                                current_q['prompt'].append(line_str)
         
         flush_question()
         return "\n".join(markdown_lines), bounding_boxes, images_dict

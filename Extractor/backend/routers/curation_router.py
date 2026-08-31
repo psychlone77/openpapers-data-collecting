@@ -76,7 +76,15 @@ async def approve_submission(id: str):
                 "stream": "General"
             })
             
-        part = "Paper I" if metadata.get("paperType") == "MCQ" else "Paper II"
+        paper_type = metadata.get("paperType", "MCQ")
+        if paper_type == "MCQ":
+            part = "Paper I"
+        elif paper_type in ["Structured Essay", "STRUCTURED ESSAY"]:
+            part = "Paper II - Part A"
+        elif paper_type in ["Essay", "ESSAY"]:
+            part = "Paper II - Part B"
+        else:
+            part = "Paper II"
         paper = await db.paper.find_first(where={
             "subjectId": subject.id,
             "year": year,
