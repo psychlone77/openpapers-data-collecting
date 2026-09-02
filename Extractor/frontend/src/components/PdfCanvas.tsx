@@ -210,6 +210,31 @@ export function PdfCanvas() {
       }));
     };
 
+    const handleWindowMouseUp = async () => {
+      const currentDragState = dragState;
+      setDragState(null);
+      
+      if (!currentDragState) return;
+      const { initialBox } = currentDragState;
+      
+      const updatedBox = boxesRef.current.find(b => b.id === initialBox.id);
+      if (updatedBox && updatedBox.type === 'image') {
+        if ((window as any).triggerImageCropFromCanvas) {
+          await (window as any).triggerImageCropFromCanvas(updatedBox);
+        }
+      }
+    };
+
+    window.addEventListener('mousemove', handleWindowMouseMove);
+    window.addEventListener('mouseup', handleWindowMouseUp);
+
+    return () => {
+      window.removeEventListener('mousemove', handleWindowMouseMove);
+      window.removeEventListener('mouseup', handleWindowMouseUp);
+    };
+  }, [dragState, pdfScale]);
+
+  useEffect(() => {
     const triggerImageCrop = async (targetBox: BBox) => {
       const storeState = useStore.getState();
       if (!storeState.uploadedPdfPath) return;
@@ -256,30 +281,9 @@ export function PdfCanvas() {
       }
     };
 
-    const handleWindowMouseUp = async () => {
-      const currentDragState = dragState;
-      setDragState(null);
-      
-      if (!currentDragState) return;
-      const { initialBox } = currentDragState;
-      
-      const updatedBox = boxesRef.current.find(b => b.id === initialBox.id);
-      if (updatedBox && updatedBox.type === 'image') {
-        await triggerImageCrop(updatedBox);
-      }
-    };
-
     // Attach trigger function to window so we can call it from inline handlers easily without prop drilling
     (window as any).triggerImageCropFromCanvas = triggerImageCrop;
-
-    window.addEventListener('mousemove', handleWindowMouseMove);
-    window.addEventListener('mouseup', handleWindowMouseUp);
-
-    return () => {
-      window.removeEventListener('mousemove', handleWindowMouseMove);
-      window.removeEventListener('mouseup', handleWindowMouseUp);
-    };
-  }, [dragState, pdfScale]);
+  }, []);
 
   return (
     <div className="w-full h-full flex flex-col relative bg-[#111316]">

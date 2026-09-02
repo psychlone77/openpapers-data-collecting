@@ -79,8 +79,10 @@ class ALMCQParser(BaseExamParser):
                 
                 text = self._standardize_math(text)
                     
+                is_first_line_of_elem = True
                 lines = text.split("\n")
-                for line in lines:
+                while lines:
+                    line = lines.pop(0)
                     line_str = line.strip()
                     if not line_str:
                         continue
@@ -92,21 +94,67 @@ class ALMCQParser(BaseExamParser):
                         continue
                     
                     if q_match:
+                        next_q_label = q_match.group(1)
+                        instr_buffer = current_q.get('instruction_buffer', []) if current_q else []
+                        instr_images = current_q.get('instruction_images', []) if current_q else []
+                        
                         flush_question()
+                        
+                        if instr_buffer or instr_images:
+                            first_line = instr_buffer[0] if instr_buffer else ""
+                            numbers = re.findall(r'\d+', first_line)
+                            if numbers:
+                                instr_label = "INSTR_" + "_".join(numbers)
+                            else:
+                                instr_label = f"INSTR_pre_{next_q_label}"
+                                
+                            markdown_lines.append("")
+                            markdown_lines.append(f"::: Q {instr_label} :::")
+                            markdown_lines.append(f"@type CONTAINER")
+                            markdown_lines.append(f"@lang {self.language}")
+                            
+                            for iline in instr_buffer:
+                                markdown_lines.append(iline)
+                                
+                            if instr_images:
+                                markdown_lines.append("@images")
+                                for img in instr_images:
+                                    markdown_lines.append(img)
+
+                        prompt_text = q_match.group(2).strip() if q_match.group(2) else ""
                         current_q = {
-                            'label': q_match.group(1),
+                            'label': next_q_label,
                             'type': "MCQ",
-                            'prompt': [q_match.group(2)] if q_match.group(2) else [],
+                            'prompt': [prompt_text] if prompt_text else [],
                             'images': [],
                             'options': [],
+                            'option_count': 0,
+                            'in_instruction_phase': False,
+                            'instruction_buffer': [],
+                            'instruction_images': [],
                             'has_options': False
                         }
-                    elif opt_match:
+                        is_first_line_of_elem = False
+                        continue
+
+                    if opt_match:
                         if current_q:
                             current_q['has_options'] = True
+                            current_q['option_count'] += 1
                             current_q['options'].append(line_str)
-                    else:
-                        if current_q:
+                        is_first_line_of_elem = False
+                        continue
+
+                    if current_q:
+                        if current_q['option_count'] >= 5 and is_first_line_of_elem:
+                            current_q['in_instruction_phase'] = True
+                            
+                        if current_q.get('in_instruction_phase'):
+                            if is_image_elem:
+                                current_q['instruction_images'].append(line_str)
+                            else:
+                                current_q['instruction_buffer'].append(line_str)
+                        else:
                             if is_image_elem:
                                 if current_q['has_options']:
                                     current_q['options'].append(line_str)
@@ -117,6 +165,30 @@ class ALMCQParser(BaseExamParser):
                                     current_q['options'].append(line_str)
                                 else:
                                     current_q['prompt'].append(line_str)
+                                    
+                    is_first_line_of_elem = False
         
         flush_question()
+        if current_q and (current_q.get('instruction_buffer') or current_q.get('instruction_images')):
+            instr_buffer = current_q.get('instruction_buffer', [])
+            instr_images = current_q.get('instruction_images', [])
+            first_line = instr_buffer[0] if instr_buffer else ""
+            numbers = re.findall(r'\d+', first_line)
+            if numbers:
+                instr_label = "INSTR_" + "_".join(numbers)
+            else:
+                instr_label = "INSTR_END"
+                
+            markdown_lines.append("")
+            markdown_lines.append(f"::: Q {instr_label} :::")
+            markdown_lines.append(f"@type CONTAINER")
+            markdown_lines.append(f"@lang {self.language}")
+            
+            for iline in instr_buffer:
+                markdown_lines.append(iline)
+                
+            if instr_images:
+                markdown_lines.append("@images")
+                for img in instr_images:
+                    markdown_lines.append(img)
         return "\n".join(markdown_lines), bounding_boxes, images_dict

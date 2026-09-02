@@ -91,19 +91,27 @@ async def approve_submission(id: str):
             "part": part
         })
         
+        paper_data_dict = {
+            "curationMarkdown": submission.curationMarkdown,
+            "pdfUrl": submission.pdfUrl
+        }
+        if submission.imagesDict:
+            paper_data_dict["imagesDict"] = Json(submission.imagesDict)
+        if submission.boundingBoxes:
+            paper_data_dict["boundingBoxes"] = Json(submission.boundingBoxes)
+
         if not paper:
             paper = await db.paper.create(data={
-                "subjectId": subject.id,
+                "subject": {
+                    "connect": {
+                        "id": subject.id
+                    }
+                },
                 "year": year,
                 "part": part,
                 "type": metadata.get("paperType", "MCQ"),
                 "paperData": {
-                    "create": {
-                        "curationMarkdown": submission.curationMarkdown,
-                        "imagesDict": Json(submission.imagesDict) if submission.imagesDict else None,
-                        "boundingBoxes": Json(submission.boundingBoxes) if submission.boundingBoxes else None,
-                        "pdfUrl": submission.pdfUrl
-                    }
+                    "create": paper_data_dict
                 }
             })
             paper_data = await db.paperdata.find_unique(where={"paperId": paper.id})
@@ -114,18 +122,8 @@ async def approve_submission(id: str):
                 data={
                     "paperData": {
                         "upsert": {
-                            "create": {
-                                "curationMarkdown": submission.curationMarkdown,
-                                "imagesDict": Json(submission.imagesDict) if submission.imagesDict else None,
-                                "boundingBoxes": Json(submission.boundingBoxes) if submission.boundingBoxes else None,
-                                "pdfUrl": submission.pdfUrl
-                            },
-                            "update": {
-                                "curationMarkdown": submission.curationMarkdown,
-                                "imagesDict": Json(submission.imagesDict) if submission.imagesDict else None,
-                                "boundingBoxes": Json(submission.boundingBoxes) if submission.boundingBoxes else None,
-                                "pdfUrl": submission.pdfUrl
-                            }
+                            "create": paper_data_dict,
+                            "update": paper_data_dict
                         }
                     }
                 }
