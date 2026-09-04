@@ -3,9 +3,13 @@
 import { Play, Square, Activity, Loader2 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useStore } from "@/store/useStore";
+import { useAuthStore } from "@/store/useAuthStore";
+import { AuthDropdown } from "@/components/AuthDropdown";
+import Link from "next/link";
 
 export function TopBar() {
   const { submissionId, submissionStatus, curationMarkdown, images, boxes, year, examination, subject, paperType, setSubmissionStatus } = useStore();
+  const { currentUser } = useAuthStore();
   const [isExtracting, setIsExtracting] = useState(false);
 
   useEffect(() => {
@@ -29,18 +33,20 @@ export function TopBar() {
   return (
     <div className="h-14 shrink-0 bg-[var(--color-bg-surface)] border-b border-[var(--color-border-hairline)] flex items-center justify-between px-4">
       <div className="flex items-center gap-4">
-        <h1 className="text-[var(--color-text-primary)] font-display font-semibold">Curation Studio</h1>
+        <Link href="/" className="text-[var(--color-text-primary)] font-display font-semibold hover:text-[var(--color-accent-active)] transition-colors">
+          Curation Studio
+        </Link>
         
         {/* Metadata Chips */}
         <div className="flex items-center gap-2">
           <span className="px-2 py-1 text-xs rounded bg-[var(--color-bg-surface-raised)] text-[var(--color-text-muted)] border border-[var(--color-border-hairline)]">
-            {year}
+            {year || "N/A"}
           </span>
           <span className="px-2 py-1 text-xs rounded bg-[var(--color-bg-surface-raised)] text-[var(--color-text-muted)] border border-[var(--color-border-hairline)]">
-            {examination === "A/L" ? "AL" : "OL"} {subject}
+            {examination === "A/L" ? "AL" : examination === "O/L" ? "OL" : ""} {subject || "N/A"}
           </span>
           <span className="px-2 py-1 text-xs rounded bg-[var(--color-bg-surface-raised)] text-[var(--color-text-muted)] border border-[var(--color-border-hairline)]">
-            {paperType}
+            {paperType || "N/A"}
           </span>
         </div>
       </div>
@@ -87,12 +93,13 @@ export function TopBar() {
                     curationMarkdown,
                     images,
                     boxes,
-                    explanation: "Fixed some extraction errors." // hardcoded for now, ideally an input modal
+                    explanation: "Fixed some extraction errors.", // hardcoded for now, ideally an input modal
+                    authorId: currentUser?.id
                   })
                 });
                 if (res.ok) {
                   alert("Submitted for maintainer verification!");
-                  window.location.href = '/queue';
+                  window.location.href = '/dashboard';
                 }
               } catch (e) {
                 console.error(e);
@@ -114,7 +121,7 @@ export function TopBar() {
                 });
                 if (res.ok) {
                   alert("Submission approved successfully!");
-                  window.location.href = '/queue';
+                  window.location.href = '/dashboard';
                 }
               } catch (e) {
                 console.error(e);
@@ -126,6 +133,16 @@ export function TopBar() {
             Approve Verification
           </button>
         )}
+
+        {/* Navigation Links & Auth Dropdown */}
+        <div className="border-l border-[var(--color-border-hairline)] h-8 mx-2" />
+        <Link 
+          href="/dashboard"
+          className="text-sm font-medium text-[var(--color-text-primary)] hover:text-[var(--color-accent-active)] transition-colors"
+        >
+          Dashboard
+        </Link>
+        <AuthDropdown />
       </div>
     </div>
   );
