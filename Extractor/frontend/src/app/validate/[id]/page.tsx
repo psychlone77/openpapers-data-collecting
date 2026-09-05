@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { useStore } from "@/store/useStore";
 import { TopBar } from "@/components/TopBar";
 import { QuestionTree } from "@/components/QuestionTree";
+import { ReviewPanel } from "@/components/ReviewPanel";
 import dynamic from 'next/dynamic';
 import { useParams } from "next/navigation";
 
@@ -30,51 +31,44 @@ export default function ValidatePage() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchSubmission = async () => {
-      try {
-        const res = await fetch(`http://localhost:8000/api/queue/${id}`);
-        const data = await res.json();
-        
-        const sub = data.submission;
-        setSubmissionId(sub.id);
-        setSubmissionStatus(sub.status);
-        
-        // Ensure path uses forward slashes and is correctly formatted for pdfjs
-        setUploadedPdfPath(`http://localhost:8000/pdf/files?path=${encodeURIComponent(sub.pdfUrl)}`);
-        setCurationMarkdown(sub.curationMarkdown || "");
-        let parsedImages = sub.imagesDict || {};
-        if (typeof parsedImages === 'string') {
-          try { parsedImages = JSON.parse(parsedImages); } catch (e) {}
-        }
-        if (typeof parsedImages === 'string') {
-          try { parsedImages = JSON.parse(parsedImages); } catch (e) {}
-        }
-        setImages(parsedImages && typeof parsedImages === 'object' ? parsedImages : {});
-
-        let parsedBoxes = sub.boundingBoxes || [];
-        if (typeof parsedBoxes === 'string') {
-          try { parsedBoxes = JSON.parse(parsedBoxes); } catch (e) {}
-        }
-        if (typeof parsedBoxes === 'string') {
-          try { parsedBoxes = JSON.parse(parsedBoxes); } catch (e) {}
-        }
-        setBoxes(Array.isArray(parsedBoxes) ? parsedBoxes : []);
-        
-        if (sub.metadata) {
-          const meta = typeof sub.metadata === 'string' ? JSON.parse(sub.metadata) : sub.metadata;
-          if (meta.year) setYear(meta.year);
-          if (meta.examination) setExamination(meta.examination);
-          if (meta.subject) setSubject(meta.subject);
-          if (meta.paperType) setPaperType(meta.paperType);
-        }
-      } catch (err) {
-        console.error("Failed to load submission", err);
-      } finally {
-        setLoading(false);
+  const fetchSubmission = async () => {
+    try {
+      const res = await fetch(`http://localhost:8000/api/queue/${id}`);
+      const data = await res.json();
+      
+      const sub = data.submission;
+      setSubmissionId(sub.id);
+      setSubmissionStatus(sub.status);
+      
+      setUploadedPdfPath(`http://localhost:8000/pdf/files?path=${encodeURIComponent(sub.pdfUrl)}`);
+      setCurationMarkdown(sub.curationMarkdown || "");
+      let parsedImages = sub.imagesDict || {};
+      if (typeof parsedImages === 'string') {
+        try { parsedImages = JSON.parse(parsedImages); } catch (e) {}
       }
-    };
-    
+      setImages(parsedImages && typeof parsedImages === 'object' ? parsedImages : {});
+
+      let parsedBoxes = sub.boundingBoxes || [];
+      if (typeof parsedBoxes === 'string') {
+        try { parsedBoxes = JSON.parse(parsedBoxes); } catch (e) {}
+      }
+      setBoxes(Array.isArray(parsedBoxes) ? parsedBoxes : []);
+      
+      if (sub.metadata) {
+        const meta = typeof sub.metadata === 'string' ? JSON.parse(sub.metadata) : sub.metadata;
+        if (meta.year) setYear(meta.year);
+        if (meta.examination) setExamination(meta.examination);
+        if (meta.subject) setSubject(meta.subject);
+        if (meta.paperType) setPaperType(meta.paperType);
+      }
+    } catch (err) {
+      console.error("Failed to load submission", err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
     if (id) {
       fetchSubmission();
     }
@@ -114,6 +108,8 @@ export default function ValidatePage() {
     return <div className="h-screen w-full flex items-center justify-center bg-[var(--color-bg-canvas)] text-white">Loading Studio...</div>;
   }
 
+  const showReviewPanel = ["PENDING_MAINTAINER_VERIFICATION", "CHANGES_REQUESTED", "APPROVED"].includes(submissionStatus);
+
   return (
     <div className="flex flex-col h-screen overflow-hidden bg-[var(--color-bg-canvas)]">
       <TopBar />
@@ -135,9 +131,19 @@ export default function ValidatePage() {
               onMouseDown={handleMouseDown}
             />
 
-            {/* Right Pane: Question Tree */}
-            <div style={{ width: `${100 - leftPaneWidth}%` }} className="h-full overflow-hidden bg-[var(--color-bg-surface)]">
-              <QuestionTree />
+            {/* Right Pane: Question Tree and Review Panel */}
+            <div style={{ width: `${100 - leftPaneWidth}%` }} className="h-full flex overflow-hidden bg-[var(--color-bg-surface)]">
+              <div className="flex-1 min-w-0 h-full">
+                <QuestionTree />
+              </div>
+              
+              {showReviewPanel && (
+                <ReviewPanel 
+                  submissionId={id as string} 
+                  status={submissionStatus}
+                  onStatusChange={fetchSubmission}
+                />
+              )}
             </div>
           </>
         )}

@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import { useStore } from "@/store/useStore";
+import { useAuthStore } from "@/store/useAuthStore";
 import { Document, Page, pdfjs } from 'react-pdf';
 import { UploadCloud, CheckCircle2, ChevronRight, ChevronLeft, Check, Circle, Loader2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
@@ -26,6 +27,8 @@ export function AddPaperWizard() {
     selectedPages, setSelectedPages,
     setUploadedPdfPath
   } = useStore();
+  
+  const { currentUser } = useAuthStore();
 
   const router = useRouter();
   const [numPages, setNumPages] = useState<number>(0);
@@ -110,7 +113,7 @@ export function AddPaperWizard() {
             subject
           },
           pages: selectedPages,
-          submitter_email: "mock_user@example.com" // Mock email for now
+          submitter_id: currentUser?.id
         }),
       });
 
@@ -135,10 +138,10 @@ export function AddPaperWizard() {
           Your paper has been added to the extraction queue. Once the maintainers process it with MinerU, you will be notified by email to validate the extraction.
         </p>
         <button 
-          onClick={() => router.push('/')}
+          onClick={() => router.push('/dashboard')}
           className="bg-[var(--color-bg-surface-raised)] text-white font-medium px-6 py-2 rounded-lg border border-[var(--color-border-hairline)] hover:border-[var(--color-accent-active)] transition-colors"
         >
-          Return to Home
+          Return to Dashboard
         </button>
       </div>
     );
