@@ -54,7 +54,16 @@ async def get_submission(id: str):
     if not db.is_connected():
         await db.connect()
     
-    submission = await db.papersubmission.find_unique(where={"id": id})
+    submission = await db.papersubmission.find_unique(
+        where={"id": id},
+        include={
+            "comments": {
+                "include": {
+                    "author": True
+                }
+            }
+        }
+    )
     if not submission:
         raise HTTPException(status_code=404, detail="Submission not found")
     
@@ -67,8 +76,37 @@ async def get_submission(id: str):
         
     return {
         "submission": submission,
-        "paper": paper
+        "paper": paper,
+        "comments": submission.comments if submission else []
     }
+
+class AddCommentRequest(BaseModel):
+    content: str
+    lineNumber: Optional[int] = None
+    highlightText: Optional[str] = None
+    authorId: str
+
+@router.post("/{id}/comments")
+async def add_comment(id: str, request: AddCommentRequest):
+    if not db.is_connected():
+        await db.connect()
+        
+    submission = await db.papersubmission.find_unique(where={"id": id})
+    if not submission:
+        raise HTTPException(status_code=404, detail="Submission not found")
+        
+    comment = await db.submissioncomment.create(
+        data={
+            "submissionId": id,
+            "authorId": request.authorId,
+            "content": request.content,
+            "lineNumber": request.lineNumber,
+            "highlightText": request.highlightText
+        },
+        include={"author": True}
+    )
+    
+    return {"status": "success", "comment": comment}
 
 @router.post("/{id}/trigger-mineru")
 async def trigger_mineru(id: str, background_tasks: BackgroundTasks):
@@ -214,3 +252,26 @@ async def run_mineru_task(submission_id: str):
             )
         except Exception as update_err:
             print(f"Failed to update status to EXTRACTION_FAILED: {update_err}")
+
+class ResolveCommentRequest(BaseModel):
+    authorId: str
+
+@router.put("/{id}/comments/{comment_id}/resolve")
+async def resolve_comment(id: str, comment_id: str, request: ResolveCommentRequest):
+    if not db.is_connected():
+        await db.connect()
+        
+    comment = await db.submissioncomment.find_unique(where={"id": comment_id})
+    if not comment:
+        raise HTTPException(status_code=404, detail="Comment not found")
+        
+    updated = await db.submissioncomment.update(
+        where={"id": comment_id},
+        data={
+            "resolved": True,
+            "resolvedById": request.authorId
+        },
+        include={"author": True, "resolvedBy": True}
+    )
+    
+    return {"status": "success", "comment": json.loads(updated.model_dump_json())}

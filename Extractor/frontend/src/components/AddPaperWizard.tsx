@@ -279,6 +279,7 @@ export function AddPaperWizard() {
                           <Page
                             pageNumber={previewPage}
                             height={700} // large enough to read, will scale down by CSS if needed
+                            devicePixelRatio={typeof window !== "undefined" ? Math.max(window.devicePixelRatio || 1, 2) : 2}
                             renderTextLayer={false}
                             renderAnnotationLayer={false}
                             className="bg-white"

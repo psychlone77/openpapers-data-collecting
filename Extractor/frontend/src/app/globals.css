@@ -65,10 +65,10 @@ body {
 }
 
 .markdown-content th {
-  background-color: var(--color-bg-surface-raised);
+  background-color: #f1f5f9;
   font-weight: 600;
 }
 
 .markdown-content tr:nth-child(even) {
-  background-color: var(--color-bg-surface-raised);
+  background-color: #f8fafc;
 }

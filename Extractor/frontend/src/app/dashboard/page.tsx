@@ -71,7 +71,7 @@ function DashboardContent() {
   
   let displayedSubmissions = isMaintainer 
     ? submissions.filter(s => s.submitterId !== currentUser.id)
-    : submissions;
+    : submissions.filter(s => s.submitterId === currentUser.id);
     
   if (isMaintainer) {
     if (statusFilter !== "All Statuses") {
@@ -239,8 +239,8 @@ function DashboardContent() {
     );
   };
 
-  const pendingActionCount = submissions.filter(s => s.status === "PENDING_USER_VALIDATION" || s.status === "CHANGES_REQUESTED").length;
-  const approvedCount = submissions.filter(s => s.status === "APPROVED" || s.status === "COMPLETED").length;
+  const pendingActionCount = displayedSubmissions.filter(s => s.status === "PENDING_USER_VALIDATION" || s.status === "CHANGES_REQUESTED").length;
+  const approvedCount = displayedSubmissions.filter(s => s.status === "APPROVED" || s.status === "COMPLETED").length;
   
   // Maintainer specific counts
   const maintainerQueueCount = submissions.filter(s => s.status === "PENDING_MINERU").length;
@@ -385,7 +385,7 @@ function DashboardContent() {
                 </div>
                 <div>
                   <p className="text-sm font-medium text-[var(--ls-text-secondary)]">Total Uploads</p>
-                  <p className="text-2xl font-bold text-[var(--ls-text-primary)]">{submissions.length}</p>
+                  <p className="text-2xl font-bold text-[var(--ls-text-primary)]">{displayedSubmissions.length}</p>
                 </div>
               </div>
               
@@ -488,7 +488,7 @@ function DashboardContent() {
             </>
           ) : (
             <div className="max-w-5xl">
-              {submissions.length === 0 ? (
+              {displayedSubmissions.length === 0 ? (
                 <div className="text-center py-16 border border-dashed border-[var(--ls-border)] rounded-2xl bg-white">
                   <p className="text-[var(--ls-text-secondary)] mb-4">You haven&apos;t submitted anything yet.</p>
                   <button onClick={() => router.push('/add')} className="text-[var(--ls-accent)] hover:underline font-medium">
@@ -497,7 +497,7 @@ function DashboardContent() {
                 </div>
               ) : (
                 <div className="flex flex-col gap-4 pb-12">
-                  {submissions.map(sub => renderContributorRow(sub))}
+                  {displayedSubmissions.map(sub => renderContributorRow(sub))}
                 </div>
               )}
             </div>
