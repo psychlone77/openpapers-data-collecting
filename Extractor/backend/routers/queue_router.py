@@ -211,6 +211,24 @@ async def run_mineru_task(submission_id: str):
                     else:
                         model_output_data = mo
                 
+                if language == "si":
+                    try:
+                        from services.ocr_service import OCRService
+                        for page_idx, page_elements in enumerate(model_output_data):
+                            elements = page_elements if isinstance(page_elements, list) else [page_elements]
+                            for elem in elements:
+                                if isinstance(elem, dict) and elem.get("type", "text") == "text":
+                                    bbox = elem.get("bbox")
+                                    if bbox and len(bbox) == 4:
+                                        print(f"Applying Gemini OCR for page {page_idx}, bbox {bbox}")
+                                        gemini_text = OCRService.extract_text_from_crop_gemini(target_pdf_path, page_idx, bbox)
+                                        if gemini_text:
+                                            elem["text"] = gemini_text
+                                            if "content" in elem:
+                                                elem["content"] = gemini_text
+                    except Exception as ocr_err:
+                        print(f"Gemini OCR fallback failed: {ocr_err}")
+
                 curation_markdown, bounding_boxes, images_dict = ASTService.parse_model_output_to_curation_markdown(
                     model_output_data, 
                     target_pdf_path,
