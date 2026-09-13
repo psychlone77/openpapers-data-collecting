@@ -75,6 +75,7 @@ function PageThumbnail({
             <Page
               pageNumber={pageNum}
               width={250}
+              devicePixelRatio={typeof window !== "undefined" ? Math.max(window.devicePixelRatio || 1, 2) : 2}
               renderTextLayer={false}
               renderAnnotationLayer={false}
             />

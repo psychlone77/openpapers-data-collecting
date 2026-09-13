@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { useStore } from "@/store/useStore";
 import { TopBar } from "@/components/TopBar";
 import { QuestionTree } from "@/components/QuestionTree";
-import { ReviewPanel } from "@/components/ReviewPanel";
+import { AppShell } from "@/components/AppShell";
 import dynamic from 'next/dynamic';
 import { useParams } from "next/navigation";
 
@@ -24,7 +24,8 @@ export default function ValidatePage() {
     submissionStatus,
     setSubmissionId,
     setSubmissionStatus,
-    setYear, setExamination, setSubject, setPaperType
+    setYear, setExamination, setSubject, setPaperType,
+    setComments
   } = useStore();
   
   const [isDragging, setIsDragging] = useState(false);
@@ -61,6 +62,11 @@ export default function ValidatePage() {
         if (meta.subject) setSubject(meta.subject);
         if (meta.paperType) setPaperType(meta.paperType);
       }
+      
+      if (data.comments) {
+        setComments(data.comments);
+      }
+      
     } catch (err) {
       console.error("Failed to load submission", err);
     } finally {
@@ -108,46 +114,38 @@ export default function ValidatePage() {
     return <div className="h-screen w-full flex items-center justify-center bg-[var(--color-bg-canvas)] text-white">Loading Studio...</div>;
   }
 
-  const showReviewPanel = ["PENDING_MAINTAINER_VERIFICATION", "CHANGES_REQUESTED", "APPROVED"].includes(submissionStatus);
-
   return (
-    <div className="flex flex-col h-screen overflow-hidden bg-[var(--color-bg-canvas)]">
-      <TopBar />
-      
-      <div className="flex-1 flex flex-row overflow-hidden" ref={containerRef}>
-        {/* Left Pane: PDF Canvas */}
-        <div 
-          style={{ width: submissionStatus === "PENDING_MINERU" ? '100%' : `${leftPaneWidth}%` }} 
-          className="relative h-full border-r border-[var(--color-border-hairline)] overflow-hidden"
-        >
-          <PdfCanvas />
-        </div>
+    <AppShell>
+      <div className="flex flex-col h-full overflow-hidden bg-slate-50">
+        <TopBar />
+        
+        <div className="flex-1 flex flex-row overflow-hidden" ref={containerRef}>
+          {/* Left Pane: PDF Canvas */}
+          <div 
+            style={{ width: submissionStatus === "PENDING_MINERU" ? '100%' : `${leftPaneWidth}%` }} 
+            className="relative h-full border-r border-[var(--color-border-hairline)] overflow-hidden"
+          >
+            <PdfCanvas />
+          </div>
 
-        {submissionStatus !== "PENDING_MINERU" && (
-          <>
-            {/* Resizer Divider */}
-            <div 
-              className="w-1 cursor-col-resize hover:bg-[var(--color-accent-active)] bg-transparent transition-colors duration-150 z-10"
-              onMouseDown={handleMouseDown}
-            />
+          {submissionStatus !== "PENDING_MINERU" && (
+            <>
+              {/* Resizer Divider */}
+              <div 
+                className="w-1 cursor-col-resize hover:bg-[var(--color-accent-active)] bg-transparent transition-colors duration-150 z-10"
+                onMouseDown={handleMouseDown}
+              />
 
-            {/* Right Pane: Question Tree and Review Panel */}
-            <div style={{ width: `${100 - leftPaneWidth}%` }} className="h-full flex overflow-hidden bg-[var(--color-bg-surface)]">
-              <div className="flex-1 min-w-0 h-full">
-                <QuestionTree />
+              {/* Right Pane: Question Tree */}
+              <div style={{ width: `${100 - leftPaneWidth}%` }} className="h-full flex overflow-hidden bg-white relative">
+                <div className="flex-1 min-w-0 h-full relative">
+                  <QuestionTree />
+                </div>
               </div>
-              
-              {showReviewPanel && (
-                <ReviewPanel 
-                  submissionId={id as string} 
-                  status={submissionStatus}
-                  onStatusChange={fetchSubmission}
-                />
-              )}
-            </div>
-          </>
-        )}
+            </>
+          )}
+        </div>
       </div>
-    </div>
+    </AppShell>
   );
 }

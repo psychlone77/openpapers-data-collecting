@@ -110,13 +110,13 @@ export function NavBar() {
 
       {/* Right actions */}
       <div className="flex items-center gap-1">
-        <a
-          href="#"
+        <Link
+          href="/docs"
           className="flex items-center gap-1.5 px-3 py-1.5 text-sm text-[var(--ls-text-secondary)] hover:bg-[var(--ls-surface-hover)] rounded-lg transition-colors"
         >
           <BookOpen size={16} />
           Documentation
-        </a>
+        </Link>
 
         <button className="w-8 h-8 flex items-center justify-center text-[var(--ls-text-secondary)] hover:bg-[var(--ls-surface-hover)] rounded-lg transition-colors">
           <Bot size={16} />

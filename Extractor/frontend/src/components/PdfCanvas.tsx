@@ -286,23 +286,23 @@ export function PdfCanvas() {
   }, []);
 
   return (
-    <div className="w-full h-full flex flex-col relative bg-[#111316]">
+    <div className="w-full h-full flex flex-col relative bg-slate-100">
       {/* Legend / Toolbar Overlay */}
       {submissionStatus !== "PENDING_MINERU" && (
-        <div className="absolute top-4 left-1/2 -translate-x-1/2 z-50 flex items-center gap-4 bg-[var(--color-bg-surface-raised)] border border-[var(--color-border-hairline)] px-3 py-2 rounded-lg shadow-xl shadow-black/50">
+        <div className="absolute top-4 left-1/2 -translate-x-1/2 z-50 flex items-center gap-4 bg-white border border-slate-200 px-3 py-2 rounded-lg shadow-sm">
 
           {/* Tool selector */}
           <div className="flex items-center gap-1 border-r border-[var(--color-border-hairline)] pr-3">
             <button
               onClick={() => setActiveTool('pointer')}
-              className={`p-1.5 rounded transition-colors ${activeTool === 'pointer' ? 'bg-[var(--color-accent-active)] text-white' : 'text-[var(--color-text-muted)] hover:text-white hover:bg-white/10'}`}
+              className={`p-1.5 rounded transition-colors ${activeTool === 'pointer' ? 'bg-[var(--ls-accent)] text-white' : 'text-slate-500 hover:text-slate-900 hover:bg-slate-100'}`}
               title="Pointer Tool"
             >
               <MousePointer2 size={16} />
             </button>
             <button
               onClick={() => setActiveTool('draw')}
-              className={`p-1.5 rounded transition-colors ${activeTool === 'draw' ? 'bg-[var(--color-accent-active)] text-white' : 'text-[var(--color-text-muted)] hover:text-white hover:bg-white/10'}`}
+              className={`p-1.5 rounded transition-colors ${activeTool === 'draw' ? 'bg-[var(--ls-accent)] text-white' : 'text-slate-500 hover:text-slate-900 hover:bg-slate-100'}`}
               title="Draw Bounding Box"
             >
               <Square size={16} />
@@ -323,10 +323,10 @@ export function PdfCanvas() {
       {/* PDF Scrollable Container */}
       <div className="flex-1 overflow-auto flex justify-center p-8 pt-20">
         {!pdfFile && !uploadedPdfPath ? (
-          <div className="w-full max-w-md bg-[var(--color-bg-surface-raised)] border border-[var(--color-border-hairline)] rounded-lg p-12 flex flex-col items-center justify-center text-center mt-32 relative z-50 shadow-2xl">
-            <ImageIcon className="w-16 h-16 text-[var(--color-text-muted)] mb-6" />
-            <h3 className="text-xl font-display font-medium text-white mb-2">No PDF Loaded</h3>
-            <p className="text-sm text-[var(--color-text-muted)] mb-8">
+          <div className="w-full max-w-md bg-white border border-slate-200 rounded-lg p-12 flex flex-col items-center justify-center text-center mt-32 relative z-50 shadow-sm">
+            <ImageIcon className="w-16 h-16 text-slate-400 mb-6" />
+            <h3 className="text-xl font-display font-medium text-slate-900 mb-2">No PDF Loaded</h3>
+            <p className="text-sm text-slate-500 mb-8">
               Please go to the Add Paper wizard to upload a PDF.
             </p>
           </div>
@@ -347,8 +347,9 @@ export function PdfCanvas() {
               <Page
                 pageNumber={pageNumber}
                 scale={pdfScale}
-                renderTextLayer={true}
-                renderAnnotationLayer={true}
+                devicePixelRatio={typeof window !== "undefined" ? Math.max(window.devicePixelRatio || 1, 2) : 2}
+                renderTextLayer={false}
+                renderAnnotationLayer={false}
                 className="relative"
               >
                 {/* HTML Overlay for interactivity */}
@@ -510,40 +511,40 @@ export function PdfCanvas() {
       </div>
 
       {/* Zoom / Pan Controls (Bottom Right) */}
-      <div className="absolute bottom-6 right-6 z-50 flex items-center gap-2 bg-[var(--color-bg-surface-raised)] border border-[var(--color-border-hairline)] px-2 py-1.5 rounded-lg shadow-lg">
+      <div className="absolute bottom-6 right-6 z-50 flex items-center gap-2 bg-white border border-slate-200 px-2 py-1.5 rounded-lg shadow-sm">
         <button
           onClick={() => setPdfScale(Math.max(0.5, pdfScale - 0.2))}
-          className="p-1 rounded text-[var(--color-text-muted)] hover:text-white hover:bg-white/10"
+          className="p-1 rounded text-slate-500 hover:text-slate-900 hover:bg-slate-100"
         >
           <ZoomOut size={16} />
         </button>
-        <span className="text-xs font-mono text-[var(--color-text-muted)] w-10 text-center">
+        <span className="text-xs font-mono text-slate-500 w-10 text-center">
           {Math.round(pdfScale * 100)}%
         </span>
         <button
           onClick={() => setPdfScale(Math.min(3.0, pdfScale + 0.2))}
-          className="p-1 rounded text-[var(--color-text-muted)] hover:text-white hover:bg-white/10"
+          className="p-1 rounded text-slate-500 hover:text-slate-900 hover:bg-slate-100"
         >
           <ZoomIn size={16} />
         </button>
       </div>
 
       {/* Page Navigation Controls (Bottom Left) */}
-      <div className="absolute bottom-6 left-6 z-50 flex items-center gap-2 bg-[var(--color-bg-surface-raised)] border border-[var(--color-border-hairline)] px-3 py-1.5 rounded-lg shadow-lg">
+      <div className="absolute bottom-6 left-6 z-50 flex items-center gap-2 bg-white border border-slate-200 px-3 py-1.5 rounded-lg shadow-sm">
         <button
           disabled={pageNumber <= 1}
           onClick={() => setPageNumber(prev => prev - 1)}
-          className="text-xs font-semibold px-2 py-1 bg-black/20 rounded disabled:opacity-50"
+          className="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-700 rounded hover:bg-slate-200 disabled:opacity-50"
         >
           Prev
         </button>
-        <span className="text-xs text-[var(--color-text-muted)] font-mono">
+        <span className="text-xs text-slate-500 font-mono">
           Page {pageNumber} of {numPages || '--'}
         </span>
         <button
           disabled={numPages === undefined || pageNumber >= numPages}
           onClick={() => setPageNumber(prev => prev + 1)}
-          className="text-xs font-semibold px-2 py-1 bg-black/20 rounded disabled:opacity-50"
+          className="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-700 rounded hover:bg-slate-200 disabled:opacity-50"
         >
           Next
         </button>
@@ -568,7 +569,7 @@ function FilterPill({ active, onClick, icon, color, label }: FilterPillProps) {
       className={`flex items-center gap-1.5 px-2 py-1 rounded text-xs font-medium transition-all ${active ? 'opacity-100' : 'opacity-40 hover:opacity-70'}`}
       style={{
         backgroundColor: active ? `color-mix(in srgb, ${color} 15%, transparent)` : 'transparent',
-        color: active ? color : 'var(--color-text-muted)',
+        color: active ? color : 'var(--ls-text-secondary)',
       }}
     >
       {icon} {label}

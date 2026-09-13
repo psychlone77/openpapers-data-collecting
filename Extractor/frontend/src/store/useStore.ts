@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { create } from 'zustand';
 
 export type GpuStatus = 'idle' | 'connecting' | 'live';
@@ -31,8 +32,21 @@ export interface TreeItem {
 }
 
 interface AppState {
+  isSidebarCollapsed: boolean;
+  setIsSidebarCollapsed: (collapsed: boolean) => void;
   selectedNodeId: string | null;
   setSelectedNodeId: (id: string | null) => void;
+
+  comments: any[];
+  setComments: (comments: any[]) => void;
+  resolveComment: (commentId: string, authorId: string) => Promise<void>;
+
+  activeCommentLine: number | null;
+  setActiveCommentLine: (line: number | null) => void;
+  highlightTextForComment: string | null;
+  setHighlightTextForComment: (text: string | null) => void;
+  floatingComment: { x: number, y: number, text: string, line: number } | null;
+  setFloatingComment: (comment: { x: number, y: number, text: string, line: number } | null) => void;
 
   gpuStatus: GpuStatus;
   setGpuStatus: (status: GpuStatus) => void;
@@ -83,9 +97,38 @@ interface AppState {
   setImages: (images: Record<string, string>) => void;
 }
 
-export const useStore = create<AppState>((set) => ({
+export const useStore = create<AppState>((set, get) => ({
+  isSidebarCollapsed: false,
+  setIsSidebarCollapsed: (collapsed) => set({ isSidebarCollapsed: collapsed }),
+
   selectedNodeId: null,
   setSelectedNodeId: (id) => set({ selectedNodeId: id }),
+
+  comments: [],
+  setComments: (comments) => set({ comments }),
+  activeCommentLine: null,
+  setActiveCommentLine: (line) => set({ activeCommentLine: line }),
+  highlightTextForComment: null,
+  setHighlightTextForComment: (text) => set({ highlightTextForComment: text }),
+  floatingComment: null,
+  setFloatingComment: (comment) => set({ floatingComment: comment }),
+  resolveComment: async (commentId, authorId) => {
+    const { submissionId, comments } = get();
+    if (!submissionId) return;
+    try {
+      const res = await fetch(`http://localhost:8000/api/queue/${submissionId}/comments/${commentId}/resolve`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ authorId })
+      });
+      if (res.ok) {
+        const data = await res.json();
+        set({ comments: comments.map((c) => c.id === commentId ? data.comment : c) });
+      }
+    } catch (e) {
+      console.error("Failed to resolve comment", e);
+    }
+  },
 
   gpuStatus: 'idle',
   setGpuStatus: (status) => set({ gpuStatus: status }),
@@ -108,15 +151,15 @@ export const useStore = create<AppState>((set) => ({
   curationMarkdown: "",
   setCurationMarkdown: (md) => set({ curationMarkdown: md }),
   
-  paperType: "MCQ",
+  paperType: "",
   setPaperType: (type) => set({ paperType: type }),
-  language: "en",
+  language: "",
   setLanguage: (lang) => set({ language: lang }),
-  year: new Date().getFullYear().toString(),
+  year: "",
   setYear: (year) => set({ year }),
-  examination: "A/L",
+  examination: "",
   setExamination: (exam) => set({ examination: exam }),
-  subject: "Physics",
+  subject: "",
   setSubject: (subject) => set({ subject }),
   selectedPages: [],
   setSelectedPages: (pages) => set({ selectedPages: pages }),

@@ -352,3 +352,19 @@ async def search_papers(exam: str = "", year: str = "", subject: str = ""):
         })
             
     return {"papers": results}
+
+@router.post("/submission/{id}/request-changes")
+async def request_changes(id: str):
+    if not db.is_connected():
+        await db.connect()
+        
+    submission = await db.papersubmission.find_unique(where={"id": id})
+    if not submission:
+        raise HTTPException(status_code=404, detail="Submission not found")
+        
+    # Revert status to user validation
+    await db.papersubmission.update(
+        where={"id": id},
+        data={"status": "PENDING_USER_VALIDATION"}
+    )
+    return {"status": "success", "message": "Changes requested."}

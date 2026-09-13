@@ -4,10 +4,11 @@ import { Play, Square, Activity, Loader2 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useStore } from "@/store/useStore";
 import { useAuthStore } from "@/store/useAuthStore";
-import { AuthDropdown } from "@/components/AuthDropdown";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export function TopBar() {
+  const router = useRouter();
   const { submissionId, submissionStatus, curationMarkdown, images, boxes, year, examination, subject, paperType, setSubmissionStatus } = useStore();
   const { currentUser } = useAuthStore();
   const [isExtracting, setIsExtracting] = useState(false);
@@ -31,30 +32,27 @@ export function TopBar() {
   }, [isExtracting, submissionId]);
 
   return (
-    <div className="h-14 shrink-0 bg-[var(--color-bg-surface)] border-b border-[var(--color-border-hairline)] flex items-center justify-between px-4">
+    <div className="h-14 shrink-0 bg-white border-b border-slate-200 flex items-center justify-between px-4 shadow-sm z-10">
       <div className="flex items-center gap-4">
-        <Link href="/" className="text-[var(--color-text-primary)] font-display font-semibold hover:text-[var(--color-accent-active)] transition-colors">
-          Curation Studio
-        </Link>
-        
-        {/* Metadata Chips */}
-        <div className="flex items-center gap-2">
-          <span className="px-2 py-1 text-xs rounded bg-[var(--color-bg-surface-raised)] text-[var(--color-text-muted)] border border-[var(--color-border-hairline)]">
-            {year || "N/A"}
-          </span>
-          <span className="px-2 py-1 text-xs rounded bg-[var(--color-bg-surface-raised)] text-[var(--color-text-muted)] border border-[var(--color-border-hairline)]">
-            {examination === "A/L" ? "AL" : examination === "O/L" ? "OL" : ""} {subject || "N/A"}
-          </span>
-          <span className="px-2 py-1 text-xs rounded bg-[var(--color-bg-surface-raised)] text-[var(--color-text-muted)] border border-[var(--color-border-hairline)]">
-            {paperType || "N/A"}
-          </span>
-        </div>
+        {/* Paper Title/Metadata */}
+        {(year || examination || subject || paperType) && (
+          <div className="flex items-center">
+            <div className="flex flex-col">
+              <h2 className="text-sm font-semibold text-slate-800 leading-tight">
+                {[year, examination === "A/L" ? "G.C.E. A/L" : examination === "O/L" ? "G.C.E. O/L" : examination, subject].filter(Boolean).join(" ")}
+              </h2>
+              {paperType && (
+                <p className="text-xs text-slate-500 font-medium leading-tight mt-0.5">
+                  {paperType}
+                </p>
+              )}
+            </div>
+          </div>
+        )}
       </div>
 
       <div className="flex items-center gap-6">
-        <div className="text-xs text-[var(--color-text-muted)] flex items-center gap-1">
-          <Activity size={14} /> Saved · 2s ago
-        </div>
+
 
         {/* Submit Actions */}
         {submissionStatus === "PENDING_MINERU" && (
@@ -72,7 +70,7 @@ export function TopBar() {
                 setIsExtracting(false);
               }
             }}
-            className="flex items-center gap-1.5 px-4 py-1.5 text-sm font-semibold rounded-lg bg-[var(--color-accent-active)] text-black hover:bg-[var(--color-accent-hover)] transition-colors disabled:opacity-50"
+            className="flex items-center gap-1.5 px-4 py-1.5 text-sm font-semibold rounded-lg bg-[var(--ls-accent)] text-white hover:bg-[var(--ls-accent-hover)] shadow-sm transition-colors disabled:opacity-50"
           >
             {isExtracting ? (
               <><Loader2 size={16} className="animate-spin" /> Extracting...</>
@@ -106,43 +104,52 @@ export function TopBar() {
                 alert("Failed to submit.");
               }
             }}
-            className="flex items-center gap-1.5 px-4 py-1.5 text-sm font-semibold rounded-lg bg-[var(--color-accent-active)] text-black hover:bg-[var(--color-accent-hover)] transition-colors"
+            className="flex items-center gap-1.5 px-4 py-1.5 text-sm font-semibold rounded-lg bg-[var(--ls-accent)] text-white hover:bg-[var(--ls-accent-hover)] shadow-sm transition-colors"
           >
             Submit for Verification
           </button>
         )}
 
         {submissionId && submissionStatus === "PENDING_MAINTAINER_VERIFICATION" && (
-          <button 
-            onClick={async () => {
-              try {
-                const res = await fetch(`http://localhost:8000/api/curation/submission/${submissionId}/approve`, {
-                  method: 'POST'
-                });
-                if (res.ok) {
-                  alert("Submission approved successfully!");
-                  window.location.href = '/dashboard';
+          <div className="flex items-center gap-2">
+            <button 
+              onClick={async () => {
+                try {
+                  const res = await fetch(`http://localhost:8000/api/curation/submission/${submissionId}/request-changes`, {
+                    method: 'POST'
+                  });
+                  if (res.ok) {
+                    setSubmissionStatus("PENDING_USER_VALIDATION");
+                    router.push('/dashboard');
+                  }
+                } catch (e) {
+                  console.error("Failed to request changes", e);
                 }
-              } catch (e) {
-                console.error(e);
-                alert("Failed to approve.");
-              }
-            }}
-            className="flex items-center gap-1.5 px-4 py-1.5 text-sm font-semibold rounded-lg bg-green-500 text-white hover:bg-green-600 transition-colors"
-          >
-            Approve Verification
-          </button>
+              }}
+              className="flex items-center gap-1.5 px-4 py-1.5 text-sm font-semibold rounded-lg border border-red-200 text-red-600 bg-red-50 hover:bg-red-100 shadow-sm transition-colors"
+            >
+              Request Changes
+            </button>
+            <button 
+              onClick={async () => {
+                try {
+                  const res = await fetch(`http://localhost:8000/api/curation/submission/${submissionId}/approve`, {
+                    method: 'POST'
+                  });
+                  if (res.ok) {
+                    setSubmissionStatus("APPROVED");
+                    router.push('/dashboard');
+                  }
+                } catch (e) {
+                  console.error("Failed to approve submission", e);
+                }
+              }}
+              className="flex items-center gap-1.5 px-4 py-1.5 text-sm font-semibold rounded-lg bg-emerald-600 text-white hover:bg-emerald-700 shadow-sm transition-colors"
+            >
+              Approve Verification
+            </button>
+          </div>
         )}
-
-        {/* Navigation Links & Auth Dropdown */}
-        <div className="border-l border-[var(--color-border-hairline)] h-8 mx-2" />
-        <Link 
-          href="/dashboard"
-          className="text-sm font-medium text-[var(--color-text-primary)] hover:text-[var(--color-accent-active)] transition-colors"
-        >
-          Dashboard
-        </Link>
-        <AuthDropdown />
       </div>
     </div>
   );

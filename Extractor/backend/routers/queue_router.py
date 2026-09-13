@@ -54,7 +54,16 @@ async def get_submission(id: str):
     if not db.is_connected():
         await db.connect()
     
-    submission = await db.papersubmission.find_unique(where={"id": id})
+    submission = await db.papersubmission.find_unique(
+        where={"id": id},
+        include={
+            "comments": {
+                "include": {
+                    "author": True
+                }
+            }
+        }
+    )
     if not submission:
         raise HTTPException(status_code=404, detail="Submission not found")
     
@@ -67,8 +76,37 @@ async def get_submission(id: str):
         
     return {
         "submission": submission,
-        "paper": paper
+        "paper": paper,
+        "comments": submission.comments if submission else []
     }
+
+class AddCommentRequest(BaseModel):
+    content: str
+    lineNumber: Optional[int] = None
+    highlightText: Optional[str] = None
+    authorId: str
+
+@router.post("/{id}/comments")
+async def add_comment(id: str, request: AddCommentRequest):
+    if not db.is_connected():
+        await db.connect()
+        
+    submission = await db.papersubmission.find_unique(where={"id": id})
+    if not submission:
+        raise HTTPException(status_code=404, detail="Submission not found")
+        
+    comment = await db.submissioncomment.create(
+        data={
+            "submissionId": id,
+            "authorId": request.authorId,
+            "content": request.content,
+            "lineNumber": request.lineNumber,
+            "highlightText": request.highlightText
+        },
+        include={"author": True}
+    )
+    
+    return {"status": "success", "comment": comment}
 
 @router.post("/{id}/trigger-mineru")
 async def trigger_mineru(id: str, background_tasks: BackgroundTasks):
@@ -132,7 +170,7 @@ async def run_mineru_task(submission_id: str):
                 target_pdf_path = cropped_pdf_path
             doc.close()
 
-        url = "http://1.208.108.242:33525/file_parse"
+        url = "http://1.208.108.242:58457/file_parse"
         
         with open(target_pdf_path, "rb") as f:
             files = {
@@ -173,6 +211,42 @@ async def run_mineru_task(submission_id: str):
                     else:
                         model_output_data = mo
                 
+                if language == "si":
+                    try:
+                        from services.ocr_service import OCRService
+                        for page_idx, page_elements in enumerate(model_output_data):
+                            elements = page_elements if isinstance(page_elements, list) else [page_elements]
+                            
+                            bboxes_info = []
+                            for idx, elem in enumerate(elements):
+                                if isinstance(elem, dict):
+                                    elem_type = elem.get("type", "text")
+                                    if elem_type in ["text", "table"]:
+                                        bbox = elem.get("bbox")
+                                        if bbox and len(bbox) == 4:
+                                            bboxes_info.append({
+                                                "id": idx,
+                                                "bbox": bbox,
+                                                "type": elem_type
+                                            })
+                            
+                            if bboxes_info:
+                                print(f"Applying Batch Gemini OCR for page {page_idx} with {len(bboxes_info)} items")
+                                extracted_results = OCRService.extract_batch_from_page_gemini(target_pdf_path, page_idx, bboxes_info)
+                                
+                                for item in bboxes_info:
+                                    idx = item["id"]
+                                    text = extracted_results.get(str(idx)) or extracted_results.get(idx)
+                                    if text:
+                                        elem = elements[idx]
+                                        if item["type"] == "table":
+                                            elem["table_body"] = text
+                                        elem["text"] = text
+                                        if "content" in elem:
+                                            elem["content"] = text
+                    except Exception as ocr_err:
+                        print(f"Gemini OCR fallback failed: {ocr_err}")
+
                 curation_markdown, bounding_boxes, images_dict = ASTService.parse_model_output_to_curation_markdown(
                     model_output_data, 
                     target_pdf_path,
@@ -214,3 +288,26 @@ async def run_mineru_task(submission_id: str):
             )
         except Exception as update_err:
             print(f"Failed to update status to EXTRACTION_FAILED: {update_err}")
+
+class ResolveCommentRequest(BaseModel):
+    authorId: str
+
+@router.put("/{id}/comments/{comment_id}/resolve")
+async def resolve_comment(id: str, comment_id: str, request: ResolveCommentRequest):
+    if not db.is_connected():
+        await db.connect()
+        
+    comment = await db.submissioncomment.find_unique(where={"id": comment_id})
+    if not comment:
+        raise HTTPException(status_code=404, detail="Comment not found")
+        
+    updated = await db.submissioncomment.update(
+        where={"id": comment_id},
+        data={
+            "resolved": True,
+            "resolvedById": request.authorId
+        },
+        include={"author": True, "resolvedBy": True}
+    )
+    
+    return {"status": "success", "comment": json.loads(updated.model_dump_json())}

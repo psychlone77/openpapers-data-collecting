@@ -69,6 +69,8 @@ class OLStructuredParser(BaseExamParser):
                 is_image_elem = False
                 if elem_type == "table":
                     text = elem.get("table_body", "") or text
+                    if text:
+                        text = f"\n{text}\n"
                 elif elem_type == "image":
                     is_image_elem = True
                     text = self._extract_image(pdf_path, page_idx, bbox_id, nx0, ny0, nx1, ny1, images_dict)
@@ -82,7 +84,7 @@ class OLStructuredParser(BaseExamParser):
                 while lines:
                     line = lines.pop(0)
                     line_str = line.strip()
-                    if not line_str:
+                    if not line_str and elem_type != "table":
                         continue
                         
                     q_match = question_pattern.match(line_str)
