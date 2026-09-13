@@ -127,6 +127,7 @@ function DashboardContent() {
       "PENDING_USER_VALIDATION": { label: "Action Required: Validate Extraction", badgeClass: "bg-orange-100 text-orange-800", btnClass: "bg-blue-600 hover:bg-blue-700 text-white shadow-sm", btnText: "Open Studio", action: () => router.push(`/validate/${sub.id}`) },
       "PENDING_MAINTAINER_VERIFICATION": { label: "In Review", badgeClass: "bg-blue-100 text-blue-700", btnClass: "bg-gray-50 hover:bg-gray-100 text-gray-700 border border-gray-200", btnText: "View Details", action: () => router.push(`/validate/${sub.id}`) },
       "CHANGES_REQUESTED": { label: "Action Required: Address Feedback", badgeClass: "bg-orange-100 text-orange-800", btnClass: "bg-blue-600 hover:bg-blue-700 text-white shadow-sm", btnText: "Open Studio", action: () => router.push(`/validate/${sub.id}`) },
+      "EXTRACTION_FAILED": { label: "Extraction Failed (Waiting on Maintainer)", badgeClass: "bg-red-100 text-red-800", btnClass: "bg-gray-50 hover:bg-gray-100 text-gray-700 border border-gray-200", btnText: "View Details", action: () => router.push(`/validate/${sub.id}`) },
       "APPROVED": { label: "Approved", badgeClass: "bg-green-100 text-green-700", btnClass: "bg-gray-50 hover:bg-gray-100 text-gray-700 border border-gray-200", btnText: "View Details", action: () => router.push(`/validate/${sub.id}`) },
       "COMPLETED": { label: "Approved", badgeClass: "bg-green-100 text-green-700", btnClass: "bg-gray-50 hover:bg-gray-100 text-gray-700 border border-gray-200", btnText: "View Details", action: () => router.push(`/validate/${sub.id}`) },
     };
@@ -170,7 +171,8 @@ function DashboardContent() {
     
     const statusMap: Record<string, { label: string, badgeClass: string, btnText: string, action: () => void }> = {
       "PENDING_MINERU": { label: "Waiting for Maintainer", badgeClass: "bg-blue-100 text-blue-700", btnText: "Open Studio", action: () => router.push(`/validate/${sub.id}`) },
-      "PROCESSING_EXTRACTION": { label: "Waiting for Maintainer", badgeClass: "bg-blue-100 text-blue-700", btnText: "Open Studio", action: () => router.push(`/validate/${sub.id}`) },
+      "PROCESSING_EXTRACTION": { label: "Extracting...", badgeClass: "bg-blue-100 text-blue-700", btnText: "Open Studio", action: () => router.push(`/validate/${sub.id}`) },
+      "EXTRACTION_FAILED": { label: "Extraction Failed", badgeClass: "bg-red-100 text-red-800", btnText: "View Details", action: () => router.push(`/validate/${sub.id}`) },
       "PENDING_USER_VALIDATION": { label: "Waiting on User", badgeClass: "bg-orange-100 text-orange-800", btnText: "Open Studio", action: () => router.push(`/validate/${sub.id}`) },
       "PENDING_MAINTAINER_VERIFICATION": { label: "In Review", badgeClass: "bg-blue-100 text-blue-700", btnText: "Review Now", action: () => router.push(`/validate/${sub.id}`) },
       "CHANGES_REQUESTED": { label: "Waiting on User (Changes Requested)", badgeClass: "bg-orange-100 text-orange-800", btnText: "Review Now", action: () => router.push(`/validate/${sub.id}`) },
@@ -221,13 +223,13 @@ function DashboardContent() {
             <button onClick={statusInfo.action} className="text-sm font-semibold text-[#253B6E] hover:underline whitespace-nowrap">
               {statusInfo.btnText}
             </button>
-            {sub.status === "PENDING_MINERU" && (
+            {(sub.status === "PENDING_MINERU" || sub.status === "EXTRACTION_FAILED") && (
               <button 
                 onClick={(e) => { e.stopPropagation(); triggerMinerU(sub.id); }}
-                className="flex items-center gap-1 bg-[#253B6E] text-white px-2 py-1 rounded text-xs hover:bg-blue-800 transition-colors"
-                title="Extract with MinerU"
+                className={`flex items-center gap-1 text-white px-2 py-1 rounded text-xs transition-colors ${sub.status === "EXTRACTION_FAILED" ? "bg-red-600 hover:bg-red-700" : "bg-[#253B6E] hover:bg-blue-800"}`}
+                title={sub.status === "EXTRACTION_FAILED" ? "Retry Extraction" : "Extract with MinerU"}
               >
-                <Play size={12} /> Extract
+                <Play size={12} /> {sub.status === "EXTRACTION_FAILED" ? "Retry" : "Extract"}
               </button>
             )}
             <button className="p-1 hover:bg-gray-200 rounded text-gray-500">

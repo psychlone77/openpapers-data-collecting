@@ -95,7 +95,7 @@ async def process_pdf(request: ProcessRequest):
                 target_pdf_path = cropped_pdf_path
             doc.close()
         
-        url = "http://1.208.108.242:33525/file_parse"
+        url = "http://1.208.108.242:58457/file_parse"
         
         with open(target_pdf_path, "rb") as f:
             files = {

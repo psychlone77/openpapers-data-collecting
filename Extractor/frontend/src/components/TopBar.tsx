@@ -5,8 +5,10 @@ import { useState, useEffect } from "react";
 import { useStore } from "@/store/useStore";
 import { useAuthStore } from "@/store/useAuthStore";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export function TopBar() {
+  const router = useRouter();
   const { submissionId, submissionStatus, curationMarkdown, images, boxes, year, examination, subject, paperType, setSubmissionStatus } = useStore();
   const { currentUser } = useAuthStore();
   const [isExtracting, setIsExtracting] = useState(false);
@@ -118,6 +120,7 @@ export function TopBar() {
                   });
                   if (res.ok) {
                     setSubmissionStatus("PENDING_USER_VALIDATION");
+                    router.push('/dashboard');
                   }
                 } catch (e) {
                   console.error("Failed to request changes", e);
@@ -135,6 +138,7 @@ export function TopBar() {
                   });
                   if (res.ok) {
                     setSubmissionStatus("APPROVED");
+                    router.push('/dashboard');
                   }
                 } catch (e) {
                   console.error("Failed to approve submission", e);

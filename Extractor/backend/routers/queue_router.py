@@ -170,7 +170,7 @@ async def run_mineru_task(submission_id: str):
                 target_pdf_path = cropped_pdf_path
             doc.close()
 
-        url = "http://1.208.108.242:33525/file_parse"
+        url = "http://1.208.108.242:58457/file_parse"
         
         with open(target_pdf_path, "rb") as f:
             files = {
@@ -216,16 +216,34 @@ async def run_mineru_task(submission_id: str):
                         from services.ocr_service import OCRService
                         for page_idx, page_elements in enumerate(model_output_data):
                             elements = page_elements if isinstance(page_elements, list) else [page_elements]
-                            for elem in elements:
-                                if isinstance(elem, dict) and elem.get("type", "text") == "text":
-                                    bbox = elem.get("bbox")
-                                    if bbox and len(bbox) == 4:
-                                        print(f"Applying Gemini OCR for page {page_idx}, bbox {bbox}")
-                                        gemini_text = OCRService.extract_text_from_crop_gemini(target_pdf_path, page_idx, bbox)
-                                        if gemini_text:
-                                            elem["text"] = gemini_text
-                                            if "content" in elem:
-                                                elem["content"] = gemini_text
+                            
+                            bboxes_info = []
+                            for idx, elem in enumerate(elements):
+                                if isinstance(elem, dict):
+                                    elem_type = elem.get("type", "text")
+                                    if elem_type in ["text", "table"]:
+                                        bbox = elem.get("bbox")
+                                        if bbox and len(bbox) == 4:
+                                            bboxes_info.append({
+                                                "id": idx,
+                                                "bbox": bbox,
+                                                "type": elem_type
+                                            })
+                            
+                            if bboxes_info:
+                                print(f"Applying Batch Gemini OCR for page {page_idx} with {len(bboxes_info)} items")
+                                extracted_results = OCRService.extract_batch_from_page_gemini(target_pdf_path, page_idx, bboxes_info)
+                                
+                                for item in bboxes_info:
+                                    idx = item["id"]
+                                    text = extracted_results.get(str(idx)) or extracted_results.get(idx)
+                                    if text:
+                                        elem = elements[idx]
+                                        if item["type"] == "table":
+                                            elem["table_body"] = text
+                                        elem["text"] = text
+                                        if "content" in elem:
+                                            elem["content"] = text
                     except Exception as ocr_err:
                         print(f"Gemini OCR fallback failed: {ocr_err}")
 

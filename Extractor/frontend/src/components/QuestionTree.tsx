@@ -3,20 +3,116 @@ import { useState, useRef, useEffect } from 'react';
 import { useStore } from '@/store/useStore';
 import ReactMarkdown from 'react-markdown';
 import remarkMath from 'remark-math';
+import remarkGfm from 'remark-gfm';
+import remarkBreaks from 'remark-breaks';
 import rehypeKatex from 'rehype-katex';
 import rehypeRaw from 'rehype-raw';
 import { MessageSquare } from "lucide-react";
 import { InlineCommentPopover } from "./InlineCommentPopover";
 
+const getLine = (node: any) => node?.position?.start?.line;
+
+const MarkdownBlock = ({ line, children, Element = 'div', className = "", ...props }: any) => {
+  const comments = useStore(state => state.comments);
+  const activeCommentLine = useStore(state => state.activeCommentLine);
+  const setActiveCommentLine = useStore(state => state.setActiveCommentLine);
+  const highlightTextForComment = useStore(state => state.highlightTextForComment);
+  const setHighlightTextForComment = useStore(state => state.setHighlightTextForComment);
+
+  const extractText = (node: any): string => {
+    if (!node) return '';
+    if (typeof node === 'string' || typeof node === 'number') return String(node);
+    if (Array.isArray(node)) return node.map(extractText).join('');
+    if (node.props?.children) return extractText(node.props.children);
+    return '';
+  };
+  const blockText = extractText(children);
+
+  const lineComments = comments.filter((c: any) => c.lineNumber === line);
+  const hasComments = lineComments.length > 0;
+  const unresolvedCount = lineComments.filter((c: any) => !c.resolved).length;
+  const allResolved = hasComments && unresolvedCount === 0;
+  const isActive = activeCommentLine === line;
+  
+  return (
+    <Element className={`group relative ${className}`} data-line={line} {...props}>
+      {children}
+      
+      {/* Comment Icon Trigger */}
+      {(hasComments || isActive) ? (
+        <button 
+          type="button"
+          onClick={(e) => { e.preventDefault(); setActiveCommentLine(isActive ? null : line); }}
+          className={`absolute right-2 top-1 p-1 ${allResolved && !isActive ? 'text-slate-400' : 'text-[var(--ls-accent)]'} bg-white/90 backdrop-blur-sm rounded-md shadow-sm border border-slate-200 z-10`}
+        >
+          <MessageSquare size={16} />
+          {unresolvedCount > 0 && <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[9px] rounded-full w-3 h-3 flex items-center justify-center">{unresolvedCount}</span>}
+        </button>
+      ) : (
+        <button 
+          type="button"
+          onClick={(e) => { e.preventDefault(); setActiveCommentLine(line); }}
+          className="absolute right-2 top-1 p-1 text-slate-400 hover:text-[var(--ls-accent)] opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 backdrop-blur-sm rounded-md shadow-sm border border-slate-200 z-10"
+        >
+          <MessageSquare size={16} />
+        </button>
+      )}
+
+      {/* Popover */}
+      {isActive && (
+        <InlineCommentPopover 
+          lineNumber={line} 
+          initialHighlightText={highlightTextForComment}
+          blockText={blockText}
+          onClose={() => {
+            setActiveCommentLine(null);
+            setHighlightTextForComment(null);
+          }} 
+        />
+      )}
+    </Element>
+  );
+};
+
+const ImageWrapper = ({ node, src, ...props }: any) => {
+  const images = useStore(state => state.images);
+  if (!src) return null;
+  const realSrc = images[src as string] || src;
+  return (
+    <MarkdownBlock line={getLine(node)} Element="span" className="block">
+      <img src={realSrc as string} {...props} className="max-w-full max-h-48 object-contain rounded my-2 bg-slate-100" />
+    </MarkdownBlock>
+  );
+};
+
+const markdownComponents = {
+  p: ({ node, ...props }: any) => <MarkdownBlock line={getLine(node)} Element="p" {...props} />,
+  h1: ({ node, ...props }: any) => <MarkdownBlock line={getLine(node)} Element="h1" {...props} />,
+  h2: ({ node, ...props }: any) => <MarkdownBlock line={getLine(node)} Element="h2" {...props} />,
+  h3: ({ node, ...props }: any) => <MarkdownBlock line={getLine(node)} Element="h3" {...props} />,
+  ul: ({ node, ...props }: any) => <ul data-line={getLine(node)} {...props} />,
+  ol: ({ node, ...props }: any) => <ol data-line={getLine(node)} {...props} />,
+  li: ({ node, ...props }: any) => <MarkdownBlock line={getLine(node)} Element="li" {...props} />,
+  table: ({ node, ...props }: any) => <div className="whitespace-normal overflow-x-auto"><table data-line={getLine(node)} className="w-full border-collapse my-4" {...props} /></div>,
+  thead: ({ node, ...props }: any) => <thead className="bg-slate-50 dark:bg-slate-800" {...props} />,
+  tbody: ({ node, ...props }: any) => <tbody {...props} />,
+  tr: ({ node, ...props }: any) => <tr className="border-b border-slate-300 dark:border-slate-700" {...props} />,
+  th: ({ node, ...props }: any) => <th className="border border-slate-300 dark:border-slate-600 px-4 py-2 text-left font-semibold" {...props} />,
+  td: ({ node, ...props }: any) => <td className="border border-slate-300 dark:border-slate-600 px-4 py-2" {...props} />,
+  pre: ({ node, ...props }: any) => <MarkdownBlock line={getLine(node)} Element="pre" {...props} />,
+  blockquote: ({ node, ...props }: any) => <MarkdownBlock line={getLine(node)} Element="blockquote" {...props} />,
+  img: ImageWrapper
+};
+
 export function QuestionTree() {
   const curationMarkdown = useStore(state => state.curationMarkdown);
   const setCurationMarkdown = useStore(state => state.setCurationMarkdown);
-  const images = useStore(state => state.images);
-  const comments = useStore(state => state.comments);
   const [activeTab, setActiveTab] = useState<'markdown' | 'preview'>('markdown');
-  const [activeCommentLine, setActiveCommentLine] = useState<number | null>(null);
-  const [highlightTextForComment, setHighlightTextForComment] = useState<string | null>(null);
-  const [floatingComment, setFloatingComment] = useState<{ x: number, y: number, text: string, line: number } | null>(null);
+  
+  const floatingComment = useStore(state => state.floatingComment);
+  const setFloatingComment = useStore(state => state.setFloatingComment);
+  const setActiveCommentLine = useStore(state => state.setActiveCommentLine);
+  const setHighlightTextForComment = useStore(state => state.setHighlightTextForComment);
 
   const editorRef = useRef<HTMLTextAreaElement>(null);
   const previewRef = useRef<HTMLDivElement>(null);
@@ -147,7 +243,7 @@ export function QuestionTree() {
     }
   };
 
-  const getLine = (node: any) => node?.position?.start?.line;
+
 
   const renderEditor = () => (
     <textarea
@@ -160,60 +256,6 @@ export function QuestionTree() {
     />
   );
 
-  const MarkdownBlock = ({ line, children, Element = 'div', className = "", ...props }: any) => {
-    const extractText = (node: any): string => {
-      if (!node) return '';
-      if (typeof node === 'string' || typeof node === 'number') return String(node);
-      if (Array.isArray(node)) return node.map(extractText).join('');
-      if (node.props?.children) return extractText(node.props.children);
-      return '';
-    };
-    const blockText = extractText(children);
-
-    const lineComments = comments.filter((c: any) => c.lineNumber === line);
-    const hasComments = lineComments.length > 0;
-    const unresolvedCount = lineComments.filter((c: any) => !c.resolved).length;
-    const allResolved = hasComments && unresolvedCount === 0;
-    const isActive = activeCommentLine === line;
-    
-    return (
-      <Element className={`group relative ${className}`} data-line={line} {...props}>
-        {children}
-        
-        {/* Comment Icon Trigger */}
-        {(hasComments || isActive) ? (
-          <button 
-            onClick={() => setActiveCommentLine(isActive ? null : line)}
-            className={`absolute right-2 top-1 p-1 ${allResolved && !isActive ? 'text-slate-400' : 'text-[var(--ls-accent)]'} bg-white/90 backdrop-blur-sm rounded-md shadow-sm border border-slate-200 z-10`}
-          >
-            <MessageSquare size={16} />
-            {unresolvedCount > 0 && <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[9px] rounded-full w-3 h-3 flex items-center justify-center">{unresolvedCount}</span>}
-          </button>
-        ) : (
-          <button 
-            onClick={() => setActiveCommentLine(line)}
-            className="absolute right-2 top-1 p-1 text-slate-400 hover:text-[var(--ls-accent)] opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 backdrop-blur-sm rounded-md shadow-sm border border-slate-200 z-10"
-          >
-            <MessageSquare size={16} />
-          </button>
-        )}
-
-        {/* Popover */}
-        {isActive && (
-          <InlineCommentPopover 
-            lineNumber={line} 
-            initialHighlightText={highlightTextForComment}
-            blockText={blockText}
-            onClose={() => {
-              setActiveCommentLine(null);
-              setHighlightTextForComment(null);
-            }} 
-          />
-        )}
-      </Element>
-    );
-  };
-
   const renderPreview = () => (
     <div
       ref={previewRef}
@@ -222,6 +264,7 @@ export function QuestionTree() {
     >
       {floatingComment && (
         <button
+          type="button"
           onMouseDown={(e) => {
             e.preventDefault();
             setActiveCommentLine(floatingComment.line);
@@ -235,32 +278,12 @@ export function QuestionTree() {
           <MessageSquare size={12} /> Add Comment
         </button>
       )}
-      <div className="whitespace-pre-wrap markdown-content pr-12">
+      <div className="markdown-content pr-12">
         <ReactMarkdown
           urlTransform={(value: string) => value}
-          remarkPlugins={[remarkMath]}
+          remarkPlugins={[remarkMath, remarkGfm, remarkBreaks]}
           rehypePlugins={[rehypeKatex, rehypeRaw]}
-          components={{
-            p: ({ node, ...props }) => <MarkdownBlock line={getLine(node)} Element="p" {...props} />,
-            h1: ({ node, ...props }) => <MarkdownBlock line={getLine(node)} Element="h1" {...props} />,
-            h2: ({ node, ...props }) => <MarkdownBlock line={getLine(node)} Element="h2" {...props} />,
-            h3: ({ node, ...props }) => <MarkdownBlock line={getLine(node)} Element="h3" {...props} />,
-            ul: ({ node, ...props }) => <ul data-line={getLine(node)} {...props} />,
-            ol: ({ node, ...props }) => <ol data-line={getLine(node)} {...props} />,
-            li: ({ node, ...props }) => <MarkdownBlock line={getLine(node)} Element="li" {...props} />,
-            tr: ({ node, ...props }) => <tr data-line={getLine(node)} {...props} />,
-            pre: ({ node, ...props }) => <MarkdownBlock line={getLine(node)} Element="pre" {...props} />,
-            blockquote: ({ node, ...props }) => <MarkdownBlock line={getLine(node)} Element="blockquote" {...props} />,
-            img: ({ node, src, ...props }) => {
-              if (!src) return null;
-              const realSrc = images[src as string] || src;
-              return (
-                <MarkdownBlock line={getLine(node)} Element="span" className="block">
-                  <img src={realSrc as string} {...props} className="max-w-full max-h-48 object-contain rounded my-2 bg-slate-100" />
-                </MarkdownBlock>
-              );
-            }
-          }}
+          components={markdownComponents as any}
         >
           {curationMarkdown}
         </ReactMarkdown>

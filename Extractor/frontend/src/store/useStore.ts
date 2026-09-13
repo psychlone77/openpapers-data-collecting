@@ -41,6 +41,13 @@ interface AppState {
   setComments: (comments: any[]) => void;
   resolveComment: (commentId: string, authorId: string) => Promise<void>;
 
+  activeCommentLine: number | null;
+  setActiveCommentLine: (line: number | null) => void;
+  highlightTextForComment: string | null;
+  setHighlightTextForComment: (text: string | null) => void;
+  floatingComment: { x: number, y: number, text: string, line: number } | null;
+  setFloatingComment: (comment: { x: number, y: number, text: string, line: number } | null) => void;
+
   gpuStatus: GpuStatus;
   setGpuStatus: (status: GpuStatus) => void;
 
@@ -99,6 +106,12 @@ export const useStore = create<AppState>((set, get) => ({
 
   comments: [],
   setComments: (comments) => set({ comments }),
+  activeCommentLine: null,
+  setActiveCommentLine: (line) => set({ activeCommentLine: line }),
+  highlightTextForComment: null,
+  setHighlightTextForComment: (text) => set({ highlightTextForComment: text }),
+  floatingComment: null,
+  setFloatingComment: (comment) => set({ floatingComment: comment }),
   resolveComment: async (commentId, authorId) => {
     const { submissionId, comments } = get();
     if (!submissionId) return;
