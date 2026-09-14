@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from 'react';
-import { MousePointer2, Square, Type, Image as ImageIcon, Sigma, Table, ZoomIn, ZoomOut } from 'lucide-react';
+import { MousePointer2, Square, Type, Image as ImageIcon, Sigma, Table, ZoomIn, ZoomOut, Loader2 } from 'lucide-react';
 import { useStore, BBox, BoxType } from '@/store/useStore';
 import { Document, Page, pdfjs } from 'react-pdf';
 import 'react-pdf/dist/Page/AnnotationLayer.css';
@@ -289,28 +289,32 @@ export function PdfCanvas() {
     <div className="w-full h-full flex flex-col relative bg-slate-100">
       {/* Legend / Toolbar Overlay */}
       {submissionStatus !== "PENDING_MINERU" && (
-        <div className="absolute top-4 left-1/2 -translate-x-1/2 z-50 flex items-center gap-4 bg-white border border-slate-200 px-3 py-2 rounded-lg shadow-sm">
+        <div className="absolute top-4 left-1/2 -translate-x-1/2 z-50 flex items-center gap-4 bg-white/95 backdrop-blur border border-slate-200 px-3 py-2 rounded-xl shadow-md">
 
           {/* Tool selector */}
-          <div className="flex items-center gap-1 border-r border-[var(--color-border-hairline)] pr-3">
+          <div className="flex items-center gap-1.5 border-r border-slate-200 pr-3.5">
             <button
               onClick={() => setActiveTool('pointer')}
-              className={`p-1.5 rounded transition-colors ${activeTool === 'pointer' ? 'bg-[var(--ls-accent)] text-white' : 'text-slate-500 hover:text-slate-900 hover:bg-slate-100'}`}
+              aria-label="Pointer Tool"
+              aria-pressed={activeTool === 'pointer'}
+              className={`p-2 rounded-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:ring-[var(--ls-accent)] ${activeTool === 'pointer' ? 'bg-[var(--ls-accent)] text-white shadow-sm' : 'text-slate-500 hover:text-slate-900 hover:bg-slate-100'}`}
               title="Pointer Tool"
             >
-              <MousePointer2 size={16} />
+              <MousePointer2 size={16} aria-hidden="true" />
             </button>
             <button
               onClick={() => setActiveTool('draw')}
-              className={`p-1.5 rounded transition-colors ${activeTool === 'draw' ? 'bg-[var(--ls-accent)] text-white' : 'text-slate-500 hover:text-slate-900 hover:bg-slate-100'}`}
+              aria-label="Draw Bounding Box Tool"
+              aria-pressed={activeTool === 'draw'}
+              className={`p-2 rounded-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:ring-[var(--ls-accent)] ${activeTool === 'draw' ? 'bg-[var(--ls-accent)] text-white shadow-sm' : 'text-slate-500 hover:text-slate-900 hover:bg-slate-100'}`}
               title="Draw Bounding Box"
             >
-              <Square size={16} />
+              <Square size={16} aria-hidden="true" />
             </button>
           </div>
 
           {/* Legend Filters */}
-          <div className="flex items-center gap-2 px-3 border-r border-[var(--color-border-hairline)]">
+          <div className="flex items-center gap-2 pl-0.5">
             <FilterPill type="text" active={filters.text} onClick={() => toggleFilter('text')} icon={<Type size={14} />} color="var(--color-box-text)" label="Text" />
             <FilterPill type="table" active={filters.table} onClick={() => toggleFilter('table')} icon={<Table size={14} />} color="var(--color-box-table)" label="Table" />
             <FilterPill type="image" active={filters.image} onClick={() => toggleFilter('image')} icon={<ImageIcon size={14} />} color="var(--color-box-image)" label="Image" />
@@ -321,18 +325,20 @@ export function PdfCanvas() {
       )}
 
       {/* PDF Scrollable Container */}
-      <div className="flex-1 overflow-auto flex justify-center p-8 pt-20">
+      <div className="flex-1 overflow-auto flex justify-center p-8 pt-24 pb-24">
         {!pdfFile && !uploadedPdfPath ? (
-          <div className="w-full max-w-md bg-white border border-slate-200 rounded-lg p-12 flex flex-col items-center justify-center text-center mt-32 relative z-50 shadow-sm">
-            <ImageIcon className="w-16 h-16 text-slate-400 mb-6" />
-            <h3 className="text-xl font-display font-medium text-slate-900 mb-2">No PDF Loaded</h3>
-            <p className="text-sm text-slate-500 mb-8">
+          <div className="w-full max-w-md bg-white border border-slate-200 rounded-2xl p-12 flex flex-col items-center justify-center text-center mt-20 relative z-50 shadow-sm animate-in fade-in zoom-in-95">
+            <div className="w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center mb-6 shadow-sm border border-slate-100">
+              <ImageIcon className="text-slate-400" size={32} aria-hidden="true" />
+            </div>
+            <h3 className="text-xl font-extrabold text-slate-900 mb-2 tracking-tight">No PDF Loaded</h3>
+            <p className="text-sm font-medium text-slate-500 mb-2">
               Please go to the Add Paper wizard to upload a PDF.
             </p>
           </div>
         ) : (
           <div 
-            className="relative shadow-2xl bg-white" 
+            className="relative shadow-xl bg-white rounded-md transition-shadow" 
             style={{ width: 'max-content', height: 'max-content' }}
             onClick={() => setActiveBoxId(null)}
           >
@@ -341,8 +347,8 @@ export function PdfCanvas() {
               file={pdfFile || uploadedPdfPath}
               onLoadSuccess={onDocumentLoadSuccess}
               className="flex flex-col items-center"
-              loading={<div className="p-20 text-black">Loading PDF...</div>}
-              error={<div className="p-20 text-red-500">Failed to load PDF.</div>}
+              loading={<div className="p-20 text-slate-500 font-medium flex flex-col items-center gap-4"><Loader2 size={24} className="animate-spin text-[var(--ls-accent)]" /> Loading document...</div>}
+              error={<div className="p-20 text-red-500 font-medium">Failed to load PDF. Please check the file.</div>}
             >
               <Page
                 pageNumber={pageNumber}
@@ -350,11 +356,10 @@ export function PdfCanvas() {
                 devicePixelRatio={typeof window !== "undefined" ? Math.max(window.devicePixelRatio || 1, 2) : 2}
                 renderTextLayer={false}
                 renderAnnotationLayer={false}
-                className="relative"
+                className="relative overflow-hidden rounded-md"
               >
                 {/* HTML Overlay for interactivity */}
                 <div className="absolute inset-0 z-30 pointer-events-none">
-                  {console.log("Rendering HTML overlay. currentPageBoxes:", currentPageBoxes)}
                   {currentPageBoxes.map((box: BBox) => {
                     const isVisible = (filters as any)[box.type] ?? true;
                     if (!isVisible) return null;
@@ -365,15 +370,28 @@ export function PdfCanvas() {
                     const width = box.width !== undefined ? box.width : (box.x1 !== undefined && box.x0 !== undefined ? `${(box.x1 - box.x0) * 100}%` : 0);
                     const height = box.height !== undefined ? box.height : (box.y1 !== undefined && box.y0 !== undefined ? `${(box.y1 - box.y0) * 100}%` : 0);
 
+                    let color = '';
+                    switch (box.type) {
+                      case 'text': color = 'var(--color-box-text)'; break;
+                      case 'table': color = 'var(--color-box-table)'; break;
+                      case 'image': color = 'var(--color-box-image)'; break;
+                      case 'formula': color = 'var(--color-box-formula)'; break;
+                    }
+                    const borderColor = color || '#888';
+
                     return (
                       <div
                         key={box.id}
                         className={`absolute group pointer-events-auto transition-colors ${
                           isActive 
-                            ? (dragState?.type === 'move' ? 'outline outline-2 outline-blue-500 bg-blue-500/10 z-40 cursor-grabbing' : 'outline outline-2 outline-blue-500 bg-blue-500/10 z-40 cursor-grab hover:bg-blue-500/20')
-                            : 'hover:outline hover:outline-2 hover:outline-blue-500/50 hover:bg-blue-500/5 cursor-pointer'
+                            ? (dragState?.type === 'move' ? 'outline outline-2 outline-[var(--ls-accent)] bg-[var(--ls-accent)]/10 z-40 cursor-grabbing shadow-sm' : 'outline outline-2 outline-[var(--ls-accent)] bg-[var(--ls-accent)]/10 z-40 cursor-grab hover:bg-[var(--ls-accent)]/20 shadow-sm')
+                            : 'border-[1.5px] cursor-pointer'
                         }`}
-                        style={{ left, top, width, height }}
+                        style={{ 
+                          left, top, width, height,
+                          borderColor: isActive ? undefined : borderColor,
+                          backgroundColor: isActive ? undefined : `color-mix(in srgb, ${borderColor} 15%, transparent)`
+                        }}
                         onClick={(e) => { e.stopPropagation(); setActiveBoxId(box.id); }}
                         onMouseDown={(e) => {
                           if (isActive && e.button === 0) {
@@ -384,9 +402,10 @@ export function PdfCanvas() {
                       >
                         {/* Toolbar */}
                         {(isActive || (!activeBoxId && true)) && (
-                          <div className={`absolute -top-10 left-0 flex gap-1 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'} transition-opacity z-50 bg-black/80 rounded p-1 shadow`}>
+                          <div className={`absolute -top-11 left-0 flex gap-1.5 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'} transition-opacity z-50 bg-slate-900/90 backdrop-blur-sm rounded-lg p-1.5 shadow-lg`}>
                             <select
                               value={box.type}
+                              aria-label="Change box type"
                               onChange={async (e) => {
                                 const newType = e.target.value;
                                 updateBox(box.id, { type: newType });
@@ -397,19 +416,20 @@ export function PdfCanvas() {
                                 }
                               }}
                               onClick={(e) => e.stopPropagation()}
-                              className="text-xs bg-transparent text-white outline-none cursor-pointer"
+                              className="text-xs font-medium bg-transparent text-white outline-none cursor-pointer focus-visible:ring-2 focus-visible:ring-[var(--ls-accent)] rounded px-1"
                             >
-                              <option value="text">Text</option>
-                              <option value="table">Table</option>
-                              <option value="image">Image</option>
-                              <option value="formula">Formula</option>
+                              <option value="text" className="text-slate-900">Text</option>
+                              <option value="table" className="text-slate-900">Table</option>
+                              <option value="image" className="text-slate-900">Image</option>
+                              <option value="formula" className="text-slate-900">Formula</option>
                             </select>
                             <button
                               onClick={(e) => { e.stopPropagation(); deleteBox(box.id); setActiveBoxId(null); }}
-                              className="text-red-400 hover:text-red-300 px-1"
+                              aria-label="Delete bounding box"
+                              className="text-red-400 hover:text-red-300 hover:bg-red-400/20 p-1 rounded transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-red-400"
                               title="Delete box"
                             >
-                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path></svg>
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path></svg>
                             </button>
                           </div>
                         )}
@@ -420,11 +440,11 @@ export function PdfCanvas() {
                             {['nw', 'n', 'ne', 'e', 'se', 's', 'sw', 'w'].map((pos) => (
                               <div
                                 key={pos}
-                                className="absolute bg-white border border-blue-500 w-2 h-2 rounded-full"
+                                className="absolute bg-white border-2 border-[var(--ls-accent)] w-3 h-3 rounded-full shadow-sm"
                                 style={{
-                                  top: pos.includes('n') ? -4 : pos.includes('s') ? '100%' : '50%',
-                                  left: pos.includes('w') ? -4 : pos.includes('e') ? '100%' : '50%',
-                                  transform: pos.length === 1 ? 'translate(-50%, -50%)' : (pos.includes('s') && pos.includes('e') ? 'translate(-100%, -100%)' : 'translate(0, 0)'), // Simplified positioning
+                                  top: pos.includes('n') ? -6 : pos.includes('s') ? '100%' : '50%',
+                                  left: pos.includes('w') ? -6 : pos.includes('e') ? '100%' : '50%',
+                                  transform: pos.length === 1 ? 'translate(-50%, -50%)' : (pos.includes('s') && pos.includes('e') ? 'translate(-100%, -100%)' : 'translate(0, 0)'),
                                   cursor: `${pos}-resize`,
                                 }}
                                 onMouseDown={(e) => {
@@ -453,41 +473,6 @@ export function PdfCanvas() {
                   onMouseUp={handleMouseUp}
                   onMouseLeave={handleMouseUp}
                 >
-                  {/* Render confirmed boxes */}
-                  {currentPageBoxes.map((box: BBox) => {
-                    const bx = box.x !== undefined ? box.x : (box.x0 !== undefined ? `${box.x0 * 100}%` : 0);
-                    const by = box.y !== undefined ? box.y : (box.y0 !== undefined ? `${box.y0 * 100}%` : 0);
-                    const bw = box.width !== undefined ? box.width : (box.x1 !== undefined && box.x0 !== undefined ? `${(box.x1 - box.x0) * 100}%` : 0);
-                    const bh = box.height !== undefined ? box.height : (box.y1 !== undefined && box.y0 !== undefined ? `${(box.y1 - box.y0) * 100}%` : 0);
-
-                    const isActive = activeBoxId === box.id;
-                    let color = '';
-                    switch (box.type) {
-                      case 'text': color = 'var(--color-box-text)'; break;
-                      case 'table': color = 'var(--color-box-table)'; break;
-                      case 'image': color = 'var(--color-box-image)'; break;
-                      case 'formula': color = 'var(--color-box-formula)'; break;
-                    }
-
-                    // Skip rendering if filtered out
-                    // box.type could be text, table, image, formula. default to true if unknown type
-                    const isVisible = (filters as any)[box.type] ?? true;
-                    if (!isVisible) return null;
-
-                    return (
-                      <rect
-                        key={box.id}
-                        x={bx} y={by} width={bw} height={bh}
-                        fill={isActive ? '#3b82f6' : (color || '#888')}
-                        fillOpacity={isActive ? 0.3 : 0.1}
-                        stroke={isActive ? '#3b82f6' : (color || '#888')}
-                        strokeWidth="1"
-                        className="transition-colors cursor-pointer"
-                        onClick={() => setActiveBoxId(box.id)}
-                      />
-                    );
-                  })}
-
                   {/* Render active drawing box */}
                   {isDrawing && currentBox && (
                     <rect
@@ -496,7 +481,7 @@ export function PdfCanvas() {
                       width={currentBox.width || 0}
                       height={currentBox.height || 0}
                       fill="var(--color-accent-active)"
-                      fillOpacity={0.1}
+                      fillOpacity={0.15}
                       stroke="var(--color-accent-active)"
                       strokeWidth={2}
                       strokeDasharray="4 4"
@@ -511,40 +496,44 @@ export function PdfCanvas() {
       </div>
 
       {/* Zoom / Pan Controls (Bottom Right) */}
-      <div className="absolute bottom-6 right-6 z-50 flex items-center gap-2 bg-white border border-slate-200 px-2 py-1.5 rounded-lg shadow-sm">
+      <div className="absolute bottom-6 right-6 z-50 flex items-center gap-1.5 bg-white/95 backdrop-blur border border-slate-200 px-2 py-1.5 rounded-xl shadow-md">
         <button
           onClick={() => setPdfScale(Math.max(0.5, pdfScale - 0.2))}
-          className="p-1 rounded text-slate-500 hover:text-slate-900 hover:bg-slate-100"
+          aria-label="Zoom out"
+          className="p-1.5 rounded-lg text-slate-500 hover:text-slate-900 hover:bg-slate-100 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:ring-[var(--ls-accent)]"
         >
-          <ZoomOut size={16} />
+          <ZoomOut size={16} aria-hidden="true" />
         </button>
-        <span className="text-xs font-mono text-slate-500 w-10 text-center">
+        <span className="text-xs font-bold text-slate-600 w-12 text-center select-none" aria-live="polite">
           {Math.round(pdfScale * 100)}%
         </span>
         <button
           onClick={() => setPdfScale(Math.min(3.0, pdfScale + 0.2))}
-          className="p-1 rounded text-slate-500 hover:text-slate-900 hover:bg-slate-100"
+          aria-label="Zoom in"
+          className="p-1.5 rounded-lg text-slate-500 hover:text-slate-900 hover:bg-slate-100 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:ring-[var(--ls-accent)]"
         >
-          <ZoomIn size={16} />
+          <ZoomIn size={16} aria-hidden="true" />
         </button>
       </div>
 
       {/* Page Navigation Controls (Bottom Left) */}
-      <div className="absolute bottom-6 left-6 z-50 flex items-center gap-2 bg-white border border-slate-200 px-3 py-1.5 rounded-lg shadow-sm">
+      <div className="absolute bottom-6 left-6 z-50 flex items-center gap-3 bg-white/95 backdrop-blur border border-slate-200 px-3 py-2 rounded-xl shadow-md">
         <button
           disabled={pageNumber <= 1}
           onClick={() => setPageNumber(prev => prev - 1)}
-          className="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-700 rounded hover:bg-slate-200 disabled:opacity-50"
+          aria-label="Previous Page"
+          className="text-xs font-bold px-3 py-1.5 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 disabled:opacity-40 disabled:cursor-not-allowed transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:ring-[var(--ls-accent)]"
         >
           Prev
         </button>
-        <span className="text-xs text-slate-500 font-mono">
+        <span className="text-xs text-slate-500 font-bold tracking-wide" aria-live="polite">
           Page {pageNumber} of {numPages || '--'}
         </span>
         <button
           disabled={numPages === undefined || pageNumber >= numPages}
           onClick={() => setPageNumber(prev => prev + 1)}
-          className="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-700 rounded hover:bg-slate-200 disabled:opacity-50"
+          aria-label="Next Page"
+          className="text-xs font-bold px-3 py-1.5 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 disabled:opacity-40 disabled:cursor-not-allowed transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:ring-[var(--ls-accent)]"
         >
           Next
         </button>
@@ -566,9 +555,11 @@ function FilterPill({ active, onClick, icon, color, label }: FilterPillProps) {
   return (
     <button
       onClick={onClick}
-      className={`flex items-center gap-1.5 px-2 py-1 rounded text-xs font-medium transition-all ${active ? 'opacity-100' : 'opacity-40 hover:opacity-70'}`}
+      aria-pressed={active}
+      aria-label={`Toggle ${label} bounding boxes`}
+      className={`flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:ring-[var(--ls-accent)] ${active ? 'opacity-100 hover:brightness-95' : 'opacity-50 hover:opacity-80 bg-transparent hover:bg-slate-100'}`}
       style={{
-        backgroundColor: active ? `color-mix(in srgb, ${color} 15%, transparent)` : 'transparent',
+        backgroundColor: active ? `color-mix(in srgb, ${color} 15%, transparent)` : undefined,
         color: active ? color : 'var(--ls-text-secondary)',
       }}
     >
