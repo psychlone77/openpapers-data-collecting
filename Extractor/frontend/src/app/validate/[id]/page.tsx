@@ -111,7 +111,12 @@ export default function ValidatePage() {
   }, [isDragging, setLeftPaneWidth]);
 
   if (loading) {
-    return <div className="h-screen w-full flex items-center justify-center bg-[var(--color-bg-canvas)] text-white">Loading Studio...</div>;
+    return (
+      <div className="h-screen w-full flex flex-col gap-4 items-center justify-center bg-slate-50 text-slate-500">
+        <div className="w-8 h-8 border-4 border-slate-200 border-t-[var(--ls-accent)] rounded-full animate-spin" aria-hidden="true" />
+        <p className="text-sm font-bold tracking-wide uppercase">Loading Studio...</p>
+      </div>
+    );
   }
 
   return (
@@ -132,8 +137,10 @@ export default function ValidatePage() {
             <>
               {/* Resizer Divider */}
               <div 
-                className="w-1 cursor-col-resize hover:bg-[var(--color-accent-active)] bg-transparent transition-colors duration-150 z-10"
+                className="w-1 cursor-col-resize hover:bg-[var(--ls-accent)] bg-slate-200 transition-colors duration-150 z-10"
                 onMouseDown={handleMouseDown}
+                aria-label="Resize panels"
+                role="separator"
               />
 
               {/* Right Pane: Question Tree */}

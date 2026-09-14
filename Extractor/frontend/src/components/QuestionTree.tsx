@@ -42,19 +42,21 @@ const MarkdownBlock = ({ line, children, Element = 'div', className = "", ...pro
       {(hasComments || isActive) ? (
         <button 
           type="button"
+          aria-label={isActive ? "Close comments" : "Open comments"}
           onClick={(e) => { e.preventDefault(); setActiveCommentLine(isActive ? null : line); }}
-          className={`absolute right-2 top-1 p-1 ${allResolved && !isActive ? 'text-slate-400' : 'text-[var(--ls-accent)]'} bg-white/90 backdrop-blur-sm rounded-md shadow-sm border border-slate-200 z-10`}
+          className={`absolute right-2 top-1 p-1.5 ${allResolved && !isActive ? 'text-slate-400 hover:text-slate-600' : 'text-[var(--ls-accent)] hover:bg-[var(--ls-accent)]/10'} bg-white/90 backdrop-blur-sm rounded-lg shadow-sm border border-slate-200 z-10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ls-accent)]`}
         >
-          <MessageSquare size={16} />
-          {unresolvedCount > 0 && <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[9px] rounded-full w-3 h-3 flex items-center justify-center">{unresolvedCount}</span>}
+          <MessageSquare size={16} aria-hidden="true" />
+          {unresolvedCount > 0 && <span className="absolute -top-1.5 -right-1.5 bg-red-500 text-white text-[9px] font-bold rounded-full w-4 h-4 flex items-center justify-center shadow-sm">{unresolvedCount}</span>}
         </button>
       ) : (
         <button 
           type="button"
+          aria-label="Add comment"
           onClick={(e) => { e.preventDefault(); setActiveCommentLine(line); }}
-          className="absolute right-2 top-1 p-1 text-slate-400 hover:text-[var(--ls-accent)] opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 backdrop-blur-sm rounded-md shadow-sm border border-slate-200 z-10"
+          className="absolute right-2 top-1 p-1.5 text-slate-400 hover:text-[var(--ls-accent)] opacity-0 group-hover:opacity-100 transition-all bg-white/90 backdrop-blur-sm rounded-lg shadow-sm border border-slate-200 z-10 hover:bg-[var(--ls-accent)]/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ls-accent)] focus-visible:opacity-100"
         >
-          <MessageSquare size={16} />
+          <MessageSquare size={16} aria-hidden="true" />
         </button>
       )}
 
@@ -80,7 +82,7 @@ const ImageWrapper = ({ node, src, ...props }: any) => {
   const realSrc = images[src as string] || src;
   return (
     <MarkdownBlock line={getLine(node)} Element="span" className="block">
-      <img src={realSrc as string} {...props} className="max-w-full max-h-48 object-contain rounded my-2 bg-slate-100" />
+      <img src={realSrc as string} {...props} className="max-w-full max-h-48 object-contain rounded-lg my-3 bg-slate-100 border border-slate-200 shadow-sm" />
     </MarkdownBlock>
   );
 };
@@ -150,7 +152,7 @@ export function QuestionTree() {
 
       setFloatingComment({
         x: rect.left - containerRect.left + rect.width / 2,
-        y: rect.top - containerRect.top - 30 + (previewRef.current?.scrollTop || 0),
+        y: rect.top - containerRect.top - 34 + (previewRef.current?.scrollTop || 0),
         text,
         line: lineNumber
       });
@@ -243,15 +245,13 @@ export function QuestionTree() {
     }
   };
 
-
-
   const renderEditor = () => (
     <textarea
       ref={editorRef}
       onScroll={() => handleScroll('editor')}
       value={curationMarkdown}
       onChange={(e) => setCurationMarkdown(e.target.value)}
-      className="w-full h-full bg-transparent text-sm text-slate-900 font-mono outline-none resize-none overflow-auto"
+      className="w-full h-full bg-slate-50 border border-slate-200 rounded-xl p-4 text-[13px] text-slate-800 font-mono focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ls-accent)] focus-visible:border-transparent resize-none overflow-auto shadow-inner transition-shadow"
       placeholder="Parsed Curation Syntax will appear here..."
     />
   );
@@ -260,7 +260,7 @@ export function QuestionTree() {
     <div
       ref={previewRef}
       onScroll={() => handleScroll('preview')}
-      className="relative w-full h-full bg-white p-4 rounded border border-slate-200 overflow-auto text-slate-900 text-sm"
+      className="relative w-full h-full bg-white p-6 rounded-xl border border-slate-200 overflow-auto text-slate-900 text-sm shadow-sm"
     >
       {floatingComment && (
         <button
@@ -273,12 +273,12 @@ export function QuestionTree() {
             window.getSelection()?.removeAllRanges();
           }}
           style={{ left: floatingComment.x, top: floatingComment.y }}
-          className="absolute z-50 flex items-center gap-1.5 px-2 py-1 bg-slate-900 text-white text-xs rounded-md shadow-lg hover:bg-slate-800 transition-colors -translate-x-1/2"
+          className="absolute z-50 flex items-center gap-1.5 px-3 py-1.5 bg-slate-900 text-white font-bold tracking-wide text-xs rounded-lg shadow-xl hover:bg-slate-800 transition-colors -translate-x-1/2 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-slate-900"
         >
-          <MessageSquare size={12} /> Add Comment
+          <MessageSquare size={14} aria-hidden="true" /> Add Comment
         </button>
       )}
-      <div className="markdown-content pr-12">
+      <div className="markdown-content pr-12 prose prose-slate max-w-none">
         <ReactMarkdown
           urlTransform={(value: string) => value}
           remarkPlugins={[remarkMath, remarkGfm, remarkBreaks]}
@@ -291,34 +291,34 @@ export function QuestionTree() {
     </div>
   );
 
-
-
   return (
     <div className="w-full h-full flex flex-col bg-slate-50">
-      <div className="p-4 border-b border-slate-200 flex items-center justify-between bg-white shadow-sm z-10">
-        <h2 className="text-sm font-semibold text-slate-500 uppercase tracking-wider">Curation Output</h2>
+      <div className="p-4 border-b border-slate-200 flex items-center justify-between bg-white shadow-sm z-10 shrink-0">
+        <h2 className="text-[11px] font-bold text-slate-500 uppercase tracking-widest">Curation Output</h2>
       </div>
 
-      <div className="flex px-2 border-b border-slate-200 bg-white">
+      <div className="flex px-4 pt-3 border-b border-slate-200 bg-white shrink-0">
         <button
           onClick={() => setActiveTab('markdown')}
-          className={`px-3 py-1.5 text-xs font-medium ${activeTab === 'markdown' ? 'text-[var(--ls-accent)] border-b-2 border-[var(--ls-accent)]' : 'text-slate-500 hover:text-slate-900'}`}
+          aria-pressed={activeTab === 'markdown'}
+          className={`px-4 py-2 text-xs font-bold transition-colors focus:outline-none focus-visible:bg-slate-100 rounded-t-lg ${activeTab === 'markdown' ? 'text-[var(--ls-accent)] border-b-2 border-[var(--ls-accent)] bg-slate-50/50' : 'text-slate-500 hover:text-slate-900 hover:bg-slate-50'}`}
         >
           Editor
         </button>
         <button
           onClick={() => setActiveTab('preview')}
-          className={`px-3 py-1.5 text-xs font-medium ${activeTab === 'preview' ? 'text-[var(--ls-accent)] border-b-2 border-[var(--ls-accent)]' : 'text-slate-500 hover:text-slate-900'}`}
+          aria-pressed={activeTab === 'preview'}
+          className={`px-4 py-2 text-xs font-bold transition-colors focus:outline-none focus-visible:bg-slate-100 rounded-t-lg ${activeTab === 'preview' ? 'text-[var(--ls-accent)] border-b-2 border-[var(--ls-accent)] bg-slate-50/50' : 'text-slate-500 hover:text-slate-900 hover:bg-slate-50'}`}
         >
           Preview
         </button>
       </div>
 
-      <div className="flex-1 p-4 relative overflow-hidden">
-        <div className={`absolute inset-4 transition-opacity duration-200 ${activeTab === 'markdown' ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'}`}>
+      <div className="flex-1 p-5 relative overflow-hidden">
+        <div className={`absolute inset-5 transition-opacity duration-200 ${activeTab === 'markdown' ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'}`}>
           {renderEditor()}
         </div>
-        <div className={`absolute inset-4 transition-opacity duration-200 ${activeTab === 'preview' ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'}`}>
+        <div className={`absolute inset-5 transition-opacity duration-200 ${activeTab === 'preview' ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'}`}>
           {renderPreview()}
         </div>
       </div>
